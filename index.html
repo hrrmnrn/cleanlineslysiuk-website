@@ -134,14 +134,14 @@
         nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 600; transition: color 0.2s; }
         nav a:hover { color: var(--brand-blue-light); }
 
-        /* Переключатель языков DE | EN | RU */
+        /* Переключатель языков DE | EN | RU | UA */
         .lang-switch {
             display: flex;
             align-items: center;
             background: rgba(15, 42, 74, 0.06);
             padding: 4px 8px;
             border-radius: 20px;
-            gap: 6px;
+            gap: 4px;
             font-size: 12px;
             font-weight: 700;
         }
@@ -151,23 +151,24 @@
             background: none;
             color: var(--text-muted);
             cursor: pointer;
-            padding: 3px 8px;
+            padding: 4px 8px;
             border-radius: 12px;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
         }
 
         .lang-btn.active {
             background: var(--brand-blue);
             color: #FFFFFF;
+            box-shadow: 0 2px 8px rgba(15, 42, 74, 0.2);
         }
 
-        /* ЖИВЫЕ КНОПКИ С ЭФФЕКТАМИ */
+        /* ЖИВЫЕ КНОПКИ С ЖИВОЙ ДИНАМИКОЙ */
         .btn-call {
             background: var(--brand-blue); color: #FFFFFF; padding: 12px 24px; border-radius: 30px;
             text-decoration: none; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center;
             gap: 10px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 4px 15px rgba(15, 42, 74, 0.25); cursor: pointer; border: none;
         }
-        .btn-call:hover { background: var(--brand-blue-light); transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(29, 93, 155, 0.35); }
+        .btn-call:hover { background: var(--brand-blue-light); transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 25px rgba(29, 93, 155, 0.4); }
 
         .btn-angebot-cta {
             background: var(--brand-blue); color: #FFFFFF; padding: 16px 36px; border-radius: 12px;
@@ -175,15 +176,15 @@
             display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 8px 25px rgba(15, 42, 74, 0.25);
         }
-        .btn-angebot-cta:hover { background: var(--brand-blue-light); transform: translateY(-4px) scale(1.02); box-shadow: 0 12px 30px rgba(184, 142, 61, 0.4); }
+        .btn-angebot-cta:hover { background: var(--brand-blue-light); transform: translateY(-4px) scale(1.04); box-shadow: 0 14px 35px rgba(184, 142, 61, 0.45); }
 
         .btn-back-home {
             background-color: var(--brand-blue); color: #FFFFFF; padding: 12px 22px; border-radius: 10px;
             font-size: 14px; font-weight: 600; border: none; cursor: pointer; display: inline-flex;
-            align-items: center; gap: 10px; margin-bottom: 25px; transition: all 0.3s ease; text-decoration: none;
+            align-items: center; gap: 10px; margin-bottom: 25px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none;
             box-shadow: 0 4px 15px rgba(15, 42, 74, 0.2);
         }
-        .btn-back-home:hover { background-color: var(--brand-blue-light); transform: translateX(-4px); box-shadow: 0 6px 20px rgba(29, 93, 155, 0.3); }
+        .btn-back-home:hover { background-color: var(--brand-blue-light); transform: translateX(-4px) scale(1.03); box-shadow: 0 8px 22px rgba(29, 93, 155, 0.35); }
 
         /* Hero Секция */
         .hero-container { max-width: 1200px; margin: 0 auto; padding: 90px 8% 100px; text-align: center; }
@@ -207,7 +208,8 @@
 
         .card { background: #FFFFFF; border: 1px solid rgba(15, 42, 74, 0.12); padding: 24px 28px; border-radius: 16px; display: flex; align-items: center; gap: 18px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
         .card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
-        .card-sticker { font-size: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .card-sticker { font-size: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s ease; }
+        .card:hover .card-sticker { transform: scale(1.3) rotate(5deg); }
         .card h3 { font-size: 15px; font-weight: 600; color: var(--brand-blue); line-height: 1.4; }
 
         /* Отзывы */
@@ -232,7 +234,7 @@
             width: 100%; background-color: var(--brand-blue); color: #FFFFFF; padding: 16px; border-radius: 25px;
             font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .sa-submit-btn:hover { background-color: var(--brand-blue-light); transform: translateY(-2px) scale(1.01); box-shadow: 0 8px 20px rgba(15, 42, 74, 0.25); }
+        .sa-submit-btn:hover { background-color: var(--brand-blue-light); transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 25px rgba(15, 42, 74, 0.3); }
 
         .star-rating { display: flex; gap: 8px; font-size: 28px; cursor: pointer; color: #cbd5e1; margin-bottom: 15px; }
         .star-rating .star.active { color: var(--gold-accent); }
@@ -311,12 +313,13 @@
             <a href="#contact" id="nav-kontakt">Kontakt</a>
         </nav>
 
-        <!-- Переключатель языков -->
+        <!-- Переключатель языков DE | EN | RU | UA -->
         <div style="display: flex; align-items: center; gap: 15px;">
             <div class="lang-switch">
                 <button class="lang-btn active" onclick="switchLanguage('de', this)">DE</button>
                 <button class="lang-btn" onclick="switchLanguage('en', this)">EN</button>
                 <button class="lang-btn" onclick="switchLanguage('ru', this)">RU</button>
+                <button class="lang-btn" onclick="switchLanguage('ua', this)">UA</button>
             </div>
 
             <button class="btn-call" id="btn-header-call" onclick="openModal('call-modal')">
@@ -461,15 +464,15 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                     <div>
                         <div class="sa-field">
-                            <label class="sa-label">Firma</label>
+                            <label class="sa-label" id="lbl-firma">Firma</label>
                             <input type="text" name="Firma" class="sa-input" placeholder="z. B. Firma GmbH">
                         </div>
                         <div class="sa-field">
-                            <label class="sa-label">Ihr Name *</label>
+                            <label class="sa-label" id="lbl-name">Ihr Name *</label>
                             <input type="text" name="Name" class="sa-input" required placeholder="z. B. Max Mustermann">
                         </div>
                         <div class="sa-field">
-                            <label class="sa-label">Straße + Nr.</label>
+                            <label class="sa-label" id="lbl-street">Straße + Nr.</label>
                             <input type="text" name="Strasse" class="sa-input" placeholder="z. B. Hauptstraße 12">
                         </div>
                         <div style="display: flex; gap: 10px;">
@@ -478,7 +481,7 @@
                                 <input type="text" name="PLZ" class="sa-input" placeholder="10115">
                             </div>
                             <div class="sa-field" style="flex: 2;">
-                                <label class="sa-label">Ort</label>
+                                <label class="sa-label" id="lbl-city">Ort</label>
                                 <input type="text" name="Ort" class="sa-input" placeholder="Berlin">
                             </div>
                         </div>
@@ -487,46 +490,46 @@
                             <input type="email" name="email" class="sa-input" required placeholder="name@domain.de">
                         </div>
                         <div class="sa-field">
-                            <label class="sa-label">Telefon</label>
+                            <label class="sa-label" id="lbl-phone">Telefon</label>
                             <input type="tel" name="Telefon" class="sa-input" placeholder="+49 1578 1073234">
                         </div>
                     </div>
 
                     <div>
                         <div class="sa-field">
-                            <label class="sa-label">Reinigungstag</label>
+                            <label class="sa-label" id="lbl-days">Reinigungstag</label>
                             <div class="checkbox-grid">
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Montag"> Montag</label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Dienstag"> Dienstag</label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Mittwoch"> Mittwoch</label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Donnerstag"> Donnerstag</label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Freitag"> Freitag</label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Samstag"> Samstag</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Montag"> <span class="d-mon">Montag</span></label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Dienstag"> <span class="d-tue">Dienstag</span></label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Mittwoch"> <span class="d-wed">Mittwoch</span></label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Donnerstag"> <span class="d-thu">Donnerstag</span></label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Freitag"> <span class="d-fri">Freitag</span></label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Samstag"> <span class="d-sat">Samstag</span></label>
                             </div>
                         </div>
 
                         <div class="sa-field" style="margin-top: 15px;">
-                            <label class="sa-label">Gewünschte Häufigkeit</label>
+                            <label class="sa-label" id="lbl-freq">Gewünschte Häufigkeit</label>
                             <select name="Haeufigkeit" class="sa-select">
-                                <option value="Einmalig">Einmalig</option>
-                                <option value="Wöchentlich">Wöchentlich</option>
-                                <option value="Zweiwöchentlich">Alle 2 Wochen</option>
-                                <option value="Monatlich">Monatlich</option>
+                                <option value="Einmalig" class="opt-once">Einmalig</option>
+                                <option value="Wöchentlich" class="opt-week">Wöchentlich</option>
+                                <option value="Zweiwöchentlich" class="opt-2week">Alle 2 Wochen</option>
+                                <option value="Monatlich" class="opt-month">Monatlich</option>
                             </select>
                         </div>
 
                         <div class="sa-field" style="margin-top: 15px;">
-                            <label class="sa-label">Reinigungsart</label>
+                            <label class="sa-label" id="lbl-type">Reinigungsart</label>
                             <div class="checkbox-grid">
-                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Büroreinigung"> Büroreinigung</label>
-                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Privathaushalt"> Privathaushalt</label>
-                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Treppenhaus"> Treppenhaus</label>
-                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Fensterreinigung"> Fensterreinigung</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Büroreinigung"> <span class="t-office">Büroreinigung</span></label>
+                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Privathaushalt"> <span class="t-home">Privathaushalt</span></label>
+                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Treppenhaus"> <span class="t-stairs">Treppenhaus</span></label>
+                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Fensterreinigung"> <span class="t-windows">Fensterreinigung</span></label>
                             </div>
                         </div>
 
                         <div class="sa-field" style="margin-top: 15px;">
-                            <label class="sa-label">Anmerkungen / Gutscheincode</label>
+                            <label class="sa-label" id="lbl-notes">Anmerkungen / Gutscheincode</label>
                             <textarea name="Anmerkungen" class="sa-textarea" rows="2" placeholder="z. B. CLEAN10"></textarea>
                         </div>
 
@@ -544,10 +547,10 @@
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('discount-modal')">&times;</span>
             <span style="background: rgba(184, 142, 61, 0.15); color: var(--brand-blue); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;">Exklusiv ✨</span>
-            <h3 style="font-family:'Italiana'; font-size:36px; color:var(--brand-blue); margin: 15px 0 10px;">10% Rabatt sichern</h3>
-            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.</p>
+            <h3 style="font-family:'Italiana'; font-size:36px; color:var(--brand-blue); margin: 15px 0 10px;" id="disc-title">10% Rabatt sichern</h3>
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;" id="disc-desc">Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.</p>
             <input type="email" id="discountEmail" class="sa-input" placeholder="name@domain.de" style="margin-bottom: 12px;">
-            <button class="sa-submit-btn" onclick="activateDiscount()">Rabattcode aktivieren ✨</button>
+            <button class="sa-submit-btn" id="btn-disc-act" onclick="activateDiscount()">Rabattcode aktivieren ✨</button>
         </div>
     </div>
 
@@ -556,10 +559,10 @@
         <div class="modal-content" style="max-width: 500px;">
             <span class="modal-close" onclick="closeModal('review-modal')">&times;</span>
             <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('review-modal')">← Zurück zur Hauptseite</button>
-            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue); margin-bottom:15px; text-align: center;">Bewertung schreiben</h3>
+            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue); margin-bottom:15px; text-align: center;" id="rev-modal-title">Bewertung schreiben</h3>
             
             <div class="sa-field">
-                <label class="sa-label">Ihre Bewertung (Sterne)</label>
+                <label class="sa-label" id="lbl-star-rev">Ihre Bewertung (Sterne)</label>
                 <div class="star-rating" id="starRating">
                     <span class="star active" data-value="1">★</span>
                     <span class="star active" data-value="2">★</span>
@@ -570,18 +573,18 @@
             </div>
 
             <div class="sa-field">
-                <label class="sa-label">Ihr Name *</label>
+                <label class="sa-label" id="lbl-rev-name">Ihr Name *</label>
                 <input type="text" id="rev-name" class="sa-input" placeholder="z. B. Anna K.">
             </div>
             <div class="sa-field">
-                <label class="sa-label">Ihre Stadt / Stadtteil</label>
+                <label class="sa-label" id="lbl-rev-city">Ihre Stadt / Stadtteil</label>
                 <input type="text" id="rev-city" class="sa-input" placeholder="z. B. Berlin-Mitte">
             </div>
             <div class="sa-field">
-                <label class="sa-label">Ihre Erfahrung *</label>
+                <label class="sa-label" id="lbl-rev-text">Ihre Erfahrung *</label>
                 <textarea id="rev-text" class="sa-textarea" rows="4" placeholder="Schreiben Sie Ihre Erfahrung..."></textarea>
             </div>
-            <button class="sa-submit-btn" onclick="saveReviewToLocalStorage()">Bewertung veröffentlichen ✨</button>
+            <button class="sa-submit-btn" id="btn-pub-rev" onclick="saveReviewToLocalStorage()">Bewertung veröffentlichen ✨</button>
         </div>
     </div>
 
@@ -589,10 +592,10 @@
     <div id="call-modal" class="modal">
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('call-modal')">&times;</span>
-            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue);">Kontakttelefon</h3>
+            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue);" id="modal-call-title">Kontakttelefon</h3>
             <div style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue); margin: 15px 0; font-weight: 700;">+49 1578 107 3234</div>
-            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">Montag bis Samstag von 08:00 bis 20:00 Uhr</p>
-            <a href="https://wa.me/4915781073234" target="_blank" class="sa-submit-btn" style="text-decoration: none; display: block;">💬 Jetzt auf WhatsApp schreiben</a>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;" id="modal-call-time">Montag bis Samstag von 08:00 bis 20:00 Uhr</p>
+            <a href="https://wa.me/4915781073234" target="_blank" class="sa-submit-btn" id="modal-call-wa" style="text-decoration: none; display: block;">💬 Jetzt auf WhatsApp schreiben</a>
         </div>
     </div>
 
@@ -665,11 +668,11 @@
 
     <!-- Cookie-окно -->
     <div class="cookie-modal" id="cookieModal">
-        <h4 style="font-size: 16px; color: var(--brand-blue); margin-bottom: 6px;">Einwilligung zu Cookies</h4>
-        <p style="font-size: 12px; color: var(--text-muted);">Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.</p>
+        <h4 style="font-size: 16px; color: var(--brand-blue); margin-bottom: 6px;" id="ck-title">Einwilligung zu Cookies</h4>
+        <p style="font-size: 12px; color: var(--text-muted);" id="ck-desc">Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.</p>
         <div class="cookie-buttons">
-            <button class="btn-cookie-deny" onclick="closeCookie()">Ablehnen</button>
-            <button class="btn-cookie-accept" onclick="closeCookie()">Alle akzeptieren</button>
+            <button class="btn-cookie-deny" id="ck-deny" onclick="closeCookie()">Ablehnen</button>
+            <button class="btn-cookie-accept" id="ck-accept" onclick="closeCookie()">Alle akzeptieren</button>
         </div>
     </div>
 
@@ -680,7 +683,7 @@
         let selectedStars = 5;
         let isAdmin = false;
 
-        /* Словарь для перевода сайта на DE / EN / RU */
+        /* Полная мультиязычность для всех блоков и модалок (DE, EN, RU, UA) */
         const translations = {
             de: {
                 promo: "🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: ",
@@ -700,7 +703,24 @@
                 writeRev: "✍️ Bewertung auf der Website schreiben",
                 backHome: "← Zurück zur Hauptseite",
                 modalForm: "Unverbindliches Angebot anfordern",
-                btnFormSubmit: "Unverbindlich Angebot anfordern →"
+                btnFormSubmit: "Unverbindlich Angebot anfordern →",
+                
+                // Модалки
+                lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblCity: "Ort", lblPhone: "Telefon",
+                lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen / Gutscheincode",
+                dMon: "Montag", dTue: "Dienstag", dWed: "Mittwoch", dThu: "Donnerstag", dFri: "Freitag", dSat: "Samstag",
+                optOnce: "Einmalig", optWeek: "Wöchentlich", opt2Week: "Alle 2 Wochen", optMonth: "Monatlich",
+                tOffice: "Büroreinigung", tHome: "Privathaushalt", tStairs: "Treppenhaus", tWin: "Fensterreinigung",
+                
+                discTitle: "10% Rabatt sichern", discDesc: "Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.", btnDiscAct: "Rabattcode aktivieren ✨",
+                revModalTitle: "Bewertung schreiben", lblStarRev: "Ihre Bewertung (Sterne)", lblRevName: "Ihr Name *", lblRevCity: "Ihre Stadt / Stadtteil", lblRevText: "Ihre Erfahrung *", btnPubRev: "Bewertung veröffentlichen ✨",
+                modalCallTitle: "Kontakttelefon", modalCallTime: "Montag bis Samstag von 08:00 bis 20:00 Uhr", modalCallWa: "💬 Jetzt auf WhatsApp schreiben",
+                ckTitle: "Einwilligung zu Cookies", ckDesc: "Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.", ckDeny: "Ablehnen", ckAccept: "Alle akzeptieren",
+                
+                // Сервисы
+                srv1: "Treppenhausreinigung", srv2: "Reinigung von Privathaushalten & Wohnungen", srv3: "Büroreinigung", srv4: "Kita- und Schulreinigung", srv5: "Reinigung nach Firmenfeiern",
+                srv6: "Bauendreinigung", srv7: "Fensterreinigung", srv8: "Umzugsreinigung mit Abnahmegarantie", srv9: "Reinigung nach Todesfall/Messie-Haushalt", srv10: "Hausmeisterservice (kleine Reparaturen / Kontrolle)",
+                ftDesc: "Professionelle Reinigungsdienste in Berlin & Umgebung", ftArea: "📍 Servicegebiet: Berlin und Umgebung"
             },
             en: {
                 promo: "🎁 Get 10% discount on your first cleaning with code: ",
@@ -720,7 +740,22 @@
                 writeRev: "✍️ Write a review on the website",
                 backHome: "← Back to Main Page",
                 modalForm: "Request a free quote",
-                btnFormSubmit: "Request quote without obligation →"
+                btnFormSubmit: "Request quote without obligation →",
+                
+                lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblCity: "City", lblPhone: "Phone",
+                lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblNotes: "Notes / Promo Code",
+                dMon: "Monday", dTue: "Tuesday", dWed: "Wednesday", dThu: "Thursday", dFri: "Friday", dSat: "Saturday",
+                optOnce: "One-time", optWeek: "Weekly", opt2Week: "Every 2 weeks", optMonth: "Monthly",
+                tOffice: "Office Cleaning", tHome: "Private Home", tStairs: "Staircase", tWin: "Window Cleaning",
+                
+                discTitle: "Get 10% Discount", discDesc: "Enter your email address and get your promo code.", btnDiscAct: "Activate promo code ✨",
+                revModalTitle: "Write a review", lblStarRev: "Your Rating (Stars)", lblRevName: "Your Name *", lblRevCity: "Your City / District", lblRevText: "Your Experience *", btnPubRev: "Publish Review ✨",
+                modalCallTitle: "Contact Phone", modalCallTime: "Monday to Saturday from 08:00 to 20:00", modalCallWa: "💬 Message on WhatsApp now",
+                ckTitle: "Cookie Consent", ckDesc: "We use cookies to ensure you get the best experience on our website.", ckDeny: "Decline", ckAccept: "Accept All",
+                
+                srv1: "Staircase Cleaning", srv2: "Cleaning of Private Households & Apartments", srv3: "Office Cleaning", srv4: "Kindergarten & School Cleaning", srv5: "After-Party Cleaning",
+                srv6: "Post-Construction Cleaning", srv7: "Window Cleaning", srv8: "Move-Out Cleaning with Guarantee", srv9: "Extreme & Messie Cleaning", srv10: "Caretaker Service (Small Repairs / Inspection)",
+                ftDesc: "Professional cleaning services in Berlin & surrounding area", ftArea: "📍 Service Area: Berlin and surrounding area"
             },
             ru: {
                 promo: "🎁 Получите скидку 10% на первую уборку по промокоду: ",
@@ -740,7 +775,57 @@
                 writeRev: "✍️ Написать отзыв на сайте",
                 backHome: "← Вернуться на главную",
                 modalForm: "Запросить бесплатный расчет",
-                btnFormSubmit: "Отправить заявку →"
+                btnFormSubmit: "Отправить заявку →",
+                
+                lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblCity: "Город", lblPhone: "Телефон",
+                lblDays: "День уборки", lblFreq: "Желаемая периодичность", lblType: "Вид уборки", lblNotes: "Примечания / Промокод",
+                dMon: "Понедельник", dTue: "Вторник", dWed: "Среда", dThu: "Четверг", dFri: "Пятница", dSat: "Суббота",
+                optOnce: "Разово", optWeek: "Еженедельно", opt2Week: "Раз в 2 недели", optMonth: "Ежемесячно",
+                tOffice: "Уборка офисов", tHome: "Частный дом / Квартира", tStairs: "Подъезды", tWin: "Мойка окон",
+                
+                discTitle: "Скидка 10%", discDesc: "Введите ваш e-mail и активируйте промокод.", btnDiscAct: "Активировать код ✨",
+                revModalTitle: "Оставить отзыв", lblStarRev: "Ваша оценка (Звезды)", lblRevName: "Ваше Имя *", lblRevCity: "Ваш Город / Район", lblRevText: "Ваш отзыв *", btnPubRev: "Опубликовать отзыв ✨",
+                modalCallTitle: "Телефон для связи", modalCallTime: "С понедельника по субботу с 08:00 до 20:00", modalCallWa: "💬 Написать в WhatsApp",
+                ckTitle: "Согласие на Cookies", ckDesc: "Мы используем cookies для вашего удобства на сайте.", ckDeny: "Отклонить", ckAccept: "Принять все",
+                
+                srv1: "Уборка подъездов и лестниц", srv2: "Уборка частных домов и квартир", srv3: "Уборка офисов и помещений", srv4: "Уборка детских садов и школ", srv5: "Уборка после корпоративов",
+                srv6: "Уборка после ремонта", srv7: "Мойка окон и фасадов", srv8: "Уборка при переезде с гарантией", srv9: "Уборка спец. объектов и запущенных квартир", srv10: "Хаусмайстер (мелкий ремонт / контроль)",
+                ftDesc: "Профессиональный клининг в Берлине и пригороде", ftArea: "📍 Зона обслуживания: Берлин и округ"
+            },
+            ua: {
+                promo: "🎁 Отримайте знижку 10% на перше прибирання за промокодом: ",
+                copyBtn: "Скопіювати код ✨",
+                angebot: "Заявка",
+                leistungen: "Послуги",
+                bewertungen: "Відгуки",
+                kontakt: "Контакти",
+                callBtn: "📞 Зателефонувати зараз",
+                sub: "Послуги клінінгу в Берліні",
+                title: "Ідеальна чистота, що дарує вам <em>час та затишок</em>.",
+                desc: "Насолоджуйтесь бездоганним домом або представницьким офісом. Ми подбаємо про кожну деталь — непомітно, ретельно та відповідно до ваших побажань.",
+                cta: "Розрахувати вартість ❯",
+                p1: "Надійно", p2: "Ретельно", p3: "Пунктуально",
+                secServ: "Наші послуги",
+                secRev: "Відгуки клієнтів",
+                writeRev: "✍️ Написати відгук на сайті",
+                backHome: "← Повернутися на головну",
+                modalForm: "Запросити безкоштовний розрахунок",
+                btnFormSubmit: "Надіслати заявку →",
+                
+                lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblCity: "Місто", lblPhone: "Телефон",
+                lblDays: "День прибирання", lblFreq: "Бажана періодичність", lblType: "Вид прибирання", lblNotes: "Примітки / Промокод",
+                dMon: "Понеділок", dTue: "Вівторок", dWed: "Середа", dThu: "Четвер", dFri: "П'ятниця", dSat: "Субота",
+                optOnce: "Разово", optWeek: "Щотижня", opt2Week: "Раз на 2 тижні", optMonth: "Щомісяця",
+                tOffice: "Прибирання офісів", tHome: "Приватний будинок / Квартира", tStairs: "Під'їзди", tWin: "Миття вікон",
+                
+                discTitle: "Знижка 10%", discDesc: "Введіть ваш e-mail та активуйте промокод.", btnDiscAct: "Активувати код ✨",
+                revModalTitle: "Залишити відгук", lblStarRev: "Ваша оцінка (Зірки)", lblRevName: "Ваше Ім'я *", lblRevCity: "Ваше Місто / Район", lblRevText: "Ваш відгук *", btnPubRev: "Опублікувати відгук ✨",
+                modalCallTitle: "Телефон для зв'язку", modalCallTime: "З понеділка по суботу з 08:00 до 20:00", modalCallWa: "💬 Написати в WhatsApp",
+                ckTitle: "Згода на Cookies", ckDesc: "Ми використовуємо cookies для вашої зручності на сайті.", ckDeny: "Відхилити", ckAccept: "Прийняти все",
+                
+                srv1: "Прибирання під'їздів та сходів", srv2: "Прибирання приватних будинків та квартир", srv3: "Прибирання офісів та приміщень", srv4: "Прибирання дитячих садків та шкіл", srv5: "Прибирання після свята",
+                srv6: "Прибирання після ремонту", srv7: "Миття вікон та фасадів", srv8: "Прибирання при переїзді з гарантією", srv9: "Прибирання спец. об'єктів та складних квартир", srv10: "Хаусмайстер (дрібний ремонт / контроль)",
+                ftDesc: "Професійний клінінг у Берліні та передмісті", ftArea: "📍 Зона обслуговування: Берлін та передмістя"
             }
         };
 
@@ -768,6 +853,62 @@
             document.getElementById('btn-write-review').innerText = t.writeRev;
             document.getElementById('modal-form-title').innerText = t.modalForm;
             document.getElementById('btn-submit-form').innerText = t.btnFormSubmit;
+
+            // Перевод полей модалок
+            if(document.getElementById('lbl-firma')) document.getElementById('lbl-firma').innerText = t.lblFirma;
+            if(document.getElementById('lbl-name')) document.getElementById('lbl-name').innerText = t.lblName;
+            if(document.getElementById('lbl-street')) document.getElementById('lbl-street').innerText = t.lblStreet;
+            if(document.getElementById('lbl-city')) document.getElementById('lbl-city').innerText = t.lblCity;
+            if(document.getElementById('lbl-phone')) document.getElementById('lbl-phone').innerText = t.lblPhone;
+            if(document.getElementById('lbl-days')) document.getElementById('lbl-days').innerText = t.lblDays;
+            if(document.getElementById('lbl-freq')) document.getElementById('lbl-freq').innerText = t.lblFreq;
+            if(document.getElementById('lbl-type')) document.getElementById('lbl-type').innerText = t.lblType;
+            if(document.getElementById('lbl-notes')) document.getElementById('lbl-notes').innerText = t.lblNotes;
+
+            document.querySelectorAll('.d-mon').forEach(e => e.innerText = t.dMon);
+            document.querySelectorAll('.d-tue').forEach(e => e.innerText = t.dTue);
+            document.querySelectorAll('.d-wed').forEach(e => e.innerText = t.dWed);
+            document.querySelectorAll('.d-thu').forEach(e => e.innerText = t.dThu);
+            document.querySelectorAll('.d-fri').forEach(e => e.innerText = t.dFri);
+            document.querySelectorAll('.d-sat').forEach(e => e.innerText = t.dSat);
+
+            document.querySelectorAll('.opt-once').forEach(e => e.innerText = t.optOnce);
+            document.querySelectorAll('.opt-week').forEach(e => e.innerText = t.optWeek);
+            document.querySelectorAll('.opt-2week').forEach(e => e.innerText = t.opt2Week);
+            document.querySelectorAll('.opt-month').forEach(e => e.innerText = t.optMonth);
+
+            document.querySelectorAll('.t-office').forEach(e => e.innerText = t.tOffice);
+            document.querySelectorAll('.t-home').forEach(e => e.innerText = t.tHome);
+            document.querySelectorAll('.t-stairs').forEach(e => e.innerText = t.tStairs);
+            document.querySelectorAll('.t-windows').forEach(e => e.innerText = t.tWin);
+
+            if(document.getElementById('disc-title')) document.getElementById('disc-title').innerText = t.discTitle;
+            if(document.getElementById('disc-desc')) document.getElementById('disc-desc').innerText = t.discDesc;
+            if(document.getElementById('btn-disc-act')) document.getElementById('btn-disc-act').innerText = t.btnDiscAct;
+
+            if(document.getElementById('rev-modal-title')) document.getElementById('rev-modal-title').innerText = t.revModalTitle;
+            if(document.getElementById('lbl-star-rev')) document.getElementById('lbl-star-rev').innerText = t.lblStarRev;
+            if(document.getElementById('lbl-rev-name')) document.getElementById('lbl-rev-name').innerText = t.lblRevName;
+            if(document.getElementById('lbl-rev-city')) document.getElementById('lbl-rev-city').innerText = t.lblRevCity;
+            if(document.getElementById('lbl-rev-text')) document.getElementById('lbl-rev-text').innerText = t.lblRevText;
+            if(document.getElementById('btn-pub-rev')) document.getElementById('btn-pub-rev').innerText = t.btnPubRev;
+
+            if(document.getElementById('modal-call-title')) document.getElementById('modal-call-title').innerText = t.modalCallTitle;
+            if(document.getElementById('modal-call-time')) document.getElementById('modal-call-time').innerText = t.modalCallTime;
+            if(document.getElementById('modal-call-wa')) document.getElementById('modal-call-wa').innerText = t.modalCallWa;
+
+            if(document.getElementById('ck-title')) document.getElementById('ck-title').innerText = t.ckTitle;
+            if(document.getElementById('ck-desc')) document.getElementById('ck-desc').innerText = t.ckDesc;
+            if(document.getElementById('ck-deny')) document.getElementById('ck-deny').innerText = t.ckDeny;
+            if(document.getElementById('ck-accept')) document.getElementById('ck-accept').innerText = t.ckAccept;
+
+            // Сервисы
+            for(let i=1; i<=10; i++) {
+                if(document.getElementById('srv-'+i)) document.getElementById('srv-'+i).innerText = t['srv'+i];
+            }
+
+            if(document.getElementById('ft-desc')) document.getElementById('ft-desc').innerText = t.ftDesc;
+            if(document.getElementById('ft-area')) document.getElementById('ft-area').innerText = t.ftArea;
 
             document.querySelectorAll('.btn-back-txt').forEach(b => b.innerText = t.backHome);
         }
@@ -867,7 +1008,7 @@
 
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         
-        /* КРЕСТИК: Просто закрывает модальное окно без прокрутки */
+        /* КРЕСТИК: Закрывает модальное окно без скролла */
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
         
         /* СИНЯЯ КНОПКА: Закрывает окно и плавно скроллит на самый верх */
