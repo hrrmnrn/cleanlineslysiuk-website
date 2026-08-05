@@ -133,8 +133,8 @@
         .logo-text { font-family: 'Italiana', serif; font-size: 28px; font-weight: 700; color: var(--brand-blue); letter-spacing: -0.3px; }
         .logo-text span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 300; color: var(--text-muted); }
 
-        nav { display: flex; align-items: center; gap: 20px; }
-        nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 600; transition: color 0.2s; }
+        nav { display: flex; align-items: center; gap: 18px; }
+        nav a { text-decoration: none; color: var(--text-dark); font-size: 14px; font-weight: 600; transition: color 0.2s; }
         nav a:hover { color: var(--brand-blue-light); }
 
         /* Переключатель языков */
@@ -310,6 +310,8 @@
             <a href="#preise" id="nav-preise">Preise</a>
             <a href="#reviews" id="nav-bewertungen">Bewertungen</a>
             <a href="#contact" id="nav-kontakt">Kontakt</a>
+            <a href="javascript:void(0)" id="nav-impressum" onclick="openModal('impressum-modal')">Impressum</a>
+            <a href="javascript:void(0)" id="nav-datenschutz" onclick="openModal('datenschutz-modal')">Datenschutz</a>
         </nav>
 
         <div style="display: flex; align-items: center; gap: 15px;">
@@ -391,6 +393,7 @@
             </div>
         </div>
         <p style="text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 20px;" id="pr-note">* Preise können je nach Aufwand und Objekt variieren.</p>
+        <div style="text-align: center; font-size: 15px; font-weight: 600; color: var(--brand-blue); margin-top: 10px;" id="txt-payment">💳 Zahlungsmöglichkeiten: Bar oder auf Rechnung</div>
     </section>
 
     <!-- Отзывы -->
@@ -471,29 +474,39 @@
                                 <option value="Monatlich" class="opt-month">Monatlich</option>
                             </select>
                         </div>
-                        <div class="sa-field" style="margin-top: 15px;">
-                            <label class="sa-label" id="lbl-type">Reinigungsart</label>
-                            <select name="Reinigungsart" id="service-select" class="sa-select">
-                                <option value="Bitte wählen..." id="opt-srv-0">Bitte wählen...</option>
-                                <option value="Treppenhausreinigung" id="opt-srv-1">Treppenhausreinigung</option>
-                                <option value="Reinigung von Privathaushalten & Wohnungen" id="opt-srv-2">Reinigung von Privathaushalten & Wohnungen</option>
-                                <option value="Büroreinigung" id="opt-srv-3">Büroreinigung</option>
-                                <option value="Kita- und Schulreinigung" id="opt-srv-4">Kita- und Schulreinigung</option>
-                                <option value="Reinigung nach Firmenfeiern" id="opt-srv-5">Reinigung nach Firmenfeiern</option>
-                                <option value="Bauendreinigung" id="opt-srv-6">Bauendreinigung</option>
-                                <option value="Fensterreinigung" id="opt-srv-7">Fensterreinigung</option>
-                                <option value="Umzugsreinigung mit Abnahmegarantie" id="opt-srv-8">Umzugsreinigung mit Abnahmegarantie</option>
-                                <option value="Reinigung nach Todesfall/Messie-Haushalt" id="opt-srv-9">Reinigung nach Todesfall/Messie-Haushalt</option>
-                                <option value="Hausmeisterservice" id="opt-srv-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</option>
-                            </select>
+                        
+                        <!-- Блок с выбором услуги и площадью (m2) -->
+                        <div style="display: flex; gap: 10px; margin-top: 15px;">
+                            <div class="sa-field" style="flex: 2; margin-bottom: 0;">
+                                <label class="sa-label" id="lbl-type">Reinigungsart</label>
+                                <select name="Reinigungsart" id="service-select" class="sa-select">
+                                    <option value="Bitte wählen..." id="opt-srv-0">Bitte wählen...</option>
+                                    <option value="Treppenhausreinigung" id="opt-srv-1">Treppenhausreinigung</option>
+                                    <option value="Reinigung von Privathaushalten & Wohnungen" id="opt-srv-2">Reinigung von Privathaushalten & Wohnungen</option>
+                                    <option value="Büroreinigung" id="opt-srv-3">Büroreinigung</option>
+                                    <option value="Kita- und Schulreinigung" id="opt-srv-4">Kita- und Schulreinigung</option>
+                                    <option value="Reinigung nach Firmenfeiern" id="opt-srv-5">Reinigung nach Firmenfeiern</option>
+                                    <option value="Bauendreinigung" id="opt-srv-6">Bauendreinigung</option>
+                                    <option value="Fensterreinigung" id="opt-srv-7">Fensterreinigung</option>
+                                    <option value="Umzugsreinigung mit Abnahmegarantie" id="opt-srv-8">Umzugsreinigung mit Abnahmegarantie</option>
+                                    <option value="Reinigung nach Todesfall/Messie-Haushalt" id="opt-srv-9">Reinigung nach Todesfall/Messie-Haushalt</option>
+                                    <option value="Hausmeisterservice" id="opt-srv-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</option>
+                                </select>
+                            </div>
+                            <div class="sa-field" style="flex: 1; margin-bottom: 0;">
+                                <label class="sa-label" id="lbl-sqm">Fläche (m²)</label>
+                                <input type="number" name="Quadratmeter" class="sa-input" placeholder="z. B. 65" min="1">
+                            </div>
                         </div>
+
                         <div class="sa-field" style="margin-top: 15px;">
                             <label class="sa-label" id="lbl-notes">Anmerkungen / Gutscheincode</label>
-                            <textarea name="Anmerkungen" class="sa-textarea" rows="2" placeholder="z. B. CLEAN10"></textarea>
+                            <textarea name="Anmerkungen" id="input-notes" class="sa-textarea" rows="2" placeholder="z. B. Ihre Wünsche..."></textarea>
                         </div>
                         <button type="submit" class="sa-submit-btn" id="btn-submit-form" style="margin-top: 10px;">
                             Unverbindlich Angebot anfordern →
                         </button>
+                        <p style="text-align: center; font-size: 12px; color: var(--text-muted); margin-top: 12px;" id="txt-payment-form">💳 Zahlung bequem in Bar oder auf Rechnung</p>
                     </div>
                 </div>
             </form>
@@ -629,7 +642,7 @@
             de: {
                 promoText: "🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: <span class=\"promo-badge\">CLEAN10</span>",
                 toastCopy: "✨ Gutscheincode CLEAN10 kopiert!", toastSuccess: "✨ Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.", toastWait: "⏳ Senden...", copyBtn: "Code kopieren ✨",
-                angebot: "Angebot", leistungen: "Leistungen", preise: "Preise", bewertungen: "Bewertungen", kontakt: "Kontakt", callBtn: "📞 Jetzt anrufen",
+                angebot: "Angebot", leistungen: "Leistungen", preise: "Preise", bewertungen: "Bewertungen", kontakt: "Kontakt", impressum: "Impressum", datenschutz: "Datenschutz", callBtn: "📞 Jetzt anrufen",
                 sub: "Gebäudereinigung in Berlin", title: "Perfekte Sauberkeit, die Ihnen <em>Zeit und Ruhe</em> schenkt.", desc: "Genießen Sie ein makelloses Zuhause oder ein repräsentatives Büro. Wir kümmern uns um jedes Detail – diskret, gründlich und ganz nach Ihren Wünschen.", cta: "Jetzt Angebot anfordern ❯", p1: "Zuverlässig", p2: "Gründlich", p3: "Pünktlich",
                 secServ: "Unsere Leistungen", secPreise: "Preise", secRev: "Kundenbewertungen", writeRev: "✍️ Bewertung auf der Website schreiben", backHome: "← Zurück zur Hauptseite", modalForm: "Unverbindliches Angebot anfordern", btnFormSubmit: "Unverbindlich Angebot anfordern →",
                 
@@ -638,7 +651,8 @@
                 prCard3Title: "Sonderreinigungen", prCard3Price: "Festpreis", prCard3Desc: "Bauendreinigung, Fenster, Messie-Haushalte nach Besichtigung.",
                 prNote: "* Preise können je nach Aufwand und Objekt variieren.",
 
-                lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblCity: "Ort", lblPhone: "Telefon", lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen / Gutscheincode",
+                lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblCity: "Ort", lblPhone: "Telefon", lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblSqm: "Fläche (m²)", lblNotes: "Anmerkungen / Gutscheincode", phNotes: "z. B. Ihre Wünsche...",
+                txtPayment: "💳 Zahlungsmöglichkeiten: Bar oder auf Rechnung", txtPaymentForm: "💳 Zahlung bequem in Bar oder auf Rechnung",
                 dMon: "Montag", dTue: "Dienstag", dWed: "Mittwoch", dThu: "Donnerstag", dFri: "Freitag", dSat: "Samstag",
                 optOnce: "Einmalig", optWeek: "Wöchentlich", opt2Week: "Alle 2 Wochen", optMonth: "Monatlich", optSrv0: "Bitte wählen...",
                 discTitle: "10% Rabatt sichern", discDesc: "Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.", btnDiscAct: "Rabattcode aktivieren ✨",
@@ -651,7 +665,7 @@
             en: {
                 promoText: "🎁 Get 10% discount on your first cleaning with code: <span class=\"promo-badge\">CLEAN10</span>",
                 toastCopy: "✨ Promo code CLEAN10 copied!", toastSuccess: "✨ Thank you! Your request was sent successfully.", toastWait: "⏳ Sending...", copyBtn: "Copy code ✨",
-                angebot: "Offer", leistungen: "Services", preise: "Prices", bewertungen: "Reviews", kontakt: "Contact", callBtn: "📞 Call now",
+                angebot: "Offer", leistungen: "Services", preise: "Prices", bewertungen: "Reviews", kontakt: "Contact", impressum: "Legal Notice", datenschutz: "Privacy Policy", callBtn: "📞 Call now",
                 sub: "Cleaning services in Berlin", title: "Flawless cleanliness that brings you <em>time and peace of mind</em>.", desc: "Enjoy an immaculate home or a prestigious office. We take care of every detail – discreetly, thoroughly, and tailored to your needs.", cta: "Request a quote now ❯", p1: "Reliable", p2: "Thorough", p3: "Punctual",
                 secServ: "Our Services", secPreise: "Prices", secRev: "Customer Reviews", writeRev: "✍️ Write a review on the website", backHome: "← Back to Main Page", modalForm: "Request a free quote", btnFormSubmit: "Request quote without obligation →",
                 
@@ -660,7 +674,8 @@
                 prCard3Title: "Special Cleaning", prCard3Price: "Fixed Price", prCard3Desc: "Post-construction, windows, extreme cleaning after viewing.",
                 prNote: "* Prices may vary depending on effort and object.",
 
-                lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblCity: "City", lblPhone: "Phone", lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblNotes: "Notes / Promo Code",
+                lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblCity: "City", lblPhone: "Phone", lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblSqm: "Area (m²)", lblNotes: "Notes / Promo Code", phNotes: "e.g. Your wishes...",
+                txtPayment: "💳 Payment methods: Cash or Invoice", txtPaymentForm: "💳 Convenient payment in cash or by invoice",
                 dMon: "Monday", dTue: "Tuesday", dWed: "Wednesday", dThu: "Thursday", dFri: "Friday", dSat: "Saturday",
                 optOnce: "One-time", optWeek: "Weekly", opt2Week: "Every 2 weeks", optMonth: "Monthly", optSrv0: "Please select...",
                 discTitle: "Get 10% Discount", discDesc: "Enter your email address and get your promo code.", btnDiscAct: "Activate promo code ✨",
@@ -673,7 +688,7 @@
             ru: {
                 promoText: "🎁 Получите скидку 10% на первую уборку по промокоду: <span class=\"promo-badge\">CLEAN10</span>",
                 toastCopy: "✨ Промокод CLEAN10 скопирован!", toastSuccess: "✨ Спасибо! Ваша заявка успешно отправлена.", toastWait: "⏳ Отправка...", copyBtn: "Скопировать код ✨",
-                angebot: "Заявка", leistungen: "Услуги", preise: "Цены", bewertungen: "Отзывы", kontakt: "Контакты", callBtn: "📞 Позвонить сейчас",
+                angebot: "Заявка", leistungen: "Услуги", preise: "Цены", bewertungen: "Отзывы", kontakt: "Контакты", impressum: "Импрессум", datenschutz: "Конфиденциальность", callBtn: "📞 Позвонить сейчас",
                 sub: "Услуги клининга в Берлине", title: "Идеальная чистота, которая подарит вам <em>время и уют</em>.", desc: "Наслаждайтесь безупречным домом или представительским офисом. Мы позаботимся о каждой детали — незаметно, тщательно и по вашим пожеланиям.", cta: "Рассчитать стоимость ❯", p1: "Надежно", p2: "Тщательно", p3: "Пунктуально",
                 secServ: "Наши услуги", secPreise: "Наши Цены", secRev: "Отзывы клиентов", writeRev: "✍️ Написать отзыв на сайте", backHome: "← Вернуться на главную", modalForm: "Запросить бесплатный расчет", btnFormSubmit: "Отправить заявку →",
                 
@@ -682,7 +697,8 @@
                 prCard3Title: "Спец. уборка", prCard3Price: "Фикс. цена", prCard3Desc: "Уборка после ремонта, мойка окон, сложные объекты.",
                 prNote: "* Цены могут варьироваться в зависимости от объема работ.",
 
-                lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblCity: "Город", lblPhone: "Телефон", lblDays: "День уборки", lblFreq: "Периодичность", lblType: "Вид уборки", lblNotes: "Примечания / Промокод",
+                lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblCity: "Город", lblPhone: "Телефон", lblDays: "День уборки", lblFreq: "Периодичность", lblType: "Вид уборки", lblSqm: "Площадь (м²)", lblNotes: "Примечания / Промокод", phNotes: "например, ваши пожелания...",
+                txtPayment: "💳 Способы оплаты: Наличными или по счету", txtPaymentForm: "💳 Удобная оплата наличными или по счету",
                 dMon: "Понедельник", dTue: "Вторник", dWed: "Среда", dThu: "Четверг", dFri: "Пятница", dSat: "Суббота",
                 optOnce: "Разово", optWeek: "Еженедельно", opt2Week: "Раз в 2 недели", optMonth: "Ежемесячно", optSrv0: "Пожалуйста, выберите...",
                 discTitle: "Скидка 10%", discDesc: "Введите ваш e-mail и активируйте промокод.", btnDiscAct: "Активировать код ✨",
@@ -695,7 +711,7 @@
             ua: {
                 promoText: "🎁 Отримайте знижку 10% на перше прибирання за промокодом: <span class=\"promo-badge\">CLEAN10</span>",
                 toastCopy: "✨ Промокод CLEAN10 скопійовано!", toastSuccess: "✨ Дякуємо! Вашу заявку успішно надіслано.", toastWait: "⏳ Надсилання...", copyBtn: "Скопіювати код ✨",
-                angebot: "Заявка", leistungen: "Послуги", preise: "Ціни", bewertungen: "Відгуки", kontakt: "Контакти", callBtn: "📞 Зателефонувати зараз",
+                angebot: "Заявка", leistungen: "Послуги", preise: "Ціни", bewertungen: "Відгуки", kontakt: "Контакти", impressum: "Імпресум", datenschutz: "Конфіденційність", callBtn: "📞 Зателефонувати зараз",
                 sub: "Послуги клінінгу в Берліні", title: "Ідеальна чистота, що дарує вам <em>час та затишок</em>.", desc: "Насолоджуйтесь бездоганним домом або представницьким офісом. Ми подбаємо про кожну деталь — непомітно, ретельно та відповідно до ваших побажань.", cta: "Розрахувати вартість ❯", p1: "Надійно", p2: "Ретельно", p3: "Пунктуально",
                 secServ: "Наші послуги", secPreise: "Наші Ціни", secRev: "Відгуки клієнтів", writeRev: "✍️ Написати відгук на сайті", backHome: "← Повернутися на головну", modalForm: "Запросити безкоштовний розрахунок", btnFormSubmit: "Надіслати заявку →",
                 
@@ -704,10 +720,11 @@
                 prCard3Title: "Спец. прибирання", prCard3Price: "Фікс. ціна", prCard3Desc: "Після ремонту, миття вікон, складні об'єкти.",
                 prNote: "* Ціни можуть варіюватися залежно від обсягу робіт.",
 
-                lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblCity: "Місто", lblPhone: "Телефон", lblDays: "День прибирання", lblFreq: "Періодичність", lblType: "Вид прибирання", lblNotes: "Примітки / Промокод",
+                lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblCity: "Місто", lblPhone: "Телефон", lblDays: "День прибирання", lblFreq: "Періодичність", lblType: "Вид прибирання", lblSqm: "Площа (м²)", lblNotes: "Примітки / Промокод", phNotes: "наприклад, ваші побажання...",
+                txtPayment: "💳 Способи оплати: Готівкою або за рахунком", txtPaymentForm: "💳 Зручна оплата готівкою або за рахунком",
                 dMon: "Понеділок", dTue: "Вівторок", dWed: "Середа", dThu: "Четвер", dFri: "П'ятниця", dSat: "Субота",
                 optOnce: "Разово", optWeek: "Щотижня", opt2Week: "Раз на 2 тижні", optMonth: "Щомісяця", optSrv0: "Будь ласка, оберіть...",
-                discTitle: "Знижка 10%", discDesc: "Введіть ваш e-mail та активуйте промокод.", btnDiscAct: "Актувати код ✨",
+                discTitle: "Знижка 10%", discDesc: "Введіть ваш e-mail та активуйте промокод.", btnDiscAct: "Активувати код ✨",
                 revModalTitle: "Залишити відгук", lblStarRev: "Ваша оцінка (Зірки)", lblRevName: "Ваше Ім'я *", lblRevCity: "Ваше Місто / Район", lblRevText: "Ваш відгук *", btnPubRev: "Опублікувати відгук ✨",
                 modalCallTitle: "Телефон для зв'язку", modalCallTime: "З понеділка по неділю з 06:00 до 21:00", modalCallWa: "💬 Написати в WhatsApp",
                 ckTitle: "Згода на Cookies", ckDesc: "Ми використовуємо cookies для вашої зручності на сайті.", ckDeny: "Відхилити", ckAccept: "Прийняти все",
@@ -729,6 +746,8 @@
             document.getElementById('nav-preise').innerText = t.preise;
             document.getElementById('nav-bewertungen').innerText = t.bewertungen;
             document.getElementById('nav-kontakt').innerText = t.kontakt;
+            document.getElementById('nav-impressum').innerText = t.impressum;
+            document.getElementById('nav-datenschutz').innerText = t.datenschutz;
             document.getElementById('btn-header-call').innerText = t.callBtn;
             document.getElementById('hero-sub').innerText = t.sub;
             document.getElementById('hero-title').innerHTML = t.title;
@@ -763,7 +782,11 @@
             if(document.getElementById('lbl-days')) document.getElementById('lbl-days').innerText = t.lblDays;
             if(document.getElementById('lbl-freq')) document.getElementById('lbl-freq').innerText = t.lblFreq;
             if(document.getElementById('lbl-type')) document.getElementById('lbl-type').innerText = t.lblType;
+            if(document.getElementById('lbl-sqm')) document.getElementById('lbl-sqm').innerText = t.lblSqm;
             if(document.getElementById('lbl-notes')) document.getElementById('lbl-notes').innerText = t.lblNotes;
+            if(document.getElementById('input-notes')) document.getElementById('input-notes').placeholder = t.phNotes;
+            if(document.getElementById('txt-payment')) document.getElementById('txt-payment').innerText = t.txtPayment;
+            if(document.getElementById('txt-payment-form')) document.getElementById('txt-payment-form').innerText = t.txtPaymentForm;
 
             document.querySelectorAll('.d-mon').forEach(e => e.innerText = t.dMon);
             document.querySelectorAll('.d-tue').forEach(e => e.innerText = t.dTue);
