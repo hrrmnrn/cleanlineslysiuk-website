@@ -104,8 +104,11 @@
         }
 
         .promo-badge { background: var(--gold-accent); color: #0D1622; padding: 4px 12px; border-radius: 20px; font-weight: 700; letter-spacing: 0.5px; }
-        .promo-btn { background: #FFFFFF; color: var(--brand-blue); padding: 6px 16px; border-radius: 20px; font-weight: 700; font-size: 12px; cursor: pointer; border: none; transition: all 0.2s; }
-        .promo-btn:hover { transform: scale(1.06); background: #FAF8F5; }
+        .promo-btn {
+            background: #FFFFFF; color: var(--brand-blue); padding: 6px 16px; border-radius: 20px;
+            font-weight: 700; font-size: 12px; cursor: pointer; border: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .promo-btn:hover { transform: scale(1.08); background: #FAF8F5; box-shadow: 0 4px 12px rgba(255,255,255,0.3); }
 
         /* Навигация (Hauptmenü) */
         header {
@@ -115,12 +118,15 @@
         }
 
         .logo-group { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        
+        /* ЛОГОТИП 1 К 1 КАК НА КАРТИНКЕ */
         .logo-icon-card {
-            width: 44px; height: 44px; background: #FFFFFF; border: 1.5px solid var(--brand-blue-light);
-            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            width: 46px; height: 46px; background: #FFFFFF; border: 1.8px solid var(--brand-blue-light);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
             box-shadow: 0 4px 12px rgba(15, 42, 74, 0.12); transition: transform 0.3s ease;
+            padding: 4px;
         }
-        .logo-group:hover .logo-icon-card { transform: scale(1.05); }
+        .logo-group:hover .logo-icon-card { transform: scale(1.08) rotate(3deg); }
 
         .logo-text { font-family: 'Italiana', serif; font-size: 28px; font-weight: 700; color: var(--brand-blue); letter-spacing: -0.3px; }
         .logo-text span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 300; color: var(--text-muted); }
@@ -129,27 +135,29 @@
         nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 600; transition: color 0.2s; }
         nav a:hover { color: var(--brand-blue-light); }
 
+        /* ЖИВЫЕ КНОПКИ С ЭФФЕКТАМИ */
         .btn-call {
             background: var(--brand-blue); color: #FFFFFF; padding: 12px 24px; border-radius: 30px;
             text-decoration: none; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center;
-            gap: 10px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(15, 42, 74, 0.25); cursor: pointer; border: none;
+            gap: 10px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 4px 15px rgba(15, 42, 74, 0.25); cursor: pointer; border: none;
         }
-        .btn-call:hover { background: var(--brand-blue-light); transform: translateY(-2px); }
+        .btn-call:hover { background: var(--brand-blue-light); transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 20px rgba(29, 93, 155, 0.35); }
 
         .btn-angebot-cta {
             background: var(--brand-blue); color: #FFFFFF; padding: 16px 36px; border-radius: 12px;
             font-size: 16px; font-weight: 700; border: 1px solid var(--gold-accent); cursor: pointer;
-            display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s ease;
+            display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 8px 25px rgba(15, 42, 74, 0.25);
         }
-        .btn-angebot-cta:hover { background: var(--brand-blue-light); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(184, 142, 61, 0.35); }
+        .btn-angebot-cta:hover { background: var(--brand-blue-light); transform: translateY(-4px) scale(1.02); box-shadow: 0 12px 30px rgba(184, 142, 61, 0.4); }
 
         .btn-back-home {
-            background-color: var(--brand-blue); color: #FFFFFF; padding: 10px 20px; border-radius: 8px;
+            background-color: var(--brand-blue); color: #FFFFFF; padding: 12px 22px; border-radius: 10px;
             font-size: 14px; font-weight: 600; border: none; cursor: pointer; display: inline-flex;
-            align-items: center; gap: 8px; margin-bottom: 25px; transition: all 0.2s ease; text-decoration: none;
+            align-items: center; gap: 10px; margin-bottom: 25px; transition: all 0.3s ease; text-decoration: none;
+            box-shadow: 0 4px 15px rgba(15, 42, 74, 0.2);
         }
-        .btn-back-home:hover { background-color: var(--brand-blue-light); transform: translateX(-3px); }
+        .btn-back-home:hover { background-color: var(--brand-blue-light); transform: translateX(-4px); box-shadow: 0 6px 20px rgba(29, 93, 155, 0.3); }
 
         /* Hero Секция */
         .hero-container { max-width: 1200px; margin: 0 auto; padding: 90px 8% 100px; text-align: center; }
@@ -166,15 +174,14 @@
         .perk-icon-wrapper { width: 52px; height: 52px; background: rgba(29, 93, 155, 0.08); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--gold-accent); flex-shrink: 0; }
         .perk-title { font-size: 15px; font-weight: 700; color: var(--brand-blue); }
 
-        /* Услуги */
+        /* Услуги со стикерами */
         .services-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .section-title { font-family: 'Italiana', serif; font-size: 48px; color: var(--brand-blue); margin-bottom: 50px; text-align: center; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
 
-        .card { background: #FFFFFF; border: 1px solid rgba(15, 42, 74, 0.12); padding: 24px 28px; border-radius: 16px; display: flex; align-items: center; gap: 18px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03); transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); cursor: pointer; }
-        .card:hover { transform: translateY(-8px); border-color: var(--brand-blue-light); box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
-        .card-icon-wrapper { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .card-icon-wrapper svg { width: 28px; height: 28px; stroke: var(--brand-blue-light); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .card { background: #FFFFFF; border: 1px solid rgba(15, 42, 74, 0.12); padding: 24px 28px; border-radius: 16px; display: flex; align-items: center; gap: 18px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
+        .card-sticker { font-size: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .card h3 { font-size: 15px; font-weight: 600; color: var(--brand-blue); line-height: 1.4; }
 
         /* Отзывы */
@@ -185,7 +192,7 @@
         .review-text { font-size: 15px; line-height: 1.6; color: var(--text-dark); margin-bottom: 20px; font-style: italic; }
         .review-author { font-size: 14px; font-weight: 700; color: var(--brand-blue); }
 
-        .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; }
+        .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transition: background 0.2s; }
         .btn-delete-review:hover { background: #be123c; }
 
         /* Формы */
@@ -195,8 +202,11 @@
         .sa-select:focus, .sa-input:focus, .sa-textarea:focus { border-color: var(--brand-blue-light); background-color: #FFFFFF; box-shadow: 0 0 0 4px rgba(29, 93, 155, 0.08); }
         .checkbox-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 6px; }
         .checkbox-label { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; color: var(--text-dark); }
-        .sa-submit-btn { width: 100%; background-color: var(--brand-blue); color: #FFFFFF; padding: 16px; border-radius: 25px; font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s ease; }
-        .sa-submit-btn:hover { background-color: var(--brand-blue-light); transform: translateY(-2px); }
+        .sa-submit-btn {
+            width: 100%; background-color: var(--brand-blue); color: #FFFFFF; padding: 16px; border-radius: 25px;
+            font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .sa-submit-btn:hover { background-color: var(--brand-blue-light); transform: translateY(-2px) scale(1.01); box-shadow: 0 8px 20px rgba(15, 42, 74, 0.25); }
 
         .star-rating { display: flex; gap: 8px; font-size: 28px; cursor: pointer; color: #cbd5e1; margin-bottom: 15px; }
         .star-rating .star.active { color: var(--gold-accent); }
@@ -224,7 +234,7 @@
         /* Cookie-окно */
         .cookie-modal { position: fixed; bottom: 25px; right: 25px; max-width: 380px; background: #FFFFFF; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid var(--border-color); z-index: 9999; }
         .cookie-buttons { display: flex; gap: 10px; margin-top: 15px; }
-        .btn-cookie-accept { flex: 1; padding: 12px; background: var(--brand-blue); color: #fff; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .btn-cookie-accept { flex: 1; padding: 12px; background: var(--brand-blue); color: #fff; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
         .btn-cookie-accept:hover { background: var(--brand-blue-light); }
         .btn-cookie-deny { flex: 1; padding: 12px; background: #E8E0D2; color: var(--text-dark); border: none; border-radius: 12px; font-weight: 600; cursor: pointer; }
 
@@ -257,11 +267,18 @@
     <header>
         <a href="#" class="logo-group">
             <div class="logo-icon-card">
-                <svg viewBox="0 0 100 100" width="28" height="28" fill="none" stroke="#1D5D9B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="8" y="8" width="84" height="84" rx="18" stroke="#1D5D9B" stroke-width="5"/>
-                    <path d="M22 38 L52 20 M34 46 L62 28 M30 38 L65 72" stroke="#1D5D9B" stroke-width="7"/>
-                    <path d="M72 38 L76 46 L84 48 L78 54 L79 62 L72 58 L65 62 L66 54 L60 48 L68 46 Z" fill="#1D5D9B" stroke="none"/>
-                    <path d="M48 68 L50 72 L55 73 L51 77 L52 82 L48 79 L44 82 L45 77 L41 73 L46 72 Z" fill="#1D5D9B" stroke="none"/>
+                <!-- Логотип 1 в 1 как на изображении пользователя -->
+                <svg viewBox="0 0 100 100" width="34" height="34" fill="none">
+                    <!-- Искорка сверху большая -->
+                    <path d="M42 5 L47 25 L67 30 L47 35 L42 55 L37 35 L17 30 L37 25 Z" fill="#1D5D9B"/>
+                    <!-- Искорка справа средняя -->
+                    <path d="M72 10 L75 22 L95 25 L75 28 L72 40 L69 28 L49 25 L69 22 Z" fill="#1D5D9B"/>
+                    <!-- Искорка справа маленькая -->
+                    <path d="M78 45 L80 53 L92 55 L80 57 L78 65 L76 57 L64 55 L76 53 Z" fill="#1D5D9B"/>
+                    <!-- Водосгон (швабра) -->
+                    <path d="M12 48 L82 25 L76 15 L6 38 Z" fill="#1D5D9B"/>
+                    <path d="M10 50 L84 26" stroke="#0F2A4A" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M38 40 L18 85 L28 89 L48 44 Z" fill="#1D5D9B"/>
                 </svg>
             </div>
             <div class="logo-text">CleanLines <span>Lysiuk</span></div>
@@ -273,9 +290,9 @@
             <a href="#contact">Kontakt</a>
         </nav>
 
-        <a href="https://wa.me/4915781073234" target="_blank" class="btn-call">
-            💬 WhatsApp
-        </a>
+        <button class="btn-call" onclick="openModal('call-modal')">
+            📞 Jetzt anrufen
+        </button>
     </header>
 
     <!-- Первый экран (Hero) -->
@@ -307,78 +324,58 @@
         </div>
     </div>
 
-    <!-- Услуги -->
+    <!-- Услуги со стикерами -->
     <section class="services-section" id="services">
         <h2 class="section-title">Unsere Leistungen</h2>
         <div class="services-grid">
             
             <div class="card" data-aos="fade-up">
-                <div class="card-icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V3l14 4v14M9 7h2m-2 4h2m-2 4h2"/></svg>
-                </div>
+                <div class="card-sticker">🪜</div>
                 <h3>Treppenhausreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="50">
-                <div class="card-icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
+                <div class="card-sticker">🏡</div>
                 <h3>Reinigung von Privathaushalten & Wohnungen</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <div class="card-icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/></svg>
-                </div>
+                <div class="card-sticker">🏢</div>
                 <h3>Büroreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="150">
-                <div class="card-icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M14 22v-4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4M18 10l-6-5-6 5v12h12V10z"/></svg>
-                </div>
+                <div class="card-sticker">🏫</div>
                 <h3>Kita- und Schulreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <div class="card-icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M5.8 11.3 2 22l10.7-3.79M4 3l4 4M10 10l3 3M19 3l-4 4"/></svg>
-                </div>
+                <div class="card-sticker">🎉</div>
                 <h3>Reinigung nach Firmenfeiern</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="250">
-                <div class="card-icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="m15 12-8.373 8.373a1 1 0 1 1-1.414-1.414L13.586 10.5M18 6l3 3"/></svg>
-                </div>
+                <div class="card-sticker">🏗️</div>
                 <h3>Bauendreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <div class="card-icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M4 4h16v16H4z"/></svg>
-                </div>
+                <div class="card-sticker">🪟</div>
                 <h3>Fensterreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="350">
-                <div class="card-icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4 12 14.01l-3-3"/></svg>
-                </div>
+                <div class="card-sticker">📦</div>
                 <h3>Umzugsreinigung mit Abnahmegarantie</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="400">
-                <div class="card-icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
+                <div class="card-sticker">🧹</div>
                 <h3>Reinigung nach Todesfall/Messie-Haushalt</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="450">
-                <div class="card-icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                </div>
+                <div class="card-sticker">🔧</div>
                 <h3>Hausmeisterservice (kleine Reparaturen / Kontrolle)</h3>
             </div>
 
@@ -420,11 +417,11 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНОЕ ОКНО: ФОРМУЛЯР ЗАЯВКИ С КНОПКОЙ ВОЗВРАТА -->
+    <!-- МОДАЛЬНОЕ ОКНО: ФОРМУЛЯР ЗАЯВКИ С ВОЗВРАТОМ НА ВЕРХ СТРАНИЦЫ -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
-            <button class="btn-back-home" onclick="closeModal('booking-modal')">← Zurück zur Hauptseite</button>
+            <span class="modal-close" onclick="closeAndScrollTop('booking-modal')">&times;</span>
+            <button class="btn-back-home" onclick="closeAndScrollTop('booking-modal')">← Zurück zur Hauptseite</button>
             <h2 style="font-family: 'Italiana', serif; font-size: 34px; color: var(--brand-blue); margin-bottom: 25px; text-align: center;">Unverbindliches Angebot anfordern</h2>
             
             <form action="https://api.web3forms.com/submit" method="POST">
@@ -527,8 +524,8 @@
     <!-- МОДАЛЬНОЕ ОКНО: ДОБАВЛЕНИЕ ОТЗЫВА -->
     <div id="review-modal" class="modal">
         <div class="modal-content" style="max-width: 500px;">
-            <span class="modal-close" onclick="closeModal('review-modal')">&times;</span>
-            <button class="btn-back-home" onclick="closeModal('review-modal')">← Zurück zur Hauptseite</button>
+            <span class="modal-close" onclick="closeAndScrollTop('review-modal')">&times;</span>
+            <button class="btn-back-home" onclick="closeAndScrollTop('review-modal')">← Zurück zur Hauptseite</button>
             <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue); margin-bottom:15px; text-align: center;">Bewertung schreiben</h3>
             
             <div class="sa-field">
@@ -558,11 +555,22 @@
         </div>
     </div>
 
+    <!-- Окно Звонка -->
+    <div id="call-modal" class="modal">
+        <div class="modal-content" style="text-align: center; max-width: 450px;">
+            <span class="modal-close" onclick="closeModal('call-modal')">&times;</span>
+            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue);">Kontakttelefon</h3>
+            <div style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue); margin: 15px 0; font-weight: 700;">+49 1578 107 3234</div>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">Montag bis Samstag von 08:00 bis 20:00 Uhr</p>
+            <a href="https://wa.me/4915781073234" target="_blank" class="sa-submit-btn" style="text-decoration: none; display: block;">💬 Jetzt auf WhatsApp schreiben</a>
+        </div>
+    </div>
+
     <!-- Impressum Modal -->
     <div id="impressum-modal" class="modal">
         <div class="modal-content legal-text-body" style="max-width: 700px;">
-            <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
-            <button class="btn-back-home" onclick="closeModal('impressum-modal')">← Zurück zur Hauptseite</button>
+            <span class="modal-close" onclick="closeAndScrollTop('impressum-modal')">&times;</span>
+            <button class="btn-back-home" onclick="closeAndScrollTop('impressum-modal')">← Zurück zur Hauptseite</button>
             <h3 style="font-family:'Italiana'; font-size:36px; margin-bottom:20px; color:var(--brand-blue);">Impressum</h3>
             
             <h4>Angaben gemäß § 5 TMG</h4>
@@ -607,8 +615,8 @@
     <!-- Datenschutzerklärung Modal -->
     <div id="datenschutz-modal" class="modal">
         <div class="modal-content legal-text-body" style="max-width: 750px;">
-            <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
-            <button class="btn-back-home" onclick="closeModal('datenschutz-modal')">← Zurück zur Hauptseite</button>
+            <span class="modal-close" onclick="closeAndScrollTop('datenschutz-modal')">&times;</span>
+            <button class="btn-back-home" onclick="closeAndScrollTop('datenschutz-modal')">← Zurück zur Hauptseite</button>
             <h3 style="font-family:'Italiana'; font-size:36px; margin-bottom:20px; color:var(--brand-blue);">Datenschutzerklärung</h3>
             
             <h4>1. Datenschutz auf einen Blick</h4>
@@ -737,6 +745,13 @@
 
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        
+        /* Закрывает модалку и плавно переносит на самый верх страницы */
+        function closeAndScrollTop(id) {
+            closeModal(id);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function closeCookie() { document.getElementById('cookieModal').style.display = 'none'; }
 
         window.onclick = function(e) {
