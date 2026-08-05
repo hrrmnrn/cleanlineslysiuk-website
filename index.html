@@ -32,7 +32,7 @@
             position: relative;
         }
 
-        /* Живой анимированный фон */
+        /* Реально живой анимированный фон */
         .bg-glow-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -41,38 +41,51 @@
             pointer-events: none;
         }
 
-        .glow-1, .glow-2 {
+        .glow-1, .glow-2, .glow-3 {
             position: absolute;
             border-radius: 50%;
-            filter: blur(90px);
-            opacity: 0.45;
-            animation: floatGlow 14s infinite alternate ease-in-out;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: floatGlow 10s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
         }
 
         .glow-1 {
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(20, 56, 44, 0.2) 0%, rgba(250, 248, 245, 0) 70%);
+            width: 550px; height: 550px;
+            background: radial-gradient(circle, rgba(20, 56, 44, 0.25) 0%, rgba(250, 248, 245, 0) 70%);
             top: -100px; left: -100px;
         }
 
         .glow-2 {
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(250, 248, 245, 0) 70%);
+            width: 650px; height: 650px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.22) 0%, rgba(250, 248, 245, 0) 70%);
             bottom: -150px; right: -150px;
-            animation-delay: -7s;
+            animation-delay: -5s;
+        }
+
+        .glow-3 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(20, 56, 44, 0.15) 0%, rgba(250, 248, 245, 0) 70%);
+            top: 40%; left: 30%;
+            animation: floatGlowReverse 12s infinite alternate ease-in-out;
         }
 
         @keyframes floatGlow {
             0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(60px, 40px) scale(1.1); }
-            100% { transform: translate(-40px, 80px) scale(0.95); }
+            50% { transform: translate(120px, 80px) scale(1.2); }
+            100% { transform: translate(-80px, 140px) scale(0.9); }
+        }
+
+        @keyframes floatGlowReverse {
+            0% { transform: translate(0, 0) scale(0.9); }
+            50% { transform: translate(-100px, -60px) scale(1.15); }
+            100% { transform: translate(90px, -110px) scale(1); }
         }
 
         /* Баннер со скидкой */
         .promo-banner {
             background: var(--brand-green);
             color: #FAF8F5;
-            padding: 10px 8%;
+            padding: 11px 8%;
             text-align: center;
             font-size: 13px;
             font-weight: 500;
@@ -101,10 +114,13 @@
             font-size: 12px;
             cursor: pointer;
             border: none;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: all 0.2s;
         }
 
-        .promo-btn:hover { transform: scale(1.05); }
+        .promo-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
 
         /* Навигация */
         header {
@@ -137,7 +153,10 @@
             justify-content: center;
             color: #FFFFFF;
             box-shadow: 0 4px 12px rgba(20, 56, 44, 0.2);
+            transition: transform 0.3s ease;
         }
+
+        .logo-group:hover .logo-icon { transform: rotate(15deg) scale(1.05); }
 
         .logo-text {
             font-family: 'Italiana', serif;
@@ -270,7 +289,7 @@
 
         .btn-wa:hover {
             background: var(--brand-green-light);
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 14px 30px rgba(20, 56, 44, 0.25);
         }
 
@@ -289,18 +308,18 @@
 
         /* Карточка Schnellanfrage */
         .schnellanfrage-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(20px);
             border-radius: 28px;
             padding: 40px;
             box-shadow: 0 30px 60px rgba(18, 26, 22, 0.06);
             border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
         }
 
         .schnellanfrage-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 35px 70px rgba(18, 26, 22, 0.09);
+            transform: translateY(-6px);
+            box-shadow: 0 40px 80px rgba(18, 26, 22, 0.1);
         }
 
         .sa-header {
@@ -333,6 +352,13 @@
             background-color: #52B788;
             border-radius: 50%;
             box-shadow: 0 0 10px #52B788;
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
         }
 
         .sa-field { margin-bottom: 22px; }
@@ -356,7 +382,7 @@
             font-size: 15px;
             color: var(--text-dark);
             outline: none;
-            transition: all 0.2s;
+            transition: all 0.25s ease;
             font-family: inherit;
         }
 
@@ -375,7 +401,7 @@
         .sa-select:focus, .sa-input:focus {
             border-color: var(--brand-green);
             background-color: #FFFFFF;
-            box-shadow: 0 0 0 4px rgba(20, 56, 44, 0.05);
+            box-shadow: 0 0 0 4px rgba(20, 56, 44, 0.08);
         }
 
         .sa-submit-btn {
@@ -393,12 +419,13 @@
             align-items: center;
             gap: 10px;
             margin-top: 10px;
-            transition: background-color 0.2s, transform 0.1s;
+            transition: all 0.3s ease;
         }
 
         .sa-submit-btn:hover {
             background-color: var(--brand-green-light);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(20, 56, 44, 0.2);
         }
 
         .sa-note {
@@ -435,19 +462,25 @@
             border: 1px solid var(--border-color);
             padding: 30px;
             border-radius: 20px;
-            transition: all 0.3s ease;
+            transition: all 0.35s ease;
+            cursor: pointer;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-7px) scale(1.02);
             border-color: var(--brand-green);
             background: #FFFFFF;
-            box-shadow: 0 20px 40px rgba(18, 26, 22, 0.06);
+            box-shadow: 0 25px 45px rgba(18, 26, 22, 0.08);
         }
 
         .card-icon {
-            font-size: 28px;
+            font-size: 32px;
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.2);
         }
 
         .card h3 {
@@ -520,10 +553,16 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(18, 26, 22, 0.65);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             z-index: 99999;
             align-items: center;
             justify-content: center;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .modal-content {
@@ -535,7 +574,13 @@
             max-height: 85vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+            animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .modal-close {
@@ -549,7 +594,7 @@
 
         .modal-close:hover { color: var(--text-dark); }
 
-        /* Exit Intent Popup */
+        /* Exit / Entry Popup (100% Немецкий) */
         .exit-popup-card {
             text-align: center;
             padding: 10px 5px;
@@ -619,6 +664,7 @@
         .exit-btn:hover {
             background: var(--brand-green-light);
             transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(20, 56, 44, 0.3);
         }
 
         @media (max-width: 992px) {
@@ -636,6 +682,7 @@
     <div class="bg-glow-container">
         <div class="glow-1"></div>
         <div class="glow-2"></div>
+        <div class="glow-3"></div>
     </div>
 
     <!-- Баннер со скидкой -->
@@ -777,19 +824,19 @@
         </div>
     </div>
 
-    <!-- Exit Intent Popup -->
+    <!-- Entry / Discount Modal (Полностью на немецком) -->
     <div id="exit-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('exit-modal')">&times;</span>
             <div class="exit-popup-card">
-                <span class="exit-badge">Warten Sie kurz! ✨</span>
+                <span class="exit-badge">Willkommen! ✨</span>
                 <h3 class="exit-title">Sichern Sie sich 10% Rabatt</h3>
                 <p class="exit-desc">Buchen Sie Ihre Erstreinigung noch heute und sparen Sie direkt auf Ihr Wunschangebot.</p>
                 <div class="exit-code-box">
                     <span class="exit-code-val">CLEAN10</span>
                 </div>
                 <a href="https://wa.me/4915781073234?text=Hallo!%20Ich%20möchte%20den%2010%25%20Rabattcode%20CLEAN10%20einlösen." class="exit-btn" target="_blank">
-                    💬 Теперь забрать скидку в WhatsApp
+                    💬 Jetzt Rabatt über WhatsApp einlösen
                 </a>
             </div>
         </div>
@@ -818,13 +865,14 @@
             if (e.target.classList.contains('modal')) e.target.style.display = 'none'; 
         }
 
-        // Exit-Intent логика (улавливает уход мыши наверх)
-        let exitShown = sessionStorage.getItem('exitShown');
-        document.addEventListener('mouseleave', function(e) {
-            if (e.clientY < 10 && !exitShown) {
-                openModal('exit-modal');
-                sessionStorage.setItem('exitShown', 'true');
-                exitShown = true;
+        // Автоматическое открытие окна скидки через 1.2 секунды после захода на сайт
+        window.addEventListener('load', function() {
+            let popupShown = sessionStorage.getItem('popupShown');
+            if (!popupShown) {
+                setTimeout(function() {
+                    openModal('exit-modal');
+                    sessionStorage.setItem('popupShown', 'true');
+                }, 1200);
             }
         });
     </script>
