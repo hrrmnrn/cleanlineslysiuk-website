@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleanLines Lysiuk | Professionelle Reinigung Berlin</title>
+    <title>CleanLines Lysiuk | Professionelle Reinigungsdienste Berlin</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -30,7 +30,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Баннер с акцией -10% */
+        /* Акция */
         .promo-banner {
             background: linear-gradient(135deg, #0066FF 0%, #0A2540 100%);
             color: #ffffff;
@@ -103,7 +103,7 @@
 
         /* Hero */
         .hero {
-            padding: 70px 8% 80px;
+            padding: 60px 8% 80px;
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
@@ -123,23 +123,23 @@
         }
 
         .hero h1 {
-            font-size: 56px;
+            font-size: 52px;
             font-weight: 800;
             line-height: 1.1;
             color: var(--primary-blue);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             letter-spacing: -1.5px;
         }
 
         .hero p {
             font-size: 20px;
             color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 40px;
-            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto 35px;
+            font-weight: 500;
         }
 
-        /* Окно Schnellanfrage */
+        /* Schnellanfrage */
         .schnellanfrage-card {
             background: #FCFCFA;
             border: 1px solid #E2E8F0;
@@ -193,9 +193,7 @@
             margin-bottom: 8px;
         }
 
-        .sa-field {
-            margin-bottom: 20px;
-        }
+        .sa-field { margin-bottom: 20px; }
 
         .sa-select, .sa-input {
             width: 100%;
@@ -210,9 +208,7 @@
             appearance: none;
         }
 
-        .sa-select-wrapper {
-            position: relative;
-        }
+        .sa-select-wrapper { position: relative; }
 
         .sa-select-wrapper::after {
             content: '⌄';
@@ -225,11 +221,8 @@
             pointer-events: none;
         }
 
-        .sa-select:focus, .sa-input:focus {
-            border-color: var(--dark-green);
-        }
+        .sa-select:focus, .sa-input:focus { border-color: var(--dark-green); }
 
-        /* Кнопки действия */
         .button-group {
             display: flex;
             flex-direction: column;
@@ -259,9 +252,7 @@
             transform: translateY(-1px);
         }
 
-        .sa-call-btn {
-            background-color: #1B4D3E;
-        }
+        .sa-call-btn { background-color: #1B4D3E; }
 
         .sa-note {
             text-align: center;
@@ -271,45 +262,61 @@
         }
 
         /* Услуги */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-            padding: 0 8% 100px;
+        .services-section {
+            padding: 80px 8%;
             max-width: 1300px;
             margin: 0 auto;
+        }
+
+        .services-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .card {
             background: #ffffff;
             border: 1px solid #E2E8F0;
-            padding: 35px 30px;
+            padding: 25px;
             border-radius: 16px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-4px);
             border-color: var(--accent-blue);
-            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.08);
+            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.06);
         }
 
-        .card-num {
-            width: 45px;
-            height: 45px;
+        .card-icon {
+            font-size: 24px;
             background: var(--light-blue);
-            color: var(--accent-blue);
+            width: 48px;
+            height: 48px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 20px;
+            flex-shrink: 0;
         }
 
-        .card h3 { font-size: 20px; color: var(--primary-blue); margin-bottom: 12px; }
-        .card p { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
+        .card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1.3;
+        }
 
         /* Слайдер До / После */
         .ba-section {
@@ -359,6 +366,18 @@
 
         .footer-logo { font-size: 24px; font-weight: 800; margin-bottom: 15px; }
 
+        .footer-contacts {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #94A3B8;
+        }
+
+        .footer-contacts a { color: #ffffff; text-decoration: none; font-weight: 600; }
+
         .footer-links {
             margin-top: 25px;
             display: flex;
@@ -397,7 +416,7 @@
             color: var(--text-dark);
             padding: 35px;
             border-radius: 20px;
-            max-width: 550px;
+            max-width: 600px;
             width: 90%;
             max-height: 80vh;
             overflow-y: auto;
@@ -416,13 +435,14 @@
         }
 
         .modal-content h3 { font-size: 22px; color: var(--primary-blue); margin-bottom: 15px; }
+        .modal-content h4 { font-size: 15px; color: var(--primary-blue); margin-top: 15px; margin-bottom: 5px; }
         .modal-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 10px; }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 36px; }
+            .hero h1 { font-size: 34px; }
             .ba-container { height: 300px; }
-            .promo-banner { font-size: 12px; }
             .schnellanfrage-card { padding: 25px 20px; }
+            .footer-contacts { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
@@ -439,9 +459,9 @@
     </header>
 
     <section class="hero" data-aos="fade-up">
-        <span class="badge">Reinigungsdienst Berlin</span>
-        <h1>Perfekte Sauberkeit,<br>die man spürt.</h1>
-        <p>Zuverlässig, gründlich & pünktlich. Erstklassiger Reinigungsservice für Wohnungen, Büros & Umzüge in Berlin.</p>
+        <span class="badge">Berlin & Umgebung</span>
+        <h1>CleanLines Lysiuk</h1>
+        <p>Zuverlässig • Gründlich • Pünktlich</p>
 
         <!-- Окно Schnellanfrage -->
         <div class="schnellanfrage-card" data-aos="zoom-in" data-aos-delay="150">
@@ -457,10 +477,16 @@
                 <label class="sa-label">GEWÜNSCHTE REINIGUNG</label>
                 <div class="sa-select-wrapper">
                     <select id="service-type" class="sa-select">
-                        <option value="Wohnungsreinigung">Wohnungsreinigung</option>
+                        <option value="Privathaushalte & Wohnungen">Reinigung von Privathaushalten & Wohnungen</option>
                         <option value="Büroreinigung">Büroreinigung</option>
-                        <option value="Umzugsreinigung">Umzugsreinigung</option>
+                        <option value="Treppenhausreinigung">Treppenhausreinigung</option>
+                        <option value="Kita- und Schulreinigung">Kita- und Schulreinigung</option>
+                        <option value="Bauendreinigung">Bauendreinigung</option>
                         <option value="Fensterreinigung">Fensterreinigung</option>
+                        <option value="Umzugsreinigung">Umzugsreinigung mit Abnahmegarantie</option>
+                        <option value="Reinigung nach Firmenfeiern">Reinigung nach Firmenfeiern</option>
+                        <option value="Reinigung nach Todesfall/Messie">Reinigung nach Todesfall/Messie-Haushalt</option>
+                        <option value="Hausmeisterservice">Hausmeisterservice (kleine Reparaturen / Kontrolle)</option>
                     </select>
                 </div>
             </div>
@@ -485,27 +511,50 @@
         </div>
     </section>
 
-    <!-- Услуги -->
-    <section class="services-grid">
-        <div class="card" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-num">01</div>
-            <h3>Wohnung</h3>
-            <p>Gründliche Reinigung für Ihr Zuhause. Einmalig oder im regelmäßigen Abo.</p>
-        </div>
-        <div class="card" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-num">02</div>
-            <h3>Büro & Gewerbe</h3>
-            <p>Saubere Arbeitsräume für produktives Arbeiten. Diskret & zuverlässig.</p>
-        </div>
-        <div class="card" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-num">03</div>
-            <h3>Umzug & Garantie</h3>
-            <p>Übergabegarantie für den Vermieter. Stressfrei in die neue Wohnung.</p>
-        </div>
-        <div class="card" data-aos="fade-up" data-aos-delay="400">
-            <div class="card-num">04</div>
-            <h3>Fensterputzen</h3>
-            <p>Kristallklare Sicht ohne Streifen für Fenster, Rahmen und Glasfronten.</p>
+    <!-- Список услуг -->
+    <section class="services-section">
+        <h2 class="services-title">Unsere Leistungen</h2>
+        <div class="services-grid">
+            <div class="card" data-aos="fade-up">
+                <div class="card-icon">🏠</div>
+                <h3>Reinigung von Privathaushalten & Wohnungen</h3>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="50">
+                <div class="card-icon">🏢</div>
+                <h3>Büroreinigung</h3>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-icon">🪜</div>
+                <h3>Treppenhausreinigung</h3>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="150">
+                <div class="card-icon">🏫</div>
+                <h3>Kita- und Schulreinigung</h3>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-icon">🪟</div>
+                <h3>Fensterreinigung</h3>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="250">
+                <div class="card-icon">📦</div>
+                <h3>Umzugsreinigung mit Abnahmegarantie</h3>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-icon">🏗️</div>
+                <h3>Bauendreinigung</h3>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="350">
+                <div class="card-icon">🎉</div>
+                <h3>Reinigung nach Firmenfeiern</h3>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <div class="card-icon">🧹</div>
+                <h3>Reinigung nach Todesfall / Messie-Haushalt</h3>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="450">
+                <div class="card-icon">🔧</div>
+                <h3>Hausmeisterservice (Reparaturen / Kontrolle)</h3>
+            </div>
         </div>
     </section>
 
@@ -522,8 +571,14 @@
 
     <footer>
         <div class="footer-logo">CleanLines <span style="color: var(--accent-blue);">Lysiuk</span></div>
-        <p style="color: #94A3B8; margin-bottom: 10px;">Berlin & Umgebung | +49 1578 107 3234</p>
-        <p style="font-size: 12px; color: #64748B;">© 2026 cleanlineslysiuk.com. Alle Rechte vorbehalten.</p>
+        
+        <div class="footer-contacts">
+            <span>📍 Berlin und Umgebung</span>
+            <span>📞 <a href="tel:+4915781073234">+49 1578 107 3234</a> / <a href="tel:+491632989538">+49 163 2989538</a></span>
+            <span>✉️ <a href="mailto:lysiuk.cleanlines@gmail.com">lysiuk.cleanlines@gmail.com</a></span>
+        </div>
+
+        <p style="font-size: 12px; color: #64748B;">© 2025 CleanLines Lysiuk. Alle Rechte vorbehalten.</p>
 
         <div class="footer-links">
             <button onclick="openModal('impressum-modal')">Impressum</button>
@@ -537,14 +592,33 @@
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
             <h3>Impressum</h3>
-            <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-            <p>CleanLines Lysiuk<br>
-            Inhaber: Dmytro Lysiuk<br>
-            Berlin, Deutschland</p>
+            <p><strong>Angaben gemäß § 5 TMG</strong></p>
+            <p><strong>Diensteanbieter:</strong><br>
+            CleanLines Lysiuk<br>
+            Professionelle Reinigungsdienste</p>
+            
+            <p><strong>Vertreten durch:</strong><br>
+            Liliia Lysiuk</p>
+
             <p><strong>Kontakt:</strong><br>
-            Telefon: +49 1578 107 3234<br>
-            E-Mail: info@cleanlineslysiuk.com<br>
-            Website: https://cleanlineslysiuk.com</p>
+            Telefon: +49 163 2989538 / +49 1578 107 3234<br>
+            E-Mail: lysiuk.cleanlines@gmail.com<br>
+            Servicegebiet: Berlin und Umgebung</p>
+
+            <h4>EU-Streitschlichtung</h4>
+            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" style="color: var(--accent-blue);">https://ec.europa.eu/consumers/odr</a>.<br>
+            Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+
+            <h4>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h4>
+            <p>Wir sind nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+            <h4>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h4>
+            <p>Liliia Lysiuk</p>
+
+            <h4>Haftungsausschluss</h4>
+            <p><strong>Haftung für Inhalte:</strong> Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+            <p><strong>Haftung für Links:</strong> Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
+            <p><strong>Urheberrecht:</strong> Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Stand: Januar 2025.</p>
         </div>
     </div>
 
