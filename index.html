@@ -33,6 +33,7 @@
             position: relative;
         }
 
+        /* ДВИЖУЩИЙСЯ ФОН */
         .bg-glow-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -82,6 +83,7 @@
             100% { transform: translate(80px, -90px) scale(1); }
         }
 
+        /* Уведомление о копировании */
         .toast-notification {
             position: fixed; top: 25px; right: 25px; background: var(--brand-blue); color: #FFFFFF;
             padding: 14px 24px; border-radius: 12px; border: 1px solid var(--gold-accent);
@@ -94,6 +96,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Баннер со скидкой сверху */
         .promo-banner {
             background: var(--brand-blue); color: #FAF8F5; padding: 12px 8%; text-align: center;
             font-size: 13px; font-weight: 500; display: flex; justify-content: center; align-items: center;
@@ -107,6 +110,7 @@
         }
         .promo-btn:hover { transform: scale(1.08); background: #FAF8F5; box-shadow: 0 4px 12px rgba(255,255,255,0.3); }
 
+        /* Навигация (Hauptmenü) */
         header {
             display: flex; justify-content: space-between; align-items: center; padding: 20px 8%;
             background: rgba(244, 239, 230, 0.92); backdrop-filter: blur(16px); position: sticky;
@@ -130,6 +134,7 @@
         nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 600; transition: color 0.2s; }
         nav a:hover { color: var(--brand-blue-light); }
 
+        /* Переключатель языков DE | EN | RU | UA */
         .lang-switch {
             display: flex;
             align-items: center;
@@ -157,6 +162,7 @@
             box-shadow: 0 2px 8px rgba(15, 42, 74, 0.2);
         }
 
+        /* Кнопки */
         .btn-call {
             background: var(--brand-blue); color: #FFFFFF; padding: 12px 24px; border-radius: 30px;
             text-decoration: none; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center;
@@ -180,6 +186,7 @@
         }
         .btn-back-home:hover { background-color: var(--brand-blue-light); transform: translateX(-4px) scale(1.03); box-shadow: 0 8px 22px rgba(29, 93, 155, 0.35); }
 
+        /* Hero Секция */
         .hero-container { max-width: 1200px; margin: 0 auto; padding: 90px 8% 100px; text-align: center; }
         .hero-subtitle { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-accent); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .hero-subtitle::before, .hero-subtitle::after { content: ''; width: 30px; height: 1px; background: var(--gold-accent); }
@@ -187,13 +194,15 @@
         .hero-title em { font-style: italic; color: var(--brand-blue-light); }
         .hero-desc { font-size: 18px; line-height: 1.6; color: var(--text-muted); max-width: 720px; margin: 0 auto 40px; }
 
+        /* Преимущества */
         .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-        .perk-item { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 28px; border-radius: 22px; display: flex; align-items: center; gap: 20px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .perk-item { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 28px; border-radius: 22px; display: flex; align-items: center; gap: 20px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .perk-item:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
         .perk-icon-wrapper { width: 52px; height: 52px; background: rgba(29, 93, 155, 0.08); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--gold-accent); flex-shrink: 0; transition: transform 0.3s ease; }
         .perk-item:hover .perk-icon-wrapper { transform: scale(1.25) rotate(5deg); }
         .perk-title { font-size: 15px; font-weight: 700; color: var(--brand-blue); }
 
+        /* Услуги со стикерами */
         .services-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .section-title { font-family: 'Italiana', serif; font-size: 48px; color: var(--brand-blue); margin-bottom: 50px; text-align: center; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
@@ -204,6 +213,7 @@
         .card:hover .card-sticker { transform: scale(1.3) rotate(5deg); }
         .card h3 { font-size: 15px; font-weight: 600; color: var(--brand-blue); line-height: 1.4; }
 
+        /* Отзывы */
         .reviews-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
         .review-card { background: rgba(255, 255, 255, 0.92); border: 1px solid var(--border-color); padding: 30px; border-radius: 22px; position: relative; }
@@ -214,6 +224,7 @@
         .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transition: background 0.2s; }
         .btn-delete-review:hover { background: #be123c; }
 
+        /* Формы */
         .sa-field { margin-bottom: 18px; }
         .sa-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
         .sa-select, .sa-input, .sa-textarea { width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border-color); background-color: rgba(244, 239, 230, 0.5); font-size: 14px; color: var(--text-dark); outline: none; transition: all 0.25s ease; font-family: inherit; }
@@ -235,6 +246,7 @@
         .legal-text-body p { margin-bottom: 12px; color: var(--text-muted); }
         .legal-text-body a { color: var(--brand-blue-light); text-decoration: underline; word-break: break-all; }
 
+        /* Футер */
         footer { background: var(--brand-blue); color: #FFFFFF; padding: 80px 8% 40px; margin-top: 60px; }
         .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 50px; }
         .footer-logo { font-family: 'Italiana', serif; font-size: 32px; }
@@ -243,10 +255,12 @@
         .footer-bottom { max-width: 1200px; margin: 30px auto 0; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.65); }
         .footer-bottom button { background: none; border: none; color: rgba(255,255,255,0.85); cursor: pointer; text-decoration: underline; margin-left: 20px; font-size: 13px; }
 
+        /* Модальные окна */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 22, 34, 0.75); backdrop-filter: blur(12px); z-index: 99999; align-items: center; justify-content: center; }
         .modal-content { background: #FFFFFF; padding: 40px; border-radius: 28px; max-width: 800px; width: 92%; max-height: 88vh; overflow-y: auto; position: relative; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3); }
         .modal-close { position: absolute; top: 20px; right: 25px; font-size: 26px; cursor: pointer; color: var(--text-muted); }
 
+        /* Cookie-окно */
         .cookie-modal { position: fixed; bottom: 25px; right: 25px; max-width: 380px; background: #FFFFFF; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid var(--border-color); z-index: 9999; }
         .cookie-buttons { display: flex; gap: 10px; margin-top: 15px; }
         .btn-cookie-accept { flex: 1; padding: 12px; background: var(--brand-blue); color: #fff; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
@@ -267,15 +281,18 @@
         <div class="glow-3"></div>
     </div>
 
+    <!-- Уведомление об успешной отправке или копировании -->
     <div id="toastNotification" class="toast-notification">
         <span id="toast-txt">✨ Gutscheincode CLEAN10 kopiert!</span>
     </div>
 
+    <!-- Баннер со скидкой сверху -->
     <div class="promo-banner">
         <span id="txt-promo">🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: <span class="promo-badge">CLEAN10</span></span>
         <button class="promo-btn" id="btn-copy-promo" onclick="copyCode()">Code kopieren ✨</button>
     </div>
 
+    <!-- Навигация (Hauptmenü) -->
     <header>
         <a href="#" class="logo-group">
             <div class="logo-icon-card">
@@ -291,12 +308,13 @@
             <div class="logo-text">CleanLines <span>Lysiuk</span></div>
         </a>
         <nav>
-            <a href="javascript:void(0)" id="nav-angebot" onclick="openBookingModal('General')">Angebot</a>
+            <a href="javascript:void(0)" id="nav-angebot" onclick="openModal('booking-modal')">Angebot</a>
             <a href="#services" id="nav-leistungen">Leistungen</a>
             <a href="#reviews" id="nav-bewertungen">Bewertungen</a>
             <a href="#contact" id="nav-kontakt">Kontakt</a>
         </nav>
 
+        <!-- Переключатель языков DE | EN | RU | UA -->
         <div style="display: flex; align-items: center; gap: 15px;">
             <div class="lang-switch">
                 <button class="lang-btn active" onclick="switchLanguage('de', this)">DE</button>
@@ -311,18 +329,20 @@
         </div>
     </header>
 
+    <!-- Первый экран (Hero) -->
     <main class="hero-container" data-aos="fade-up">
         <div class="hero-subtitle" id="hero-sub">Gebäudereinigung in Berlin</div>
         <h1 class="hero-title" id="hero-title">Perfekte Sauberkeit, die Ihnen <em>Zeit und Ruhe</em> schenkt.</h1>
         <p class="hero-desc" id="hero-desc">Genießen Sie ein makelloses Zuhause oder ein repräsentatives Büro. Wir kümmern uns um jedes Detail – diskret, gründlich und ganz nach Ihren Wünschen.</p>
         
         <div class="hero-actions">
-            <button class="btn-angebot-cta" id="hero-btn-cta" onclick="openBookingModal('General')">
+            <button class="btn-angebot-cta" id="hero-btn-cta" onclick="openModal('booking-modal')">
                 Jetzt Angebot anfordern ❯
             </button>
         </div>
     </main>
 
+    <!-- Преимущества -->
     <div class="perks-bar">
         <div class="perk-item" data-aos="fade-up">
             <div class="perk-icon-wrapper">✨</div>
@@ -338,56 +358,57 @@
         </div>
     </div>
 
+    <!-- Услуги со стикерами (КЛИКАБЕЛЬНЫЕ ДЛЯ АВТОЗАПОЛНЕНИЯ) -->
     <section class="services-section" id="services">
         <h2 class="section-title" id="sec-services-title">Unsere Leistungen</h2>
         <div class="services-grid">
             
-            <div class="card" data-aos="fade-up" onclick="openBookingModal('Treppenhausreinigung')">
+            <div class="card" data-aos="fade-up" onclick="openBookingWithService('srv1')">
                 <div class="card-sticker">🪜</div>
                 <h3 id="srv-1">Treppenhausreinigung</h3>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="50" onclick="openBookingModal('Privathaushalt')">
+            <div class="card" data-aos="fade-up" data-aos-delay="50" onclick="openBookingWithService('srv2')">
                 <div class="card-sticker">🏡</div>
                 <h3 id="srv-2">Reinigung von Privathaushalten & Wohnungen</h3>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="100" onclick="openBookingModal('Büroreinigung')">
+            <div class="card" data-aos="fade-up" data-aos-delay="100" onclick="openBookingWithService('srv3')">
                 <div class="card-sticker">🏢</div>
                 <h3 id="srv-3">Büroreinigung</h3>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="150" onclick="openBookingModal('Kita & Schule')">
+            <div class="card" data-aos="fade-up" data-aos-delay="150" onclick="openBookingWithService('srv4')">
                 <div class="card-sticker">🏫</div>
                 <h3 id="srv-4">Kita- und Schulreinigung</h3>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="200" onclick="openBookingModal('Firmenfeiern')">
+            <div class="card" data-aos="fade-up" data-aos-delay="200" onclick="openBookingWithService('srv5')">
                 <div class="card-sticker">🎉</div>
                 <h3 id="srv-5">Reinigung nach Firmenfeiern</h3>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="250" onclick="openBookingModal('Bauendreinigung')">
+            <div class="card" data-aos="fade-up" data-aos-delay="250" onclick="openBookingWithService('srv6')">
                 <div class="card-sticker">🏗️</div>
                 <h3 id="srv-6">Bauendreinigung</h3>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="300" onclick="openBookingModal('Fensterreinigung')">
+            <div class="card" data-aos="fade-up" data-aos-delay="300" onclick="openBookingWithService('srv7')">
                 <div class="card-sticker">🪟</div>
                 <h3 id="srv-7">Fensterreinigung</h3>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="350" onclick="openBookingModal('Umzugsreinigung')">
+            <div class="card" data-aos="fade-up" data-aos-delay="350" onclick="openBookingWithService('srv8')">
                 <div class="card-sticker">📦</div>
                 <h3 id="srv-8">Umzugsreinigung mit Abnahmegarantie</h3>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="400" onclick="openBookingModal('Spezialreinigung')">
+            <div class="card" data-aos="fade-up" data-aos-delay="400" onclick="openBookingWithService('srv9')">
                 <div class="card-sticker">🧹</div>
                 <h3 id="srv-9">Reinigung nach Todesfall/Messie-Haushalt</h3>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="450" onclick="openBookingModal('Hausmeisterservice')">
+            <div class="card" data-aos="fade-up" data-aos-delay="450" onclick="openBookingWithService('srv10')">
                 <div class="card-sticker">🔧</div>
                 <h3 id="srv-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</h3>
             </div>
@@ -395,6 +416,7 @@
         </div>
     </section>
 
+    <!-- Отзывы -->
     <section class="reviews-section" id="reviews">
         <h2 class="section-title" id="sec-reviews-title">Kundenbewertungen</h2>
         <div class="reviews-grid" id="reviewsContainer"></div>
@@ -406,6 +428,7 @@
         </div>
     </section>
 
+    <!-- Футер -->
     <footer id="contact">
         <div class="footer-content">
             <div>
@@ -428,16 +451,17 @@
         </div>
     </footer>
 
-    <!-- ЕДИНАЯ АДАПТИВНАЯ ФОРМА ЗАЯВКИ С ВЫПАДАЮЩИМ СПИСКОМ -->
+    <!-- МОДАЛЬНОЕ ОКНО: ОСНОВНАЯ ФОРМА ЗАЯВКИ С AJAX -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
             <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('booking-modal')">← Zurück zur Hauptseite</button>
             <h2 style="font-family: 'Italiana', serif; font-size: 34px; color: var(--brand-blue); margin-bottom: 25px; text-align: center;" id="modal-form-title">Unverbindliches Angebot anfordern</h2>
             
-            <form action="https://api.web3forms.com/submit" method="POST">
+            <form id="main-booking-form">
+                <!-- Твой API Ключ Web3Forms -->
                 <input type="hidden" name="access_key" value="1923227f-04e3-4ae4-8a3e-7fdf190789cd">
-                <input type="hidden" name="subject" id="form-subject-input" value="Neue Reinigungsanfrage">
+                <input type="hidden" name="subject" value="Neue Reinigungsanfrage von der Website">
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                     <div>
@@ -496,20 +520,21 @@
                             </select>
                         </div>
 
-                        <!-- REINIGUNGSART ТЕПЕРЬ SELECT СПИСОК -->
+                        <!-- ВИД УБОРКИ КАК ВЫПАДАЮЩИЙ СПИСОК (АВТОМАТИЧЕСКИ ВЫБИРАЕТСЯ ПО КЛИКУ НА КАРТОЧКУ) -->
                         <div class="sa-field" style="margin-top: 15px;">
                             <label class="sa-label" id="lbl-type">Reinigungsart</label>
-                            <select name="Reinigungsart" id="service-select-dropdown" class="sa-select">
-                                <option value="Treppenhausreinigung" class="srv-opt-1">Treppenhausreinigung</option>
-                                <option value="Privathaushalt" class="srv-opt-2">Reinigung von Privathaushalten & Wohnungen</option>
-                                <option value="Büroreinigung" class="srv-opt-3">Büroreinigung</option>
-                                <option value="Kita & Schule" class="srv-opt-4">Kita- und Schulreinigung</option>
-                                <option value="Firmenfeiern" class="srv-opt-5">Reinigung nach Firmenfeiern</option>
-                                <option value="Bauendreinigung" class="srv-opt-6">Bauendreinigung</option>
-                                <option value="Fensterreinigung" class="srv-opt-7">Fensterreinigung</option>
-                                <option value="Umzugsreinigung" class="srv-opt-8">Umzugsreinigung mit Abnahmegarantie</option>
-                                <option value="Spezialreinigung" class="srv-opt-9">Reinigung nach Todesfall/Messie-Haushalt</option>
-                                <option value="Hausmeisterservice" class="srv-opt-10">Hausmeisterservice</option>
+                            <select name="Reinigungsart" id="service-select" class="sa-select">
+                                <option value="Bitte wählen..." id="opt-srv-0">Bitte wählen...</option>
+                                <option value="Treppenhausreinigung" id="opt-srv-1">Treppenhausreinigung</option>
+                                <option value="Reinigung von Privathaushalten & Wohnungen" id="opt-srv-2">Reinigung von Privathaushalten & Wohnungen</option>
+                                <option value="Büroreinigung" id="opt-srv-3">Büroreinigung</option>
+                                <option value="Kita- und Schulreinigung" id="opt-srv-4">Kita- und Schulreinigung</option>
+                                <option value="Reinigung nach Firmenfeiern" id="opt-srv-5">Reinigung nach Firmenfeiern</option>
+                                <option value="Bauendreinigung" id="opt-srv-6">Bauendreinigung</option>
+                                <option value="Fensterreinigung" id="opt-srv-7">Fensterreinigung</option>
+                                <option value="Umzugsreinigung mit Abnahmegarantie" id="opt-srv-8">Umzugsreinigung mit Abnahmegarantie</option>
+                                <option value="Reinigung nach Todesfall/Messie-Haushalt" id="opt-srv-9">Reinigung nach Todesfall/Messie-Haushalt</option>
+                                <option value="Hausmeisterservice" id="opt-srv-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</option>
                             </select>
                         </div>
 
@@ -527,7 +552,7 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО: СКИДКА О ТЕПЕРЬ ТОЖЕ ОТПРАВЛЯЕТСЯ НА ПОЧТУ -->
+    <!-- МОДАЛЬНОЕ ОКНО: ФОРМА ДЛЯ СКИДКИ С ОТПРАВКОЙ НА EMAIL -->
     <div id="discount-modal" class="modal">
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('discount-modal')">&times;</span>
@@ -535,15 +560,17 @@
             <h3 style="font-family:'Italiana'; font-size:36px; color:var(--brand-blue); margin: 15px 0 10px;" id="disc-title">10% Rabatt sichern</h3>
             <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;" id="disc-desc">Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.</p>
             
-            <form action="https://api.web3forms.com/submit" method="POST" onsubmit="activateDiscountForm(event)">
+            <form id="discount-form">
+                <!-- Тот же API Ключ -->
                 <input type="hidden" name="access_key" value="1923227f-04e3-4ae4-8a3e-7fdf190789cd">
-                <input type="hidden" name="subject" value="Gutscheincode CLEAN10 angefordert!">
-                <input type="email" name="email" id="discountEmail" class="sa-input" required placeholder="name@domain.de" style="margin-bottom: 12px;">
+                <input type="hidden" name="subject" value="Neuer Lead: Kunde möchte 10% Rabatt">
+                <input type="email" name="email" class="sa-input" required placeholder="name@domain.de" style="margin-bottom: 12px;">
                 <button type="submit" class="sa-submit-btn" id="btn-disc-act">Rabattcode aktivieren ✨</button>
             </form>
         </div>
     </div>
 
+    <!-- МОДАЛЬНОЕ ОКНО: ДОБАВЛЕНИЕ ОТЗЫВА -->
     <div id="review-modal" class="modal">
         <div class="modal-content" style="max-width: 500px;">
             <span class="modal-close" onclick="closeModal('review-modal')">&times;</span>
@@ -577,6 +604,7 @@
         </div>
     </div>
 
+    <!-- Окно Звонка -->
     <div id="call-modal" class="modal">
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('call-modal')">&times;</span>
@@ -587,6 +615,7 @@
         </div>
     </div>
 
+    <!-- Impressum Modal -->
     <div id="impressum-modal" class="modal">
         <div class="modal-content legal-text-body" style="max-width: 700px;">
             <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
@@ -594,552 +623,436 @@
             <h3 style="font-family:'Italiana'; font-size:36px; margin-bottom:20px; color:var(--brand-blue);">Impressum</h3>
             
             <h4>Angaben gemäß § 5 TMG</h4>
-            <p><strong>Diensteanbieter:</strong><br>
-            CleanLines Lysiuk<br>
-            Professionelle Reinigungsdienste</p>
-
-            <p><strong>Vertreten durch:</strong><br>
-            Liliia Lysiuk</p>
-
+            <p><strong>Diensteanbieter:</strong><br>CleanLines Lysiuk<br>Professionelle Reinigungsdienste</p>
+            <p><strong>Vertreten durch:</strong><br>Liliia Lysiuk</p>
             <h4>Kontakt</h4>
-            <p>Telefon: +49 1578 107 3234<br>
-            E-Mail: <a href="mailto:lysiuk.cleanlines@gmail.com">lysiuk.cleanlines@gmail.com</a></p>
-
-            <p><strong>Servicegebiet:</strong> Berlin und Umgebung</p>
-
-            <h4>EU-Streitschlichtung</h4>
-            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>.<br>
-            Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
-
-            <h4>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h4>
-            <p>Wir sind nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-
-            <h4>Verantwortlich für den Inhalt</h4>
-            <p>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
-            Liliia Lysiuk</p>
-
-            <h4>Haftungsausschluss</h4>
-            <p><strong>Haftung für Inhalte:</strong><br>
-            Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als DiensteanВсё сделано, учла каждую деталь и все идеи от Димы! 
-
-### Что изменено и доработано:
-
-1. **REINIGUNGSART теперь выпадающий список (`<select>`)**:
-   * Больше никаких чекбоксов. Поле сделано выпадающим списком ровно в таком же стиле, как и `GEWÜNSCHTE HÄUFIGKEIT`.
-
-2. **Индивидуальная заявка под каждую услугу (из Leistungen)**:
-   * При клике на карточку услуги (например, *«Fensterreinigung»*) открывается модальная форма, где заголовок автоматически меняется на название этой услуги, а в выпадающем списке `REINIGUNGSART` сразу выбирается именно она.
-   * При отправке формы на Web3Forms уходит скрытое поле с точным названием услуги.
-
-3. **Отправка формы скидки на имейл**:
-   * Окно скидки 10% превращено в полноценную Web3Forms-форму с твоим ключом (`1923227f-04e3-4ae4-8a3e-7fdf190789cd`).
-   * Когда пользователь вводит e-mail и нажимает «Активировать», данные отправляются тебе на имейл, промокод копируется в буфер, а клиенту показывается подтверждение.
-
-4. **Ключ Web3Forms вшит**:
-   * Твой ключ `1923227f-04e3-4ae4-8a3e-7fdf190789cd` интегрирован во все формы отправки.
-
-Код полностью собран и проверен на отсутствие синтаксических ошибок:
-
-```html
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleanLines Lysiuk | Gebäudereinigung in Berlin</title>
-    
-    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-    <link href="[https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="[https://unpkg.com/aos@next/dist/aos.css](https://unpkg.com/aos@next/dist/aos.css)" />
-    
-    <style>
-        :root {
-            --bg-warm: #F4EFE6;
-            --brand-blue: #0F2A4A;
-            --brand-blue-light: #1D5D9B;
-            --gold-accent: #B88E3D;
-            --text-dark: #0D1622;
-            --text-muted: #4A5868;
-            --border-color: rgba(184, 142, 61, 0.45);
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        
-        body {
-            background-color: var(--bg-warm);
-            color: var(--text-dark);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            position: relative;
-        }
-
-        .bg-glow-container {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
-            background: linear-gradient(135deg, #F9F6F0 0%, #E8E0D2 100%);
-        }
-
-        .glow-1, .glow-2, .glow-3 {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(50px);
-            opacity: 0.85;
-            animation: floatGlow 7s infinite alternate ease-in-out;
-        }
-
-        .glow-1 {
-            width: 700px; height: 700px;
-            background: radial-gradient(circle, rgba(29, 93, 155, 0.25) 0%, rgba(244, 239, 230, 0) 70%);
-            top: -150px; left: -150px;
-        }
-
-        .glow-2 {
-            width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(184, 142, 61, 0.35) 0%, rgba(244, 239, 230, 0) 70%);
-            bottom: -200px; right: -200px;
-            animation-delay: -3.5s;
-        }
-
-        .glow-3 {
-            width: 550px; height: 550px;
-            background: radial-gradient(circle, rgba(15, 42, 74, 0.2) 0%, rgba(244, 239, 230, 0) 70%);
-            top: 35%; left: 25%;
-            animation: floatGlowReverse 9s infinite alternate ease-in-out;
-        }
-
-        @keyframes floatGlow {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(120px, 70px) scale(1.15); }
-            100% { transform: translate(-60px, 120px) scale(0.95); }
-        }
-
-        @keyframes floatGlowReverse {
-            0% { transform: translate(0, 0) scale(0.9); }
-            50% { transform: translate(-100px, -60px) scale(1.12); }
-            100% { transform: translate(80px, -90px) scale(1); }
-        }
-
-        .toast-notification {
-            position: fixed; top: 25px; right: 25px; background: var(--brand-blue); color: #FFFFFF;
-            padding: 14px 24px; border-radius: 12px; border: 1px solid var(--gold-accent);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25); font-size: 14px; font-weight: 600;
-            z-index: 999999; display: none; align-items: center; gap: 10px; animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .promo-banner {
-            background: var(--brand-blue); color: #FAF8F5; padding: 12px 8%; text-align: center;
-            font-size: 13px; font-weight: 500; display: flex; justify-content: center; align-items: center;
-            gap: 15px; flex-wrap: wrap; border-bottom: 1px solid var(--border-color);
-        }
-
-        .promo-badge { background: var(--gold-accent); color: #0D1622; padding: 4px 12px; border-radius: 20px; font-weight: 700; letter-spacing: 0.5px; }
-        .promo-btn {
-            background: #FFFFFF; color: var(--brand-blue); padding: 6px 16px; border-radius: 20px;
-            font-weight: 700; font-size: 12px; cursor: pointer; border: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .promo-btn:hover { transform: scale(1.08); background: #FAF8F5; box-shadow: 0 4px 12px rgba(255,255,255,0.3); }
-
-        header {
-            display: flex; justify-content: space-between; align-items: center; padding: 20px 8%;
-            background: rgba(244, 239, 230, 0.92); backdrop-filter: blur(16px); position: sticky;
-            top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color);
-        }
-
-        .logo-group { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        
-        .logo-icon-card {
-            width: 46px; height: 46px; background: #FFFFFF; border: 1.8px solid var(--brand-blue-light);
-            border-radius: 12px; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 12px rgba(15, 42, 74, 0.12); transition: transform 0.3s ease;
-            padding: 4px;
-        }
-        .logo-group:hover .logo-icon-card { transform: scale(1.08) rotate(3deg); }
-
-        .logo-text { font-family: 'Italiana', serif; font-size: 28px; font-weight: 700; color: var(--brand-blue); letter-spacing: -0.3px; }
-        .logo-text span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 300; color: var(--text-muted); }
-
-        nav { display: flex; align-items: center; gap: 25px; }
-        nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 600; transition: color 0.2s; }
-        nav a:hover { color: var(--brand-blue-light); }
-
-        .lang-switch {
-            display: flex;
-            align-items: center;
-            background: rgba(15, 42, 74, 0.06);
-            padding: 4px 8px;
-            border-radius: 20px;
-            gap: 4px;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .lang-btn {
-            border: none;
-            background: none;
-            color: var(--text-muted);
-            cursor: pointer;
-            padding: 4px 8px;
-            border-radius: 12px;
-            transition: all 0.25s ease;
-        }
-
-        .lang-btn.active {
-            background: var(--brand-blue);
-            color: #FFFFFF;
-            box-shadow: 0 2px 8px rgba(15, 42, 74, 0.2);
-        }
-
-        .btn-call {
-            background: var(--brand-blue); color: #FFFFFF; padding: 12px 24px; border-radius: 30px;
-            text-decoration: none; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center;
-            gap: 10px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 4px 15px rgba(15, 42, 74, 0.25); cursor: pointer; border: none;
-        }
-        .btn-call:hover { background: var(--brand-blue-light); transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 25px rgba(29, 93, 155, 0.4); }
-
-        .btn-angebot-cta {
-            background: var(--brand-blue); color: #FFFFFF; padding: 16px 36px; border-radius: 12px;
-            font-size: 16px; font-weight: 700; border: 1.5px solid var(--gold-accent); cursor: pointer;
-            display: inline-flex; align-items: center; gap: 12px; transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 8px 25px rgba(15, 42, 74, 0.3);
-        }
-        .btn-angebot-cta:hover { background: var(--brand-blue-light); transform: translateY(-4px) scale(1.05); box-shadow: 0 14px 35px rgba(184, 142, 61, 0.45); }
-
-        .btn-back-home {
-            background-color: var(--brand-blue); color: #FFFFFF; padding: 12px 22px; border-radius: 10px;
-            font-size: 14px; font-weight: 600; border: none; cursor: pointer; display: inline-flex;
-            align-items: center; gap: 10px; margin-bottom: 25px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none;
-            box-shadow: 0 4px 15px rgba(15, 42, 74, 0.2);
-        }
-        .btn-back-home:hover { background-color: var(--brand-blue-light); transform: translateX(-4px) scale(1.03); box-shadow: 0 8px 22px rgba(29, 93, 155, 0.35); }
-
-        .hero-container { max-width: 1200px; margin: 0 auto; padding: 90px 8% 100px; text-align: center; }
-        .hero-subtitle { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-accent); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .hero-subtitle::before, .hero-subtitle::after { content: ''; width: 30px; height: 1px; background: var(--gold-accent); }
-        .hero-title { font-family: 'Italiana', serif; font-size: 68px; line-height: 1.1; font-weight: 400; color: var(--brand-blue); margin-bottom: 24px; }
-        .hero-title em { font-style: italic; color: var(--brand-blue-light); }
-        .hero-desc { font-size: 18px; line-height: 1.6; color: var(--text-muted); max-width: 720px; margin: 0 auto 40px; }
-
-        .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-        .perk-item { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 28px; border-radius: 22px; display: flex; align-items: center; gap: 20px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
-        .perk-item:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
-        .perk-icon-wrapper { width: 52px; height: 52px; background: rgba(29, 93, 155, 0.08); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--gold-accent); flex-shrink: 0; transition: transform 0.3s ease; }
-        .perk-item:hover .perk-icon-wrapper { transform: scale(1.25) rotate(5deg); }
-        .perk-title { font-size: 15px; font-weight: 700; color: var(--brand-blue); }
-
-        .services-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
-        .section-title { font-family: 'Italiana', serif; font-size: 48px; color: var(--brand-blue); margin-bottom: 50px; text-align: center; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
-
-        .card { background: #FFFFFF; border: 1px solid rgba(15, 42, 74, 0.12); padding: 24px 28px; border-radius: 16px; display: flex; align-items: center; gap: 18px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
-        .card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
-        .card-sticker { font-size: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s ease; }
-        .card:hover .card-sticker { transform: scale(1.3) rotate(5deg); }
-        .card h3 { font-size: 15px; font-weight: 600; color: var(--brand-blue); line-height: 1.4; }
-
-        .reviews-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
-        .review-card { background: rgba(255, 255, 255, 0.92); border: 1px solid var(--border-color); padding: 30px; border-radius: 22px; position: relative; }
-        .review-stars { color: var(--gold-accent); font-size: 18px; margin-bottom: 15px; }
-        .review-text { font-size: 15px; line-height: 1.6; color: var(--text-dark); margin-bottom: 20px; font-style: italic; }
-        .review-author { font-size: 14px; font-weight: 700; color: var(--brand-blue); }
-
-        .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transition: background 0.2s; }
-        .btn-delete-review:hover { background: #be123c; }
-
-        .sa-field { margin-bottom: 18px; }
-        .sa-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
-        .sa-select, .sa-input, .sa-textarea { width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border-color); background-color: rgba(244, 239, 230, 0.5); font-size: 14px; color: var(--text-dark); outline: none; transition: all 0.25s ease; font-family: inherit; }
-        .sa-select:focus, .sa-input:focus, .sa-textarea:focus { border-color: var(--brand-blue-light); background-color: #FFFFFF; box-shadow: 0 0 0 4px rgba(29, 93, 155, 0.08); }
-        .checkbox-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 6px; }
-        .checkbox-label { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; color: var(--text-dark); }
-        .sa-submit-btn {
-            width: 100%; background-color: var(--brand-blue); color: #FFFFFF; padding: 16px; border-radius: 25px;
-            font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .sa-submit-btn:hover { background-color: var(--brand-blue-light); transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 25px rgba(15, 42, 74, 0.3); }
-
-        .star-rating { display: flex; gap: 8px; font-size: 28px; cursor: pointer; color: #cbd5e1; margin-bottom: 15px; }
-        .star-rating .star.active { color: var(--gold-accent); }
-        .secret-admin-trigger { cursor: pointer; user-select: none; }
-
-        .legal-text-body { font-size: 14px; color: var(--text-dark); line-height: 1.7; }
-        .legal-text-body h4 { color: var(--brand-blue); margin: 20px 0 8px; font-size: 16px; font-weight: 700; }
-        .legal-text-body p { margin-bottom: 12px; color: var(--text-muted); }
-        .legal-text-body a { color: var(--brand-blue-light); text-decoration: underline; word-break: break-all; }
-
-        footer { background: var(--brand-blue); color: #FFFFFF; padding: 80px 8% 40px; margin-top: 60px; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 50px; }
-        .footer-logo { font-family: 'Italiana', serif; font-size: 32px; }
-        .footer-contacts p { margin-bottom: 10px; color: rgba(255,255,255,0.85); font-size: 15px; }
-        .footer-contacts a { color: #FFFFFF; text-decoration: none; font-weight: 600; }
-        .footer-bottom { max-width: 1200px; margin: 30px auto 0; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.65); }
-        .footer-bottom button { background: none; border: none; color: rgba(255,255,255,0.85); cursor: pointer; text-decoration: underline; margin-left: 20px; font-size: 13px; }
-
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 22, 34, 0.75); backdrop-filter: blur(12px); z-index: 99999; align-items: center; justify-content: center; }
-        .modal-content { background: #FFFFFF; padding: 40px; border-radius: 28px; max-width: 800px; width: 92%; max-height: 88vh; overflow-y: auto; position: relative; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3); }
-        .modal-close { position: absolute; top: 20px; right: 25px; font-size: 26px; cursor: pointer; color: var(--text-muted); }
-
-        .cookie-modal { position: fixed; bottom: 25px; right: 25px; max-width: 380px; background: #FFFFFF; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid var(--border-color); z-index: 9999; }
-        .cookie-buttons { display: flex; gap: 10px; margin-top: 15px; }
-        .btn-cookie-accept { flex: 1; padding: 12px; background: var(--brand-blue); color: #fff; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-        .btn-cookie-accept:hover { background: var(--brand-blue-light); }
-        .btn-cookie-deny { flex: 1; padding: 12px; background: #E8E0D2; color: var(--text-dark); border: none; border-radius: 12px; font-weight: 600; cursor: pointer; }
-
-        @media (max-width: 992px) {
-            .hero-title { font-size: 44px; }
-            nav { display: none; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="bg-glow-container">
-        <div class="glow-1"></div>
-        <div class="glow-2"></div>
-        <div class="glow-3"></div>
-    </div>
-
-    <div id="toastNotification" class="toast-notification">
-        <span id="toast-txt">✨ Gutscheincode CLEAN10 kopiert!</span>
-    </div>
-
-    <div class="promo-banner">
-        <span id="txt-promo">🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: <span class="promo-badge">CLEAN10</span></span>
-        <button class="promo-btn" id="btn-copy-promo" onclick="copyCode()">Code kopieren ✨</button>
-    </div>
-
-    <header>
-        <a href="#" class="logo-group">
-            <div class="logo-icon-card">
-                <svg viewBox="0 0 100 100" width="34" height="34" fill="none">
-                    <path d="M42 5 L47 25 L67 30 L47 35 L42 55 L37 35 L17 30 L37 25 Z" fill="#1D5D9B"/>
-                    <path d="M72 10 L75 22 L95 25 L75 28 L72 40 L69 28 L49 25 L69 22 Z" fill="#1D5D9B"/>
-                    <path d="M78 45 L80 53 L92 55 L80 57 L78 65 L76 57 L64 55 L76 53 Z" fill="#1D5D9B"/>
-                    <path d="M12 48 L82 25 L76 15 L6 38 Z" fill="#1D5D9B"/>
-                    <path d="M10 50 L84 26" stroke="#0F2A4A" stroke-width="4" stroke-linecap="round"/>
-                    <path d="M38 40 L18 85 L28 89 L48 44 Z" fill="#1D5D9B"/>
-                </svg>
-            </div>
-            <div class="logo-text">CleanLines <span>Lysiuk</span></div>
-        </a>
-        <nav>
-            <a href="javascript:void(0)" id="nav-angebot" onclick="openServiceBooking('')">Angebot</a>
-            <a href="#services" id="nav-leistungen">Leistungen</a>
-            <a href="#reviews" id="nav-bewertungen">Bewertungen</a>
-            <a href="#contact" id="nav-kontakt">Kontakt</a>
-        </nav>
-
-        <div style="display: flex; align-items: center; gap: 15px;">
-            <div class="lang-switch">
-                <button class="lang-btn active" onclick="switchLanguage('de', this)">DE</button>
-                <button class="lang-btn" onclick="switchLanguage('en', this)">EN</button>
-                <button class="lang-btn" onclick="switchLanguage('ru', this)">RU</button>
-                <button class="lang-btn" onclick="switchLanguage('ua', this)">UA</button>
-            </div>
-
-            <button class="btn-call" id="btn-header-call" onclick="openModal('call-modal')">
-                📞 Jetzt anrufen
-            </button>
-        </div>
-    </header>
-
-    <main class="hero-container" data-aos="fade-up">
-        <div class="hero-subtitle" id="hero-sub">Gebäudereinigung in Berlin</div>
-        <h1 class="hero-title" id="hero-title">Perfekte Sauberkeit, die Ihnen <em>Zeit und Ruhe</em> schenkt.</h1>
-        <p class="hero-desc" id="hero-desc">Genießen Sie ein makelloses Zuhause oder ein repräsentatives Büro. Wir kümmern uns um jedes Detail – diskret, gründlich und ganz nach Ihren Wünschen.</p>
-        
-        <div class="hero-actions">
-            <button class="btn-angebot-cta" id="hero-btn-cta" onclick="openServiceBooking('')">
-                Jetzt Angebot anfordern ❯
-            </button>
-        </div>
-    </main>
-
-    <div class="perks-bar">
-        <div class="perk-item" data-aos="fade-up">
-            <div class="perk-icon-wrapper">✨</div>
-            <div class="perk-title" id="perk-1">Zuverlässig</div>
-        </div>
-        <div class="perk-item" data-aos="fade-up" data-aos-delay="100">
-            <div class="perk-icon-wrapper">🗝️</div>
-            <div class="perk-title" id="perk-2">Gründlich</div>
-        </div>
-        <div class="perk-item" data-aos="fade-up" data-aos-delay="200">
-            <div class="perk-icon-wrapper">🌱</div>
-            <div class="perk-title" id="perk-3">Pünktlich</div>
+            <p>Telefon: +49 1578 107 3234<br>E-Mail: <a href="mailto:lysiuk.cleanlines@gmail.com">lysiuk.cleanlines@gmail.com</a></p>
+            <p style="margin-top:20px; font-size: 12px; color: var(--text-muted);">Stand: Januar 2025</p>
         </div>
     </div>
 
-    <section class="services-section" id="services">
-        <h2 class="section-title" id="sec-services-title">Unsere Leistungen</h2>
-        <div class="services-grid">
+    <!-- Datenschutzerklärung Modal -->
+    <div id="datenschutz-modal" class="modal">
+        <div class="modal-content legal-text-body" style="max-width: 750px;">
+            <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
+            <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('datenschutz-modal')">← Zurück zur Hauptseite</button>
+            <h3 style="font-family:'Italiana'; font-size:36px; margin-bottom:20px; color:var(--brand-blue);">Datenschutzerklärung</h3>
+            <h4>1. Datenschutz auf einen Blick</h4>
+            <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen.</p>
+            <h4>2. Verantwortlicher für die Datenverarbeitung</h4>
+            <p><strong>CleanLines Lysiuk</strong><br>Liliia Lysiuk<br>E-Mail: lysiuk.cleanlines@gmail.com<br>Telefon: +49 1578 107 3234</p>
+        </div>
+    </div>
+
+    <!-- Cookie-окно -->
+    <div class="cookie-modal" id="cookieModal">
+        <h4 style="font-size: 16px; color: var(--brand-blue); margin-bottom: 6px;" id="ck-title">Einwilligung zu Cookies</h4>
+        <p style="font-size: 12px; color: var(--text-muted);" id="ck-desc">Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.</p>
+        <div class="cookie-buttons">
+            <button class="btn-cookie-deny" id="ck-deny" onclick="closeCookie()">Ablehnen</button>
+            <button class="btn-cookie-accept" id="ck-accept" onclick="closeCookie()">Alle akzeptieren</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: false });
+
+        let selectedStars = 5;
+        let isAdmin = false;
+        let currentLang = 'de';
+
+        /* МУЛЬТИЯЗЫЧНОСТЬ */
+        const translations = {
+            de: {
+                promoText: "🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: <span class=\"promo-badge\">CLEAN10</span>",
+                toastCopy: "✨ Gutscheincode CLEAN10 kopiert!",
+                toastSuccess: "✨ Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet.",
+                toastWait: "⏳ Senden...",
+                copyBtn: "Code kopieren ✨",
+                angebot: "Angebot", leistungen: "Leistungen", bewertungen: "Bewertungen", kontakt: "Kontakt",
+                callBtn: "📞 Jetzt anrufen", sub: "Gebäudereinigung in Berlin",
+                title: "Perfekte Sauberkeit, die Ihnen <em>Zeit und Ruhe</em> schenkt.",
+                desc: "Genießen Sie ein makelloses Zuhause oder ein repräsentatives Büro. Wir kümmern uns um jedes Detail – diskret, gründlich und ganz nach Ihren Wünschen.",
+                cta: "Jetzt Angebot anfordern ❯", p1: "Zuverlässig", p2: "Gründlich", p3: "Pünktlich",
+                secServ: "Unsere Leistungen", secRev: "Kundenbewertungen", writeRev: "✍️ Bewertung auf der Website schreiben",
+                backHome: "← Zurück zur Hauptseite", modalForm: "Unverbindliches Angebot anfordern", btnFormSubmit: "Unverbindlich Angebot anfordern →",
+                
+                lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblCity: "Ort", lblPhone: "Telefon",
+                lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen / Gutscheincode",
+                dMon: "Montag", dTue: "Dienstag", dWed: "Mittwoch", dThu: "Donnerstag", dFri: "Freitag", dSat: "Samstag",
+                optOnce: "Einmalig", optWeek: "Wöchentlich", opt2Week: "Alle 2 Wochen", optMonth: "Monatlich",
+                optSrv0: "Bitte wählen...",
+                
+                discTitle: "10% Rabatt sichern", discDesc: "Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.", btnDiscAct: "Rabattcode aktivieren ✨",
+                revModalTitle: "Bewertung schreiben", lblStarRev: "Ihre Bewertung (Sterne)", lblRevName: "Ihr Name *", lblRevCity: "Ihre Stadt / Stadtteil", lblRevText: "Ihre Erfahrung *", btnPubRev: "Bewertung veröffentlichen ✨",
+                modalCallTitle: "Kontakttelefon", modalCallTime: "Montag bis Samstag von 08:00 bis 20:00 Uhr", modalCallWa: "💬 Jetzt auf WhatsApp schreiben",
+                ckTitle: "Einwilligung zu Cookies", ckDesc: "Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.", ckDeny: "Ablehnen", ckAccept: "Alle akzeptieren",
+                
+                srv1: "Treppenhausreinigung", srv2: "Reinigung von Privathaushalten & Wohnungen", srv3: "Büroreinigung", srv4: "Kita- und Schulreinigung", srv5: "Reinigung nach Firmenfeiern",
+                srv6: "Bauendreinigung", srv7: "Fensterreinigung", srv8: "Umzugsreinigung mit Abnahmegarantie", srv9: "Reinigung nach Todesfall/Messie-Haushalt", srv10: "Hausmeisterservice (kleine Reparaturen / Kontrolle)",
+                ftDesc: "Professionelle Reinigungsdienste in Berlin & Umgebung", ftArea: "📍 Servicegebiet: Berlin und Umgebung"
+            },
+            en: {
+                promoText: "🎁 Get 10% discount on your first cleaning with code: <span class=\"promo-badge\">CLEAN10</span>",
+                toastCopy: "✨ Promo code CLEAN10 copied!",
+                toastSuccess: "✨ Thank you! Your request was sent successfully.",
+                toastWait: "⏳ Sending...",
+                copyBtn: "Copy code ✨",
+                angebot: "Offer", leistungen: "Services", bewertungen: "Reviews", kontakt: "Contact",
+                callBtn: "📞 Call now", sub: "Cleaning services in Berlin",
+                title: "Flawless cleanliness that brings you <em>time and peace of mind</em>.",
+                desc: "Enjoy an immaculate home or a prestigious office. We take care of every detail – discreetly, thoroughly, and tailored to your needs.",
+                cta: "Request a quote now ❯", p1: "Reliable", p2: "Thorough", p3: "Punctual",
+                secServ: "Our Services", secRev: "Customer Reviews", writeRev: "✍️ Write a review on the website",
+                backHome: "← Back to Main Page", modalForm: "Request a free quote", btnFormSubmit: "Request quote without obligation →",
+                
+                lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblCity: "City", lblPhone: "Phone",
+                lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblNotes: "Notes / Promo Code",
+                dMon: "Monday", dTue: "Tuesday", dWed: "Wednesday", dThu: "Thursday", dFri: "Friday", dSat: "Saturday",
+                optOnce: "One-time", optWeek: "Weekly", opt2Week: "Every 2 weeks", optMonth: "Monthly",
+                optSrv0: "Please select...",
+                
+                discTitle: "Get 10% Discount", discDesc: "Enter your email address and get your promo code.", btnDiscAct: "Activate promo code ✨",
+                revModalTitle: "Write a review", lblStarRev: "Your Rating (Stars)", lblRevName: "Your Name *", lblRevCity: "Your City / District", lblRevText: "Your Experience *", btnPubRev: "Publish Review ✨",
+                modalCallTitle: "Contact Phone", modalCallTime: "Monday to Saturday from 08:00 to 20:00", modalCallWa: "💬 Message on WhatsApp now",
+                ckTitle: "Cookie Consent", ckDesc: "We use cookies to ensure you get the best experience on our website.", ckDeny: "Decline", ckAccept: "Accept All",
+                
+                srv1: "Staircase Cleaning", srv2: "Cleaning of Private Households & Apartments", srv3: "Office Cleaning", srv4: "Kindergarten & School Cleaning", srv5: "After-Party Cleaning",
+                srv6: "Post-Construction Cleaning", srv7: "Window Cleaning", srv8: "Move-Out Cleaning with Guarantee", srv9: "Extreme & Messie Cleaning", srv10: "Caretaker Service (Small Repairs / Inspection)",
+                ftDesc: "Professional cleaning services in Berlin & surrounding area", ftArea: "📍 Service Area: Berlin and surrounding area"
+            },
+            ru: {
+                promoText: "🎁 Получите скидку 10% на первую уборку по промокоду: <span class=\"promo-badge\">CLEAN10</span>",
+                toastCopy: "✨ Промокод CLEAN10 скопирован!",
+                toastSuccess: "✨ Спасибо! Ваша заявка успешно отправлена.",
+                toastWait: "⏳ Отправка...",
+                copyBtn: "Скопировать код ✨",
+                angebot: "Заявка", leistungen: "Услуги", bewertungen: "Отзывы", kontakt: "Контакты",
+                callBtn: "📞 Позвонить сейчас", sub: "Услуги клининга в Берлине",
+                title: "Идеальная чистота, которая подарит вам <em>время и уют</em>.",
+                desc: "Наслаждайтесь безупречным домом или представительским офисом. Мы позаботимся о каждой детали — незаметно, тщательно и по вашим пожеланиям.",
+                cta: "Рассчитать стоимость ❯", p1: "Надежно", p2: "Тщательно", p3: "Пунктуально",
+                secServ: "Наши услуги", secRev: "Отзывы клиентов", writeRev: "✍️ Написать отзыв на сайте",
+                backHome: "← Вернуться на главную", modalForm: "Запросить бесплатный расчет", btnFormSubmit: "Отправить заявку →",
+                
+                lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblCity: "Город", lblPhone: "Телефон",
+                lblDays: "День уборки", lblFreq: "Периодичность", lblType: "Вид уборки", lblNotes: "Примечания / Промокод",
+                dMon: "Понедельник", dTue: "Вторник", dWed: "Среда", dThu: "Четверг", dFri: "Пятница", dSat: "Суббота",
+                optOnce: "Разово", optWeek: "Еженедельно", opt2Week: "Раз в 2 недели", optMonth: "Ежемесячно",
+                optSrv0: "Пожалуйста, выберите...",
+                
+                discTitle: "Скидка 10%", discDesc: "Введите ваш e-mail и активируйте промокод.", btnDiscAct: "Активировать код ✨",
+                revModalTitle: "Оставить отзыв", lblStarRev: "Ваша оценка (Звезды)", lblRevName: "Ваше Имя *", lblRevCity: "Ваш Город / Район", lblRevText: "Ваш отзыв *", btnPubRev: "Опубликовать отзыв ✨",
+                modalCallTitle: "Телефон для связи", modalCallTime: "С понедельника по субботу с 08:00 до 20:00", modalCallWa: "💬 Написать в WhatsApp",
+                ckTitle: "Согласие на Cookies", ckDesc: "Мы используем cookies для вашего удобства на сайте.", ckDeny: "Отклонить", ckAccept: "Принять все",
+                
+                srv1: "Уборка подъездов и лестниц", srv2: "Уборка частных домов и квартир", srv3: "Уборка офисов и помещений", srv4: "Уборка детских садов и школ", srv5: "Уборка после корпоративов",
+                srv6: "Уборка после ремонта", srv7: "Мойка окон и фасадов", srv8: "Уборка при переезде с гарантией", srv9: "Уборка спец. объектов и запущенных квартир", srv10: "Хаусмайстер (мелкий ремонт / контроль)",
+                ftDesc: "Профессиональный клининг в Берлине и пригороде", ftArea: "📍 Зона обслуживания: Берлин и округ"
+            },
+            ua: {
+                promoText: "🎁 Отримайте знижку 10% на перше прибирання за промокодом: <span class=\"promo-badge\">CLEAN10</span>",
+                toastCopy: "✨ Промокод CLEAN10 скопійовано!",
+                toastSuccess: "✨ Дякуємо! Вашу заявку успішно надіслано.",
+                toastWait: "⏳ Надсилання...",
+                copyBtn: "Скопіювати код ✨",
+                angebot: "Заявка", leistungen: "Послуги", bewertungen: "Відгуки", kontakt: "Контакти",
+                callBtn: "📞 Зателефонувати зараз", sub: "Послуги клінінгу в Берліні",
+                title: "Ідеальна чистота, що дарує вам <em>час та затишок</em>.",
+                desc: "Насолоджуйтесь бездоганним домом або представницьким офісом. Ми подбаємо про кожну деталь — непомітно, ретельно та відповідно до ваших побажань.",
+                cta: "Розрахувати вартість ❯", p1: "Надійно", p2: "Ретельно", p3: "Пунктуально",
+                secServ: "Наші послуги", secRev: "Відгуки клієнтів", writeRev: "✍️ Написати відгук на сайті",
+                backHome: "← Повернутися на головну", modalForm: "Запросити безкоштовний розрахунок", btnFormSubmit: "Надіслати заявку →",
+                
+                lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblCity: "Місто", lblPhone: "Телефон",
+                lblDays: "День прибирання", lblFreq: "Періодичність", lblType: "Вид прибирання", lblNotes: "Примітки / Промокод",
+                dMon: "Понеділок", dTue: "Вівторок", dWed: "Середа", dThu: "Четвер", dFri: "П'ятниця", dSat: "Субота",
+                optOnce: "Разово", optWeek: "Щотижня", opt2Week: "Раз на 2 тижні", optMonth: "Щомісяця",
+                optSrv0: "Будь ласка, оберіть...",
+                
+                discTitle: "Знижка 10%", discDesc: "Введіть ваш e-mail та активуйте промокод.", btnDiscAct: "Активувати код ✨",
+                revModalTitle: "Залишити відгук", lblStarRev: "Ваша оцінка (Зірки)", lblRevName: "Ваше Ім'я *", lblRevCity: "Ваше Місто / Район", lblRevText: "Ваш відгук *", btnPubRev: "Опублікувати відгук ✨",
+                modalCallTitle: "Телефон для зв'язку", modalCallTime: "З понеділка по суботу з 08:00 до 20:00", modalCallWa: "💬 Написати в WhatsApp",
+                ckTitle: "Згода на Cookies", ckDesc: "Ми використовуємо cookies для вашої зручності на сайті.", ckDeny: "Відхилити", ckAccept: "Прийняти все",
+                
+                srv1: "Прибирання під'їздів та сходів", srv2: "Прибирання приватних будинків та квартир", srv3: "Прибирання офісів та приміщень", srv4: "Прибирання дитячих садків та шкіл", srv5: "Прибирання після свята",
+                srv6: "Прибирання після ремонту", srv7: "Миття вікон та фасадів", srv8: "Прибирання при переїзді з гарантією", srv9: "Прибирання спец. об'єктів та складних квартир", srv10: "Хаусмайстер (дрібний ремонт / контроль)",
+                ftDesc: "Професійний клінінг у Берліні та передмісті", ftArea: "📍 Зона обслуговування: Берлін та передмістя"
+            }
+        };
+
+        function switchLanguage(lang, btn) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const t = translations[lang];
             
-            <div class="card" data-aos="fade-up" onclick="openServiceBooking('Treppenhausreinigung')">
-                <div class="card-sticker">🪜</div>
-                <h3 id="srv-1">Treppenhausreinigung</h3>
-            </div>
+            document.getElementById('txt-promo').innerHTML = t.promoText;
+            document.getElementById('btn-copy-promo').innerText = t.copyBtn;
+            document.getElementById('nav-angebot').innerText = t.angebot;
+            document.getElementById('nav-leistungen').innerText = t.leistungen;
+            document.getElementById('nav-bewertungen').innerText = t.bewertungen;
+            document.getElementById('nav-kontakt').innerText = t.kontakt;
+            document.getElementById('btn-header-call').innerText = t.callBtn;
+            document.getElementById('hero-sub').innerText = t.sub;
+            document.getElementById('hero-title').innerHTML = t.title;
+            document.getElementById('hero-desc').innerText = t.desc;
+            document.getElementById('hero-btn-cta').innerText = t.cta;
+            document.getElementById('perk-1').innerText = t.p1;
+            document.getElementById('perk-2').innerText = t.p2;
+            document.getElementById('perk-3').innerText = t.p3;
+            document.getElementById('sec-services-title').innerText = t.secServ;
+            document.getElementById('sec-reviews-title').innerText = t.secRev;
+            document.getElementById('btn-write-review').innerText = t.writeRev;
+            document.getElementById('modal-form-title').innerText = t.modalForm;
+            document.getElementById('btn-submit-form').innerText = t.btnFormSubmit;
 
-            <div class="card" data-aos="fade-up" data-aos-delay="50" onclick="openServiceBooking('Reinigung von Privathaushalten & Wohnungen')">
-                <div class="card-sticker">🏡</div>
-                <h3 id="srv-2">Reinigung von Privathaushalten & Wohnungen</h3>
-            </div>
+            if(document.getElementById('lbl-firma')) document.getElementById('lbl-firma').innerText = t.lblFirma;
+            if(document.getElementById('lbl-name')) document.getElementById('lbl-name').innerText = t.lblName;
+            if(document.getElementById('lbl-street')) document.getElementById('lbl-street').innerText = t.lblStreet;
+            if(document.getElementById('lbl-city')) document.getElementById('lbl-city').innerText = t.lblCity;
+            if(document.getElementById('lbl-phone')) document.getElementById('lbl-phone').innerText = t.lblPhone;
+            if(document.getElementById('lbl-days')) document.getElementById('lbl-days').innerText = t.lblDays;
+            if(document.getElementById('lbl-freq')) document.getElementById('lbl-freq').innerText = t.lblFreq;
+            if(document.getElementById('lbl-type')) document.getElementById('lbl-type').innerText = t.lblType;
+            if(document.getElementById('lbl-notes')) document.getElementById('lbl-notes').innerText = t.lblNotes;
 
-            <div class="card" data-aos="fade-up" data-aos-delay="100" onclick="openServiceBooking('Büroreinigung')">
-                <div class="card-sticker">🏢</div>
-                <h3 id="srv-3">Büroreinigung</h3>
-            </div>
+            document.querySelectorAll('.d-mon').forEach(e => e.innerText = t.dMon);
+            document.querySelectorAll('.d-tue').forEach(e => e.innerText = t.dTue);
+            document.querySelectorAll('.d-wed').forEach(e => e.innerText = t.dWed);
+            document.querySelectorAll('.d-thu').forEach(e => e.innerText = t.dThu);
+            document.querySelectorAll('.d-fri').forEach(e => e.innerText = t.dFri);
+            document.querySelectorAll('.d-sat').forEach(e => e.innerText = t.dSat);
 
-            <div class="card" data-aos="fade-up" data-aos-delay="150" onclick="openServiceBooking('Kita- und Schulreinigung')">
-                <div class="card-sticker">🏫</div>
-                <h3 id="srv-4">Kita- und Schulreinigung</h3>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="200" onclick="openServiceBooking('Reinigung nach Firmenfeiern')">
-                <div class="card-sticker">🎉</div>
-                <h3 id="srv-5">Reinigung nach Firmenfeiern</h3>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="250" onclick="openServiceBooking('Bauendreinigung')">
-                <div class="card-sticker">🏗️</div>
-                <h3 id="srv-6">Bauendreinigung</h3>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="300" onclick="openServiceBooking('Fensterreinigung')">
-                <div class="card-sticker">🪟</div>
-                <h3 id="srv-7">Fensterreinigung</h3>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="350" onclick="openServiceBooking('Umzugsreinigung mit Abnahmegarantie')">
-                <div class="card-sticker">📦</div>
-                <h3 id="srv-8">Umzugsreinigung mit Abnahmegarantie</h3>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="400" onclick="openServiceBooking('Reinigung nach Todesfall/Messie-Haushalt')">
-                <div class="card-sticker">🧹</div>
-                <h3 id="srv-9">Reinigung nach Todesfall/Messie-Haushalt</h3>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="450" onclick="openServiceBooking('Hausmeisterservice (kleine Reparaturen / Kontrolle)')">
-                <div class="card-sticker">🔧</div>
-                <h3 id="srv-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</h3>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="reviews-section" id="reviews">
-        <h2 class="section-title" id="sec-reviews-title">Kundenbewertungen</h2>
-        <div class="reviews-grid" id="reviewsContainer"></div>
-
-        <div style="text-align: center; margin-top: 30px;">
-            <button class="sa-submit-btn" id="btn-write-review" onclick="openModal('review-modal')" style="max-width: 340px; background: transparent; color: var(--brand-blue); border: 2px solid var(--brand-blue);">
-                ✍️ Bewertung auf der Website schreiben
-            </button>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-content">
-            <div>
-                <div class="footer-logo">CleanLines Lysiuk</div>
-                <p style="color: rgba(255,255,255,0.7); margin-top: 10px;" id="ft-desc">Professionelle Reinigungsdienste in Berlin & Umgebung</p>
-            </div>
-            <div class="footer-contacts">
-                <p id="ft-area">📍 Servicegebiet: Berlin und Umgebung</p>
-                <p>📞 <a href="[https://wa.me/4915781073234](https://wa.me/4915781073234)" target="_blank">+49 1578 107 3234</a></p>
-                <p>✉️ <a href="mailto:lysiuk.cleanlines@gmail.com">lysiuk.cleanlines@gmail.com</a></p>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <div><span class="secret-admin-trigger" onclick="loginAdmin()">©</span> 2025 CleanLines Lysiuk. Alle Rechte vorbehalten.</div>
-            <div>
-                <button onclick="openModal('impressum-modal')">Impressum</button>
-                <button onclick="openModal('datenschutz-modal')">Datenschutz</button>
-            </div>
-        </div>
-    </footer>
-
-    <!-- МОДАЛЬНОЕ ОКНО ЗАЯВКИ С ВЫПАДАЮЩИМ СПИСКОМ REINIGUNGSART -->
-    <div id="booking-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
-            <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('booking-modal')">← Zurück zur Hauptseite</button>
-            <h2 style="font-family: 'Italiana', serif; font-size: 34px; color: var(--brand-blue); margin-bottom: 25px; text-align: center;" id="modal-form-title">Unverbindliches Angebot anfordern</h2>
+            document.querySelectorAll('.opt-once').forEach(e => e.innerText = t.optOnce);
+            document.querySelectorAll('.opt-week').forEach(e => e.innerText = t.optWeek);
+            document.querySelectorAll('.opt-2week').forEach(e => e.innerText = t.opt2Week);
+            document.querySelectorAll('.opt-month').forEach(e => e.innerText = t.optMonth);
             
-            <form action="[https://api.web3forms.com/submit](https://api.web3forms.com/submit)" method="POST">
-                <input type="hidden" name="access_key" value="1923227f-04e3-4ae4-8a3e-7fdf190789cd">
-                <input type="hidden" name="subject" value="Neue Reinigungsanfrage von der Website">
-                <input type="hidden" name="selected_service" id="hiddenSelectedService" value="Allgemeine Anfrage">
+            if(document.getElementById('opt-srv-0')) document.getElementById('opt-srv-0').innerText = t.optSrv0;
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                    <div>
-                        <div class="sa-field">
-                            <label class="sa-label" id="lbl-firma">Firma</label>
-                            <input type="text" name="Firma" class="sa-input" placeholder="z. B. Firma GmbH">
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label" id="lbl-name">Ihr Name *</label>
-                            <input type="text" name="Name" class="sa-input" required placeholder="z. B. Max Mustermann">
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label" id="lbl-street">Straße + Nr.</label>
-                            <input type="text" name="Strasse" class="sa-input" placeholder="z. B. Hauptstraße 12">
-                        </div>
-                        <div style="display: flex; gap: 10px;">
-                            <div class="sa-field" style="flex: 1;">
-                                <label class="sa-label">PLZ</label>
-                                <input type="text" name="PLZ" class="sa-input" placeholder="10115">
-                            </div>
-                            <div class="sa-field" style="flex: 2;">
-                                <label class="sa-label" id="lbl-city">Ort</label>
-                                <input type="text" name="Ort" class="sa-input" placeholder="Berlin">
-                            </div>
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label">E-Mail *</label>
-                            <input type="email" name="email" class="sa-input" required placeholder="name@domain.de">
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label" id="lbl-phone">Telefon</label>
-                            <input type="tel" name="Telefon" class="sa-input" placeholder="+49 1578 1073234">
-                        </div>
-                    </div>
+            if(document.getElementById('disc-title')) document.getElementById('disc-title').innerText = t.discTitle;
+            if(document.getElementById('disc-desc')) document.getElementById('disc-desc').innerText = t.discDesc;
+            if(document.getElementById('btn-disc-act')) document.getElementById('btn-disc-act').innerText = t.btnDiscAct;
 
-                    <div>
-                        <div class="sa-field">
-                            <label class="sa-label" id="lbl-days">Reinigungstag</label>
-                            <div class="checkbox-grid">
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Montag"> <span class="d-mon">Montag</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Dienstag"> <span class="d-tue">Dienstag</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Mittwoch"> <span class="d-wed">Mittwoch</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Donnerstag"> <span class="d-thu">Donnerstag</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Freitag"> <span class="d-fri">Freitag</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Samstag"> <span class="d-sat">Samstag</span></label>
-                            </div>
-                        </div>
+            if(document.getElementById('rev-modal-title')) document.getElementById('rev-modal-title').innerText = t.revModalTitle;
+            if(document.getElementById('lbl-star-rev')) document.getElementById('lbl-star-rev').innerText = t.lblStarRev;
+            if(document.getElementById('lbl-rev-name')) document.getElementById('lbl-rev-name').innerText = t.lblRevName;
+            if(document.getElementById('lbl-rev-city')) document.getElementById('lbl-rev-city').innerText = t.lblRevCity;
+            if(document.getElementById('lbl-rev-text')) document.getElementById('lbl-rev-text').innerText = t.lblRevText;
+            if(document.getElementById('btn-pub-rev')) document.getElementById('btn-pub-rev').innerText = t.btnPubRev;
 
-                        <div class="sa-field" style="margin-top: 15px;">
-                            <label class="sa-label" id="lbl-freq">Gewünschte Häufigkeit</label>
-                            <select name="Haeufigkeit" class="sa-select">
-                                <option value="Einmalig" class="opt-once">Einmalig</option>
-                                <option value="Wöchentlich" class="opt-week">Wöchentlich</option>
-                                <option value="Zweiwöchentlich" class="opt-2week">Alle 2 Wochen</option>
-                                <option value="Monatlich" class="opt-month">Monatlich</option>
-                            </select>
-                        </div>
+            if(document.getElementById('modal-call-title')) document.getElementById('modal-call-title').innerText = t.modalCallTitle;
+            if(document.getElementById('modal-call-time')) document.getElementById('modal-call-time').innerText = t.modalCallTime;
+            if(document.getElementById('modal-call-wa')) document.getElementById('modal-call-wa').innerText = t.modalCallWa;
 
-                        <!-- REINIGUNGSART ВЫПАДАЮЩИМ СПИСКОМ -->
-                        <div class="sa-field" style="margin-top: 15px;">
-                            <label class="sa-label" id="lbl-type">Reinigungsart</label>
+            if(document.getElementById('ck-title')) document.getElementById('ck-title').innerText = t.ckTitle;
+            if(document.getElementById('ck-desc')) document.getElementById('ck-desc').innerText = t.ckDesc;
+            if(document.getElementById('ck-deny')) document.getElementById('ck-deny').innerText = t.ckDeny;
+            if(document.getElementById('ck-accept')) document.getElementById('ck-accept').innerText = t.ckAccept;
+
+            // Перевод сервисов на карточках и в выпадающем списке (opt-srv-1...10)
+            for(let i=1; i<=10; i++) {
+                if(document.getElementById('srv-'+i)) document.getElementById('srv-'+i).innerText = t['srv'+i];
+                if(document.getElementById('opt-srv-'+i)) {
+                    document.getElementById('opt-srv-'+i).innerText = t['srv'+i];
+                    // Обновляем value у select'а на немецкий оригинал для корректной отправки на email
+                    // Но отображаться будет выбранный язык
+                }
+            }
+
+            if(document.getElementById('ft-desc')) document.getElementById('ft-desc').innerText = t.ftDesc;
+            if(document.getElementById('ft-area')) document.getElementById('ft-area').innerText = t.ftArea;
+
+            document.querySelectorAll('.btn-back-txt').forEach(b => b.innerText = t.backHome);
+        }
+
+        /* --- AJAX ОТПРАВКА ФОРМ (Web3Forms) без перезагрузки --- */
+
+        // Форма заявки
+        document.getElementById('main-booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-submit-form');
+            const originalText = btn.innerText;
+            btn.innerText = translations[currentLang].toastWait;
+            
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: new FormData(this)
+            })
+            .then(response => {
+                if (response.ok) {
+                    showToast(translations[currentLang].toastSuccess);
+                    this.reset();
+                    closeAndScrollTop('booking-modal');
+                } else {
+                    alert('Fehler beim Senden. Bitte versuchen Sie es erneut.');
+                }
+                btn.innerText = originalText;
+            })
+            .catch(error => {
+                alert('Fehler beim Senden. Bitte überprüfen Sie Ihre Internetverbindung.');
+                btn.innerText = originalText;
+            });
+        });
+
+        // Форма скидки
+        document.getElementById('discount-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-disc-act');
+            const originalText = btn.innerText;
+            btn.innerText = translations[currentLang].toastWait;
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: new FormData(this)
+            })
+            .then(response => {
+                if (response.ok) {
+                    this.reset();
+                    closeModal('discount-modal');
+                    copyCode(); // скопирует промокод и покажет плашку
+                } else {
+                    alert('Fehler beim Senden.');
+                }
+                btn.innerText = originalText;
+            })
+            .catch(error => {
+                alert('Fehler beim Senden.');
+                btn.innerText = originalText;
+            });
+        });
+
+        /* Функция открытия формы с ПРЕДВЫБРАННОЙ услугой */
+        function openBookingWithService(serviceId) {
+            // Например serviceId = 'srv2' -> достаем немецкое оригинальное значение
+            const originalGermanValues = {
+                'srv1': 'Treppenhausreinigung',
+                'srv2': 'Reinigung von Privathaushalten & Wohnungen',
+                'srv3': 'Büroreinigung',
+                'srv4': 'Kita- und Schulreinigung',
+                'srv5': 'Reinigung nach Firmenfeiern',
+                'srv6': 'Bauendreinigung',
+                'srv7': 'Fensterreinigung',
+                'srv8': 'Umzugsreinigung mit Abnahmegarantie',
+                'srv9': 'Reinigung nach Todesfall/Messie-Haushalt',
+                'srv10': 'Hausmeisterservice'
+            };
+            
+            const selectElem = document.getElementById('service-select');
+            selectElem.value = originalGermanValues[serviceId];
+            openModal('booking-modal');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toast-txt').innerText = message;
+            toast.style.display = 'flex';
+            setTimeout(() => { toast.style.display = 'none'; }, 4000);
+        }
+
+        function copyCode() { 
+            navigator.clipboard.writeText('CLEAN10'); 
+            showToast(translations[currentLang].toastCopy);
+        }
+
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        function closeAndScrollTop(id) {
+            closeModal(id);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function closeCookie() { document.getElementById('cookieModal').style.display = 'none'; }
+
+        window.onclick = function(e) {
+            if (e.target.classList.contains('modal')) e.target.style.display = 'none';
+        }
+
+        window.addEventListener('load', function() {
+            loadReviews();
+            let popupShown = sessionStorage.getItem('popupShown');
+            if (!popupShown) {
+                setTimeout(function() {
+                    openModal('discount-modal');
+                    sessionStorage.setItem('popupShown', 'true');
+                }, 6000);
+            }
+        });
+
+        const defaultReviews = [
+            { id: 1, name: "Elena M.", city: "Berlin-Mitte", text: "Sehr pünktlich, gründlich und absolut professionell. Meine Wohnung hat noch nie so gepflegt ausgesehen!", stars: 5 },
+            { id: 2, name: "Stefan K.", city: "Charlottenburg", text: "Die Treppenhausreinigung für unser Haus wird perfekt erledigt. Äußerst zuverlässig!", stars: 5 },
+            { id: 3, name: "Marcus W.", city: "Berlin", text: "Hervorragende Büroreinigung! Flexibel, diskret und ein fantastisches Team.", stars: 5 }
+        ];
+
+        function loadReviews() {
+            const savedReviews = JSON.parse(localStorage.getItem('cleanlines_reviews')) || defaultReviews;
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = '';
+
+            savedReviews.forEach(rev => {
+                const starsHtml = '★'.repeat(rev.stars) + '☆'.repeat(5 - rev.stars);
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.setAttribute('data-aos', 'fade-up');
+                card.innerHTML = `
+                    <button class="btn-delete-review" style="display: ${isAdmin ? 'block' : 'none'};" onclick="deleteSingleReview(${rev.id})">Удалить</button>
+                    <div class="review-stars">${starsHtml}</div>
+                    <p class="review-text">"${rev.text}"</p>
+                    <div class="review-author">${rev.name} • ${rev.city}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function loginAdmin() {
+            const pass = prompt('Passwort eingeben:');
+            if (pass === 'Lilliacleanlines=2025') {
+                isAdmin = true;
+                alert('Admin-Modus aktiviert! Sie können nun einzelne Bewertungen löschen.');
+                loadReviews();
+            } else if (pass !== null) {
+                alert('Falsches Passwort.');
+            }
+        }
+
+        function deleteSingleReview(id) {
+            let savedReviews = JSON.parse(localStorage.getItem('cleanlines_reviews')) || defaultReviews;
+            savedReviews = savedReviews.filter(review => review.id !== id);
+            localStorage.setItem('cleanlines_reviews', JSON.stringify(savedReviews));
+            loadReviews();
+        }
+
+        document.querySelectorAll('#starRating .star').forEach(star => {
+            star.addEventListener('click', function() {
+                selectedStars = parseInt(this.getAttribute('data-value'));
+                document.querySelectorAll('#starRating .star').forEach(s => {
+                    s.classList.toggle('active', parseInt(s.getAttribute('data-value')) <= selectedStars);
+                });
+            });
+        });
+
+        function saveReviewToLocalStorage() {
+            const name = document.getElementById('rev-name').value.trim() || 'Anonym';
+            const city = document.getElementById('rev-city').value.trim() || 'Berlin';
+            const text = document.getElementById('rev-text').value.trim();
+
+            if (!text) { alert('Bitte geben Sie Ihre Erfahrung ein.'); return; }
+
+            const currentReviews = JSON.parse(localStorage.getItem('cleanlines_reviews')) || defaultReviews;
+            currentReviews.unshift({ id: Date.now(), name, city, text, stars: selectedStars });
+            
+            localStorage.setItem('cleanlines_reviews', JSON.stringify(currentReviews));
+            loadReviews();
+            closeModal('review-modal');
+
+            document.getElementById('rev-name').value = '';
+            document.getElementById('rev-city').value = '';
+            document.getElementById('rev-text').value = '';
+            showToast(translations[currentLang].toastSuccess);
+        }
+    </script>
+</body>
+</html>
