@@ -33,7 +33,7 @@
             position: relative;
         }
 
-        /* ОЧЕНЬ КОНТРАСТНЫЙ И ЗАМЕТНЫЙ ДВИЖУЩИЙСЯ ФОН */
+        /* ДВИЖУЩИЙСЯ ФОН */
         .bg-glow-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -83,7 +83,7 @@
             100% { transform: translate(90px, -110px) scale(1); }
         }
 
-        /* Баннер со скидкой */
+        /* Баннер со скидкой сверху */
         .promo-banner {
             background: var(--brand-green);
             color: #FAF8F5;
@@ -144,8 +144,7 @@
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 40px; height: 40px;
             background: var(--brand-green);
             border-radius: 50%;
             display: flex;
@@ -173,20 +172,8 @@
             color: var(--text-muted);
         }
 
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 35px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 15px;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
+        nav { display: flex; align-items: center; gap: 35px; }
+        nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 600; transition: color 0.2s; }
         nav a:hover { color: var(--brand-green); }
 
         .btn-call {
@@ -212,21 +199,15 @@
             box-shadow: 0 8px 25px rgba(20, 56, 44, 0.3);
         }
 
-        .btn-call svg {
-            width: 15px;
-            height: 15px;
-            fill: var(--gold-accent);
-        }
-
-        /* Hero секция */
+        /* Hero Секция */
         .hero-container {
             max-width: 1300px;
             margin: 0 auto;
             padding: 60px 8% 80px;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 60px;
-            align-items: center;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
         }
 
         .hero-subtitle {
@@ -235,13 +216,14 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--gold-accent);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
         }
 
-        .hero-subtitle::before {
+        .hero-subtitle::before, .hero-subtitle::after {
             content: '';
             width: 30px;
             height: 1px;
@@ -250,12 +232,11 @@
 
         .hero-title {
             font-family: 'Italiana', serif;
-            font-size: 74px;
-            line-height: 1.05;
+            font-size: 64px;
+            line-height: 1.1;
             font-weight: 400;
             color: var(--brand-green);
-            margin-bottom: 30px;
-            letter-spacing: -1px;
+            margin-bottom: 20px;
         }
 
         .hero-title em { font-style: italic; color: var(--brand-green-light); }
@@ -264,38 +245,99 @@
             font-size: 18px;
             line-height: 1.6;
             color: var(--text-muted);
-            margin-bottom: 40px;
-            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto 40px;
         }
 
-        .hero-actions {
+        /* ПОЛНОЦЕННАЯ ФОРМА ЗАЯВКИ НА САЙТЕ */
+        .full-booking-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 0 30px 60px rgba(18, 26, 22, 0.08);
+            border: 1px solid var(--border-color);
+            max-width: 1100px;
+            margin: 0 auto 60px;
+            text-align: left;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } }
+
+        .sa-field { margin-bottom: 20px; }
+
+        .sa-label {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .sa-select, .sa-input, .sa-textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background-color: rgba(242, 236, 225, 0.4);
+            font-size: 14px;
+            color: var(--text-dark);
+            outline: none;
+            transition: all 0.25s ease;
+            font-family: inherit;
+        }
+
+        .sa-select:focus, .sa-input:focus, .sa-textarea:focus {
+            border-color: var(--brand-green);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(20, 56, 44, 0.08);
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .checkbox-label {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            color: var(--text-dark);
         }
 
-        .btn-wa {
-            background: var(--brand-green);
+        .sa-submit-btn {
+            width: 100%;
+            background-color: var(--brand-green);
             color: #FFFFFF;
-            padding: 16px 32px;
+            padding: 18px;
             border-radius: 30px;
-            text-decoration: none;
             font-size: 15px;
             font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            border: none;
+            cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 10px 25px rgba(20, 56, 44, 0.2);
         }
 
-        .btn-wa:hover {
-            background: var(--brand-green-light);
-            transform: translateY(-3px) scale(1.02);
+        .sa-submit-btn:hover {
+            background-color: var(--brand-green-light);
+            transform: translateY(-2px);
             box-shadow: 0 14px 30px rgba(20, 56, 44, 0.3);
         }
 
-        /* ЭЛЕГАНТНЫЙ БЛОК ПРЕИМУЩЕСТВ */
+        /* Преимущества */
         .perks-bar {
             max-width: 1300px;
             margin: 0 auto 90px;
@@ -315,14 +357,13 @@
             align-items: center;
             gap: 20px;
             box-shadow: 0 15px 35px rgba(18, 26, 22, 0.05);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.4s ease;
         }
 
         .perk-item:hover {
             transform: translateY(-8px);
             border-color: var(--brand-green);
             background: #FFFFFF;
-            box-shadow: 0 20px 45px rgba(18, 26, 22, 0.1);
         }
 
         .perk-icon-wrapper {
@@ -335,164 +376,14 @@
             font-size: 24px;
             color: var(--gold-accent);
             flex-shrink: 0;
-            transition: transform 0.4s ease;
         }
 
-        .perk-item:hover .perk-icon-wrapper {
-            transform: scale(1.15) rotate(8deg);
-            background: var(--brand-green);
-            color: #FFFFFF;
-        }
-
-        .perk-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--brand-green);
-            line-height: 1.3;
-        }
-
-        /* Карточка Schnellanfrage */
-        .schnellanfrage-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 28px;
-            padding: 40px;
-            box-shadow: 0 30px 60px rgba(18, 26, 22, 0.08);
-            border: 1px solid var(--border-color);
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
-        }
-
-        .schnellanfrage-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 40px 80px rgba(18, 26, 22, 0.12);
-        }
-
-        .sa-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .sa-title {
-            font-family: 'Italiana', serif;
-            font-size: 32px;
-            font-weight: 400;
-            color: var(--brand-green);
-        }
-
-        .sa-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            font-weight: 700;
-            color: #2D6A4F;
-            letter-spacing: 0.8px;
-        }
-
-        .sa-status-dot {
-            width: 7px;
-            height: 7px;
-            background-color: #52B788;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #52B788;
-            animation: pulseDot 2s infinite;
-        }
-
-        @keyframes pulseDot {
-            0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.3); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.8; }
-        }
-
-        .sa-field { margin-bottom: 22px; }
-
-        .sa-label {
-            display: block;
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .sa-select, .sa-input {
-            width: 100%;
-            padding: 16px 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            background-color: rgba(242, 236, 225, 0.6);
-            font-size: 15px;
-            color: var(--text-dark);
-            outline: none;
-            transition: all 0.25s ease;
-            font-family: inherit;
-        }
-
-        .sa-select-wrapper { position: relative; }
-        .sa-select-wrapper::after {
-            content: '⌄';
-            position: absolute;
-            right: 20px;
-            top: 40%;
-            transform: translateY(-50%);
-            font-size: 18px;
-            color: var(--text-muted);
-            pointer-events: none;
-        }
-
-        .sa-select:focus, .sa-input:focus {
-            border-color: var(--brand-green);
-            background-color: #FFFFFF;
-            box-shadow: 0 0 0 4px rgba(20, 56, 44, 0.08);
-        }
-
-        .sa-submit-btn {
-            width: 100%;
-            background-color: var(--brand-green);
-            color: #FFFFFF;
-            padding: 18px;
-            border-radius: 30px;
-            font-size: 15px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .sa-submit-btn:hover {
-            background-color: var(--brand-green-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(20, 56, 44, 0.2);
-        }
+        .perk-title { font-size: 15px; font-weight: 700; color: var(--brand-green); }
 
         /* Услуги */
-        .services-section {
-            padding: 80px 8%;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-family: 'Italiana', serif;
-            font-size: 48px;
-            color: var(--brand-green);
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+        .services-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
+        .section-title { font-family: 'Italiana', serif; font-size: 48px; color: var(--brand-green); margin-bottom: 50px; text-align: center; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 
         .card {
             background: rgba(255, 255, 255, 0.88);
@@ -504,168 +395,26 @@
             cursor: pointer;
         }
 
-        .card:hover {
-            transform: translateY(-7px) scale(1.02);
-            border-color: var(--brand-green);
-            background: #FFFFFF;
-            box-shadow: 0 25px 45px rgba(18, 26, 22, 0.08);
-        }
+        .card:hover { transform: translateY(-7px) scale(1.02); border-color: var(--brand-green); background: #FFFFFF; }
+        .card-icon { font-size: 32px; margin-bottom: 20px; }
+        .card h3 { font-size: 18px; font-weight: 600; color: var(--brand-green); }
 
-        .card-icon {
-            font-size: 32px;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover .card-icon { transform: scale(1.2); }
-
-        .card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--brand-green);
-            line-height: 1.4;
-        }
-
-        /* СЕКЦИЯ ОТЗЫВОВ (BEWERTUNGEN) */
-        .reviews-section {
-            padding: 80px 8%;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .review-card {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            border-radius: 22px;
-            box-shadow: 0 15px 35px rgba(18, 26, 22, 0.04);
-        }
-
-        .review-stars {
-            color: var(--gold-accent);
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-
-        .review-text {
-            font-size: 15px;
-            line-height: 1.6;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-
-        .review-author {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--brand-green);
-        }
-
-        .add-review-btn-container {
-            text-align: center;
-        }
-
-        /* ПЛАВАЮЩИЙ ЖИВОЙ ВИДЖЕТ */
-        .floating-chat-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--brand-green);
-            color: #FFFFFF;
-            padding: 14px 24px;
-            border-radius: 40px;
-            box-shadow: 0 15px 35px rgba(20, 56, 44, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            z-index: 999;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid var(--gold-accent);
-        }
-
-        .floating-chat-btn:hover {
-            transform: scale(1.06) translateY(-4px);
-            background: var(--brand-green-light);
-        }
-
-        .chat-avatar-status {
-            position: relative;
-            width: 10px; height: 10px;
-            background: #52B788;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #52B788;
-        }
-
-        .chat-text {
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
+        /* Отзывы */
+        .reviews-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .review-card { background: rgba(255, 255, 255, 0.9); border: 1px solid var(--border-color); padding: 30px; border-radius: 22px; }
+        .review-stars { color: var(--gold-accent); font-size: 18px; margin-bottom: 15px; }
+        .review-text { font-size: 15px; line-height: 1.6; color: var(--text-dark); margin-bottom: 20px; font-style: italic; }
+        .review-author { font-size: 14px; font-weight: 700; color: var(--brand-green); }
 
         /* Футер */
-        footer {
-            background: var(--brand-green);
-            color: #FFFFFF;
-            padding: 80px 8% 40px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 40px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 50px;
-        }
-
-        .footer-logo {
-            font-family: 'Italiana', serif;
-            font-size: 32px;
-        }
-
-        .footer-contacts p {
-            margin-bottom: 10px;
-            color: rgba(255,255,255,0.8);
-            font-size: 15px;
-        }
-
-        .footer-contacts a {
-            color: #FFFFFF;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 30px auto 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
-            color: rgba(255,255,255,0.6);
-        }
-
-        .footer-bottom button {
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.8);
-            cursor: pointer;
-            text-decoration: underline;
-            margin-left: 20px;
-            font-size: 13px;
-        }
+        footer { background: var(--brand-green); color: #FFFFFF; padding: 80px 8% 40px; margin-top: 60px; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 50px; }
+        .footer-logo { font-family: 'Italiana', serif; font-size: 32px; }
+        .footer-contacts p { margin-bottom: 10px; color: rgba(255,255,255,0.8); font-size: 15px; }
+        .footer-contacts a { color: #FFFFFF; text-decoration: none; font-weight: 600; }
+        .footer-bottom { max-width: 1200px; margin: 30px auto 0; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.6); }
+        .footer-bottom button { background: none; border: none; color: rgba(255,255,255,0.8); cursor: pointer; text-decoration: underline; margin-left: 20px; font-size: 13px; }
 
         /* Модальные окна */
         .modal {
@@ -677,112 +426,42 @@
             z-index: 99999;
             align-items: center;
             justify-content: center;
-            animation: fadeIn 0.3s ease;
         }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .modal-content {
             background: #FFFFFF;
             padding: 40px;
             border-radius: 28px;
-            max-width: 520px;
+            max-width: 550px;
             width: 90%;
             max-height: 85vh;
             overflow-y: auto;
             position: relative;
             box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
-            animation: slideUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+        .modal-close { position: absolute; top: 20px; right: 25px; font-size: 26px; cursor: pointer; color: var(--text-muted); }
 
-        .modal-close {
-            position: absolute;
-            top: 20px; right: 25px;
-            font-size: 26px;
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: color 0.2s;
-        }
-
-        .modal-close:hover { color: var(--text-dark); }
-
-        /* Окно скидки - ТОЛЬКО КНОПКА WHATSAPP */
-        .exit-popup-card { text-align: center; padding: 10px 5px; }
-
-        .exit-badge {
-            display: inline-block;
-            background: rgba(184, 142, 61, 0.15);
-            color: var(--brand-green);
-            padding: 6px 16px;
+        /* Плавающий баннер Cookie */
+        .cookie-modal {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            max-width: 400px;
+            background: #FFFFFF;
+            padding: 24px;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border: 1px solid var(--border-color);
+            z-index: 9999;
         }
 
-        .exit-title {
-            font-family: 'Italiana', serif;
-            font-size: 40px;
-            color: var(--brand-green);
-            line-height: 1.15;
-            margin-bottom: 15px;
-        }
-
-        .exit-desc {
-            font-size: 16px;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            line-height: 1.5;
-        }
-
-        .exit-btn {
-            width: 100%;
-            background: var(--brand-green);
-            color: #FFFFFF;
-            padding: 20px;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(20, 56, 44, 0.2);
-        }
-
-        .exit-btn:hover {
-            background: var(--brand-green-light);
-            transform: translateY(-3px);
-            box-shadow: 0 14px 30px rgba(20, 56, 44, 0.3);
-        }
-
-        /* Окно Звонка */
-        .call-modal-card { text-align: center; padding: 10px; }
-        .call-number {
-            font-family: 'Italiana', serif;
-            font-size: 36px;
-            color: var(--brand-green);
-            margin: 20px 0;
-            font-weight: 700;
-        }
-        .call-subtext {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-        }
+        .cookie-buttons { display: flex; gap: 10px; margin-top: 15px; }
+        .btn-cookie-accept { flex: 1; padding: 10px; background: var(--brand-green); color: #fff; border: none; border-radius: 20px; font-weight: 600; cursor: pointer; }
+        .btn-cookie-deny { flex: 1; padding: 10px; background: #E7DFC9; color: var(--text-dark); border: none; border-radius: 20px; font-weight: 600; cursor: pointer; }
 
         @media (max-width: 992px) {
-            .hero-container { grid-template-columns: 1fr; gap: 40px; }
-            .hero-title { font-size: 48px; }
+            .hero-title { font-size: 44px; }
             nav { display: none; }
         }
     </style>
@@ -795,18 +474,13 @@
         <div class="glow-3"></div>
     </div>
 
-    <!-- Плавающий виджет -->
-    <a href="https://wa.me/4915781073234?text=Hallo!%20Ich%20habe%20eine%20Frage." class="floating-chat-btn" target="_blank">
-        <span class="chat-avatar-status"></span>
-        <span class="chat-text">CleanLines Support • WhatsApp</span>
-    </a>
-
-    <!-- Баннер со скидкой -->
+    <!-- Баннер скидки сверху -->
     <div class="promo-banner">
         <span>🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: <span class="promo-badge">CLEAN10</span></span>
         <button class="promo-btn" onclick="copyCode()">Code kopieren ✨</button>
     </div>
 
+    <!-- Навигация -->
     <header>
         <a href="#" class="logo-group">
             <div class="logo-icon">
@@ -815,69 +489,106 @@
             <div class="logo-text">CleanLines <span>Lysiuk</span></div>
         </a>
         <nav>
+            <a href="#anfrage">Anfrage</a>
             <a href="#services">Leistungen</a>
             <a href="#reviews">Bewertungen</a>
-            <a href="#contact">Kontakt</a>
         </nav>
         <button class="btn-call" onclick="openModal('call-modal')">
-            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
             Jetzt anrufen
         </button>
     </header>
 
     <main class="hero-container">
-        <div class="hero-left" data-aos="fade-right">
+        <div class="hero-center" data-aos="fade-up">
             <div class="hero-subtitle">Gebäudereinigung in Berlin</div>
             <h1 class="hero-title">Räume, die sich <em>wirklich</em> sauber anfühlen.</h1>
-            <p class="hero-desc">Gründliche Reinigung für Wohnungen, Büros und Gewerberäume – persönlich betreut, zuverlässig ausgeführt und flexibel geplant.</p>
-            <div class="hero-actions">
-                <a href="https://wa.me/4915781073234?text=Hallo!%20Ich%20möchte%20eine%20Reinigung%20anfragen.%20Gutscheincode:%20CLEAN10" class="btn-wa">
-                    💬 Über WhatsApp anfragen
-                </a>
-            </div>
+            <p class="hero-desc">Gründliche Reinigung für Wohnungen, Büros und Gewerberäume – persönlich betreut, zuverlässig ausgeführt und direkt online anfragbar.</p>
         </div>
 
-        <div class="hero-right" data-aos="fade-left">
-            <div class="schnellanfrage-card">
-                <div class="sa-header">
-                    <div class="sa-title">Schnellanfrage</div>
-                    <div class="sa-status">
-                        <span class="sa-status-dot"></span>
-                        <span>TERMINE VERFÜGBAR</span>
+        <!-- Полноценная форма заказа на сайте (Без WhatsApp) -->
+        <section id="anfrage" class="full-booking-card" data-aos="fade-up">
+            <h2 style="font-family: 'Italiana', serif; font-size: 32px; color: var(--brand-green); margin-bottom: 25px;">Unverbindliches Angebot anfordern</h2>
+            
+            <form action="https://formspree.io/f/your_form_id" method="POST">
+                <div class="form-grid">
+                    <div>
+                        <div class="sa-field">
+                            <label class="sa-label">Firma</label>
+                            <input type="text" name="company" class="sa-input" placeholder="z. B. Firma GmbH">
+                        </div>
+                        <div class="sa-field">
+                            <label class="sa-label">Ihr Name *</label>
+                            <input type="text" name="name" class="sa-input" required placeholder="Max Mustermann">
+                        </div>
+                        <div class="sa-field">
+                            <label class="sa-label">Straße + Nr.</label>
+                            <input type="text" name="street" class="sa-input" placeholder="Musterstraße 12">
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <div class="sa-field" style="flex: 1;">
+                                <label class="sa-label">PLZ</label>
+                                <input type="text" name="plz" class="sa-input" placeholder="10115">
+                            </div>
+                            <div class="sa-field" style="flex: 2;">
+                                <label class="sa-label">Ort</label>
+                                <input type="text" name="city" class="sa-input" placeholder="Berlin">
+                            </div>
+                        </div>
+                        <div class="sa-field">
+                            <label class="sa-label">E-Mail *</label>
+                            <input type="email" name="email" class="sa-input" required placeholder="name@domain.de">
+                        </div>
+                        <div class="sa-field">
+                            <label class="sa-label">Telefon</label>
+                            <input type="tel" name="phone" class="sa-input" placeholder="+49 123 456789">
+                        </div>
+                        <div class="sa-field">
+                            <label class="sa-label">Anmerkungen / Gutscheincode</label>
+                            <textarea name="message" class="sa-textarea" rows="3" placeholder="Ihre Wünsche..."></textarea>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="sa-field">
+                            <label class="sa-label">Reinigungstag</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Montag"> Montag</label>
+                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Dienstag"> Dienstag</label>
+                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Mittwoch"> Mittwoch</label>
+                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Donnerstag"> Donnerstag</label>
+                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Freitag"> Freitag</label>
+                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Samstag"> Samstag</label>
+                            </div>
+                        </div>
+
+                        <div class="sa-field" style="margin-top: 20px;">
+                            <label class="sa-label">Gewünschte Häufigkeit</label>
+                            <select name="frequency" class="sa-select">
+                                <option value="Wöchentlich">Wöchentlich</option>
+                                <option value="Zweiwöchentlich">Alle 2 Wochen</option>
+                                <option value="Monatlich">Monatlich</option>
+                                <option value="Einmalig">Einmalig</option>
+                            </select>
+                        </div>
+
+                        <div class="sa-field" style="margin-top: 20px;">
+                            <label class="sa-label">Reinigungsart</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"><input type="checkbox" name="type[]" value="Büroreinigung"> Büroreinigung</label>
+                                <label class="checkbox-label"><input type="checkbox" name="type[]" value="Privathaushalte"> Privathaushalt</label>
+                                <label class="checkbox-label"><input type="checkbox" name="type[]" value="Treppenhaus"> Treppenhaus</label>
+                                <label class="checkbox-label"><input type="checkbox" name="type[]" value="Fensterreinigung"> Fensterreinigung</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="sa-submit-btn" style="margin-top: 25px;">Unverbindlich Angebot anfordern →</button>
                     </div>
                 </div>
-
-                <div class="sa-field">
-                    <label class="sa-label">GEWÜNSCHTE REINIGUNG</label>
-                    <div class="sa-select-wrapper">
-                        <select id="service-type" class="sa-select">
-                            <option value="Fensterreinigung">Fensterreinigung</option>
-                            <option value="Privathaushalte & Wohnungen">Reinigung von Privathaushalten & Wohnungen</option>
-                            <option value="Büroreinigung">Büroreinigung</option>
-                            <option value="Treppenhausreinigung">Treppenhausreinigung</option>
-                            <option value="Kita- und Schulreinigung">Kita- und Schulreinigung</option>
-                            <option value="Bauendreinigung">Bauendreinigung</option>
-                            <option value="Umzugsreinigung">Umzugsreinigung mit Abnahmegarantie</option>
-                            <option value="Reinigung nach Firmenfeiern">Reinigung nach Firmenfeiern</option>
-                            <option value="Reinigung nach Todesfall/Messie">Reinigung nach Todesfall/Messie-Haushalt</option>
-                            <option value="Hausmeisterservice">Hausmeisterservice</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="sa-field">
-                    <label class="sa-label">UNGEFÄHRE FLÄCHE (M²)</label>
-                    <input type="text" id="area-input" class="sa-input" placeholder="z. B. 55">
-                </div>
-
-                <button class="sa-submit-btn" onclick="sendWhatsAppRequest()">
-                    Unverbindlich anfragen →
-                </button>
-            </div>
-        </div>
+            </form>
+        </section>
     </main>
 
-    <!-- ПРЕИМУЩЕСТВА (Разнообразные анимации) -->
+    <!-- Преимущества -->
     <div class="perks-bar">
         <div class="perk-item" data-aos="zoom-in-up">
             <div class="perk-icon-wrapper">✨</div>
@@ -893,7 +604,7 @@
         </div>
     </div>
 
-    <!-- Услуги (Поочередная анимация веером) -->
+    <!-- Услуги -->
     <section class="services-section" id="services">
         <h2 class="section-title">Unsere Leistungen</h2>
         <div class="services-grid">
@@ -910,10 +621,10 @@
         </div>
     </section>
 
-    <!-- ОТЗЫВЫ КЛИЕНТОВ (BEWERTUNGEN) -->
+    <!-- Отзывы -->
     <section class="reviews-section" id="reviews">
         <h2 class="section-title">Kundenbewertungen</h2>
-        <div class="reviews-grid">
+        <div class="reviews-grid" id="reviewsContainer">
             <div class="review-card" data-aos="flip-left">
                 <div class="review-stars">★★★★★</div>
                 <p class="review-text">"Sehr pünktlich, gründlich und absolut professionell. Meine Wohnung hat noch nie so gepflegt ausgesehen!"</p>
@@ -931,14 +642,14 @@
             </div>
         </div>
 
-        <div class="add-review-btn-container">
-            <button class="btn-wa" onclick="openModal('review-modal')" style="background: transparent; color: var(--brand-green); border: 2px solid var(--brand-green);">
-                ✍️ Bewertung schreiben
+        <div style="text-align: center;">
+            <button class="sa-submit-btn" onclick="openModal('review-modal')" style="max-width: 300px; background: transparent; color: var(--brand-green); border: 2px solid var(--brand-green);">
+                ✍️ Bewertung auf der Website schreiben
             </button>
         </div>
     </section>
 
-    <footer id="contact">
+    <footer>
         <div class="footer-content">
             <div>
                 <div class="footer-logo">CleanLines Lysiuk</div>
@@ -952,7 +663,7 @@
         </div>
 
         <div class="footer-bottom">
-            <div>© 2025 CleanLines Lysiuk. Alle Rechte vorbehalten.</div>
+            <div>© 2026 CleanLines Lysiuk. Alle Rechte vorbehalten.</div>
             <div>
                 <button onclick="openModal('impressum-modal')">Impressum</button>
                 <button onclick="openModal('datenschutz-modal')">Datenschutz</button>
@@ -960,54 +671,47 @@
         </div>
     </footer>
 
-    <!-- Окно Звонка -->
-    <div id="call-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('call-modal')">&times;</span>
-            <div class="call-modal-card">
-                <span class="exit-badge">Rufen Sie uns an 📞</span>
-                <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-green);">Kontakttelefon</h3>
-                <div class="call-number">+49 1578 107 3234</div>
-                <p class="call-subtext">Wir sind Montag bis Samstag von 08:00 bis 20:00 Uhr für Sie erreichbar.</p>
-                <a href="tel:+4915781073234" class="exit-btn" style="margin-bottom: 12px;">
-                    📞 Jetzt direkt anrufen
-                </a>
-                <a href="https://wa.me/4915781073234" class="exit-btn" style="background:transparent; color:var(--brand-green); border:1px solid var(--brand-green);" target="_blank">
-                    💬 Oder über WhatsApp schreiben
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Окно Скидки (ТОЛЬКО КНОПКА WHATSAPP) -->
+    <!-- Окно скидки -->
     <div id="discount-modal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" style="text-align: center;">
             <span class="modal-close" onclick="closeModal('discount-modal')">&times;</span>
-            <div class="exit-popup-card">
-                <span class="exit-badge">Exklusiver 10% Rabatt ✨</span>
-                <h3 class="exit-title">Sichern Sie sich 10% Rabatt auf Ihre erste Reinigung</h3>
-                <p class="exit-desc">Klicken Sie unten, um das Angebot direkt über WhatsApp einzulösen.</p>
-                <a href="https://wa.me/4915781073234?text=Hallo!%20Ich%20möchte%20den%2010%25%20Rabattcode%20CLEAN10%20einlösen." class="exit-btn" target="_blank">
-                    💬 10% Rabatt über WhatsApp sichern
-                </a>
-            </div>
+            <span style="background: rgba(184, 142, 61, 0.15); color: var(--brand-green); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;">Exklusiv ✨</span>
+            <h3 style="font-family:'Italiana'; font-size:36px; color:var(--brand-green); margin: 15px 0 10px;">10% Rabatt sichern</h3>
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Geben Sie Ihre E-Mail-Adresse ein und erhalten Sie den Gutscheincode direkt auf der Website.</p>
+            <input type="email" class="sa-input" placeholder="Ihre E-Mail-Adresse" style="margin-bottom: 12px;">
+            <button class="sa-submit-btn" onclick="closeModal('discount-modal')">Rabattcode aktivieren</button>
         </div>
     </div>
 
-    <!-- Окно отзыва -->
+    <!-- Модалка отзыва (Прямо на сайт) -->
     <div id="review-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('review-modal')">&times;</span>
-            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-green); margin-bottom:15px;">Ihre Bewertung schreiben</h3>
+            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-green); margin-bottom:15px;">Bewertung schreiben</h3>
             <div class="sa-field">
-                <label class="sa-label">IHR NAME</label>
-                <input type="text" id="review-name" class="sa-input" placeholder="z. B. Anna K.">
+                <label class="sa-label">Ihr Name</label>
+                <input type="text" id="rev-name" class="sa-input" placeholder="z. B. Anna K.">
             </div>
             <div class="sa-field">
-                <label class="sa-label">IHRE BEWERTUNG</label>
-                <textarea id="review-msg" class="sa-input" rows="4" placeholder="Schreiben Sie uns Ihre Erfahrung..."></textarea>
+                <label class="sa-label">Ihre Stadt / Stadtteil</label>
+                <input type="text" id="rev-city" class="sa-input" placeholder="z. B. Berlin-Mitte">
             </div>
-            <button class="sa-submit-btn" onclick="sendReviewWhatsApp()">Bewertung per WhatsApp senden ✨</button>
+            <div class="sa-field">
+                <label class="sa-label">Ihre Erfahrung</label>
+                <textarea id="rev-text" class="sa-textarea" rows="4" placeholder="Schreiben Sie Ihre Erfahrung..."></textarea>
+            </div>
+            <button class="sa-submit-btn" onclick="addReviewOnSite()">Bewertung veröffentlichen ✨</button>
+        </div>
+    </div>
+
+    <!-- Окно Звонка -->
+    <div id="call-modal" class="modal">
+        <div class="modal-content" style="text-align: center;">
+            <span class="modal-close" onclick="closeModal('call-modal')">&times;</span>
+            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-green);">Kontakttelefon</h3>
+            <div style="font-family:'Italiana'; font-size:32px; color:var(--brand-green); margin: 15px 0; font-weight: 700;">+49 1578 107 3234</div>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">Montag bis Samstag von 08:00 bis 20:00 Uhr</p>
+            <a href="tel:+4915781073234" class="sa-submit-btn" style="text-decoration: none; display: block;">📞 Jetzt direkt anrufen</a>
         </div>
     </div>
 
@@ -1022,12 +726,29 @@
         </div>
     </div>
 
-    <!-- Datenschutz Modal -->
+    <!-- Развернутый Datenschutz Modal -->
     <div id="datenschutz-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
-            <h3 style="font-family:'Italiana'; font-size:32px; margin-bottom:15px; color:var(--brand-green);">Datenschutz</h3>
-            <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Personenbezogene Daten werden auf dieser Webseite nur im notwendigen Umfang erhoben.</p>
+            <h3 style="font-family:'Italiana'; font-size:32px; margin-bottom:15px; color:var(--brand-green);">Datenschutzerklärung</h3>
+            <h4 style="color: var(--brand-green); margin-top: 15px;">1. Datenschutz auf einen Blick</h4>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+
+            <h4 style="color: var(--brand-green); margin-top: 15px;">2. Datenerfassung auf unserer Website</h4>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Ihre Daten werden dadurch erhoben, dass Sie uns diese mitteilen (z. B. im Kontaktformular).</p>
+
+            <h4 style="color: var(--brand-green); margin-top: 15px;">3. Ihre Rechte</h4>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten.</p>
+        </div>
+    </div>
+
+    <!-- Плавающее Cookie-окно -->
+    <div class="cookie-modal" id="cookieModal">
+        <h4 style="font-size: 16px; color: var(--brand-green); margin-bottom: 6px;">Einwilligung zu Cookies</h4>
+        <p style="font-size: 12px; color: var(--text-muted);">Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Weitere Details finden Sie im Datenschutz.</p>
+        <div class="cookie-buttons">
+            <button class="btn-cookie-deny" onclick="closeCookie()">Ablehnen</button>
+            <button class="btn-cookie-accept" onclick="closeCookie()">Alle akzeptieren</button>
         </div>
     </div>
 
@@ -1037,32 +758,45 @@
 
         function copyCode() {
             navigator.clipboard.writeText('CLEAN10');
-            alert('Gutscheincode CLEAN10 kopiert! Verwendet 10% Rabatt bei der Anfrage.');
-        }
-
-        function sendWhatsAppRequest() {
-            const service = document.getElementById('service-type').value;
-            const area = document.getElementById('area-input').value.trim() || 'nicht angegeben';
-            const message = `Hallo! Ich möchte eine Anfrage stellen:%0A- Service: ${encodeURIComponent(service)}%0A- Fläche: ${encodeURIComponent(area)} m²%0A- Gutscheincode: CLEAN10 (10% Rabatt)`;
-            window.open(`https://wa.me/4915781073234?text=${message}`, '_blank');
-        }
-
-        function sendReviewWhatsApp() {
-            const name = document.getElementById('review-name').value.trim() || 'Anonym';
-            const msg = document.getElementById('review-msg').value.trim() || 'Keine Nachricht';
-            const text = `Hallo! Hier ist eine neue Kundenbewertung:%0A- Name: ${encodeURIComponent(name)}%0A- Bewertung: ${encodeURIComponent(msg)}`;
-            window.open(`https://wa.me/4915781073234?text=${text}`, '_blank');
-            closeModal('review-modal');
+            alert('Gutscheincode CLEAN10 kopiert!');
         }
 
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        
-        window.onclick = function(e) { 
-            if (e.target.classList.contains('modal')) e.target.style.display = 'none'; 
+        function closeCookie() { document.getElementById('cookieModal').style.display = 'none'; }
+
+        // Добавление отзыва прямо в DOM сайта
+        function addReviewOnSite() {
+            const name = document.getElementById('rev-name').value.trim() || 'Anonym';
+            const city = document.getElementById('rev-city').value.trim() || 'Berlin';
+            const text = document.getElementById('rev-text').value.trim();
+
+            if (!text) {
+                alert('Bitte geben Sie Ihre Erfahrung ein.');
+                return;
+            }
+
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            card.innerHTML = `
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"${text}"</p>
+                <div class="review-author">${name} • ${city}</div>
+            `;
+
+            document.getElementById('reviewsContainer').prepend(card);
+            closeModal('review-modal');
+            
+            document.getElementById('rev-name').value = '';
+            document.getElementById('rev-city').value = '';
+            document.getElementById('rev-text').value = '';
         }
 
-        // Появление скидки через 6 секунд
+        window.onclick = function(e) {
+            if (e.target.classList.contains('modal')) e.target.style.display = 'none';
+        }
+
+        // Появление окна скидки через 6 секунд
         window.addEventListener('load', function() {
             let popupShown = sessionStorage.getItem('popupShown');
             if (!popupShown) {
