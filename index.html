@@ -3,213 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleanLines Lysiuk | Professionelle Reinigungsdienste Berlin</title>
+    <title>CleanLines Lysiuk | Gebäudereinigung in Berlin</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
         :root {
-            --primary-blue: #0A2540;
-            --accent-blue: #0066FF;
-            --light-blue: #E0EDFF;
-            --dark-green: #14382C;
-            --bg: #F8FAFC;
-            --text-dark: #0F172A;
-            --text-muted: #64748B;
+            --bg-warm: #FAF8F5;
+            --brand-green: #14382C;
+            --brand-green-light: #1E4D3D;
+            --text-dark: #121A16;
+            --text-muted: #52605B;
+            --border-color: #E2DDD5;
+            --card-bg: #FFFFFF;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         
         body {
-            background-color: var(--bg);
+            background-color: var(--bg-warm);
             color: var(--text-dark);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Акция */
-        .promo-banner {
-            background: linear-gradient(135deg, #0066FF 0%, #0A2540 100%);
-            color: #ffffff;
-            padding: 12px 8%;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .promo-btn {
-            background: #ffffff;
-            color: var(--accent-blue);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 13px;
-            cursor: pointer;
-            border: none;
-            transition: transform 0.2s;
-        }
-
-        .promo-btn:hover { transform: scale(1.05); }
-
-        /* Шапка */
+        /* Навигация */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #E2E8F0;
+            padding: 24px 8%;
+            background: rgba(250, 248, 245, 0.9);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(226, 221, 213, 0.5);
         }
 
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: var(--primary-blue);
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
         }
 
-        .logo span { color: var(--accent-blue); }
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--brand-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+        }
 
-        .btn-blue {
-            background: var(--accent-blue);
-            color: #ffffff;
-            padding: 12px 26px;
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--brand-green);
+            letter-spacing: -0.3px;
+        }
+
+        .logo-text span {
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--brand-green); }
+
+        .btn-call {
+            background: var(--brand-green);
+            color: #FFFFFF;
+            padding: 12px 24px;
             border-radius: 30px;
             text-decoration: none;
             font-size: 14px;
             font-weight: 600;
-            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
             transition: all 0.3s ease;
-            display: inline-block;
         }
 
-        .btn-blue:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+        .btn-call:hover {
+            background: var(--brand-green-light);
+            transform: translateY(-1px);
         }
 
-        /* Hero */
-        .hero {
-            padding: 60px 8% 80px;
-            max-width: 1200px;
+        /* Hero секция */
+        .hero-container {
+            max-width: 1300px;
             margin: 0 auto;
-            text-align: center;
+            padding: 60px 8% 100px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
         }
 
-        .badge {
-            display: inline-block;
-            background: var(--light-blue);
-            color: var(--accent-blue);
-            padding: 8px 18px;
-            border-radius: 20px;
+        .hero-left {
+            max-width: 680px;
+        }
+
+        .hero-subtitle {
             font-size: 13px;
             font-weight: 700;
-            margin-bottom: 25px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero h1 {
-            font-size: 52px;
-            font-weight: 800;
-            line-height: 1.1;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-            letter-spacing: -1.5px;
-        }
-
-        .hero p {
-            font-size: 20px;
             color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 35px;
-            font-weight: 500;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Schnellanfrage */
+        .hero-subtitle::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--text-muted);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            line-height: 1.08;
+            font-weight: 600;
+            color: var(--brand-green);
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .btn-wa {
+            background: var(--brand-green);
+            color: #FFFFFF;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-wa:hover {
+            background: var(--brand-green-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(20, 56, 44, 0.15);
+        }
+
+        .link-secondary {
+            color: var(--brand-green);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .link-secondary:hover { gap: 10px; }
+
+        /* Карточка Schnellanfrage */
+        .hero-right {
+            position: relative;
+        }
+
+        .hero-right::before {
+            content: '';
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            background: rgba(20, 56, 44, 0.05);
+            border-radius: 50%;
+            top: -40px;
+            right: -40px;
+            z-index: 0;
+            filter: blur(40px);
+        }
+
         .schnellanfrage-card {
-            background: #FCFCFA;
-            border: 1px solid #E2E8F0;
+            position: relative;
+            z-index: 1;
+            background: #FFFFFF;
             border-radius: 28px;
-            padding: 35px;
-            max-width: 520px;
-            margin: 0 auto 60px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
-            text-align: left;
+            padding: 40px;
+            box-shadow: 0 30px 60px rgba(18, 26, 22, 0.05);
+            border: 1px solid rgba(226, 221, 213, 0.6);
         }
 
         .sa-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .sa-title {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--dark-green);
-            letter-spacing: -0.5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            font-weight: 600;
+            color: var(--brand-green);
         }
 
         .sa-status {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             font-size: 11px;
             font-weight: 700;
             color: #2D6A4F;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
         .sa-status-dot {
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             background-color: #52B788;
             border-radius: 50%;
         }
 
+        .sa-field { margin-bottom: 22px; }
+
         .sa-label {
             display: block;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
-            color: #52605B;
+            color: var(--text-muted);
+            letter-spacing: 1px;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
-
-        .sa-field { margin-bottom: 20px; }
 
         .sa-select, .sa-input {
             width: 100%;
             padding: 16px 20px;
-            border-radius: 14px;
-            border: 1px solid #D1D5DB;
-            background-color: #FFFFFF;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background-color: #FAF9F6;
             font-size: 15px;
-            color: #1F2937;
+            color: var(--text-dark);
             outline: none;
-            transition: border-color 0.2s;
-            appearance: none;
+            transition: all 0.2s;
+            font-family: inherit;
         }
 
         .sa-select-wrapper { position: relative; }
-
         .sa-select-wrapper::after {
             content: '⌄';
             position: absolute;
@@ -217,194 +300,155 @@
             top: 40%;
             transform: translateY(-50%);
             font-size: 18px;
-            color: #4B5563;
+            color: var(--text-muted);
             pointer-events: none;
         }
 
-        .sa-select:focus, .sa-input:focus { border-color: var(--dark-green); }
-
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        .sa-select:focus, .sa-input:focus {
+            border-color: var(--brand-green);
+            background-color: #FFFFFF;
         }
 
         .sa-submit-btn {
             width: 100%;
-            background-color: var(--dark-green);
+            background-color: var(--brand-green);
             color: #FFFFFF;
-            padding: 16px;
+            padding: 18px;
             border-radius: 30px;
             font-size: 15px;
-            font-weight: 700;
+            font-weight: 600;
             border: none;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            text-decoration: none;
+            margin-top: 10px;
             transition: background-color 0.2s, transform 0.1s;
         }
 
         .sa-submit-btn:hover {
-            background-color: #0E2920;
+            background-color: var(--brand-green-light);
             transform: translateY(-1px);
         }
-
-        .sa-call-btn { background-color: #1B4D3E; }
 
         .sa-note {
             text-align: center;
             font-size: 12px;
-            color: #9CA3AF;
-            margin-top: 15px;
+            color: var(--text-muted);
+            margin-top: 16px;
         }
 
         /* Услуги */
         .services-section {
-            padding: 80px 8%;
+            padding: 100px 8%;
             max-width: 1300px;
             margin: 0 auto;
         }
 
-        .services-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 800;
-            color: var(--primary-blue);
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--brand-green);
             margin-bottom: 50px;
+            text-align: center;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .card {
-            background: #ffffff;
-            border: 1px solid #E2E8F0;
-            padding: 25px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 20px;
             transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.06);
+            transform: translateY(-5px);
+            border-color: var(--brand-green);
+            box-shadow: 0 15px 35px rgba(18, 26, 22, 0.05);
         }
 
         .card-icon {
-            font-size: 24px;
-            background: var(--light-blue);
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+            font-size: 28px;
+            margin-bottom: 20px;
         }
 
         .card h3 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            line-height: 1.3;
-        }
-
-        /* Слайдер До / После */
-        .ba-section {
-            background: #ffffff;
-            padding: 80px 8%;
-            border-top: 1px solid #E2E8F0;
-            border-bottom: 1px solid #E2E8F0;
-            text-align: center;
-        }
-
-        .ba-section h2 { font-size: 36px; color: var(--primary-blue); margin-bottom: 15px; }
-
-        .ba-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            height: 450px;
-            margin: 40px auto 0;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .ba-img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-        }
-
-        .ba-after {
-            background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80');
-        }
-
-        .ba-before {
-            background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80');
-            width: 50%;
-            border-right: 3px solid #ffffff;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--brand-green);
+            line-height: 1.4;
         }
 
         /* Футер */
         footer {
-            background: var(--primary-blue);
-            color: #ffffff;
-            padding: 60px 8% 40px;
-            text-align: center;
+            background: var(--brand-green);
+            color: #FFFFFF;
+            padding: 80px 8% 40px;
+            margin-top: 60px;
         }
 
-        .footer-logo { font-size: 24px; font-weight: 800; margin-bottom: 15px; }
-
-        .footer-contacts {
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            justify-content: center;
-            gap: 25px;
+            justify-content: space-between;
+            align-items: flex-start;
             flex-wrap: wrap;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: #94A3B8;
+            gap: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 50px;
         }
 
-        .footer-contacts a { color: #ffffff; text-decoration: none; font-weight: 600; }
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+        }
 
-        .footer-links {
-            margin-top: 25px;
+        .footer-contacts p {
+            margin-bottom: 10px;
+            color: rgba(255,255,255,0.8);
+            font-size: 15px;
+        }
+
+        .footer-contacts a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
             font-size: 13px;
+            color: rgba(255,255,255,0.6);
         }
 
-        .footer-links button {
+        .footer-bottom button {
             background: none;
             border: none;
-            color: #94A3B8;
+            color: rgba(255,255,255,0.8);
             cursor: pointer;
             text-decoration: underline;
+            margin-left: 20px;
             font-size: 13px;
-            transition: color 0.2s;
         }
 
-        .footer-links button:hover { color: #ffffff; }
-
-        /* Модалки */
+        /* Модалка */
         .modal {
             display: none;
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.7);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(18, 26, 22, 0.6);
             backdrop-filter: blur(5px);
             z-index: 9999;
             align-items: center;
@@ -412,280 +456,182 @@
         }
 
         .modal-content {
-            background: #ffffff;
-            color: var(--text-dark);
-            padding: 35px;
-            border-radius: 20px;
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 24px;
             max-width: 600px;
             width: 90%;
             max-height: 80vh;
             overflow-y: auto;
             position: relative;
-            text-align: left;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
         }
 
         .modal-close {
             position: absolute;
-            top: 20px; right: 20px;
+            top: 20px; right: 25px;
             font-size: 24px;
             cursor: pointer;
             color: var(--text-muted);
-            font-weight: bold;
         }
 
-        .modal-content h3 { font-size: 22px; color: var(--primary-blue); margin-bottom: 15px; }
-        .modal-content h4 { font-size: 15px; color: var(--primary-blue); margin-top: 15px; margin-bottom: 5px; }
-        .modal-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 10px; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 34px; }
-            .ba-container { height: 300px; }
-            .schnellanfrage-card { padding: 25px 20px; }
-            .footer-contacts { flex-direction: column; gap: 10px; }
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .hero-title { font-size: 46px; }
+            nav { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="promo-banner">
-        <span>🎉 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung! Code: <strong>CLEAN10</strong></span>
-        <button class="promo-btn" onclick="applyPromoCode()">Code Kopieren & Nutzen 🎁</button>
-    </div>
-
     <header>
-        <a href="https://cleanlineslysiuk.com" class="logo">CleanLines <span>Lysiuk</span></a>
-        <a href="https://wa.me/4915781073234?text=Hallo!%20Ich%20möchte%20einen%20Termin%20buchen." class="btn-blue">💬 WhatsApp</a>
+        <a href="#" class="logo-group">
+            <div class="logo-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <div class="logo-text">CleanLines <span>Lysiuk</span></div>
+        </a>
+        <nav>
+            <a href="#services">Leistungen</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+        <a href="tel:+4915781073234" class="btn-call">
+            📞 Jetzt anrufen
+        </a>
     </header>
 
-    <section class="hero" data-aos="fade-up">
-        <span class="badge">Berlin & Umgebung</span>
-        <h1>CleanLines Lysiuk</h1>
-        <p>Zuverlässig • Gründlich • Pünktlich</p>
-
-        <!-- Окно Schnellanfrage -->
-        <div class="schnellanfrage-card" data-aos="zoom-in" data-aos-delay="150">
-            <div class="sa-header">
-                <div class="sa-title">Schnellanfrage</div>
-                <div class="sa-status">
-                    <span class="sa-status-dot"></span>
-                    <span>TERMINE VERFÜGBAR</span>
-                </div>
-            </div>
-
-            <div class="sa-field">
-                <label class="sa-label">GEWÜNSCHTE REINIGUNG</label>
-                <div class="sa-select-wrapper">
-                    <select id="service-type" class="sa-select">
-                        <option value="Privathaushalte & Wohnungen">Reinigung von Privathaushalten & Wohnungen</option>
-                        <option value="Büroreinigung">Büroreinigung</option>
-                        <option value="Treppenhausreinigung">Treppenhausreinigung</option>
-                        <option value="Kita- und Schulreinigung">Kita- und Schulreinigung</option>
-                        <option value="Bauendreinigung">Bauendreinigung</option>
-                        <option value="Fensterreinigung">Fensterreinigung</option>
-                        <option value="Umzugsreinigung">Umzugsreinigung mit Abnahmegarantie</option>
-                        <option value="Reinigung nach Firmenfeiern">Reinigung nach Firmenfeiern</option>
-                        <option value="Reinigung nach Todesfall/Messie">Reinigung nach Todesfall/Messie-Haushalt</option>
-                        <option value="Hausmeisterservice">Hausmeisterservice (kleine Reparaturen / Kontrolle)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="sa-field">
-                <label class="sa-label">UNGEFÄHRE FLÄCHE</label>
-                <input type="text" id="area-input" class="sa-input" placeholder="z. B. 80 m²">
-            </div>
-
-            <div class="button-group">
-                <button class="sa-submit-btn" onclick="sendWhatsAppRequest()">
-                    Unverbindlich anfragen ➔
-                </button>
-                <a href="tel:+4915781073234" class="sa-submit-btn sa-call-btn">
-                    📞 Jetzt anrufen
+    <main class="hero-container">
+        <div class="hero-left" data-aos="fade-right">
+            <div class="hero-subtitle">Gebäudereinigung in Berlin</div>
+            <h1 class="hero-title">Räume, die sich <em>wirklich</em> sauber anfühlen.</h1>
+            <p class="hero-desc">Gründliche Reinigung für Wohnungen, Büros und Gewerberäume – persönlich betreut, zuverlässig ausgeführt und flexibel geplant.</p>
+            <div class="hero-actions">
+                <a href="https://wa.me/4915781073234?text=Hallo!%20Ich%20möchte%20eine%20Reinigung%20anfragen." class="btn-wa">
+                    💬 Über WhatsApp anfragen
                 </a>
-            </div>
-
-            <div class="sa-note">
-                Ihre Angaben werden direkt in eine WhatsApp-Nachricht übernommen.
+                <a href="#services" class="link-secondary">Leistungen ansehen →</a>
             </div>
         </div>
-    </section>
 
-    <!-- Список услуг -->
-    <section class="services-section">
-        <h2 class="services-title">Unsere Leistungen</h2>
+        <div class="hero-right" data-aos="fade-left">
+            <div class="schnellanfrage-card">
+                <div class="sa-header">
+                    <div class="sa-title">Schnellanfrage</div>
+                    <div class="sa-status">
+                        <span class="sa-status-dot"></span>
+                        <span>TERMINE VERFÜGBAR</span>
+                    </div>
+                </div>
+
+                <div class="sa-field">
+                    <label class="sa-label">GEWÜNSCHTE REINIGUNG</label>
+                    <div class="sa-select-wrapper">
+                        <select id="service-type" class="sa-select">
+                            <option value="Fensterreinigung">Fensterreinigung</option>
+                            <option value="Privathaushalte & Wohnungen">Reinigung von Privathaushalten & Wohnungen</option>
+                            <option value="Büroreinigung">Büroreinigung</option>
+                            <option value="Treppenhausreinigung">Treppenhausreinigung</option>
+                            <option value="Kita- und Schulreinigung">Kita- und Schulreinigung</option>
+                            <option value="Bauendreinigung">Bauendreinigung</option>
+                            <option value="Umzugsreinigung">Umzugsreinigung mit Abnahmegarantie</option>
+                            <option value="Reinigung nach Firmenfeiern">Reinigung nach Firmenfeiern</option>
+                            <option value="Reinigung nach Todesfall/Messie">Reinigung nach Todesfall/Messie-Haushalt</option>
+                            <option value="Hausmeisterservice">Hausmeisterservice</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="sa-field">
+                    <label class="sa-label">UNGEFÄHRE FLÄCHE (M²)</label>
+                    <input type="text" id="area-input" class="sa-input" placeholder="z. B. 55">
+                </div>
+
+                <button class="sa-submit-btn" onclick="sendWhatsAppRequest()">
+                    Unverbindlich anfragen →
+                </button>
+
+                <div class="sa-note">
+                    Ihre Angaben werden direkt in eine WhatsApp-Nachricht übernommen.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="services-section" id="services">
+        <h2 class="section-title">Unsere Leistungen</h2>
         <div class="services-grid">
-            <div class="card" data-aos="fade-up">
-                <div class="card-icon">🏠</div>
-                <h3>Reinigung von Privathaushalten & Wohnungen</h3>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="50">
-                <div class="card-icon">🏢</div>
-                <h3>Büroreinigung</h3>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <div class="card-icon">🪜</div>
-                <h3>Treppenhausreinigung</h3>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="150">
-                <div class="card-icon">🏫</div>
-                <h3>Kita- und Schulreinigung</h3>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <div class="card-icon">🪟</div>
-                <h3>Fensterreinigung</h3>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="250">
-                <div class="card-icon">📦</div>
-                <h3>Umzugsreinigung mit Abnahmegarantie</h3>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <div class="card-icon">🏗️</div>
-                <h3>Bauendreinigung</h3>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="350">
-                <div class="card-icon">🎉</div>
-                <h3>Reinigung nach Firmenfeiern</h3>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="400">
-                <div class="card-icon">🧹</div>
-                <h3>Reinigung nach Todesfall / Messie-Haushalt</h3>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="450">
-                <div class="card-icon">🔧</div>
-                <h3>Hausmeisterservice (Reparaturen / Kontrolle)</h3>
-            </div>
+            <div class="card" data-aos="fade-up"><div class="card-icon">🪜</div>33>Treppenhausreinigung</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="50"><div class="card-icon">🏡</div><h3>Reinigung von Privathaushalten</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100"><div class="card-icon">🏢</div><h3>Büroreinigung</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="150"><div class="card-icon">🏫</div><h3>Kita- und Schulreinigung</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200"><div class="card-icon">🎉</div><h3>Reinigung nach Firmenfeiern</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="250"><div class="card-icon">🏗️</div><h3>Bauendreinigung</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300"><div class="card-icon">🪟</div><h3>Fensterreinigung</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="350"><div class="card-icon">📦</div><h3>Umzugsreinigung mit Abnahmegarantie</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="400"><div class="card-icon">🧹</div><h3>Reinigung nach Todesfall/Messie</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="450"><div class="card-icon">🔧</div><h3>Hausmeisterservice</h3></div>
         </div>
     </section>
 
-    <!-- Слайдер До / После -->
-    <section class="ba-section" data-aos="fade-up">
-        <h2>Unsere Ergebnisse</h2>
-        <p style="color: var(--text-muted);">Ziehen Sie den Regler, um den Unterschied zu sehen:</p>
-        
-        <div class="ba-container" id="ba-box">
-            <div class="ba-img ba-after"></div>
-            <div class="ba-img ba-before" id="ba-before"></div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-logo">CleanLines <span style="color: var(--accent-blue);">Lysiuk</span></div>
-        
-        <div class="footer-contacts">
-            <span>📍 Berlin und Umgebung</span>
-            <span>📞 <a href="tel:+4915781073234">+49 1578 107 3234</a> / <a href="tel:+491632989538">+49 163 2989538</a></span>
-            <span>✉️ <a href="mailto:lysiuk.cleanlines@gmail.com">lysiuk.cleanlines@gmail.com</a></span>
+    <footer id="contact">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">CleanLines Lysiuk</div>
+                <p style="color: rgba(255,255,255,0.6); margin-top: 10px;">Professionelle Reinigungsdienste in Berlin & Umgebung</p>
+            </div>
+            <div class="footer-contacts">
+                <p>📍 Servicegebiet: Berlin und Umgebung</p>
+                <p>📞 <a href="tel:+4915781073234">+49 1578 107 3234</a> / <a href="tel:+491632989538">+49 163 2989538</a></p>
+                <p>✉️ <a href="mailto:lysiuk.cleanlines@gmail.com">lysiuk.cleanlines@gmail.com</a></p>
+            </div>
         </div>
 
-        <p style="font-size: 12px; color: #64748B;">© 2025 CleanLines Lysiuk. Alle Rechte vorbehalten.</p>
-
-        <div class="footer-links">
-            <button onclick="openModal('impressum-modal')">Impressum</button>
-            <span style="color: #64748B;">|</span>
-            <button onclick="openModal('datenschutz-modal')">Datenschutz</button>
+        <div class="footer-bottom">
+            <div>© 2025 CleanLines Lysiuk. Alle Rechte vorbehalten.</div>
+            <div>
+                <button onclick="openModal('impressum-modal')">Impressum</button>
+                <button onclick="openModal('datenschutz-modal')">Datenschutz</button>
+            </div>
         </div>
     </footer>
 
-    <!-- Impressum -->
+    <!-- Impressum Modal -->
     <div id="impressum-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
-            <h3>Impressum</h3>
-            <p><strong>Angaben gemäß § 5 TMG</strong></p>
-            <p><strong>Diensteanbieter:</strong><br>
-            CleanLines Lysiuk<br>
-            Professionelle Reinigungsdienste</p>
-            
-            <p><strong>Vertreten durch:</strong><br>
-            Liliia Lysiuk</p>
-
-            <p><strong>Kontakt:</strong><br>
-            Telefon: +49 163 2989538 / +49 1578 107 3234<br>
-            E-Mail: lysiuk.cleanlines@gmail.com<br>
-            Servicegebiet: Berlin und Umgebung</p>
-
-            <h4>EU-Streitschlichtung</h4>
-            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" style="color: var(--accent-blue);">https://ec.europa.eu/consumers/odr</a>.<br>
-            Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
-
-            <h4>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h4>
-            <p>Wir sind nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-
-            <h4>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h4>
-            <p>Liliia Lysiuk</p>
-
-            <h4>Haftungsausschluss</h4>
-            <p><strong>Haftung für Inhalte:</strong> Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
-            <p><strong>Haftung für Links:</strong> Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
-            <p><strong>Urheberrecht:</strong> Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Stand: Januar 2025.</p>
+            <h3 style="font-family:'Playfair Display'; font-size:24px; margin-bottom:15px; color:var(--brand-green);">Impressum</h3>
+            <p><strong>Angaben gemäß § 5 TMG:</strong><br>CleanLines Lysiuk<br>Professionelle Reinigungsdienste</p>
+            <p style="margin-top:10px;"><strong>Vertreten durch:</strong><br>Liliia Lysiuk</p>
+            <p style="margin-top:10px;"><strong>Kontakt:</strong><br>Telefon: +49 163 2989538 / +49 1578 107 3234<br>E-Mail: lysiuk.cleanlines@gmail.com</p>
+            <p style="margin-top:10px;"><strong>EU-Streitschlichtung:</strong><br>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a>.</p>
         </div>
     </div>
 
-    <!-- Datenschutz -->
+    <!-- Datenschutz Modal -->
     <div id="datenschutz-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
-            <h3>Datenschutzerklärung</h3>
+            <h3 style="font-family:'Playfair Display'; font-size:24px; margin-bottom:15px; color:var(--brand-green);">Datenschutz</h3>
             <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Personenbezogene Daten werden auf dieser Webseite nur im notwendigen Umfang erhoben.</p>
-            <p><strong>Kontaktaufnahme:</strong> Wenn Sie uns per WhatsApp, Telefon oder E-Mail kontaktieren, werden Ihre Angaben zwecks Bearbeitung der Anfrage gespeichert.</p>
         </div>
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
-    
     <script>
-        AOS.init({ duration: 900, once: true });
-
-        const lenis = new Lenis({ duration: 1.2, smoothTouch: true });
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
-        let promoApplied = false;
-
-        function applyPromoCode() {
-            promoApplied = true;
-            alert('Gutscheincode CLEAN10 aktiviert! Sie erhalten 10% Rabatt bei Ihrer Anfrage.');
-        }
+        AOS.init({ duration: 800, once: true });
 
         function sendWhatsAppRequest() {
             const service = document.getElementById('service-type').value;
             const area = document.getElementById('area-input').value.trim() || 'nicht angegeben';
-            
-            let message = `Hallo! Ich möchte eine Anfrage stellen:%0A- Service: ${encodeURIComponent(service)}%0A- Fläche: ${encodeURIComponent(area)}`;
-            
-            if (promoApplied) {
-                message += `%0A- Rabattcode: CLEAN10 (10% Rabatt)`;
-            }
-
+            const message = `Hallo! Ich möchte eine Anfrage stellen:%0A- Service: ${encodeURIComponent(service)}%0A- Fläche: ${encodeURIComponent(area)} m²`;
             window.open(`https://wa.me/4915781073234?text=${message}`, '_blank');
         }
 
-        // Слайдер До / После
-        const baBox = document.getElementById('ba-box');
-        const baBefore = document.getElementById('ba-before');
-
-        baBox.addEventListener('mousemove', (e) => {
-            const rect = baBox.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const percent = (x / rect.width) * 100;
-            if(percent >= 0 && percent <= 100) {
-                baBefore.style.width = percent + '%';
-            }
-        });
-
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
+        window.onclick = function(e) { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; }
     </script>
 </body>
 </html>
