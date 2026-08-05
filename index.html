@@ -12,12 +12,13 @@
     
     <style>
         :root {
-            --bg-warm: #FAF8F5;
+            --bg-warm: #F7F4EF;
             --brand-green: #14382C;
             --brand-green-light: #1E4D3D;
+            --gold-accent: #C5A059;
             --text-dark: #121A16;
             --text-muted: #52605B;
-            --border-color: rgba(226, 221, 213, 0.7);
+            --border-color: rgba(197, 160, 89, 0.3);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,53 +33,54 @@
             position: relative;
         }
 
-        /* Реально живой анимированный фон */
+        /* ЯРКИЙ И ЯВНЫЙ ЖИВОЙ ФОН */
         .bg-glow-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: -1;
             overflow: hidden;
             pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, #FAF8F5 0%, #F0ECE1 100%);
         }
 
         .glow-1, .glow-2, .glow-3 {
             position: absolute;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.6;
-            animation: floatGlow 10s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+            filter: blur(60px);
+            opacity: 0.7;
+            animation: floatGlow 8s infinite alternate ease-in-out;
         }
 
         .glow-1 {
-            width: 550px; height: 550px;
-            background: radial-gradient(circle, rgba(20, 56, 44, 0.25) 0%, rgba(250, 248, 245, 0) 70%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(20, 56, 44, 0.18) 0%, rgba(247, 244, 239, 0) 70%);
             top: -100px; left: -100px;
         }
 
         .glow-2 {
-            width: 650px; height: 650px;
-            background: radial-gradient(circle, rgba(197, 160, 89, 0.22) 0%, rgba(250, 248, 245, 0) 70%);
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.25) 0%, rgba(247, 244, 239, 0) 70%);
             bottom: -150px; right: -150px;
-            animation-delay: -5s;
+            animation-delay: -4s;
         }
 
         .glow-3 {
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(20, 56, 44, 0.15) 0%, rgba(250, 248, 245, 0) 70%);
-            top: 40%; left: 30%;
-            animation: floatGlowReverse 12s infinite alternate ease-in-out;
+            width: 450px; height: 450px;
+            background: radial-gradient(circle, rgba(20, 56, 44, 0.12) 0%, rgba(247, 244, 239, 0) 70%);
+            top: 35%; left: 25%;
+            animation: floatGlowReverse 10s infinite alternate ease-in-out;
         }
 
         @keyframes floatGlow {
             0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(120px, 80px) scale(1.2); }
-            100% { transform: translate(-80px, 140px) scale(0.9); }
+            50% { transform: translate(80px, 50px) scale(1.15); }
+            100% { transform: translate(-50px, 90px) scale(0.95); }
         }
 
         @keyframes floatGlowReverse {
             0% { transform: translate(0, 0) scale(0.9); }
-            50% { transform: translate(-100px, -60px) scale(1.15); }
-            100% { transform: translate(90px, -110px) scale(1); }
+            50% { transform: translate(-70px, -40px) scale(1.1); }
+            100% { transform: translate(60px, -80px) scale(1); }
         }
 
         /* Баннер со скидкой */
@@ -94,11 +96,12 @@
             align-items: center;
             gap: 15px;
             flex-wrap: wrap;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
         }
 
         .promo-badge {
-            background: rgba(255, 255, 255, 0.15);
+            background: var(--gold-accent);
+            color: #121A16;
             padding: 4px 12px;
             border-radius: 20px;
             font-weight: 700;
@@ -117,10 +120,7 @@
             transition: all 0.2s;
         }
 
-        .promo-btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
+        .promo-btn:hover { transform: scale(1.08); }
 
         /* Навигация */
         header {
@@ -128,7 +128,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background: rgba(250, 248, 245, 0.85);
+            background: rgba(247, 244, 239, 0.88);
             backdrop-filter: blur(16px);
             position: sticky;
             top: 0;
@@ -144,15 +144,15 @@
         }
 
         .logo-icon {
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             background: var(--brand-green);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(20, 56, 44, 0.2);
+            color: var(--gold-accent);
+            box-shadow: 0 4px 15px rgba(20, 56, 44, 0.25);
             transition: transform 0.3s ease;
         }
 
@@ -160,7 +160,7 @@
 
         .logo-text {
             font-family: 'Italiana', serif;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
             color: var(--brand-green);
             letter-spacing: -0.3px;
@@ -201,26 +201,28 @@
             align-items: center;
             gap: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(20, 56, 44, 0.15);
+            box-shadow: 0 4px 15px rgba(20, 56, 44, 0.2);
+            cursor: pointer;
+            border: none;
         }
 
         .btn-call:hover {
             background: var(--brand-green-light);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(20, 56, 44, 0.25);
+            box-shadow: 0 8px 25px rgba(20, 56, 44, 0.3);
         }
 
         .btn-call svg {
             width: 15px;
             height: 15px;
-            fill: currentColor;
+            fill: var(--gold-accent);
         }
 
         /* Hero секция */
         .hero-container {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 60px 8% 100px;
+            padding: 60px 8% 80px;
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 60px;
@@ -232,7 +234,7 @@
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: var(--gold-accent);
             margin-bottom: 25px;
             display: flex;
             align-items: center;
@@ -243,12 +245,12 @@
             content: '';
             width: 30px;
             height: 1px;
-            background: var(--text-muted);
+            background: var(--gold-accent);
         }
 
         .hero-title {
             font-family: 'Italiana', serif;
-            font-size: 72px;
+            font-size: 74px;
             line-height: 1.05;
             font-weight: 400;
             color: var(--brand-green);
@@ -256,7 +258,7 @@
             letter-spacing: -1px;
         }
 
-        .hero-title em { font-style: italic; }
+        .hero-title em { font-style: italic; color: var(--brand-green-light); }
 
         .hero-desc {
             font-size: 18px;
@@ -284,42 +286,53 @@
             align-items: center;
             gap: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(20, 56, 44, 0.15);
+            box-shadow: 0 10px 25px rgba(20, 56, 44, 0.2);
         }
 
         .btn-wa:hover {
             background: var(--brand-green-light);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 14px 30px rgba(20, 56, 44, 0.25);
+            box-shadow: 0 14px 30px rgba(20, 56, 44, 0.3);
         }
 
-        .link-secondary {
-            color: var(--brand-green);
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
+        /* Перчинка: Преимущества (Old Money) */
+        .perks-bar {
+            max-width: 1300px;
+            margin: 0 auto 80px;
+            padding: 0 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .perk-item {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            padding: 20px 25px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
-            gap: 6px;
-            transition: gap 0.2s;
+            gap: 15px;
         }
 
-        .link-secondary:hover { gap: 10px; }
+        .perk-icon { font-size: 24px; }
+        .perk-text { font-size: 14px; font-weight: 600; color: var(--brand-green); }
 
         /* Карточка Schnellanfrage */
         .schnellanfrage-card {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border-radius: 28px;
             padding: 40px;
-            box-shadow: 0 30px 60px rgba(18, 26, 22, 0.06);
+            box-shadow: 0 30px 60px rgba(18, 26, 22, 0.08);
             border: 1px solid var(--border-color);
             transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
         }
 
         .schnellanfrage-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 40px 80px rgba(18, 26, 22, 0.1);
+            box-shadow: 0 40px 80px rgba(18, 26, 22, 0.12);
         }
 
         .sa-header {
@@ -378,7 +391,7 @@
             padding: 16px 20px;
             border-radius: 12px;
             border: 1px solid var(--border-color);
-            background-color: rgba(250, 249, 246, 0.8);
+            background-color: rgba(247, 244, 239, 0.6);
             font-size: 15px;
             color: var(--text-dark);
             outline: none;
@@ -428,16 +441,9 @@
             box-shadow: 0 8px 20px rgba(20, 56, 44, 0.2);
         }
 
-        .sa-note {
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 16px;
-        }
-
         /* Услуги */
         .services-section {
-            padding: 100px 8%;
+            padding: 80px 8%;
             max-width: 1300px;
             margin: 0 auto;
         }
@@ -479,9 +485,7 @@
             transition: transform 0.3s ease;
         }
 
-        .card:hover .card-icon {
-            transform: scale(1.2);
-        }
+        .card:hover .card-icon { transform: scale(1.2); }
 
         .card h3 {
             font-size: 18px;
@@ -547,35 +551,32 @@
             font-size: 13px;
         }
 
-        /* Общие стиль модалок */
+        /* Модальные окна */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(18, 26, 22, 0.65);
+            background: rgba(18, 26, 22, 0.7);
             backdrop-filter: blur(12px);
             z-index: 99999;
             align-items: center;
             justify-content: center;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .modal-content {
             background: #FFFFFF;
             padding: 40px;
             border-radius: 28px;
-            max-width: 580px;
+            max-width: 540px;
             width: 90%;
             max-height: 85vh;
             overflow-y: auto;
             position: relative;
             box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
-            animation: slideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            animation: slideUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         @keyframes slideUp {
@@ -594,15 +595,12 @@
 
         .modal-close:hover { color: var(--text-dark); }
 
-        /* Exit / Entry Popup (100% Немецкий) */
-        .exit-popup-card {
-            text-align: center;
-            padding: 10px 5px;
-        }
+        /* Окно скидки */
+        .exit-popup-card { text-align: center; padding: 10px 5px; }
 
         .exit-badge {
             display: inline-block;
-            background: rgba(20, 56, 44, 0.08);
+            background: rgba(197, 160, 89, 0.15);
             color: var(--brand-green);
             padding: 6px 16px;
             border-radius: 20px;
@@ -615,7 +613,7 @@
 
         .exit-title {
             font-family: 'Italiana', serif;
-            font-size: 40px;
+            font-size: 42px;
             color: var(--brand-green);
             line-height: 1.15;
             margin-bottom: 15px;
@@ -624,21 +622,21 @@
         .exit-desc {
             font-size: 16px;
             color: var(--text-muted);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             line-height: 1.5;
         }
 
         .exit-code-box {
             background: var(--bg-warm);
-            border: 2px dashed var(--brand-green);
+            border: 2px dashed var(--gold-accent);
             border-radius: 16px;
-            padding: 18px;
+            padding: 16px;
             margin-bottom: 25px;
         }
 
         .exit-code-val {
             font-family: 'Italiana', serif;
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 700;
             letter-spacing: 3px;
             color: var(--brand-green);
@@ -664,14 +662,25 @@
         .exit-btn:hover {
             background: var(--brand-green-light);
             transform: translateY(-2px);
-            box-shadow: 0 14px 30px rgba(20, 56, 44, 0.3);
+        }
+
+        /* Окно Звонка */
+        .call-modal-card { text-align: center; padding: 10px; }
+        .call-number {
+            font-family: 'Italiana', serif;
+            font-size: 36px;
+            color: var(--brand-green);
+            margin: 20px 0;
+            font-weight: 700;
+        }
+        .call-subtext {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
         }
 
         @media (max-width: 992px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
+            .hero-container { grid-template-columns: 1fr; gap: 40px; }
             .hero-title { font-size: 48px; }
             nav { display: none; }
         }
@@ -702,10 +711,10 @@
             <a href="#services">Leistungen</a>
             <a href="#contact">Kontakt</a>
         </nav>
-        <a href="tel:+4915781073234" class="btn-call">
+        <button class="btn-call" onclick="openModal('call-modal')">
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
             Jetzt anrufen
-        </a>
+        </button>
     </header>
 
     <main class="hero-container">
@@ -717,7 +726,6 @@
                 <a href="https://wa.me/4915781073234?text=Hallo!%20Ich%20möchte%20eine%20Reinigung%20anfragen.%20Gutscheincode:%20CLEAN10" class="btn-wa">
                     💬 Über WhatsApp anfragen
                 </a>
-                <a href="#services" class="link-secondary">Leistungen ansehen →</a>
             </div>
         </div>
 
@@ -757,13 +765,25 @@
                 <button class="sa-submit-btn" onclick="sendWhatsAppRequest()">
                     Unverbindlich anfragen →
                 </button>
-
-                <div class="sa-note">
-                    Ihre Angaben werden direkt in eine WhatsApp-Nachricht übernommen.
-                </div>
             </div>
         </div>
     </main>
+
+    <!-- ПЕРЧИНКА: Преимущества Old Money -->
+    <div class="perks-bar" data-aos="fade-up">
+        <div class="perk-item">
+            <span class="perk-icon">✨</span>
+            <span class="perk-text">100% Zufriedenheitsgarantie</span>
+        </div>
+        <div class="perk-item">
+            <span class="perk-icon">🗝️</span>
+            <span class="perk-text">Diskreter & Verlässlicher Service</span>
+        </div>
+        <div class="perk-item">
+            <span class="perk-icon">🌱</span>
+            <span class="perk-text">Premium Umweltschonende Mittel</span>
+        </div>
+    </div>
 
     <section class="services-section" id="services">
         <h2 class="section-title">Unsere Leistungen</h2>
@@ -803,33 +823,31 @@
         </div>
     </footer>
 
-    <!-- Impressum Modal -->
-    <div id="impressum-modal" class="modal">
+    <!-- Окно Звонка (Jetzt anrufen) -->
+    <div id="call-modal" class="modal">
         <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
-            <h3 style="font-family:'Italiana'; font-size:32px; margin-bottom:15px; color:var(--brand-green);">Impressum</h3>
-            <p><strong>Angaben gemäß § 5 TMG:</strong><br>CleanLines Lysiuk<br>Professionelle Reinigungsdienste</p>
-            <p style="margin-top:10px;"><strong>Vertreten durch:</strong><br>Liliia Lysiuk</p>
-            <p style="margin-top:10px;"><strong>Kontakt:</strong><br>Telefon: +49 163 2989538 / +49 1578 107 3234<br>E-Mail: lysiuk.cleanlines@gmail.com</p>
-            <p style="margin-top:10px;"><strong>EU-Streitschlichtung:</strong><br>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a>.</p>
+            <span class="modal-close" onclick="closeModal('call-modal')">&times;</span>
+            <div class="call-modal-card">
+                <span class="exit-badge">Rufen Sie uns an 📞</span>
+                <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-green);">Kontakttelefon</h3>
+                <div class="call-number">+49 1578 107 3234</div>
+                <p class="call-subtext">Wir sind Montag bis Samstag von 08:00 bis 20:00 Uhr für Sie erreichbar.</p>
+                <a href="tel:+4915781073234" class="exit-btn" style="margin-bottom: 12px;">
+                    📞 Jetzt direkt anrufen
+                </a>
+                <a href="https://wa.me/4915781073234" class="exit-btn" style="background:transparent; color:var(--brand-green); border:1px solid var(--brand-green);" target="_blank">
+                    💬 Oder über WhatsApp schreiben
+                </a>
+            </div>
         </div>
     </div>
 
-    <!-- Datenschutz Modal -->
-    <div id="datenschutz-modal" class="modal">
+    <!-- Окно Скидки (появляется ровно через 3 секунды) -->
+    <div id="discount-modal" class="modal">
         <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
-            <h3 style="font-family:'Italiana'; font-size:32px; margin-bottom:15px; color:var(--brand-green);">Datenschutz</h3>
-            <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Personenbezogene Daten werden auf dieser Webseite nur im notwendigen Umfang erhoben.</p>
-        </div>
-    </div>
-
-    <!-- Entry / Discount Modal (Полностью на немецком) -->
-    <div id="exit-modal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('exit-modal')">&times;</span>
+            <span class="modal-close" onclick="closeModal('discount-modal')">&times;</span>
             <div class="exit-popup-card">
-                <span class="exit-badge">Willkommen! ✨</span>
+                <span class="exit-badge">Exklusives Angebot ✨</span>
                 <h3 class="exit-title">Sichern Sie sich 10% Rabatt</h3>
                 <p class="exit-desc">Buchen Sie Ihre Erstreinigung noch heute und sparen Sie direkt auf Ihr Wunschangebot.</p>
                 <div class="exit-code-box">
@@ -839,6 +857,26 @@
                     💬 Jetzt Rabatt über WhatsApp einlösen
                 </a>
             </div>
+        </div>
+    </div>
+
+    <!-- Impressum Modal -->
+    <div id="impressum-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
+            <h3 style="font-family:'Italiana'; font-size:32px; margin-bottom:15px; color:var(--brand-green);">Impressum</h3>
+            <p><strong>Angaben gemäß § 5 TMG:</strong><br>CleanLines Lysiuk<br>Professionelle Reinigungsdienste</p>
+            <p style="margin-top:10px;"><strong>Vertreten durch:</strong><br>Liliia Lysiuk</p>
+            <p style="margin-top:10px;"><strong>Kontakt:</strong><br>Telefon: +49 163 2989538 / +49 1578 107 3234<br>E-Mail: lysiuk.cleanlines@gmail.com</p>
+        </div>
+    </div>
+
+    <!-- Datenschutz Modal -->
+    <div id="datenschutz-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
+            <h3 style="font-family:'Italiana'; font-size:32px; margin-bottom:15px; color:var(--brand-green);">Datenschutz</h3>
+            <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Personenbezogene Daten werden auf dieser Webseite nur im notwendigen Umfang erhoben.</p>
         </div>
     </div>
 
@@ -865,14 +903,14 @@
             if (e.target.classList.contains('modal')) e.target.style.display = 'none'; 
         }
 
-        // Автоматическое открытие окна скидки через 1.2 секунды после захода на сайт
+        // Появление окна со скидкой ровно через 3 секунды (3000 ms)
         window.addEventListener('load', function() {
             let popupShown = sessionStorage.getItem('popupShown');
             if (!popupShown) {
                 setTimeout(function() {
-                    openModal('exit-modal');
+                    openModal('discount-modal');
                     sessionStorage.setItem('popupShown', 'true');
-                }, 1200);
+                }, 3000);
             }
         });
     </script>
