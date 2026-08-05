@@ -172,11 +172,11 @@
 
         .btn-angebot-cta {
             background: var(--brand-blue); color: #FFFFFF; padding: 16px 36px; border-radius: 12px;
-            font-size: 16px; font-weight: 700; border: 1px solid var(--gold-accent); cursor: pointer;
-            display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 8px 25px rgba(15, 42, 74, 0.25);
+            font-size: 16px; font-weight: 700; border: 1.5px solid var(--gold-accent); cursor: pointer;
+            display: inline-flex; align-items: center; gap: 12px; transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 25px rgba(15, 42, 74, 0.3);
         }
-        .btn-angebot-cta:hover { background: var(--brand-blue-light); transform: translateY(-4px) scale(1.04); box-shadow: 0 14px 35px rgba(184, 142, 61, 0.45); }
+        .btn-angebot-cta:hover { background: var(--brand-blue-light); transform: translateY(-4px) scale(1.05); box-shadow: 0 14px 35px rgba(184, 142, 61, 0.45); }
 
         .btn-back-home {
             background-color: var(--brand-blue); color: #FFFFFF; padding: 12px 22px; border-radius: 10px;
@@ -194,11 +194,12 @@
         .hero-title em { font-style: italic; color: var(--brand-blue-light); }
         .hero-desc { font-size: 18px; line-height: 1.6; color: var(--text-muted); max-width: 720px; margin: 0 auto 40px; }
 
-        /* Преимущества */
+        /* Преимущества с анимацией шевеления */
         .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-        .perk-item { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 28px; border-radius: 22px; display: flex; align-items: center; gap: 20px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.4s ease; }
-        .perk-item:hover { transform: translateY(-8px); border-color: var(--brand-blue-light); background: #FFFFFF; }
-        .perk-icon-wrapper { width: 52px; height: 52px; background: rgba(29, 93, 155, 0.08); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--gold-accent); flex-shrink: 0; }
+        .perk-item { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 28px; border-radius: 22px; display: flex; align-items: center; gap: 20px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .perk-item:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
+        .perk-icon-wrapper { width: 52px; height: 52px; background: rgba(29, 93, 155, 0.08); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--gold-accent); flex-shrink: 0; transition: transform 0.3s ease; }
+        .perk-item:hover .perk-icon-wrapper { transform: scale(1.25) rotate(5deg); }
         .perk-title { font-size: 15px; font-weight: 700; color: var(--brand-blue); }
 
         /* Услуги со стикерами */
@@ -282,7 +283,7 @@
 
     <!-- Уведомление о копировании промокода -->
     <div id="toastNotification" class="toast-notification">
-        <span>✨ Gutscheincode CLEAN10 kopiert!</span>
+        <span id="toast-txt">✨ Gutscheincode CLEAN10 kopiert!</span>
     </div>
 
     <!-- Баннер со скидкой сверху -->
@@ -686,7 +687,8 @@
         /* Полная мультиязычность для всех блоков и модалок (DE, EN, RU, UA) */
         const translations = {
             de: {
-                promo: "🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: ",
+                promoText: "🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: <span class=\"promo-badge\">CLEAN10</span>",
+                toast: "✨ Gutscheincode CLEAN10 kopiert!",
                 copyBtn: "Code kopieren ✨",
                 angebot: "Angebot",
                 leistungen: "Leistungen",
@@ -723,7 +725,8 @@
                 ftDesc: "Professionelle Reinigungsdienste in Berlin & Umgebung", ftArea: "📍 Servicegebiet: Berlin und Umgebung"
             },
             en: {
-                promo: "🎁 Get 10% discount on your first cleaning with code: ",
+                promoText: "🎁 Get 10% discount on your first cleaning with code: <span class=\"promo-badge\">CLEAN10</span>",
+                toast: "✨ Promo code CLEAN10 copied!",
                 copyBtn: "Copy code ✨",
                 angebot: "Offer",
                 leistungen: "Services",
@@ -758,7 +761,8 @@
                 ftDesc: "Professional cleaning services in Berlin & surrounding area", ftArea: "📍 Service Area: Berlin and surrounding area"
             },
             ru: {
-                promo: "🎁 Получите скидку 10% на первую уборку по промокоду: ",
+                promoText: "🎁 Получите скидку 10% на первую уборку по промокоду: <span class=\"promo-badge\">CLEAN10</span>",
+                toast: "✨ Промокод CLEAN10 скопирован!",
                 copyBtn: "Скопировать код ✨",
                 angebot: "Заявка",
                 leistungen: "Услуги",
@@ -793,7 +797,8 @@
                 ftDesc: "Профессиональный клининг в Берлине и пригороде", ftArea: "📍 Зона обслуживания: Берлин и округ"
             },
             ua: {
-                promo: "🎁 Отримайте знижку 10% на перше прибирання за промокодом: ",
+                promoText: "🎁 Отримайте знижку 10% на перше прибирання за промокодом: <span class=\"promo-badge\">CLEAN10</span>",
+                toast: "✨ Промокод CLEAN10 скопійовано!",
                 copyBtn: "Скопіювати код ✨",
                 angebot: "Заявка",
                 leistungen: "Послуги",
@@ -835,6 +840,8 @@
 
             const t = translations[lang];
             
+            document.getElementById('txt-promo').innerHTML = t.promoText;
+            document.getElementById('toast-txt').innerText = t.toast;
             document.getElementById('btn-copy-promo').innerText = t.copyBtn;
             document.getElementById('nav-angebot').innerText = t.angebot;
             document.getElementById('nav-leistungen').innerText = t.leistungen;
