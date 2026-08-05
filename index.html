@@ -124,7 +124,7 @@
 
         .promo-btn:hover { transform: scale(1.08); }
 
-        /* Навигация */
+        /* Навигация (Hauptmenü) */
         header {
             display: flex;
             justify-content: space-between;
@@ -195,12 +195,8 @@
             border: none;
         }
 
-        .btn-call:hover {
-            background: var(--brand-green-light);
-            transform: translateY(-2px);
-        }
+        .btn-call:hover { background: var(--brand-green-light); transform: translateY(-2px); }
 
-        /* Кнопка в стиле скриншота */
         .btn-angebot-cta {
             background: var(--cta-orange);
             color: #FFFFFF;
@@ -215,14 +211,9 @@
             gap: 12px;
             transition: all 0.3s ease;
             box-shadow: 0 6px 20px rgba(211, 78, 41, 0.3);
-            text-decoration: none;
         }
 
-        .btn-angebot-cta:hover {
-            background: var(--cta-orange-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(211, 78, 41, 0.4);
-        }
+        .btn-angebot-cta:hover { background: var(--cta-orange-hover); transform: translateY(-2px); }
 
         /* Hero Секция */
         .hero-container {
@@ -246,10 +237,7 @@
         }
 
         .hero-subtitle::before, .hero-subtitle::after {
-            content: '';
-            width: 30px;
-            height: 1px;
-            background: var(--gold-accent);
+            content: ''; width: 30px; height: 1px; background: var(--gold-accent);
         }
 
         .hero-title {
@@ -269,14 +257,6 @@
             color: var(--text-muted);
             max-width: 720px;
             margin: 0 auto 40px;
-        }
-
-        .hero-actions {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
         }
 
         /* Преимущества */
@@ -302,11 +282,7 @@
             transition: all 0.4s ease;
         }
 
-        .perk-item:hover {
-            transform: translateY(-8px);
-            border-color: var(--brand-green);
-            background: #FFFFFF;
-        }
+        .perk-item:hover { transform: translateY(-8px); border-color: var(--brand-green); background: #FFFFFF; }
 
         .perk-icon-wrapper {
             width: 52px; height: 52px;
@@ -344,10 +320,14 @@
         /* Отзывы */
         .reviews-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
-        .review-card { background: rgba(255, 255, 255, 0.9); border: 1px solid var(--border-color); padding: 30px; border-radius: 22px; }
+        .review-card { background: rgba(255, 255, 255, 0.9); border: 1px solid var(--border-color); padding: 30px; border-radius: 22px; position: relative; }
         .review-stars { color: var(--gold-accent); font-size: 18px; margin-bottom: 15px; }
         .review-text { font-size: 15px; line-height: 1.6; color: var(--text-dark); margin-bottom: 20px; font-style: italic; }
         .review-author { font-size: 14px; font-weight: 700; color: var(--brand-green); }
+
+        .btn-delete-review {
+            position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 4px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; display: none;
+        }
 
         /* Элементы формы */
         .sa-field { margin-bottom: 18px; }
@@ -367,6 +347,18 @@
         .star-rating { display: flex; gap: 8px; font-size: 28px; cursor: pointer; color: #cbd5e1; margin-bottom: 15px; }
         .star-rating .star.active { color: var(--gold-accent); }
 
+        .secret-admin-trigger {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .legal-text-body { font-size: 14px; color: var(--text-dark); line-height: 1.7; }
+        .legal-text-body h4 { color: var(--brand-green); margin: 20px 0 8px; font-size: 16px; font-weight: 700; }
+        .legal-text-body p { margin-bottom: 12px; color: var(--text-muted); }
+        .legal-text-body ul { margin: 10px 0 15px 20px; color: var(--text-muted); }
+        .legal-text-body li { margin-bottom: 6px; }
+        .legal-text-body a { color: var(--brand-green); text-decoration: underline; word-break: break-all; }
+
         /* Футер */
         footer { background: var(--brand-green); color: #FFFFFF; padding: 80px 8% 40px; margin-top: 60px; }
         .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 50px; }
@@ -385,7 +377,7 @@
         }
         .modal-close { position: absolute; top: 20px; right: 25px; font-size: 26px; cursor: pointer; color: var(--text-muted); }
 
-        /* Плавающий баннер Cookie */
+        /* Cookie-окно */
         .cookie-modal {
             position: fixed; bottom: 25px; right: 25px; max-width: 400px; background: #FFFFFF; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 1px solid var(--border-color); z-index: 9999;
         }
@@ -438,7 +430,6 @@
         <p class="hero-desc">Gründliche Reinigung für Wohnungen, Büros und Gewerberäume – persönlich betreut, zuverlässig ausgeführt und flexibel geplant.</p>
         
         <div class="hero-actions">
-            <!-- Кнопка открытия формуляра на отдельной вкладке-модале -->
             <button class="btn-angebot-cta" onclick="openModal('booking-modal')">
                 Jetzt Angebot anfordern ❯
             </button>
@@ -461,7 +452,7 @@
         </div>
     </div>
 
-    <!-- Услуги (Плавное всплывание fade-up без вращений) -->
+    <!-- Услуги -->
     <section class="services-section" id="services">
         <h2 class="section-title">Unsere Leistungen</h2>
         <div class="services-grid">
@@ -481,9 +472,7 @@
     <!-- Отзывы -->
     <section class="reviews-section" id="reviews">
         <h2 class="section-title">Kundenbewertungen</h2>
-        <div class="reviews-grid" id="reviewsContainer">
-            <!-- Отзывы будут загружаться динамически из LocalStorage -->
-        </div>
+        <div class="reviews-grid" id="reviewsContainer"></div>
 
         <div style="text-align: center; margin-top: 30px;">
             <button class="sa-submit-btn" onclick="openModal('review-modal')" style="max-width: 340px; background: transparent; color: var(--brand-green); border: 2px solid var(--brand-green);">
@@ -506,7 +495,7 @@
         </div>
 
         <div class="footer-bottom">
-            <div>© 2026 CleanLines Lysiuk. Alle Rechte vorbehalten.</div>
+            <div><span class="secret-admin-trigger" onclick="loginAdmin()">©</span> 2025 CleanLines Lysiuk. Alle Rechte vorbehalten.</div>
             <div>
                 <button onclick="openModal('impressum-modal')">Impressum</button>
                 <button onclick="openModal('datenschutz-modal')">Datenschutz</button>
@@ -514,44 +503,47 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНОЕ ОКНО: ФОРМУЛЯР ЗАЯВКИ (Angebot anfordern) -->
+    <!-- МОДАЛЬНОЕ ОКНО: ФОРМУЛЯР ЗАЯВКИ С WEB3FORMS -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
             <h2 style="font-family: 'Italiana', serif; font-size: 34px; color: var(--brand-green); margin-bottom: 25px; text-align: center;">Unverbindliches Angebot anfordern</h2>
             
-            <form onsubmit="handleFormSubmit(event)">
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <input type="hidden" name="subject" value="Neue Reinigungsanfrage von der Website">
+
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                     <div>
                         <div class="sa-field">
                             <label class="sa-label">Firma</label>
-                            <input type="text" class="sa-input" placeholder="z. B. Firma GmbH">
+                            <input type="text" name="Firma" class="sa-input" placeholder="z. B. Firma GmbH">
                         </div>
                         <div class="sa-field">
                             <label class="sa-label">Ihr Name *</label>
-                            <input type="text" class="sa-input" required placeholder="Rinata Kherriman">
+                            <input type="text" name="Name" class="sa-input" required placeholder="z. B. Max Mustermann">
                         </div>
                         <div class="sa-field">
                             <label class="sa-label">Straße + Nr.</label>
-                            <input type="text" class="sa-input" placeholder="Junker-Jörg-Str. 18">
+                            <input type="text" name="Strasse" class="sa-input" placeholder="z. B. Hauptstraße 12">
                         </div>
                         <div style="display: flex; gap: 10px;">
                             <div class="sa-field" style="flex: 1;">
                                 <label class="sa-label">PLZ</label>
-                                <input type="text" class="sa-input" placeholder="10318">
+                                <input type="text" name="PLZ" class="sa-input" placeholder="10115">
                             </div>
                             <div class="sa-field" style="flex: 2;">
                                 <label class="sa-label">Ort</label>
-                                <input type="text" class="sa-input" placeholder="Berlin">
+                                <input type="text" name="Ort" class="sa-input" placeholder="Berlin">
                             </div>
                         </div>
                         <div class="sa-field">
                             <label class="sa-label">E-Mail *</label>
-                            <input type="email" class="sa-input" required placeholder="name@domain.de">
+                            <input type="email" name="email" class="sa-input" required placeholder="name@domain.de">
                         </div>
                         <div class="sa-field">
                             <label class="sa-label">Telefon</label>
-                            <input type="tel" class="sa-input" placeholder="+491608519425">
+                            <input type="tel" name="Telefon" class="sa-input" placeholder="+49 123 456789">
                         </div>
                     </div>
 
@@ -559,18 +551,18 @@
                         <div class="sa-field">
                             <label class="sa-label">Reinigungstag</label>
                             <div class="checkbox-grid">
-                                <label class="checkbox-label"><input type="checkbox" value="Montag"> Montag</label>
-                                <label class="checkbox-label"><input type="checkbox" value="Dienstag"> Dienstag</label>
-                                <label class="checkbox-label"><input type="checkbox" value="Mittwoch"> Mittwoch</label>
-                                <label class="checkbox-label"><input type="checkbox" value="Donnerstag"> Donnerstag</label>
-                                <label class="checkbox-label"><input type="checkbox" value="Freitag"> Freitag</label>
-                                <label class="checkbox-label"><input type="checkbox" value="Samstag"> Samstag</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Montag"> Montag</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Dienstag"> Dienstag</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Mittwoch"> Mittwoch</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Donnerstag"> Donnerstag</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Freitag"> Freitag</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Samstag"> Samstag</label>
                             </div>
                         </div>
 
                         <div class="sa-field" style="margin-top: 15px;">
                             <label class="sa-label">Gewünschte Häufigkeit</label>
-                            <select class="sa-select">
+                            <select name="Haeufigkeit" class="sa-select">
                                 <option value="Einmalig">Einmalig</option>
                                 <option value="Wöchentlich">Wöchentlich</option>
                                 <option value="Zweiwöchentlich">Alle 2 Wochen</option>
@@ -581,16 +573,16 @@
                         <div class="sa-field" style="margin-top: 15px;">
                             <label class="sa-label">Reinigungsart</label>
                             <div class="checkbox-grid">
-                                <label class="checkbox-label"><input type="checkbox" value="Büroreinigung"> Büroreinigung</label>
-                                <label class="checkbox-label"><input type="checkbox" value="Privathaushalt"> Privathaushalt</label>
-                                <label class="checkbox-label"><input type="checkbox" value="Treppenhaus"> Treppenhaus</label>
-                                <label class="checkbox-label"><input type="checkbox" value="Fensterreinigung"> Fensterreinigung</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Büroreinigung"> Büroreinigung</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Privathaushalt"> Privathaushalt</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Treppenhaus"> Treppenhaus</label>
+                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Fensterreinigung"> Fensterreinigung</label>
                             </div>
                         </div>
 
                         <div class="sa-field" style="margin-top: 15px;">
                             <label class="sa-label">Anmerkungen / Gutscheincode</label>
-                            <textarea class="sa-textarea" rows="2" placeholder="CLEAN10"></textarea>
+                            <textarea name="Anmerkungen" class="sa-textarea" rows="2" placeholder="z. B. CLEAN10"></textarea>
                         </div>
 
                         <button type="submit" class="sa-submit-btn" style="background: var(--brand-green); margin-top: 10px;">
@@ -609,12 +601,12 @@
             <span style="background: rgba(184, 142, 61, 0.15); color: var(--brand-green); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;">Exklusiv ✨</span>
             <h3 style="font-family:'Italiana'; font-size:36px; color:var(--brand-green); margin: 15px 0 10px;">10% Rabatt sichern</h3>
             <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.</p>
-            <input type="email" id="discountEmail" class="sa-input" placeholder="Ihre E-Mail-Adresse" style="margin-bottom: 12px;">
+            <input type="email" id="discountEmail" class="sa-input" placeholder="name@domain.de" style="margin-bottom: 12px;">
             <button class="sa-submit-btn" onclick="activateDiscount()">Rabattcode aktivieren ✨</button>
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО: ДОБАВЛЕНИЕ ОТЗЫВА (ЗВЁЗДОЧКИ + LOCALSTORAGE) -->
+    <!-- МОДАЛЬНОЕ ОКНО: ДОБАВЛЕНИЕ ОТЗЫВА -->
     <div id="review-modal" class="modal">
         <div class="modal-content" style="max-width: 500px;">
             <span class="modal-close" onclick="closeModal('review-modal')">&times;</span>
@@ -633,11 +625,11 @@
 
             <div class="sa-field">
                 <label class="sa-label">Ihr Name *</label>
-                <input type="text" id="rev-name" class="sa-input" placeholder="z. B. Rinata">
+                <input type="text" id="rev-name" class="sa-input" placeholder="z. B. Anna K.">
             </div>
             <div class="sa-field">
                 <label class="sa-label">Ihre Stadt / Stadtteil</label>
-                <input type="text" id="rev-city" class="sa-input" placeholder="z. B. Berlin-Moabit">
+                <input type="text" id="rev-city" class="sa-input" placeholder="z. B. Berlin-Mitte">
             </div>
             <div class="sa-field">
                 <label class="sa-label">Ihre Erfahrung *</label>
@@ -660,28 +652,72 @@
 
     <!-- Impressum Modal -->
     <div id="impressum-modal" class="modal">
-        <div class="modal-content" style="max-width: 550px;">
+        <div class="modal-content legal-text-body" style="max-width: 700px;">
             <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
-            <h3 style="font-family:'Italiana'; font-size:32px; margin-bottom:15px; color:var(--brand-green);">Impressum</h3>
-            <p><strong>Angaben gemäß § 5 TMG:</strong><br>CleanLines Lysiuk<br>Professionelle Reinigungsdienste</p>
-            <p style="margin-top:10px;"><strong>Vertreten durch:</strong><br>Liliia Lysiuk</p>
-            <p style="margin-top:10px;"><strong>Kontakt:</strong><br>Telefon: +49 163 2989538 / +49 1578 107 3234<br>E-Mail: lysiuk.cleanlines@gmail.com</p>
+            <h3 style="font-family:'Italiana'; font-size:36px; margin-bottom:20px; color:var(--brand-green);">Impressum</h3>
+            
+            <h4>Angaben gemäß § 5 TMG</h4>
+            <p><strong>Diensteanbieter:</strong><br>
+            CleanLines Lysiuk<br>
+            Professionelle Reinigungsdienste</p>
+
+            <p><strong>Vertreten durch:</strong><br>
+            Liliia Lysiuk</p>
+
+            <h4>Kontakt</h4>
+            <p>Telefon: +49 163 2989538<br>
+            E-Mail: <a href="mailto:lysiuk.cleanlines@gmail.com">lysiuk.cleanlines@gmail.com</a></p>
+
+            <p><strong>Servicegebiet:</strong> Berlin und Umgebung</p>
+
+            <h4>EU-Streitschlichtung</h4>
+            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>.<br>
+            Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+
+            <h4>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h4>
+            <p>Wir sind nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+            <h4>Verantwortlich für den Inhalt</h4>
+            <p>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br>
+            Liliia Lysiuk</p>
+
+            <h4>Haftungsausschluss</h4>
+            <p><strong>Haftung für Inhalte:</strong><br>
+            Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+
+            <p><strong>Haftung für Links:</strong><br>
+            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+
+            <h4>Urheberrecht</h4>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+
+            <p style="margin-top:20px; font-size: 12px; color: var(--text-muted);">Stand: Januar 2025</p>
         </div>
     </div>
 
     <!-- Datenschutzerklärung Modal -->
     <div id="datenschutz-modal" class="modal">
-        <div class="modal-content" style="max-width: 650px;">
+        <div class="modal-content" style="max-width: 750px;">
             <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
-            <h3 style="font-family:'Italiana'; font-size:32px; margin-bottom:15px; color:var(--brand-green);">Datenschutzerklärung</h3>
-            <h4 style="color: var(--brand-green); margin-top: 15px;">1. Datenschutz auf einen Blick</h4>
-            <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen.</p>
+            <h3 style="font-family:'Italiana'; font-size:36px; margin-bottom:20px; color:var(--brand-green);">Datenschutzerklärung</h3>
+            
+            <div class="legal-text-body">
+                <h4>1. Datenschutz auf einen Blick</h4>
+                <p><strong>Allgemeine Hinweise:</strong> Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.</p>
 
-            <h4 style="color: var(--brand-green); margin-top: 15px;">2. Datenerfassung auf unserer Website</h4>
-            <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Ihre Daten werden dadurch erhoben, dass Sie uns diese mitteilen.</p>
+                <h4>2. Verantwortlicher für die Datenverarbeitung</h4>
+                <p>Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
+                <p><strong>CleanLines Lysiuk</strong><br>Liliia Lysiuk<br>E-Mail: lysiuk.cleanlines@gmail.com<br>Telefon: +49 1578 107 3234</p>
 
-            <h4 style="color: var(--brand-green); margin-top: 15px;">3. Ihre Rechte</h4>
-            <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten.</p>
+                <h4>3. Datenerfassung auf unserer Website</h4>
+                <p><strong>Kontakt- und Buchungsformular:</strong> Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.</p>
+
+                <h4>4. Ihre Rechte nach der DSGVO</h4>
+                <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten.</p>
+
+                <h4>5. SSL- bzw. TLS-Verschlüsselung</h4>
+                <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw. TLS-Verschlüsselung.</p>
+            </div>
         </div>
     </div>
 
@@ -700,12 +736,12 @@
         AOS.init({ duration: 800, once: false });
 
         let selectedStars = 5;
+        let isAdmin = false;
 
-        // Дефолтные отзывы + загрузка из LocalStorage
         const defaultReviews = [
-            { name: "Elena M.", city: "Berlin-Mitte", text: "Sehr pünktlich, gründlich und absolut professionell. Meine Wohnung hat noch nie so gepflegt ausgesehen!", stars: 5 },
-            { name: "Stefan K.", city: "Charlottenburg", text: "Die Treppenhausreinigung für unser Haus wird perfekt erledigt. Äußerst zuverlässig!", stars: 5 },
-            { name: "Marcus W.", city: "Berlin", text: "Hervorragende Büroreinigung! Flexibel, diskret und ein fantastisches Team.", stars: 5 }
+            { id: 1, name: "Elena M.", city: "Berlin-Mitte", text: "Sehr pünktlich, gründlich und absolut professionell. Meine Wohnung hat noch nie so gepflegt ausgesehen!", stars: 5 },
+            { id: 2, name: "Stefan K.", city: "Charlottenburg", text: "Die Treppenhausreinigung für unser Haus wird perfekt erledigt. Äußerst zuverlässig!", stars: 5 },
+            { id: 3, name: "Marcus W.", city: "Berlin", text: "Hervorragende Büroreinigung! Flexibel, diskret und ein fantastisches Team.", stars: 5 }
         ];
 
         function loadReviews() {
@@ -719,6 +755,7 @@
                 card.className = 'review-card';
                 card.setAttribute('data-aos', 'fade-up');
                 card.innerHTML = `
+                    <button class="btn-delete-review" style="display: ${isAdmin ? 'block' : 'none'};" onclick="deleteReview(${rev.id})">Удалить</button>
                     <div class="review-stars">${starsHtml}</div>
                     <p class="review-text">"${rev.text}"</p>
                     <div class="review-author">${rev.name} • ${rev.city}</div>
@@ -727,7 +764,24 @@
             });
         }
 
-        // Интерактивный выбор звёздочек
+        function loginAdmin() {
+            const pass = prompt('Passwort eingeben:');
+            if (pass === 'Lilliacleanlines=2025') {
+                isAdmin = true;
+                alert('Admin-Modus aktiviert! Sie können nun Bewertungen löschen.');
+                loadReviews();
+            } else if (pass !== null) {
+                alert('Falsches Passwort.');
+            }
+        }
+
+        function deleteReview(id) {
+            let savedReviews = JSON.parse(localStorage.getItem('cleanlines_reviews')) || defaultReviews;
+            savedReviews = savedReviews.filter(r => r.id !== id);
+            localStorage.setItem('cleanlines_reviews', JSON.stringify(savedReviews));
+            loadReviews();
+        }
+
         document.querySelectorAll('#starRating .star').forEach(star => {
             star.addEventListener('click', function() {
                 selectedStars = parseInt(this.getAttribute('data-value'));
@@ -737,7 +791,6 @@
             });
         });
 
-        // Сохранение отзыва в LocalStorage
         function saveReviewToLocalStorage() {
             const name = document.getElementById('rev-name').value.trim() || 'Anonym';
             const city = document.getElementById('rev-city').value.trim() || 'Berlin';
@@ -749,7 +802,7 @@
             }
 
             const currentReviews = JSON.parse(localStorage.getItem('cleanlines_reviews')) || defaultReviews;
-            currentReviews.unshift({ name, city, text, stars: selectedStars });
+            currentReviews.unshift({ id: Date.now(), name, city, text, stars: selectedStars });
             
             localStorage.setItem('cleanlines_reviews', JSON.stringify(currentReviews));
             loadReviews();
@@ -758,13 +811,7 @@
             document.getElementById('rev-name').value = '';
             document.getElementById('rev-city').value = '';
             document.getElementById('rev-text').value = '';
-            alert('Vielen Dank für Ihre Bewertung! Sie wurde auf der Website veröffentlicht.');
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            alert('Vielen Dank! Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns in Kürze.');
-            closeModal('booking-modal');
+            alert('Vielen Dank für Ihre Bewertung!');
         }
 
         function activateDiscount() {
@@ -778,10 +825,7 @@
             closeModal('discount-modal');
         }
 
-        function copyCode() {
-            navigator.clipboard.writeText('CLEAN10');
-        }
-
+        function copyCode() { navigator.clipboard.writeText('CLEAN10'); }
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
         function closeCookie() { document.getElementById('cookieModal').style.display = 'none'; }
@@ -790,10 +834,8 @@
             if (e.target.classList.contains('modal')) e.target.style.display = 'none';
         }
 
-        // Загрузка отзывов и всплывающей скидки
         window.addEventListener('load', function() {
             loadReviews();
-
             let popupShown = sessionStorage.getItem('popupShown');
             if (!popupShown) {
                 setTimeout(function() {
