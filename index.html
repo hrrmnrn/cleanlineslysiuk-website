@@ -19,6 +19,8 @@
             --text-dark: #121A16;
             --text-muted: #4A5853;
             --border-color: rgba(184, 142, 61, 0.45);
+            --cta-orange: #D34E29;
+            --cta-orange-hover: #B83D1B;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -196,17 +198,37 @@
         .btn-call:hover {
             background: var(--brand-green-light);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(20, 56, 44, 0.3);
+        }
+
+        /* Кнопка в стиле скриншота */
+        .btn-angebot-cta {
+            background: var(--cta-orange);
+            color: #FFFFFF;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(211, 78, 41, 0.3);
+            text-decoration: none;
+        }
+
+        .btn-angebot-cta:hover {
+            background: var(--cta-orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(211, 78, 41, 0.4);
         }
 
         /* Hero Секция */
         .hero-container {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 8% 80px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
+            padding: 90px 8% 100px;
             text-align: center;
         }
 
@@ -232,11 +254,11 @@
 
         .hero-title {
             font-family: 'Italiana', serif;
-            font-size: 64px;
+            font-size: 68px;
             line-height: 1.1;
             font-weight: 400;
             color: var(--brand-green);
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .hero-title em { font-style: italic; color: var(--brand-green-light); }
@@ -245,96 +267,16 @@
             font-size: 18px;
             line-height: 1.6;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 720px;
             margin: 0 auto 40px;
         }
 
-        /* ПОЛНОЦЕННАЯ ФОРМА ЗАЯВКИ НА САЙТЕ */
-        .full-booking-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 28px;
-            padding: 40px;
-            box-shadow: 0 30px 60px rgba(18, 26, 22, 0.08);
-            border: 1px solid var(--border-color);
-            max-width: 1100px;
-            margin: 0 auto 60px;
-            text-align: left;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } }
-
-        .sa-field { margin-bottom: 20px; }
-
-        .sa-label {
-            display: block;
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-
-        .sa-select, .sa-input, .sa-textarea {
-            width: 100%;
-            padding: 14px 18px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            background-color: rgba(242, 236, 225, 0.4);
-            font-size: 14px;
-            color: var(--text-dark);
-            outline: none;
-            transition: all 0.25s ease;
-            font-family: inherit;
-        }
-
-        .sa-select:focus, .sa-input:focus, .sa-textarea:focus {
-            border-color: var(--brand-green);
-            background-color: #FFFFFF;
-            box-shadow: 0 0 0 4px rgba(20, 56, 44, 0.08);
-        }
-
-        .checkbox-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin-top: 6px;
-        }
-
-        .checkbox-label {
+        .hero-actions {
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            cursor: pointer;
-            color: var(--text-dark);
-        }
-
-        .sa-submit-btn {
-            width: 100%;
-            background-color: var(--brand-green);
-            color: #FFFFFF;
-            padding: 18px;
-            border-radius: 30px;
-            font-size: 15px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(20, 56, 44, 0.2);
-        }
-
-        .sa-submit-btn:hover {
-            background-color: var(--brand-green-light);
-            transform: translateY(-2px);
-            box-shadow: 0 14px 30px rgba(20, 56, 44, 0.3);
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         /* Преимущества */
@@ -395,7 +337,7 @@
             cursor: pointer;
         }
 
-        .card:hover { transform: translateY(-7px) scale(1.02); border-color: var(--brand-green); background: #FFFFFF; }
+        .card:hover { transform: translateY(-7px); border-color: var(--brand-green); background: #FFFFFF; }
         .card-icon { font-size: 32px; margin-bottom: 20px; }
         .card h3 { font-size: 18px; font-weight: 600; color: var(--brand-green); }
 
@@ -406,6 +348,24 @@
         .review-stars { color: var(--gold-accent); font-size: 18px; margin-bottom: 15px; }
         .review-text { font-size: 15px; line-height: 1.6; color: var(--text-dark); margin-bottom: 20px; font-style: italic; }
         .review-author { font-size: 14px; font-weight: 700; color: var(--brand-green); }
+
+        /* Элементы формы */
+        .sa-field { margin-bottom: 18px; }
+        .sa-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+        .sa-select, .sa-input, .sa-textarea {
+            width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border-color); background-color: rgba(242, 236, 225, 0.4); font-size: 14px; color: var(--text-dark); outline: none; transition: all 0.25s ease; font-family: inherit;
+        }
+        .sa-select:focus, .sa-input:focus, .sa-textarea:focus { border-color: var(--brand-green); background-color: #FFFFFF; box-shadow: 0 0 0 4px rgba(20, 56, 44, 0.08); }
+        .checkbox-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 6px; }
+        .checkbox-label { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; color: var(--text-dark); }
+        .sa-submit-btn {
+            width: 100%; background-color: var(--brand-green); color: #FFFFFF; padding: 16px; border-radius: 25px; font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s ease;
+        }
+        .sa-submit-btn:hover { background-color: var(--brand-green-light); transform: translateY(-2px); }
+
+        /* Звёздочки выбора рейтинга */
+        .star-rating { display: flex; gap: 8px; font-size: 28px; cursor: pointer; color: #cbd5e1; margin-bottom: 15px; }
+        .star-rating .star.active { color: var(--gold-accent); }
 
         /* Футер */
         footer { background: var(--brand-green); color: #FFFFFF; padding: 80px 8% 40px; margin-top: 60px; }
@@ -418,44 +378,17 @@
 
         /* Модальные окна */
         .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(18, 26, 22, 0.7);
-            backdrop-filter: blur(12px);
-            z-index: 99999;
-            align-items: center;
-            justify-content: center;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(18, 26, 22, 0.7); backdrop-filter: blur(12px); z-index: 99999; align-items: center; justify-content: center;
         }
-
         .modal-content {
-            background: #FFFFFF;
-            padding: 40px;
-            border-radius: 28px;
-            max-width: 550px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+            background: #FFFFFF; padding: 40px; border-radius: 28px; max-width: 800px; width: 92%; max-height: 88vh; overflow-y: auto; position: relative; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
         }
-
         .modal-close { position: absolute; top: 20px; right: 25px; font-size: 26px; cursor: pointer; color: var(--text-muted); }
 
         /* Плавающий баннер Cookie */
         .cookie-modal {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            max-width: 400px;
-            background: #FFFFFF;
-            padding: 24px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border: 1px solid var(--border-color);
-            z-index: 9999;
+            position: fixed; bottom: 25px; right: 25px; max-width: 400px; background: #FFFFFF; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 1px solid var(--border-color); z-index: 9999;
         }
-
         .cookie-buttons { display: flex; gap: 10px; margin-top: 15px; }
         .btn-cookie-accept { flex: 1; padding: 10px; background: var(--brand-green); color: #fff; border: none; border-radius: 20px; font-weight: 600; cursor: pointer; }
         .btn-cookie-deny { flex: 1; padding: 10px; background: #E7DFC9; color: var(--text-dark); border: none; border-radius: 20px; font-weight: 600; cursor: pointer; }
@@ -480,7 +413,7 @@
         <button class="promo-btn" onclick="copyCode()">Code kopieren ✨</button>
     </div>
 
-    <!-- Навигация -->
+    <!-- Навигация (Hauptmenü) -->
     <header>
         <a href="#" class="logo-group">
             <div class="logo-icon">
@@ -489,135 +422,59 @@
             <div class="logo-text">CleanLines <span>Lysiuk</span></div>
         </a>
         <nav>
-            <a href="#anfrage">Anfrage</a>
             <a href="#services">Leistungen</a>
             <a href="#reviews">Bewertungen</a>
+            <a href="#contact">Kontakt</a>
         </nav>
         <button class="btn-call" onclick="openModal('call-modal')">
             Jetzt anrufen
         </button>
     </header>
 
-    <main class="hero-container">
-        <div class="hero-center" data-aos="fade-up">
-            <div class="hero-subtitle">Gebäudereinigung in Berlin</div>
-            <h1 class="hero-title">Räume, die sich <em>wirklich</em> sauber anfühlen.</h1>
-            <p class="hero-desc">Gründliche Reinigung für Wohnungen, Büros und Gewerberäume – persönlich betreut, zuverlässig ausgeführt und direkt online anfragbar.</p>
+    <!-- Первый экран (Hero) -->
+    <main class="hero-container" data-aos="fade-up">
+        <div class="hero-subtitle">Gebäudereinigung in Berlin</div>
+        <h1 class="hero-title">Räume, die sich <em>wirklich</em> sauber anfühlen.</h1>
+        <p class="hero-desc">Gründliche Reinigung für Wohnungen, Büros und Gewerberäume – persönlich betreut, zuverlässig ausgeführt und flexibel geplant.</p>
+        
+        <div class="hero-actions">
+            <!-- Кнопка открытия формуляра на отдельной вкладке-модале -->
+            <button class="btn-angebot-cta" onclick="openModal('booking-modal')">
+                Jetzt Angebot anfordern ❯
+            </button>
         </div>
-
-        <!-- Полноценная форма заказа на сайте (Без WhatsApp) -->
-        <section id="anfrage" class="full-booking-card" data-aos="fade-up">
-            <h2 style="font-family: 'Italiana', serif; font-size: 32px; color: var(--brand-green); margin-bottom: 25px;">Unverbindliches Angebot anfordern</h2>
-            
-            <form action="https://formspree.io/f/your_form_id" method="POST">
-                <div class="form-grid">
-                    <div>
-                        <div class="sa-field">
-                            <label class="sa-label">Firma</label>
-                            <input type="text" name="company" class="sa-input" placeholder="z. B. Firma GmbH">
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label">Ihr Name *</label>
-                            <input type="text" name="name" class="sa-input" required placeholder="Max Mustermann">
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label">Straße + Nr.</label>
-                            <input type="text" name="street" class="sa-input" placeholder="Musterstraße 12">
-                        </div>
-                        <div style="display: flex; gap: 10px;">
-                            <div class="sa-field" style="flex: 1;">
-                                <label class="sa-label">PLZ</label>
-                                <input type="text" name="plz" class="sa-input" placeholder="10115">
-                            </div>
-                            <div class="sa-field" style="flex: 2;">
-                                <label class="sa-label">Ort</label>
-                                <input type="text" name="city" class="sa-input" placeholder="Berlin">
-                            </div>
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label">E-Mail *</label>
-                            <input type="email" name="email" class="sa-input" required placeholder="name@domain.de">
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label">Telefon</label>
-                            <input type="tel" name="phone" class="sa-input" placeholder="+49 123 456789">
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label">Anmerkungen / Gutscheincode</label>
-                            <textarea name="message" class="sa-textarea" rows="3" placeholder="Ihre Wünsche..."></textarea>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="sa-field">
-                            <label class="sa-label">Reinigungstag</label>
-                            <div class="checkbox-grid">
-                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Montag"> Montag</label>
-                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Dienstag"> Dienstag</label>
-                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Mittwoch"> Mittwoch</label>
-                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Donnerstag"> Donnerstag</label>
-                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Freitag"> Freitag</label>
-                                <label class="checkbox-label"><input type="checkbox" name="day[]" value="Samstag"> Samstag</label>
-                            </div>
-                        </div>
-
-                        <div class="sa-field" style="margin-top: 20px;">
-                            <label class="sa-label">Gewünschte Häufigkeit</label>
-                            <select name="frequency" class="sa-select">
-                                <option value="Wöchentlich">Wöchentlich</option>
-                                <option value="Zweiwöchentlich">Alle 2 Wochen</option>
-                                <option value="Monatlich">Monatlich</option>
-                                <option value="Einmalig">Einmalig</option>
-                            </select>
-                        </div>
-
-                        <div class="sa-field" style="margin-top: 20px;">
-                            <label class="sa-label">Reinigungsart</label>
-                            <div class="checkbox-grid">
-                                <label class="checkbox-label"><input type="checkbox" name="type[]" value="Büroreinigung"> Büroreinigung</label>
-                                <label class="checkbox-label"><input type="checkbox" name="type[]" value="Privathaushalte"> Privathaushalt</label>
-                                <label class="checkbox-label"><input type="checkbox" name="type[]" value="Treppenhaus"> Treppenhaus</label>
-                                <label class="checkbox-label"><input type="checkbox" name="type[]" value="Fensterreinigung"> Fensterreinigung</label>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="sa-submit-btn" style="margin-top: 25px;">Unverbindlich Angebot anfordern →</button>
-                    </div>
-                </div>
-            </form>
-        </section>
     </main>
 
     <!-- Преимущества -->
     <div class="perks-bar">
-        <div class="perk-item" data-aos="zoom-in-up">
+        <div class="perk-item" data-aos="fade-up">
             <div class="perk-icon-wrapper">✨</div>
             <div class="perk-title">100% Zufriedenheitsgarantie</div>
         </div>
-        <div class="perk-item" data-aos="zoom-in-up" data-aos-delay="100">
+        <div class="perk-item" data-aos="fade-up" data-aos-delay="100">
             <div class="perk-icon-wrapper">🗝️</div>
             <div class="perk-title">Diskreter & Verlässlicher Service</div>
         </div>
-        <div class="perk-item" data-aos="zoom-in-up" data-aos-delay="200">
+        <div class="perk-item" data-aos="fade-up" data-aos-delay="200">
             <div class="perk-icon-wrapper">🌱</div>
             <div class="perk-title">Premium Umweltschonende Mittel</div>
         </div>
     </div>
 
-    <!-- Услуги -->
+    <!-- Услуги (Плавное всплывание fade-up без вращений) -->
     <section class="services-section" id="services">
         <h2 class="section-title">Unsere Leistungen</h2>
         <div class="services-grid">
-            <div class="card" data-aos="fade-right"><div class="card-icon">🪜</div><h3>Treppenhausreinigung</h3></div>
-            <div class="card" data-aos="fade-up"><div class="card-icon">🏡</div><h3>Reinigung von Privathaushalten</h3></div>
-            <div class="card" data-aos="fade-left"><div class="card-icon">🏢</div><h3>Büroreinigung</h3></div>
-            <div class="card" data-aos="fade-right"><div class="card-icon">🏫</div><h3>Kita- und Schulreinigung</h3></div>
-            <div class="card" data-aos="fade-up"><div class="card-icon">🎉</div><h3>Reinigung nach Firmenfeiern</h3></div>
-            <div class="card" data-aos="fade-left"><div class="card-icon">🏗️</div><h3>Bauendreinigung</h3></div>
-            <div class="card" data-aos="fade-right"><div class="card-icon">🪟</div><h3>Fensterreinigung</h3></div>
-            <div class="card" data-aos="fade-up"><div class="card-icon">📦</div><h3>Umzugsreinigung mit Abnahmegarantie</h3></div>
-            <div class="card" data-aos="fade-left"><div class="card-icon">🧹</div><h3>Reinigung nach Todesfall/Messie</h3></div>
-            <div class="card" data-aos="zoom-in"><div class="card-icon">🔧</div><h3>Hausmeisterservice</h3></div>
+            <div class="card" data-aos="fade-up"><div class="card-icon">🪜</div><h3>Treppenhausreinigung</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="50"><div class="card-icon">🏡</div><h3>Reinigung von Privathaushalten</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100"><div class="card-icon">🏢</div><h3>Büroreinigung</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="150"><div class="card-icon">🏫</div><h3>Kita- und Schulreinigung</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200"><div class="card-icon">🎉</div><h3>Reinigung nach Firmenfeiern</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="250"><div class="card-icon">🏗️</div><h3>Bauendreinigung</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300"><div class="card-icon">🪟</div><h3>Fensterreinigung</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="350"><div class="card-icon">📦</div><h3>Umzugsreinigung mit Abnahmegarantie</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="400"><div class="card-icon">🧹</div><h3>Reinigung nach Todesfall/Messie</h3></div>
+            <div class="card" data-aos="fade-up" data-aos-delay="450"><div class="card-icon">🔧</div><h3>Hausmeisterservice</h3></div>
         </div>
     </section>
 
@@ -625,31 +482,17 @@
     <section class="reviews-section" id="reviews">
         <h2 class="section-title">Kundenbewertungen</h2>
         <div class="reviews-grid" id="reviewsContainer">
-            <div class="review-card" data-aos="flip-left">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Sehr pünktlich, gründlich und absolut professionell. Meine Wohnung hat noch nie so gepflegt ausgesehen!"</p>
-                <div class="review-author">Elena M. • Berlin-Mitte</div>
-            </div>
-            <div class="review-card" data-aos="flip-left" data-aos-delay="100">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Die Treppenhausreinigung für unser Haus wird perfekt erledigt. Äußerst zuverlässig!"</p>
-                <div class="review-author">Stefan K. • Charlottenburg</div>
-            </div>
-            <div class="review-card" data-aos="flip-left" data-aos-delay="200">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Hervorragende Büroreinigung! Flexibel, diskret und ein fantastisches Team."</p>
-                <div class="review-author">Marcus W. • Berlin</div>
-            </div>
+            <!-- Отзывы будут загружаться динамически из LocalStorage -->
         </div>
 
-        <div style="text-align: center;">
-            <button class="sa-submit-btn" onclick="openModal('review-modal')" style="max-width: 300px; background: transparent; color: var(--brand-green); border: 2px solid var(--brand-green);">
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="sa-submit-btn" onclick="openModal('review-modal')" style="max-width: 340px; background: transparent; color: var(--brand-green); border: 2px solid var(--brand-green);">
                 ✍️ Bewertung auf der Website schreiben
             </button>
         </div>
     </section>
 
-    <footer>
+    <footer id="contact">
         <div class="footer-content">
             <div>
                 <div class="footer-logo">CleanLines Lysiuk</div>
@@ -671,42 +514,142 @@
         </div>
     </footer>
 
-    <!-- Окно скидки -->
-    <div id="discount-modal" class="modal">
-        <div class="modal-content" style="text-align: center;">
-            <span class="modal-close" onclick="closeModal('discount-modal')">&times;</span>
-            <span style="background: rgba(184, 142, 61, 0.15); color: var(--brand-green); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;">Exklusiv ✨</span>
-            <h3 style="font-family:'Italiana'; font-size:36px; color:var(--brand-green); margin: 15px 0 10px;">10% Rabatt sichern</h3>
-            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Geben Sie Ihre E-Mail-Adresse ein und erhalten Sie den Gutscheincode direkt auf der Website.</p>
-            <input type="email" class="sa-input" placeholder="Ihre E-Mail-Adresse" style="margin-bottom: 12px;">
-            <button class="sa-submit-btn" onclick="closeModal('discount-modal')">Rabattcode aktivieren</button>
+    <!-- МОДАЛЬНОЕ ОКНО: ФОРМУЛЯР ЗАЯВКИ (Angebot anfordern) -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
+            <h2 style="font-family: 'Italiana', serif; font-size: 34px; color: var(--brand-green); margin-bottom: 25px; text-align: center;">Unverbindliches Angebot anfordern</h2>
+            
+            <form onsubmit="handleFormSubmit(event)">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <div>
+                        <div class="sa-field">
+                            <label class="sa-label">Firma</label>
+                            <input type="text" class="sa-input" placeholder="z. B. Firma GmbH">
+                        </div>
+                        <div class="sa-field">
+                            <label class="sa-label">Ihr Name *</label>
+                            <input type="text" class="sa-input" required placeholder="Rinata Kherriman">
+                        </div>
+                        <div class="sa-field">
+                            <label class="sa-label">Straße + Nr.</label>
+                            <input type="text" class="sa-input" placeholder="Junker-Jörg-Str. 18">
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <div class="sa-field" style="flex: 1;">
+                                <label class="sa-label">PLZ</label>
+                                <input type="text" class="sa-input" placeholder="10318">
+                            </div>
+                            <div class="sa-field" style="flex: 2;">
+                                <label class="sa-label">Ort</label>
+                                <input type="text" class="sa-input" placeholder="Berlin">
+                            </div>
+                        </div>
+                        <div class="sa-field">
+                            <label class="sa-label">E-Mail *</label>
+                            <input type="email" class="sa-input" required placeholder="name@domain.de">
+                        </div>
+                        <div class="sa-field">
+                            <label class="sa-label">Telefon</label>
+                            <input type="tel" class="sa-input" placeholder="+491608519425">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="sa-field">
+                            <label class="sa-label">Reinigungstag</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"><input type="checkbox" value="Montag"> Montag</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Dienstag"> Dienstag</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Mittwoch"> Mittwoch</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Donnerstag"> Donnerstag</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Freitag"> Freitag</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Samstag"> Samstag</label>
+                            </div>
+                        </div>
+
+                        <div class="sa-field" style="margin-top: 15px;">
+                            <label class="sa-label">Gewünschte Häufigkeit</label>
+                            <select class="sa-select">
+                                <option value="Einmalig">Einmalig</option>
+                                <option value="Wöchentlich">Wöchentlich</option>
+                                <option value="Zweiwöchentlich">Alle 2 Wochen</option>
+                                <option value="Monatlich">Monatlich</option>
+                            </select>
+                        </div>
+
+                        <div class="sa-field" style="margin-top: 15px;">
+                            <label class="sa-label">Reinigungsart</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"><input type="checkbox" value="Büroreinigung"> Büroreinigung</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Privathaushalt"> Privathaushalt</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Treppenhaus"> Treppenhaus</label>
+                                <label class="checkbox-label"><input type="checkbox" value="Fensterreinigung"> Fensterreinigung</label>
+                            </div>
+                        </div>
+
+                        <div class="sa-field" style="margin-top: 15px;">
+                            <label class="sa-label">Anmerkungen / Gutscheincode</label>
+                            <textarea class="sa-textarea" rows="2" placeholder="CLEAN10"></textarea>
+                        </div>
+
+                        <button type="submit" class="sa-submit-btn" style="background: var(--brand-green); margin-top: 10px;">
+                            Unverbindlich Angebot anfordern →
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
-    <!-- Модалка отзыва (Прямо на сайт) -->
+    <!-- МОДАЛЬНОЕ ОКНО: СКИДКА -->
+    <div id="discount-modal" class="modal">
+        <div class="modal-content" style="text-align: center; max-width: 450px;">
+            <span class="modal-close" onclick="closeModal('discount-modal')">&times;</span>
+            <span style="background: rgba(184, 142, 61, 0.15); color: var(--brand-green); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;">Exklusiv ✨</span>
+            <h3 style="font-family:'Italiana'; font-size:36px; color:var(--brand-green); margin: 15px 0 10px;">10% Rabatt sichern</h3>
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.</p>
+            <input type="email" id="discountEmail" class="sa-input" placeholder="Ihre E-Mail-Adresse" style="margin-bottom: 12px;">
+            <button class="sa-submit-btn" onclick="activateDiscount()">Rabattcode aktivieren ✨</button>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО: ДОБАВЛЕНИЕ ОТЗЫВА (ЗВЁЗДОЧКИ + LOCALSTORAGE) -->
     <div id="review-modal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" style="max-width: 500px;">
             <span class="modal-close" onclick="closeModal('review-modal')">&times;</span>
-            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-green); margin-bottom:15px;">Bewertung schreiben</h3>
+            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-green); margin-bottom:15px; text-align: center;">Bewertung schreiben</h3>
+            
             <div class="sa-field">
-                <label class="sa-label">Ihr Name</label>
-                <input type="text" id="rev-name" class="sa-input" placeholder="z. B. Anna K.">
+                <label class="sa-label">Ihre Bewertung (Sterne)</label>
+                <div class="star-rating" id="starRating">
+                    <span class="star active" data-value="1">★</span>
+                    <span class="star active" data-value="2">★</span>
+                    <span class="star active" data-value="3">★</span>
+                    <span class="star active" data-value="4">★</span>
+                    <span class="star active" data-value="5">★</span>
+                </div>
+            </div>
+
+            <div class="sa-field">
+                <label class="sa-label">Ihr Name *</label>
+                <input type="text" id="rev-name" class="sa-input" placeholder="z. B. Rinata">
             </div>
             <div class="sa-field">
                 <label class="sa-label">Ihre Stadt / Stadtteil</label>
-                <input type="text" id="rev-city" class="sa-input" placeholder="z. B. Berlin-Mitte">
+                <input type="text" id="rev-city" class="sa-input" placeholder="z. B. Berlin-Moabit">
             </div>
             <div class="sa-field">
-                <label class="sa-label">Ihre Erfahrung</label>
+                <label class="sa-label">Ihre Erfahrung *</label>
                 <textarea id="rev-text" class="sa-textarea" rows="4" placeholder="Schreiben Sie Ihre Erfahrung..."></textarea>
             </div>
-            <button class="sa-submit-btn" onclick="addReviewOnSite()">Bewertung veröffentlichen ✨</button>
+            <button class="sa-submit-btn" onclick="saveReviewToLocalStorage()">Bewertung veröffentlichen ✨</button>
         </div>
     </div>
 
     <!-- Окно Звонка -->
     <div id="call-modal" class="modal">
-        <div class="modal-content" style="text-align: center;">
+        <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('call-modal')">&times;</span>
             <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-green);">Kontakttelefon</h3>
             <div style="font-family:'Italiana'; font-size:32px; color:var(--brand-green); margin: 15px 0; font-weight: 700;">+49 1578 107 3234</div>
@@ -717,7 +660,7 @@
 
     <!-- Impressum Modal -->
     <div id="impressum-modal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" style="max-width: 550px;">
             <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
             <h3 style="font-family:'Italiana'; font-size:32px; margin-bottom:15px; color:var(--brand-green);">Impressum</h3>
             <p><strong>Angaben gemäß § 5 TMG:</strong><br>CleanLines Lysiuk<br>Professionelle Reinigungsdienste</p>
@@ -726,26 +669,26 @@
         </div>
     </div>
 
-    <!-- Развернутый Datenschutz Modal -->
+    <!-- Datenschutzerklärung Modal -->
     <div id="datenschutz-modal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" style="max-width: 650px;">
             <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
             <h3 style="font-family:'Italiana'; font-size:32px; margin-bottom:15px; color:var(--brand-green);">Datenschutzerklärung</h3>
             <h4 style="color: var(--brand-green); margin-top: 15px;">1. Datenschutz auf einen Blick</h4>
-            <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen.</p>
 
             <h4 style="color: var(--brand-green); margin-top: 15px;">2. Datenerfassung auf unserer Website</h4>
-            <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Ihre Daten werden dadurch erhoben, dass Sie uns diese mitteilen (z. B. im Kontaktformular).</p>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Ihre Daten werden dadurch erhoben, dass Sie uns diese mitteilen.</p>
 
             <h4 style="color: var(--brand-green); margin-top: 15px;">3. Ihre Rechte</h4>
             <p style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten.</p>
         </div>
     </div>
 
-    <!-- Плавающее Cookie-окно -->
+    <!-- Cookie-окно -->
     <div class="cookie-modal" id="cookieModal">
         <h4 style="font-size: 16px; color: var(--brand-green); margin-bottom: 6px;">Einwilligung zu Cookies</h4>
-        <p style="font-size: 12px; color: var(--text-muted);">Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Weitere Details finden Sie im Datenschutz.</p>
+        <p style="font-size: 12px; color: var(--text-muted);">Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.</p>
         <div class="cookie-buttons">
             <button class="btn-cookie-deny" onclick="closeCookie()">Ablehnen</button>
             <button class="btn-cookie-accept" onclick="closeCookie()">Alle akzeptieren</button>
@@ -756,17 +699,46 @@
     <script>
         AOS.init({ duration: 800, once: false });
 
-        function copyCode() {
-            navigator.clipboard.writeText('CLEAN10');
-            alert('Gutscheincode CLEAN10 kopiert!');
+        let selectedStars = 5;
+
+        // Дефолтные отзывы + загрузка из LocalStorage
+        const defaultReviews = [
+            { name: "Elena M.", city: "Berlin-Mitte", text: "Sehr pünktlich, gründlich und absolut professionell. Meine Wohnung hat noch nie so gepflegt ausgesehen!", stars: 5 },
+            { name: "Stefan K.", city: "Charlottenburg", text: "Die Treppenhausreinigung für unser Haus wird perfekt erledigt. Äußerst zuverlässig!", stars: 5 },
+            { name: "Marcus W.", city: "Berlin", text: "Hervorragende Büroreinigung! Flexibel, diskret und ein fantastisches Team.", stars: 5 }
+        ];
+
+        function loadReviews() {
+            const savedReviews = JSON.parse(localStorage.getItem('cleanlines_reviews')) || defaultReviews;
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = '';
+
+            savedReviews.forEach(rev => {
+                const starsHtml = '★'.repeat(rev.stars) + '☆'.repeat(5 - rev.stars);
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.setAttribute('data-aos', 'fade-up');
+                card.innerHTML = `
+                    <div class="review-stars">${starsHtml}</div>
+                    <p class="review-text">"${rev.text}"</p>
+                    <div class="review-author">${rev.name} • ${rev.city}</div>
+                `;
+                container.appendChild(card);
+            });
         }
 
-        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
-        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        function closeCookie() { document.getElementById('cookieModal').style.display = 'none'; }
+        // Интерактивный выбор звёздочек
+        document.querySelectorAll('#starRating .star').forEach(star => {
+            star.addEventListener('click', function() {
+                selectedStars = parseInt(this.getAttribute('data-value'));
+                document.querySelectorAll('#starRating .star').forEach(s => {
+                    s.classList.toggle('active', parseInt(s.getAttribute('data-value')) <= selectedStars);
+                });
+            });
+        });
 
-        // Добавление отзыва прямо в DOM сайта
-        function addReviewOnSite() {
+        // Сохранение отзыва в LocalStorage
+        function saveReviewToLocalStorage() {
             const name = document.getElementById('rev-name').value.trim() || 'Anonym';
             const city = document.getElementById('rev-city').value.trim() || 'Berlin';
             const text = document.getElementById('rev-text').value.trim();
@@ -776,28 +748,52 @@
                 return;
             }
 
-            const card = document.createElement('div');
-            card.className = 'review-card';
-            card.innerHTML = `
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"${text}"</p>
-                <div class="review-author">${name} • ${city}</div>
-            `;
-
-            document.getElementById('reviewsContainer').prepend(card);
-            closeModal('review-modal');
+            const currentReviews = JSON.parse(localStorage.getItem('cleanlines_reviews')) || defaultReviews;
+            currentReviews.unshift({ name, city, text, stars: selectedStars });
             
+            localStorage.setItem('cleanlines_reviews', JSON.stringify(currentReviews));
+            loadReviews();
+            closeModal('review-modal');
+
             document.getElementById('rev-name').value = '';
             document.getElementById('rev-city').value = '';
             document.getElementById('rev-text').value = '';
+            alert('Vielen Dank für Ihre Bewertung! Sie wurde auf der Website veröffentlicht.');
         }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('Vielen Dank! Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns in Kürze.');
+            closeModal('booking-modal');
+        }
+
+        function activateDiscount() {
+            const email = document.getElementById('discountEmail').value.trim();
+            if (!email) {
+                alert('Bitte geben Sie Ihre E-Mail-Adresse ein.');
+                return;
+            }
+            copyCode();
+            alert('Gutscheincode CLEAN10 wurde aktiviert und kopiert!');
+            closeModal('discount-modal');
+        }
+
+        function copyCode() {
+            navigator.clipboard.writeText('CLEAN10');
+        }
+
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        function closeCookie() { document.getElementById('cookieModal').style.display = 'none'; }
 
         window.onclick = function(e) {
             if (e.target.classList.contains('modal')) e.target.style.display = 'none';
         }
 
-        // Появление окна скидки через 6 секунд
+        // Загрузка отзывов и всплывающей скидки
         window.addEventListener('load', function() {
+            loadReviews();
+
             let popupShown = sessionStorage.getItem('popupShown');
             if (!popupShown) {
                 setTimeout(function() {
