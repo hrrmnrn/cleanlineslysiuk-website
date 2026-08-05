@@ -119,7 +119,6 @@
 
         .logo-group { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         
-        /* ЛОГОТИП 1 К 1 КАК НА КАРТИНКЕ */
         .logo-icon-card {
             width: 46px; height: 46px; background: #FFFFFF; border: 1.8px solid var(--brand-blue-light);
             border-radius: 12px; display: flex; align-items: center; justify-content: center;
@@ -131,9 +130,36 @@
         .logo-text { font-family: 'Italiana', serif; font-size: 28px; font-weight: 700; color: var(--brand-blue); letter-spacing: -0.3px; }
         .logo-text span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 300; color: var(--text-muted); }
 
-        nav { display: flex; align-items: center; gap: 30px; }
+        nav { display: flex; align-items: center; gap: 25px; }
         nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 600; transition: color 0.2s; }
         nav a:hover { color: var(--brand-blue-light); }
+
+        /* Переключатель языков DE | EN | RU */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            background: rgba(15, 42, 74, 0.06);
+            padding: 4px 8px;
+            border-radius: 20px;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .lang-btn {
+            border: none;
+            background: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 3px 8px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--brand-blue);
+            color: #FFFFFF;
+        }
 
         /* ЖИВЫЕ КНОПКИ С ЭФФЕКТАМИ */
         .btn-call {
@@ -259,23 +285,18 @@
 
     <!-- Баннер со скидкой сверху -->
     <div class="promo-banner">
-        <span>🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: <span class="promo-badge">CLEAN10</span></span>
-        <button class="promo-btn" onclick="copyCode()">Code kopieren ✨</button>
+        <span id="txt-promo">🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: <span class="promo-badge">CLEAN10</span></span>
+        <button class="promo-btn" id="btn-copy-promo" onclick="copyCode()">Code kopieren ✨</button>
     </div>
 
     <!-- Навигация (Hauptmenü) -->
     <header>
         <a href="#" class="logo-group">
             <div class="logo-icon-card">
-                <!-- Логотип 1 в 1 как на изображении пользователя -->
                 <svg viewBox="0 0 100 100" width="34" height="34" fill="none">
-                    <!-- Искорка сверху большая -->
                     <path d="M42 5 L47 25 L67 30 L47 35 L42 55 L37 35 L17 30 L37 25 Z" fill="#1D5D9B"/>
-                    <!-- Искорка справа средняя -->
                     <path d="M72 10 L75 22 L95 25 L75 28 L72 40 L69 28 L49 25 L69 22 Z" fill="#1D5D9B"/>
-                    <!-- Искорка справа маленькая -->
                     <path d="M78 45 L80 53 L92 55 L80 57 L78 65 L76 57 L64 55 L76 53 Z" fill="#1D5D9B"/>
-                    <!-- Водосгон (швабра) -->
                     <path d="M12 48 L82 25 L76 15 L6 38 Z" fill="#1D5D9B"/>
                     <path d="M10 50 L84 26" stroke="#0F2A4A" stroke-width="4" stroke-linecap="round"/>
                     <path d="M38 40 L18 85 L28 89 L48 44 Z" fill="#1D5D9B"/>
@@ -284,25 +305,34 @@
             <div class="logo-text">CleanLines <span>Lysiuk</span></div>
         </a>
         <nav>
-            <a href="javascript:void(0)" onclick="openModal('booking-modal')">Angebot</a>
-            <a href="#services">Leistungen</a>
-            <a href="#reviews">Bewertungen</a>
-            <a href="#contact">Kontakt</a>
+            <a href="javascript:void(0)" id="nav-angebot" onclick="openModal('booking-modal')">Angebot</a>
+            <a href="#services" id="nav-leistungen">Leistungen</a>
+            <a href="#reviews" id="nav-bewertungen">Bewertungen</a>
+            <a href="#contact" id="nav-kontakt">Kontakt</a>
         </nav>
 
-        <button class="btn-call" onclick="openModal('call-modal')">
-            📞 Jetzt anrufen
-        </button>
+        <!-- Переключатель языков -->
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="switchLanguage('de', this)">DE</button>
+                <button class="lang-btn" onclick="switchLanguage('en', this)">EN</button>
+                <button class="lang-btn" onclick="switchLanguage('ru', this)">RU</button>
+            </div>
+
+            <button class="btn-call" id="btn-header-call" onclick="openModal('call-modal')">
+                📞 Jetzt anrufen
+            </button>
+        </div>
     </header>
 
     <!-- Первый экран (Hero) -->
     <main class="hero-container" data-aos="fade-up">
-        <div class="hero-subtitle">Gebäudereinigung in Berlin</div>
-        <h1 class="hero-title">Räume, die sich <em>wirklich</em> sauber anfühlen.</h1>
-        <p class="hero-desc">Gründliche Reinigung für Wohnungen, Büros und Gewerberäume – persönlich betreut, zuverlässig ausgeführt und flexibel geplant.</p>
+        <div class="hero-subtitle" id="hero-sub">Gebäudereinigung in Berlin</div>
+        <h1 class="hero-title" id="hero-title">Perfekte Sauberkeit, die Ihnen <em>Zeit und Ruhe</em> schenkt.</h1>
+        <p class="hero-desc" id="hero-desc">Genießen Sie ein makelloses Zuhause oder ein repräsentatives Büro. Wir kümmern uns um jedes Detail – diskret, gründlich und ganz nach Ihren Wünschen.</p>
         
         <div class="hero-actions">
-            <button class="btn-angebot-cta" onclick="openModal('booking-modal')">
+            <button class="btn-angebot-cta" id="hero-btn-cta" onclick="openModal('booking-modal')">
                 Jetzt Angebot anfordern ❯
             </button>
         </div>
@@ -312,71 +342,71 @@
     <div class="perks-bar">
         <div class="perk-item" data-aos="fade-up">
             <div class="perk-icon-wrapper">✨</div>
-            <div class="perk-title">Zuverlässig</div>
+            <div class="perk-title" id="perk-1">Zuverlässig</div>
         </div>
         <div class="perk-item" data-aos="fade-up" data-aos-delay="100">
             <div class="perk-icon-wrapper">🗝️</div>
-            <div class="perk-title">Gründlich</div>
+            <div class="perk-title" id="perk-2">Gründlich</div>
         </div>
         <div class="perk-item" data-aos="fade-up" data-aos-delay="200">
             <div class="perk-icon-wrapper">🌱</div>
-            <div class="perk-title">Pünktlich</div>
+            <div class="perk-title" id="perk-3">Pünktlich</div>
         </div>
     </div>
 
     <!-- Услуги со стикерами -->
     <section class="services-section" id="services">
-        <h2 class="section-title">Unsere Leistungen</h2>
+        <h2 class="section-title" id="sec-services-title">Unsere Leistungen</h2>
         <div class="services-grid">
             
             <div class="card" data-aos="fade-up">
                 <div class="card-sticker">🪜</div>
-                <h3>Treppenhausreinigung</h3>
+                <h3 id="srv-1">Treppenhausreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="50">
                 <div class="card-sticker">🏡</div>
-                <h3>Reinigung von Privathaushalten & Wohnungen</h3>
+                <h3 id="srv-2">Reinigung von Privathaushalten & Wohnungen</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="100">
                 <div class="card-sticker">🏢</div>
-                <h3>Büroreinigung</h3>
+                <h3 id="srv-3">Büroreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="150">
                 <div class="card-sticker">🏫</div>
-                <h3>Kita- und Schulreinigung</h3>
+                <h3 id="srv-4">Kita- und Schulreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="200">
                 <div class="card-sticker">🎉</div>
-                <h3>Reinigung nach Firmenfeiern</h3>
+                <h3 id="srv-5">Reinigung nach Firmenfeiern</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="250">
                 <div class="card-sticker">🏗️</div>
-                <h3>Bauendreinigung</h3>
+                <h3 id="srv-6">Bauendreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="300">
                 <div class="card-sticker">🪟</div>
-                <h3>Fensterreinigung</h3>
+                <h3 id="srv-7">Fensterreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="350">
                 <div class="card-sticker">📦</div>
-                <h3>Umzugsreinigung mit Abnahmegarantie</h3>
+                <h3 id="srv-8">Umzugsreinigung mit Abnahmegarantie</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="400">
                 <div class="card-sticker">🧹</div>
-                <h3>Reinigung nach Todesfall/Messie-Haushalt</h3>
+                <h3 id="srv-9">Reinigung nach Todesfall/Messie-Haushalt</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="450">
                 <div class="card-sticker">🔧</div>
-                <h3>Hausmeisterservice (kleine Reparaturen / Kontrolle)</h3>
+                <h3 id="srv-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</h3>
             </div>
 
         </div>
@@ -384,11 +414,11 @@
 
     <!-- Отзывы -->
     <section class="reviews-section" id="reviews">
-        <h2 class="section-title">Kundenbewertungen</h2>
+        <h2 class="section-title" id="sec-reviews-title">Kundenbewertungen</h2>
         <div class="reviews-grid" id="reviewsContainer"></div>
 
         <div style="text-align: center; margin-top: 30px;">
-            <button class="sa-submit-btn" onclick="openModal('review-modal')" style="max-width: 340px; background: transparent; color: var(--brand-blue); border: 2px solid var(--brand-blue);">
+            <button class="sa-submit-btn" id="btn-write-review" onclick="openModal('review-modal')" style="max-width: 340px; background: transparent; color: var(--brand-blue); border: 2px solid var(--brand-blue);">
                 ✍️ Bewertung auf der Website schreiben
             </button>
         </div>
@@ -399,10 +429,10 @@
         <div class="footer-content">
             <div>
                 <div class="footer-logo">CleanLines Lysiuk</div>
-                <p style="color: rgba(255,255,255,0.7); margin-top: 10px;">Professionelle Reinigungsdienste in Berlin & Umgebung</p>
+                <p style="color: rgba(255,255,255,0.7); margin-top: 10px;" id="ft-desc">Professionelle Reinigungsdienste in Berlin & Umgebung</p>
             </div>
             <div class="footer-contacts">
-                <p>📍 Servicegebiet: Berlin und Umgebung</p>
+                <p id="ft-area">📍 Servicegebiet: Berlin und Umgebung</p>
                 <p>📞 <a href="https://wa.me/4915781073234" target="_blank">+49 1578 107 3234</a></p>
                 <p>✉️ <a href="mailto:lysiuk.cleanlines@gmail.com">lysiuk.cleanlines@gmail.com</a></p>
             </div>
@@ -417,12 +447,12 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНОЕ ОКНО: ФОРМУЛЯР ЗАЯВКИ С ВОЗВРАТОМ НА ВЕРХ СТРАНИЦЫ -->
+    <!-- МОДАЛЬНОЕ ОКНО: ФОРМУЛЯР ЗАЯВКИ С ВОЗВРАТОМ НА ВЕРХ СТРАНИЦЫ И КРЕСТИКОМ БЕЗ СКРОЛЛА -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
-            <span class="modal-close" onclick="closeAndScrollTop('booking-modal')">&times;</span>
-            <button class="btn-back-home" onclick="closeAndScrollTop('booking-modal')">← Zurück zur Hauptseite</button>
-            <h2 style="font-family: 'Italiana', serif; font-size: 34px; color: var(--brand-blue); margin-bottom: 25px; text-align: center;">Unverbindliches Angebot anfordern</h2>
+            <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
+            <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('booking-modal')">← Zurück zur Hauptseite</button>
+            <h2 style="font-family: 'Italiana', serif; font-size: 34px; color: var(--brand-blue); margin-bottom: 25px; text-align: center;" id="modal-form-title">Unverbindliches Angebot anfordern</h2>
             
             <form action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
@@ -500,7 +530,7 @@
                             <textarea name="Anmerkungen" class="sa-textarea" rows="2" placeholder="z. B. CLEAN10"></textarea>
                         </div>
 
-                        <button type="submit" class="sa-submit-btn" style="margin-top: 10px;">
+                        <button type="submit" class="sa-submit-btn" id="btn-submit-form" style="margin-top: 10px;">
                             Unverbindlich Angebot anfordern →
                         </button>
                     </div>
@@ -524,8 +554,8 @@
     <!-- МОДАЛЬНОЕ ОКНО: ДОБАВЛЕНИЕ ОТЗЫВА -->
     <div id="review-modal" class="modal">
         <div class="modal-content" style="max-width: 500px;">
-            <span class="modal-close" onclick="closeAndScrollTop('review-modal')">&times;</span>
-            <button class="btn-back-home" onclick="closeAndScrollTop('review-modal')">← Zurück zur Hauptseite</button>
+            <span class="modal-close" onclick="closeModal('review-modal')">&times;</span>
+            <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('review-modal')">← Zurück zur Hauptseite</button>
             <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue); margin-bottom:15px; text-align: center;">Bewertung schreiben</h3>
             
             <div class="sa-field">
@@ -569,8 +599,8 @@
     <!-- Impressum Modal -->
     <div id="impressum-modal" class="modal">
         <div class="modal-content legal-text-body" style="max-width: 700px;">
-            <span class="modal-close" onclick="closeAndScrollTop('impressum-modal')">&times;</span>
-            <button class="btn-back-home" onclick="closeAndScrollTop('impressum-modal')">← Zurück zur Hauptseite</button>
+            <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
+            <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('impressum-modal')">← Zurück zur Hauptseite</button>
             <h3 style="font-family:'Italiana'; font-size:36px; margin-bottom:20px; color:var(--brand-blue);">Impressum</h3>
             
             <h4>Angaben gemäß § 5 TMG</h4>
@@ -615,8 +645,8 @@
     <!-- Datenschutzerklärung Modal -->
     <div id="datenschutz-modal" class="modal">
         <div class="modal-content legal-text-body" style="max-width: 750px;">
-            <span class="modal-close" onclick="closeAndScrollTop('datenschutz-modal')">&times;</span>
-            <button class="btn-back-home" onclick="closeAndScrollTop('datenschutz-modal')">← Zurück zur Hauptseite</button>
+            <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
+            <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('datenschutz-modal')">← Zurück zur Hauptseite</button>
             <h3 style="font-family:'Italiana'; font-size:36px; margin-bottom:20px; color:var(--brand-blue);">Datenschutzerklärung</h3>
             
             <h4>1. Datenschutz auf einen Blick</h4>
@@ -649,6 +679,98 @@
 
         let selectedStars = 5;
         let isAdmin = false;
+
+        /* Словарь для перевода сайта на DE / EN / RU */
+        const translations = {
+            de: {
+                promo: "🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: ",
+                copyBtn: "Code kopieren ✨",
+                angebot: "Angebot",
+                leistungen: "Leistungen",
+                bewertungen: "Bewertungen",
+                kontakt: "Kontakt",
+                callBtn: "📞 Jetzt anrufen",
+                sub: "Gebäudereinigung in Berlin",
+                title: "Perfekte Sauberkeit, die Ihnen <em>Zeit und Ruhe</em> schenkt.",
+                desc: "Genießen Sie ein makelloses Zuhause oder ein repräsentatives Büro. Wir kümmern uns um jedes Detail – diskret, gründlich und ganz nach Ihren Wünschen.",
+                cta: "Jetzt Angebot anfordern ❯",
+                p1: "Zuverlässig", p2: "Gründlich", p3: "Pünktlich",
+                secServ: "Unsere Leistungen",
+                secRev: "Kundenbewertungen",
+                writeRev: "✍️ Bewertung auf der Website schreiben",
+                backHome: "← Zurück zur Hauptseite",
+                modalForm: "Unverbindliches Angebot anfordern",
+                btnFormSubmit: "Unverbindlich Angebot anfordern →"
+            },
+            en: {
+                promo: "🎁 Get 10% discount on your first cleaning with code: ",
+                copyBtn: "Copy code ✨",
+                angebot: "Offer",
+                leistungen: "Services",
+                bewertungen: "Reviews",
+                kontakt: "Contact",
+                callBtn: "📞 Call now",
+                sub: "Cleaning services in Berlin",
+                title: "Flawless cleanliness that brings you <em>time and peace of mind</em>.",
+                desc: "Enjoy an immaculate home or a prestigious office. We take care of every detail – discreetly, thoroughly, and tailored to your needs.",
+                cta: "Request a quote now ❯",
+                p1: "Reliable", p2: "Thorough", p3: "Punctual",
+                secServ: "Our Services",
+                secRev: "Customer Reviews",
+                writeRev: "✍️ Write a review on the website",
+                backHome: "← Back to Main Page",
+                modalForm: "Request a free quote",
+                btnFormSubmit: "Request quote without obligation →"
+            },
+            ru: {
+                promo: "🎁 Получите скидку 10% на первую уборку по промокоду: ",
+                copyBtn: "Скопировать код ✨",
+                angebot: "Заявка",
+                leistungen: "Услуги",
+                bewertungen: "Отзывы",
+                kontakt: "Контакты",
+                callBtn: "📞 Позвонить сейчас",
+                sub: "Услуги клининга в Берлине",
+                title: "Идеальная чистота, которая подарит вам <em>время и уют</em>.",
+                desc: "Наслаждайтесь безупречным домом или представительским офисом. Мы позаботимся о каждой детали — незаметно, тщательно и по вашим пожеланиям.",
+                cta: "Рассчитать стоимость ❯",
+                p1: "Надежно", p2: "Тщательно", p3: "Пунктуально",
+                secServ: "Наши услуги",
+                secRev: "Отзывы клиентов",
+                writeRev: "✍️ Написать отзыв на сайте",
+                backHome: "← Вернуться на главную",
+                modalForm: "Запросить бесплатный расчет",
+                btnFormSubmit: "Отправить заявку →"
+            }
+        };
+
+        function switchLanguage(lang, btn) {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const t = translations[lang];
+            
+            document.getElementById('btn-copy-promo').innerText = t.copyBtn;
+            document.getElementById('nav-angebot').innerText = t.angebot;
+            document.getElementById('nav-leistungen').innerText = t.leistungen;
+            document.getElementById('nav-bewertungen').innerText = t.bewertungen;
+            document.getElementById('nav-kontakt').innerText = t.kontakt;
+            document.getElementById('btn-header-call').innerText = t.callBtn;
+            document.getElementById('hero-sub').innerText = t.sub;
+            document.getElementById('hero-title').innerHTML = t.title;
+            document.getElementById('hero-desc').innerText = t.desc;
+            document.getElementById('hero-btn-cta').innerText = t.cta;
+            document.getElementById('perk-1').innerText = t.p1;
+            document.getElementById('perk-2').innerText = t.p2;
+            document.getElementById('perk-3').innerText = t.p3;
+            document.getElementById('sec-services-title').innerText = t.secServ;
+            document.getElementById('sec-reviews-title').innerText = t.secRev;
+            document.getElementById('btn-write-review').innerText = t.writeRev;
+            document.getElementById('modal-form-title').innerText = t.modalForm;
+            document.getElementById('btn-submit-form').innerText = t.btnFormSubmit;
+
+            document.querySelectorAll('.btn-back-txt').forEach(b => b.innerText = t.backHome);
+        }
 
         const defaultReviews = [
             { id: 1, name: "Elena M.", city: "Berlin-Mitte", text: "Sehr pünktlich, gründlich und absolut professionell. Meine Wohnung hat noch nie so gepflegt ausgesehen!", stars: 5 },
@@ -744,9 +866,11 @@
         }
 
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        
+        /* КРЕСТИК: Просто закрывает модальное окно без прокрутки */
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
         
-        /* Закрывает модалку и плавно переносит на самый верх страницы */
+        /* СИНЯЯ КНОПКА: Закрывает окно и плавно скроллит на самый верх */
         function closeAndScrollTop(id) {
             closeModal(id);
             window.scrollTo({ top: 0, behavior: 'smooth' });
