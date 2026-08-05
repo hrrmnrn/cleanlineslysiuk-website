@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanLines Lysiuk | Professionelle Reinigung Berlin</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <style>
+        :root {
+            --primary-blue: #0A2540;
+            --accent-blue: #0066FF;
+            --light-blue: #E0EDFF;
+            --dark-green: #14382C;
+            --bg: #F8FAFC;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Баннер с акцией -10% */
+        .promo-banner {
+            background: linear-gradient(135deg, #0066FF 0%, #0A2540 100%);
+            color: #ffffff;
+            padding: 12px 8%;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .promo-btn {
+            background: #ffffff;
+            color: var(--accent-blue);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s;
+        }
+
+        .promo-btn:hover { transform: scale(1.05); }
+
+        /* Шапка */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #E2E8F0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--accent-blue); }
+
+        .btn-blue {
+            background: var(--accent-blue);
+            color: #ffffff;
+            padding: 12px 26px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-blue:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.4);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 70px 8% 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--light-blue);
+            color: var(--accent-blue);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        /* Окно Schnellanfrage */
+        .schnellanfrage-card {
+            background: #FCFCFA;
+            border: 1px solid #E2E8F0;
+            border-radius: 28px;
+            padding: 35px;
+            max-width: 520px;
+            margin: 0 auto 60px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+            text-align: left;
+        }
+
+        .sa-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .sa-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark-green);
+            letter-spacing: -0.5px;
+        }
+
+        .sa-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #2D6A4F;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sa-status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #52B788;
+            border-radius: 50%;
+        }
+
+        .sa-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #52605B;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+        }
+
+        .sa-field {
+            margin-bottom: 20px;
+        }
+
+        .sa-select, .sa-input {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 14px;
+            border: 1px solid #D1D5DB;
+            background-color: #FFFFFF;
+            font-size: 15px;
+            color: #1F2937;
+            outline: none;
+            transition: border-color 0.2s;
+            appearance: none;
+        }
+
+        .sa-select-wrapper {
+            position: relative;
+        }
+
+        .sa-select-wrapper::after {
+            content: '⌄';
+            position: absolute;
+            right: 20px;
+            top: 40%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #4B5563;
+            pointer-events: none;
+        }
+
+        .sa-select:focus, .sa-input:focus {
+            border-color: var(--dark-green);
+        }
+
+        /* Кнопки действия */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sa-submit-btn {
+            width: 100%;
+            background-color: var(--dark-green);
+            color: #FFFFFF;
+            padding: 16px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .sa-submit-btn:hover {
+            background-color: #0E2920;
+            transform: translateY(-1px);
+        }
+
+        .sa-call-btn {
+            background-color: #1B4D3E;
+        }
+
+        .sa-note {
+            text-align: center;
+            font-size: 12px;
+            color: #9CA3AF;
+            margin-top: 15px;
+        }
+
+        /* Услуги */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            padding: 0 8% 100px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            padding: 35px 30px;
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.08);
+        }
+
+        .card-num {
+            width: 45px;
+            height: 45px;
+            background: var(--light-blue);
+            color: var(--accent-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 { font-size: 20px; color: var(--primary-blue); margin-bottom: 12px; }
+        .card p { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
+
+        /* Слайдер До / После */
+        .ba-section {
+            background: #ffffff;
+            padding: 80px 8%;
+            border-top: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+            text-align: center;
+        }
+
+        .ba-section h2 { font-size: 36px; color: var(--primary-blue); margin-bottom: 15px; }
+
+        .ba-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            margin: 40px auto 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .ba-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+        }
+
+        .ba-after {
+            background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80');
+        }
+
+        .ba-before {
+            background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80');
+            width: 50%;
+            border-right: 3px solid #ffffff;
+        }
+
+        /* Футер */
+        footer {
+            background: var(--primary-blue);
+            color: #ffffff;
+            padding: 60px 8% 40px;
+            text-align: center;
+        }
+
+        .footer-logo { font-size: 24px; font-weight: 800; margin-bottom: 15px; }
+
+        .footer-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 13px;
+        }
+
+        .footer-links button {
+            background: none;
+            border: none;
+            color: #94A3B8;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-links button:hover { color: #ffffff; }
+
+        /* Модалки */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            color: var(--text-dark);
+            padding: 35px;
+            border-radius: 20px;
+            max-width: 550px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            text-align: left;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px; right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+
+        .modal-content h3 { font-size: 22px; color: var(--primary-blue); margin-bottom: 15px; }
+        .modal-content p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 10px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .ba-container { height: 300px; }
+            .promo-banner { font-size: 12px; }
+            .schnellanfrage-card { padding: 25px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="promo-banner">
+        <span>🎉 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung! Code: <strong>CLEAN10</strong></span>
+        <button class="promo-btn" onclick="applyPromoCode()">Code Kopieren & Nutzen 🎁</button>
+    </div>
+
+    <header>
+        <a href="https://cleanlineslysiuk.com" class="logo">CleanLines <span>Lysiuk</span></a>
+        <a href="https://wa.me/4915781073234?text=Hallo!%20Ich%20möchte%20einen%20Termin%20buchen." class="btn-blue">💬 WhatsApp</a>
+    </header>
+
+    <section class="hero" data-aos="fade-up">
+        <span class="badge">Reinigungsdienst Berlin</span>
+        <h1>Perfekte Sauberkeit,<br>die man spürt.</h1>
+        <p>Zuverlässig, gründlich & pünktlich. Erstklassiger Reinigungsservice für Wohnungen, Büros & Umzüge in Berlin.</p>
+
+        <!-- Окно Schnellanfrage -->
+        <div class="schnellanfrage-card" data-aos="zoom-in" data-aos-delay="150">
+            <div class="sa-header">
+                <div class="sa-title">Schnellanfrage</div>
+                <div class="sa-status">
+                    <span class="sa-status-dot"></span>
+                    <span>TERMINE VERFÜGBAR</span>
+                </div>
+            </div>
+
+            <div class="sa-field">
+                <label class="sa-label">GEWÜNSCHTE REINIGUNG</label>
+                <div class="sa-select-wrapper">
+                    <select id="service-type" class="sa-select">
+                        <option value="Wohnungsreinigung">Wohnungsreinigung</option>
+                        <option value="Büroreinigung">Büroreinigung</option>
+                        <option value="Umzugsreinigung">Umzugsreinigung</option>
+                        <option value="Fensterreinigung">Fensterreinigung</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sa-field">
+                <label class="sa-label">UNGEFÄHRE FLÄCHE</label>
+                <input type="text" id="area-input" class="sa-input" placeholder="z. B. 80 m²">
+            </div>
+
+            <div class="button-group">
+                <button class="sa-submit-btn" onclick="sendWhatsAppRequest()">
+                    Unverbindlich anfragen ➔
+                </button>
+                <a href="tel:+4915781073234" class="sa-submit-btn sa-call-btn">
+                    📞 Jetzt anrufen
+                </a>
+            </div>
+
+            <div class="sa-note">
+                Ihre Angaben werden direkt in eine WhatsApp-Nachricht übernommen.
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="services-grid">
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-num">01</div>
+            <h3>Wohnung</h3>
+            <p>Gründliche Reinigung für Ihr Zuhause. Einmalig oder im regelmäßigen Abo.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-num">02</div>
+            <h3>Büro & Gewerbe</h3>
+            <p>Saubere Arbeitsräume für produktives Arbeiten. Diskret & zuverlässig.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-num">03</div>
+            <h3>Umzug & Garantie</h3>
+            <p>Übergabegarantie für den Vermieter. Stressfrei in die neue Wohnung.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="400">
+            <div class="card-num">04</div>
+            <h3>Fensterputzen</h3>
+            <p>Kristallklare Sicht ohne Streifen für Fenster, Rahmen und Glasfronten.</p>
+        </div>
+    </section>
+
+    <!-- Слайдер До / После -->
+    <section class="ba-section" data-aos="fade-up">
+        <h2>Unsere Ergebnisse</h2>
+        <p style="color: var(--text-muted);">Ziehen Sie den Regler, um den Unterschied zu sehen:</p>
+        
+        <div class="ba-container" id="ba-box">
+            <div class="ba-img ba-after"></div>
+            <div class="ba-img ba-before" id="ba-before"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">CleanLines <span style="color: var(--accent-blue);">Lysiuk</span></div>
+        <p style="color: #94A3B8; margin-bottom: 10px;">Berlin & Umgebung | +49 1578 107 3234</p>
+        <p style="font-size: 12px; color: #64748B;">© 2026 cleanlineslysiuk.com. Alle Rechte vorbehalten.</p>
+
+        <div class="footer-links">
+            <button onclick="openModal('impressum-modal')">Impressum</button>
+            <span style="color: #64748B;">|</span>
+            <button onclick="openModal('datenschutz-modal')">Datenschutz</button>
+        </div>
+    </footer>
+
+    <!-- Impressum -->
+    <div id="impressum-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
+            <h3>Impressum</h3>
+            <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+            <p>CleanLines Lysiuk<br>
+            Inhaber: Dmytro Lysiuk<br>
+            Berlin, Deutschland</p>
+            <p><strong>Kontakt:</strong><br>
+            Telefon: +49 1578 107 3234<br>
+            E-Mail: info@cleanlineslysiuk.com<br>
+            Website: https://cleanlineslysiuk.com</p>
+        </div>
+    </div>
+
+    <!-- Datenschutz -->
+    <div id="datenschutz-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
+            <h3>Datenschutzerklärung</h3>
+            <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Personenbezogene Daten werden auf dieser Webseite nur im notwendigen Umfang erhoben.</p>
+            <p><strong>Kontaktaufnahme:</strong> Wenn Sie uns per WhatsApp, Telefon oder E-Mail kontaktieren, werden Ihre Angaben zwecks Bearbeitung der Anfrage gespeichert.</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    
+    <script>
+        AOS.init({ duration: 900, once: true });
+
+        const lenis = new Lenis({ duration: 1.2, smoothTouch: true });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        let promoApplied = false;
+
+        function applyPromoCode() {
+            promoApplied = true;
+            alert('Gutscheincode CLEAN10 aktiviert! Sie erhalten 10% Rabatt bei Ihrer Anfrage.');
+        }
+
+        function sendWhatsAppRequest() {
+            const service = document.getElementById('service-type').value;
+            const area = document.getElementById('area-input').value.trim() || 'nicht angegeben';
+            
+            let message = `Hallo! Ich möchte eine Anfrage stellen:%0A- Service: ${encodeURIComponent(service)}%0A- Fläche: ${encodeURIComponent(area)}`;
+            
+            if (promoApplied) {
+                message += `%0A- Rabattcode: CLEAN10 (10% Rabatt)`;
+            }
+
+            window.open(`https://wa.me/4915781073234?text=${message}`, '_blank');
+        }
+
+        // Слайдер До / После
+        const baBox = document.getElementById('ba-box');
+        const baBefore = document.getElementById('ba-before');
+
+        baBox.addEventListener('mousemove', (e) => {
+            const rect = baBox.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percent = (x / rect.width) * 100;
+            if(percent >= 0 && percent <= 100) {
+                baBefore.style.width = percent + '%';
+            }
+        });
+
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
