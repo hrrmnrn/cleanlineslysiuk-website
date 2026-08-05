@@ -514,14 +514,14 @@
             font-size: 13px;
         }
 
-        /* Модалка */
+        /* Общие стиль модалок */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(18, 26, 22, 0.6);
-            backdrop-filter: blur(8px);
-            z-index: 9999;
+            background: rgba(18, 26, 22, 0.65);
+            backdrop-filter: blur(10px);
+            z-index: 99999;
             align-items: center;
             justify-content: center;
         }
@@ -529,20 +529,96 @@
         .modal-content {
             background: #FFFFFF;
             padding: 40px;
-            border-radius: 24px;
-            max-width: 600px;
+            border-radius: 28px;
+            max-width: 580px;
             width: 90%;
-            max-height: 80vh;
+            max-height: 85vh;
             overflow-y: auto;
             position: relative;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
         }
 
         .modal-close {
             position: absolute;
             top: 20px; right: 25px;
-            font-size: 24px;
+            font-size: 26px;
             cursor: pointer;
             color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover { color: var(--text-dark); }
+
+        /* Exit Intent Popup */
+        .exit-popup-card {
+            text-align: center;
+            padding: 10px 5px;
+        }
+
+        .exit-badge {
+            display: inline-block;
+            background: rgba(20, 56, 44, 0.08);
+            color: var(--brand-green);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .exit-title {
+            font-family: 'Italiana', serif;
+            font-size: 40px;
+            color: var(--brand-green);
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .exit-desc {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .exit-code-box {
+            background: var(--bg-warm);
+            border: 2px dashed var(--brand-green);
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 25px;
+        }
+
+        .exit-code-val {
+            font-family: 'Italiana', serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--brand-green);
+        }
+
+        .exit-btn {
+            width: 100%;
+            background: var(--brand-green);
+            color: #FFFFFF;
+            padding: 18px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(20, 56, 44, 0.2);
+        }
+
+        .exit-btn:hover {
+            background: var(--brand-green-light);
+            transform: translateY(-2px);
         }
 
         @media (max-width: 992px) {
@@ -701,6 +777,24 @@
         </div>
     </div>
 
+    <!-- Exit Intent Popup -->
+    <div id="exit-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('exit-modal')">&times;</span>
+            <div class="exit-popup-card">
+                <span class="exit-badge">Warten Sie kurz! ✨</span>
+                <h3 class="exit-title">Sichern Sie sich 10% Rabatt</h3>
+                <p class="exit-desc">Buchen Sie Ihre Erstreinigung noch heute und sparen Sie direkt auf Ihr Wunschangebot.</p>
+                <div class="exit-code-box">
+                    <span class="exit-code-val">CLEAN10</span>
+                </div>
+                <a href="https://wa.me/4915781073234?text=Hallo!%20Ich%20möchte%20den%2010%25%20Rabattcode%20CLEAN10%20einlösen." class="exit-btn" target="_blank">
+                    💬 Теперь забрать скидку в WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
@@ -719,7 +813,20 @@
 
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-        window.onclick = function(e) { if (e.target.classList.contains('modal')) e.target.style.display = 'none'; }
+        
+        window.onclick = function(e) { 
+            if (e.target.classList.contains('modal')) e.target.style.display = 'none'; 
+        }
+
+        // Exit-Intent логика (улавливает уход мыши наверх)
+        let exitShown = sessionStorage.getItem('exitShown');
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY < 10 && !exitShown) {
+                openModal('exit-modal');
+                sessionStorage.setItem('exitShown', 'true');
+                exitShown = true;
+            }
+        });
     </script>
 </body>
 </html>
