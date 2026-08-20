@@ -162,7 +162,7 @@
             box-shadow: 0 2px 8px rgba(15, 42, 74, 0.2);
         }
 
-        /* ЖИВЫЕ КНОПКИ */
+        /* Кнопки */
         .btn-call {
             background: var(--brand-blue); color: #FFFFFF; padding: 12px 24px; border-radius: 30px;
             text-decoration: none; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center;
@@ -213,7 +213,7 @@
         .card:hover .card-sticker { transform: scale(1.3) rotate(5deg); }
         .card h3 { font-size: 15px; font-weight: 600; color: var(--brand-blue); line-height: 1.4; }
 
-        /* СЕКЦИЯ ГАЛЕРЕИ РАБОТ (FOTOS NACHHER) */
+        /* СЕКЦИЯ ГАЛЕРЕИ РАБОТ "ПОСЛЕ" */
         .gallery-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; margin-top: 30px; }
         .gallery-card {
@@ -232,7 +232,7 @@
         }
         .gallery-img-wrap {
             width: 100%;
-            height: 380px;
+            height: 420px;
             overflow: hidden;
             position: relative;
         }
@@ -484,7 +484,7 @@
             <div class="gallery-card" data-aos="fade-up">
                 <div class="gallery-img-wrap">
                     <span class="gallery-tag" id="tag-after-1">✨ NACHHER</span>
-                    <img src="./img/after1.jpg" alt="Wohnungsreinigung nachher" onerror="this.src='https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=800&q=80'">
+                    <img src="./after1.jpg" alt="Wohnungsreinigung nachher">
                 </div>
                 <div class="gallery-info">
                     <h4 id="gal-title-1">Privathaushalt & Zimmerreinigung</h4>
@@ -495,7 +495,7 @@
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="gallery-img-wrap">
                     <span class="gallery-tag" id="tag-after-2">✨ NACHHER</span>
-                    <img src="./img/after2.jpg" alt="Komplettreinigung nachher" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80'">
+                    <img src="./after2.jpg" alt="Komplettreinigung nachher">
                 </div>
                 <div class="gallery-info">
                     <h4 id="gal-title-2">Wohnungs- & Holzbodenpflege</h4>
@@ -726,7 +726,7 @@
             Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
 
             <p><strong>Haftung für Links:</strong><br>
-            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir для diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+            Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
 
             <h4>Urheberrecht</h4>
             <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
@@ -773,7 +773,7 @@
         let selectedStars = 5;
         let isAdmin = false;
 
-        /* Полная мультиязычность для всех блоков, модалок и галереи (DE, EN, RU, UA) */
+        /* Полная мультиязычность */
         const translations = {
             de: {
                 promoText: "🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: <span class=\"promo-badge\">CLEAN10</span>",
@@ -798,12 +798,10 @@
                 modalForm: "Unverbindliches Angebot anfordern",
                 btnFormSubmit: "Unverbindlich Angebot anfordern →",
                 
-                // Галерея
                 tagAfter1: "✨ NACHHER", tagAfter2: "✨ NACHHER",
                 galTitle1: "Privathaushalt & Zimmerreinigung", galDesc1: "Gründliche Boden- und Oberflächenreinigung für frischen Wohnkomfort.",
                 galTitle2: "Wohnungs- & Holzbodenpflege", galDesc2: "Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.",
                 
-                // Модалки
                 lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblCity: "Ort", lblPhone: "Telefon",
                 lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen / Gutscheincode",
                 dMon: "Montag", dTue: "Dienstag", dWed: "Mittwoch", dThu: "Donnerstag", dFri: "Freitag", dSat: "Samstag",
@@ -815,7 +813,6 @@
                 modalCallTitle: "Kontakttelefon", modalCallTime: "Montag bis Samstag von 08:00 bis 20:00 Uhr", modalCallWa: "💬 Jetzt auf WhatsApp schreiben",
                 ckTitle: "Einwilligung zu Cookies", ckDesc: "Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.", ckDeny: "Ablehnen", ckAccept: "Alle akzeptieren",
                 
-                // Сервисы
                 srv1: "Treppenhausreinigung", srv2: "Reinigung von Privathaushalten & Wohnungen", srv3: "Büroreinigung", srv4: "Kita- und Schulreinigung", srv5: "Reinigung nach Firmenfeiern",
                 srv6: "Bauendreinigung", srv7: "Fensterreinigung", srv8: "Umzugsreinigung mit Abnahmegarantie", srv9: "Reinigung nach Todesfall/Messie-Haushalt", srv10: "Hausmeisterservice (kleine Reparaturen / Kontrolle)",
                 ftDesc: "Professionelle Reinigungsdienste in Berlin & Umgebung", ftArea: "📍 Servicegebiet: Berlin und Umgebung"
