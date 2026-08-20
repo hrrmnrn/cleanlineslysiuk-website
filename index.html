@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
@@ -33,54 +33,29 @@
             position: relative;
         }
 
-        /* ДВИЖУЩИЙСЯ ФОН */
-        .bg-glow-container {
+        /* ФОНОВОЕ ВИДЕО С ПРЕМИУМ-ОФОРМЛЕНИЕМ */
+        .video-bg-container {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .video-bg-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.28;
+            filter: saturate(1.1) brightness(1.05);
+        }
+
+        .video-overlay {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: -1;
-            overflow: hidden;
+            background: linear-gradient(135deg, rgba(244, 239, 230, 0.88) 0%, rgba(232, 224, 210, 0.82) 100%);
+            backdrop-filter: blur(2px);
             pointer-events: none;
-            background: linear-gradient(135deg, #F9F6F0 0%, #E8E0D2 100%);
-        }
-
-        .glow-1, .glow-2, .glow-3 {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(50px);
-            opacity: 0.85;
-            animation: floatGlow 7s infinite alternate ease-in-out;
-        }
-
-        .glow-1 {
-            width: 700px; height: 700px;
-            background: radial-gradient(circle, rgba(29, 93, 155, 0.25) 0%, rgba(244, 239, 230, 0) 70%);
-            top: -150px; left: -150px;
-        }
-
-        .glow-2 {
-            width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(184, 142, 61, 0.35) 0%, rgba(244, 239, 230, 0) 70%);
-            bottom: -200px; right: -200px;
-            animation-delay: -3.5s;
-        }
-
-        .glow-3 {
-            width: 550px; height: 550px;
-            background: radial-gradient(circle, rgba(15, 42, 74, 0.2) 0%, rgba(244, 239, 230, 0) 70%);
-            top: 35%; left: 25%;
-            animation: floatGlowReverse 9s infinite alternate ease-in-out;
-        }
-
-        @keyframes floatGlow {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(120px, 70px) scale(1.15); }
-            100% { transform: translate(-60px, 120px) scale(0.95); }
-        }
-
-        @keyframes floatGlowReverse {
-            0% { transform: translate(0, 0) scale(0.9); }
-            50% { transform: translate(-100px, -60px) scale(1.12); }
-            100% { transform: translate(80px, -90px) scale(1); }
         }
 
         /* Уведомление о копировании промокода */
@@ -127,14 +102,14 @@
         }
         .logo-group:hover .logo-icon-card { transform: scale(1.08) rotate(3deg); }
 
-        .logo-text { font-family: 'Italiana', serif; font-size: 28px; font-weight: 700; color: var(--brand-blue); letter-spacing: -0.3px; }
-        .logo-text span { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 300; color: var(--text-muted); }
+        .logo-text { font-size: 26px; font-weight: 800; color: var(--brand-blue); letter-spacing: -0.5px; }
+        .logo-text span { font-size: 18px; font-weight: 400; color: var(--text-muted); }
 
         nav { display: flex; align-items: center; gap: 25px; }
         nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 600; transition: color 0.2s; }
         nav a:hover { color: var(--brand-blue-light); }
 
-        /* Переключатель языков DE | EN | RU | UA */
+        /* Переключатель языков */
         .lang-switch {
             display: flex;
             align-items: center;
@@ -154,6 +129,7 @@
             padding: 4px 8px;
             border-radius: 12px;
             transition: all 0.25s ease;
+            font-family: inherit;
         }
 
         .lang-btn.active {
@@ -167,14 +143,16 @@
             background: var(--brand-blue); color: #FFFFFF; padding: 12px 24px; border-radius: 30px;
             text-decoration: none; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center;
             gap: 10px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 4px 15px rgba(15, 42, 74, 0.25); cursor: pointer; border: none;
+            font-family: inherit;
         }
         .btn-call:hover { background: var(--brand-blue-light); transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 25px rgba(29, 93, 155, 0.4); }
 
         .btn-angebot-cta {
-            background: var(--brand-blue); color: #FFFFFF; padding: 16px 36px; border-radius: 12px;
+            background: var(--brand-blue); color: #FFFFFF; padding: 18px 40px; border-radius: 14px;
             font-size: 16px; font-weight: 700; border: 1.5px solid var(--gold-accent); cursor: pointer;
             display: inline-flex; align-items: center; gap: 12px; transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 8px 25px rgba(15, 42, 74, 0.3);
+            font-family: inherit;
         }
         .btn-angebot-cta:hover { background: var(--brand-blue-light); transform: translateY(-4px) scale(1.05); box-shadow: 0 14px 35px rgba(184, 142, 61, 0.45); }
 
@@ -183,37 +161,38 @@
             font-size: 14px; font-weight: 600; border: none; cursor: pointer; display: inline-flex;
             align-items: center; gap: 10px; margin-bottom: 25px; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none;
             box-shadow: 0 4px 15px rgba(15, 42, 74, 0.2);
+            font-family: inherit;
         }
         .btn-back-home:hover { background-color: var(--brand-blue-light); transform: translateX(-4px) scale(1.03); box-shadow: 0 8px 22px rgba(29, 93, 155, 0.35); }
 
         /* Hero Секция */
         .hero-container { max-width: 1200px; margin: 0 auto; padding: 90px 8% 100px; text-align: center; }
-        .hero-subtitle { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-accent); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .hero-subtitle::before, .hero-subtitle::after { content: ''; width: 30px; height: 1px; background: var(--gold-accent); }
-        .hero-title { font-family: 'Italiana', serif; font-size: 68px; line-height: 1.1; font-weight: 400; color: var(--brand-blue); margin-bottom: 24px; }
-        .hero-title em { font-style: italic; color: var(--brand-blue-light); }
-        .hero-desc { font-size: 18px; line-height: 1.6; color: var(--text-muted); max-width: 720px; margin: 0 auto 40px; }
+        .hero-subtitle { font-size: 13px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-accent); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .hero-subtitle::before, .hero-subtitle::after { content: ''; width: 30px; height: 1.5px; background: var(--gold-accent); }
+        .hero-title { font-size: 56px; line-height: 1.15; font-weight: 800; color: var(--brand-blue); margin-bottom: 24px; letter-spacing: -0.5px; }
+        .hero-title em { font-style: italic; font-weight: 400; color: var(--brand-blue-light); }
+        .hero-desc { font-size: 18px; line-height: 1.65; color: var(--text-muted); max-width: 740px; margin: 0 auto 40px; }
 
-        /* Преимущества с анимацией шевеления */
+        /* Преимущества */
         .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-        .perk-item { background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 28px; border-radius: 22px; display: flex; align-items: center; gap: 20px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .perk-item { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 28px; border-radius: 22px; display: flex; align-items: center; gap: 20px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
         .perk-item:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
         .perk-icon-wrapper { width: 52px; height: 52px; background: rgba(29, 93, 155, 0.08); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--gold-accent); flex-shrink: 0; transition: transform 0.3s ease; }
         .perk-item:hover .perk-icon-wrapper { transform: scale(1.25) rotate(5deg); }
-        .perk-title { font-size: 15px; font-weight: 700; color: var(--brand-blue); }
+        .perk-title { font-size: 16px; font-weight: 700; color: var(--brand-blue); }
 
         /* Услуги со стикерами */
         .services-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
-        .section-title { font-family: 'Italiana', serif; font-size: 48px; color: var(--brand-blue); margin-bottom: 50px; text-align: center; }
+        .section-title { font-size: 42px; font-weight: 800; color: var(--brand-blue); margin-bottom: 50px; text-align: center; letter-spacing: -0.5px; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
 
         .card { background: #FFFFFF; border: 1px solid rgba(15, 42, 74, 0.12); padding: 24px 28px; border-radius: 16px; display: flex; align-items: center; gap: 18px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
         .card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
         .card-sticker { font-size: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s ease; }
         .card:hover .card-sticker { transform: scale(1.3) rotate(5deg); }
-        .card h3 { font-size: 15px; font-weight: 600; color: var(--brand-blue); line-height: 1.4; }
+        .card h3 { font-size: 15px; font-weight: 700; color: var(--brand-blue); line-height: 1.4; }
 
-        /* СЕКЦИЯ ГАЛЕРЕИ РАБОТ "ПОСЛЕ" */
+        /* СЕКЦИЯ ГАЛЕРЕИ */
         .gallery-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; margin-top: 30px; }
         .gallery-card {
@@ -259,29 +238,19 @@
             letter-spacing: 0.5px;
             border: 1px solid rgba(184, 142, 61, 0.4);
         }
-        .gallery-info {
-            padding: 20px 24px;
-        }
-        .gallery-info h4 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--brand-blue);
-            margin-bottom: 6px;
-        }
-        .gallery-info p {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
+        .gallery-info { padding: 20px 24px; }
+        .gallery-info h4 { font-size: 18px; font-weight: 700; color: var(--brand-blue); margin-bottom: 6px; }
+        .gallery-info p { font-size: 13px; color: var(--text-muted); }
 
         /* Отзывы */
         .reviews-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
-        .review-card { background: rgba(255, 255, 255, 0.92); border: 1px solid var(--border-color); padding: 30px; border-radius: 22px; position: relative; }
+        .review-card { background: rgba(255, 255, 255, 0.94); border: 1px solid var(--border-color); padding: 30px; border-radius: 22px; position: relative; }
         .review-stars { color: var(--gold-accent); font-size: 18px; margin-bottom: 15px; }
-        .review-text { font-size: 15px; line-height: 1.6; color: var(--text-dark); margin-bottom: 20px; font-style: italic; }
+        .review-text { font-size: 15px; line-height: 1.65; color: var(--text-dark); margin-bottom: 20px; font-style: italic; }
         .review-author { font-size: 14px; font-weight: 700; color: var(--brand-blue); }
 
-        .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transition: background 0.2s; }
+        .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transition: background 0.2s; font-family: inherit; }
         .btn-delete-review:hover { background: #be123c; }
 
         /* Формы */
@@ -293,7 +262,8 @@
         .checkbox-label { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; color: var(--text-dark); }
         .sa-submit-btn {
             width: 100%; background-color: var(--brand-blue); color: #FFFFFF; padding: 16px; border-radius: 25px;
-            font-size: 15px; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 15px; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: inherit;
         }
         .sa-submit-btn:hover { background-color: var(--brand-blue-light); transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 25px rgba(15, 42, 74, 0.3); }
 
@@ -309,11 +279,11 @@
         /* Футер */
         footer { background: var(--brand-blue); color: #FFFFFF; padding: 80px 8% 40px; margin-top: 60px; }
         .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 50px; }
-        .footer-logo { font-family: 'Italiana', serif; font-size: 32px; }
+        .footer-logo { font-size: 28px; font-weight: 800; }
         .footer-contacts p { margin-bottom: 10px; color: rgba(255,255,255,0.85); font-size: 15px; }
         .footer-contacts a { color: #FFFFFF; text-decoration: none; font-weight: 600; }
         .footer-bottom { max-width: 1200px; margin: 30px auto 0; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.65); }
-        .footer-bottom button { background: none; border: none; color: rgba(255,255,255,0.85); cursor: pointer; text-decoration: underline; margin-left: 20px; font-size: 13px; }
+        .footer-bottom button { background: none; border: none; color: rgba(255,255,255,0.85); cursor: pointer; text-decoration: underline; margin-left: 20px; font-size: 13px; font-family: inherit; }
 
         /* Модальные окна */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 22, 34, 0.75); backdrop-filter: blur(12px); z-index: 99999; align-items: center; justify-content: center; }
@@ -323,23 +293,25 @@
         /* Cookie-окно */
         .cookie-modal { position: fixed; bottom: 25px; right: 25px; max-width: 380px; background: #FFFFFF; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid var(--border-color); z-index: 9999; }
         .cookie-buttons { display: flex; gap: 10px; margin-top: 15px; }
-        .btn-cookie-accept { flex: 1; padding: 12px; background: var(--brand-blue); color: #fff; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .btn-cookie-accept { flex: 1; padding: 12px; background: var(--brand-blue); color: #fff; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
         .btn-cookie-accept:hover { background: var(--brand-blue-light); }
-        .btn-cookie-deny { flex: 1; padding: 12px; background: #E8E0D2; color: var(--text-dark); border: none; border-radius: 12px; font-weight: 600; cursor: pointer; }
+        .btn-cookie-deny { flex: 1; padding: 12px; background: #E8E0D2; color: var(--text-dark); border: none; border-radius: 12px; font-weight: 600; cursor: pointer; font-family: inherit; }
 
         @media (max-width: 992px) {
-            .hero-title { font-size: 44px; }
+            .hero-title { font-size: 40px; }
             nav { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow-container">
-        <div class="glow-1"></div>
-        <div class="glow-2"></div>
-        <div class="glow-3"></div>
+    <!-- ФОНОВОЕ ВИДЕО -->
+    <div class="video-bg-container">
+        <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-living-room-with-modern-and-minimalist-decor-41551-large.mp4" type="video/mp4">
+        </video>
     </div>
+    <div class="video-overlay"></div>
 
     <!-- Уведомление о копировании промокода -->
     <div id="toastNotification" class="toast-notification">
@@ -545,7 +517,7 @@
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
             <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('booking-modal')">← Zurück zur Hauptseite</button>
-            <h2 style="font-family: 'Italiana', serif; font-size: 34px; color: var(--brand-blue); margin-bottom: 25px; text-align: center;" id="modal-form-title">Unverbindliches Angebot anfordern</h2>
+            <h2 style="font-size: 32px; font-weight: 800; color: var(--brand-blue); margin-bottom: 25px; text-align: center;" id="modal-form-title">Unverbindliches Angebot anfordern</h2>
             
             <form action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
@@ -637,7 +609,7 @@
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('discount-modal')">&times;</span>
             <span style="background: rgba(184, 142, 61, 0.15); color: var(--brand-blue); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;">Exklusiv ✨</span>
-            <h3 style="font-family:'Italiana'; font-size:36px; color:var(--brand-blue); margin: 15px 0 10px;" id="disc-title">10% Rabatt sichern</h3>
+            <h3 style="font-size: 32px; font-weight: 800; color: var(--brand-blue); margin: 15px 0 10px;" id="disc-title">10% Rabatt sichern</h3>
             <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;" id="disc-desc">Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.</p>
             <input type="email" id="discountEmail" class="sa-input" placeholder="name@domain.de" style="margin-bottom: 12px;">
             <button class="sa-submit-btn" id="btn-disc-act" onclick="activateDiscount()">Rabattcode aktivieren ✨</button>
@@ -649,7 +621,7 @@
         <div class="modal-content" style="max-width: 500px;">
             <span class="modal-close" onclick="closeModal('review-modal')">&times;</span>
             <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('review-modal')">← Zurück zur Hauptseite</button>
-            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue); margin-bottom:15px; text-align: center;" id="rev-modal-title">Bewertung schreiben</h3>
+            <h3 style="font-size: 30px; font-weight: 800; color: var(--brand-blue); margin-bottom: 15px; text-align: center;" id="rev-modal-title">Bewertung schreiben</h3>
             
             <div class="sa-field">
                 <label class="sa-label" id="lbl-star-rev">Ihre Bewertung (Sterne)</label>
@@ -682,8 +654,8 @@
     <div id="call-modal" class="modal">
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('call-modal')">&times;</span>
-            <h3 style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue);" id="modal-call-title">Kontakttelefon</h3>
-            <div style="font-family:'Italiana'; font-size:32px; color:var(--brand-blue); margin: 15px 0; font-weight: 700;">+49 1578 107 3234</div>
+            <h3 style="font-size: 30px; font-weight: 800; color: var(--brand-blue);" id="modal-call-title">Kontakttelefon</h3>
+            <div style="font-size: 30px; color: var(--brand-blue); margin: 15px 0; font-weight: 800;">+49 1578 107 3234</div>
             <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;" id="modal-call-time">Montag bis Samstag von 08:00 bis 20:00 Uhr</p>
             <a href="https://wa.me/4915781073234" target="_blank" class="sa-submit-btn" id="modal-call-wa" style="text-decoration: none; display: block;">💬 Jetzt auf WhatsApp schreiben</a>
         </div>
@@ -694,7 +666,7 @@
         <div class="modal-content legal-text-body" style="max-width: 700px;">
             <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
             <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('impressum-modal')">← Zurück zur Hauptseite</button>
-            <h3 style="font-family:'Italiana'; font-size:36px; margin-bottom:20px; color:var(--brand-blue);">Impressum</h3>
+            <h3 style="font-size: 32px; font-weight: 800; margin-bottom: 20px; color: var(--brand-blue);">Impressum</h3>
             
             <h4>Angaben gemäß § 5 TMG</h4>
             <p><strong>Diensteanbieter:</strong><br>
@@ -740,7 +712,7 @@
         <div class="modal-content legal-text-body" style="max-width: 750px;">
             <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
             <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('datenschutz-modal')">← Zurück zur Hauptseite</button>
-            <h3 style="font-family:'Italiana'; font-size:36px; margin-bottom:20px; color:var(--brand-blue);">Datenschutzerklärung</h3>
+            <h3 style="font-size: 32px; font-weight: 800; margin-bottom: 20px; color: var(--brand-blue);">Datenschutzerklärung</h3>
             
             <h4>1. Datenschutz auf einen Blick</h4>
             <p><strong>Allgemeine Hinweise:</strong> Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen.</p>
@@ -758,7 +730,7 @@
 
     <!-- Cookie-окно -->
     <div class="cookie-modal" id="cookieModal">
-        <h4 style="font-size: 16px; color: var(--brand-blue); margin-bottom: 6px;" id="ck-title">Einwilligung zu Cookies</h4>
+        <h4 style="font-size: 16px; font-weight: 700; color: var(--brand-blue); margin-bottom: 6px;" id="ck-title">Einwilligung zu Cookies</h4>
         <p style="font-size: 12px; color: var(--text-muted);" id="ck-desc">Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.</p>
         <div class="cookie-buttons">
             <button class="btn-cookie-deny" id="ck-deny" onclick="closeCookie()">Ablehnen</button>
