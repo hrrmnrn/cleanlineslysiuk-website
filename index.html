@@ -184,20 +184,19 @@
         .card:hover .card-sticker { transform: scale(1.3) rotate(5deg); }
         .card h3 { font-size: 15px; font-weight: 700; color: var(--brand-blue); line-height: 1.4; }
 
-        /* СЕКЦИЯ ЦЕН И ТАРИФОВ */
+        /* СЕКЦИЯ ЦЕН: РОВНО 3 ТАРИФА */
         .pricing-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 30px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 30px; }
         .pricing-card {
             background: #FFFFFF;
-            border-radius: 20px;
-            padding: 32px 28px;
+            border-radius: 22px;
+            padding: 36px 30px;
             border: 1px solid var(--border-color);
             box-shadow: 0 10px 30px rgba(15, 42, 74, 0.06);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
         }
         .pricing-card:hover {
             transform: translateY(-8px) scale(1.02);
@@ -206,19 +205,19 @@
         }
         .pricing-card.featured {
             border: 2px solid var(--brand-blue-light);
-            background: linear-gradient(180deg, #FFFFFF 0%, rgba(244, 239, 230, 0.4) 100%);
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(244, 239, 230, 0.5) 100%);
         }
-        .pricing-header h4 { font-size: 18px; font-weight: 800; color: var(--brand-blue); margin-bottom: 8px; }
-        .pricing-rate { font-size: 32px; font-weight: 800; color: var(--brand-blue); margin: 15px 0 6px; }
-        .pricing-rate span { font-size: 14px; font-weight: 500; color: var(--text-muted); }
-        .pricing-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 25px; }
+        .pricing-header h4 { font-size: 20px; font-weight: 800; color: var(--brand-blue); margin-bottom: 8px; }
+        .pricing-rate { font-size: 34px; font-weight: 800; color: var(--brand-blue); margin: 16px 0 8px; }
+        .pricing-rate span { font-size: 15px; font-weight: 500; color: var(--text-muted); }
+        .pricing-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 25px; }
         .pricing-btn {
             width: 100%;
-            padding: 12px 20px;
+            padding: 14px 20px;
             background: var(--brand-blue);
             color: #FFFFFF;
             border-radius: 12px;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
             border: none;
             cursor: pointer;
@@ -278,8 +277,8 @@
         .gallery-info h4 { font-size: 18px; font-weight: 700; color: var(--brand-blue); margin-bottom: 6px; }
         .gallery-info p { font-size: 13px; color: var(--text-muted); }
 
-        .reviews-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .reviews-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; text-align: center; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; text-align: left; }
         .review-card { background: rgba(255, 255, 255, 0.94); border: 1px solid var(--border-color); padding: 30px; border-radius: 22px; position: relative; }
         .review-stars { color: var(--gold-accent); font-size: 18px; margin-bottom: 15px; }
         .review-text { font-size: 15px; line-height: 1.65; color: var(--text-dark); margin-bottom: 20px; font-style: italic; }
@@ -287,6 +286,24 @@
 
         .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transition: background 0.2s; font-family: inherit; }
         .btn-delete-review:hover { background: #be123c; }
+
+        /* АККУРАТНЫЙ QR-КОД В РАЗДЕЛЕ ОТЗЫВОВ */
+        .reviews-qr-wrapper {
+            margin-top: 40px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background: #FFFFFF;
+            padding: 16px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(15, 42, 74, 0.08);
+            border: 1px solid var(--border-color);
+        }
+        .reviews-qr-wrapper img {
+            width: 130px;
+            height: auto;
+            border-radius: 10px;
+        }
 
         .sa-field { margin-bottom: 18px; }
         .sa-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
@@ -313,22 +330,6 @@
         .footer-logo { font-size: 28px; font-weight: 800; }
         .footer-contacts p { margin-bottom: 10px; color: rgba(255,255,255,0.85); font-size: 15px; }
         .footer-contacts a { color: #FFFFFF; text-decoration: none; font-weight: 600; }
-        
-        .footer-qr-card {
-            background: #FFFFFF;
-            padding: 12px;
-            border-radius: 16px;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-            max-width: 140px;
-        }
-        .footer-qr-card img {
-            width: 116px;
-            height: auto;
-            border-radius: 8px;
-        }
 
         .footer-bottom { max-width: 1200px; margin: 30px auto 0; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.65); }
         .footer-bottom button { background: none; border: none; color: rgba(255,255,255,0.85); cursor: pointer; text-decoration: underline; margin-left: 20px; font-size: 13px; font-family: inherit; }
@@ -431,7 +432,7 @@
         </div>
     </div>
 
-    <!-- 1. УСЛУГИ БЕЗ ЦЕН -->
+    <!-- 1. УСЛУГИ -->
     <section class="services-section" id="services">
         <h2 class="section-title" id="sec-services-title">Unsere Leistungen</h2>
         <div class="services-grid">
@@ -489,7 +490,7 @@
         </div>
     </section>
 
-    <!-- 2. РАЗДЕЛ ЦЕН И ТАРИФОВ (МЕЖДУ УСЛУГАМИ И РЕЗУЛЬТАТАМИ) -->
+    <!-- 2. РАЗДЕЛ ЦЕН: РОВНО 3 ТАРИФА -->
     <section class="pricing-section" id="pricing">
         <h2 class="section-title" id="sec-pricing-title">Preise & Tarife</h2>
         <div class="pricing-grid">
@@ -497,41 +498,32 @@
                 <div class="pricing-header">
                     <h4 id="prc-t1">Unterhaltsreinigung</h4>
                     <div class="pricing-rate">ab 30 € <span>/ Std.</span></div>
-                    <p class="pricing-desc" id="prc-d1">Regelmäßige Pflege für Privatwohnungen, Häuser und Büros in ganz Berlin.</p>
+                    <p class="pricing-desc" id="prc-d1">Regelmäßige Reinigung für Privatwohnungen, Häuser und Büroräume.</p>
                 </div>
-                <button class="pricing-btn" onclick="openServiceForm('Reinigung von Privathaushalten & Wohnungen')">Jetzt buchen →</button>
+                <button class="pricing-btn" onclick="openServiceForm('Reinigung von Privathaushalten & Wohnungen')">Jetzt anfragen →</button>
             </div>
 
             <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="100">
                 <div class="pricing-header">
                     <h4 id="prc-t2">Treppenhausreinigung</h4>
                     <div class="pricing-rate">ab 35 € <span>/ Etage</span></div>
-                    <p class="pricing-desc" id="prc-d2">Zuverlässige und gründliche Reinigung von Treppenhäusern und Eingangsbereichen.</p>
+                    <p class="pricing-desc" id="prc-d2">Gründliche und verlässliche Treppenhauspflege für Hausverwaltungen und Eigentümer.</p>
                 </div>
-                <button class="pricing-btn" onclick="openServiceForm('Treppenhausreinigung')">Jetzt buchen →</button>
+                <button class="pricing-btn" onclick="openServiceForm('Treppenhausreinigung')">Jetzt anfragen →</button>
             </div>
 
             <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="pricing-header">
-                    <h4 id="prc-t3">Fensterreinigung</h4>
-                    <div class="pricing-rate">ab 6 € <span>/ Fenster</span></div>
-                    <p class="pricing-desc" id="prc-d3">Streifenfreier Glanz für Fenster, Glasflächen und Rahmen inklusive Reinigung.</p>
+                    <h4 id="prc-t3">Spezial- & Intensivreinigung</h4>
+                    <div class="pricing-rate">ab 150 € <span>/ Pauschale</span></div>
+                    <p class="pricing-desc" id="prc-d3">Fenster-, Umzugs-, Bauend- oder Grundreinigung nach individueller Absprache.</p>
                 </div>
-                <button class="pricing-btn" onclick="openServiceForm('Fensterreinigung')">Jetzt buchen →</button>
-            </div>
-
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="pricing-header">
-                    <h4 id="prc-t4">Umzugs- & Bauendreinigung</h4>
-                    <div class="pricing-rate">ab 190 € <span>/ Pauschale</span></div>
-                    <p class="pricing-desc" id="prc-d4">Komplettreinigung mit Abnahmegarantie vor Übergabe oder nach Renovierung.</p>
-                </div>
-                <button class="pricing-btn" onclick="openServiceForm('Umzugsreinigung mit Abnahmegarantie')">Jetzt buchen →</button>
+                <button class="pricing-btn" onclick="openServiceForm('Allgemeine Anfrage')">Jetzt anfragen →</button>
             </div>
         </div>
     </section>
 
-    <!-- 3. СЕКЦИЯ ГАЛЕРЕИ РАБОТ "ПОСЛЕ" -->
+    <!-- 3. ГАЛЕРЕЯ РАБОТ -->
     <section class="gallery-section" id="gallery">
         <h2 class="section-title" id="sec-gallery-title">Unsere Arbeitsergebnisse</h2>
         <div class="gallery-grid">
@@ -559,29 +551,31 @@
         </div>
     </section>
 
-    <!-- 4. ОТЗЫВЫ -->
+    <!-- 4. ОТЗЫВЫ + QR-КОД GOOGLE REVIEWS -->
     <section class="reviews-section" id="reviews">
         <h2 class="section-title" id="sec-reviews-title">Kundenbewertungen</h2>
         <div class="reviews-grid" id="reviewsContainer"></div>
 
-        <div style="text-align: center; margin-top: 30px;">
+        <div>
             <button class="sa-submit-btn" id="btn-write-review" onclick="openModal('review-modal')" style="max-width: 340px; background: transparent; color: var(--brand-blue); border: 2px solid var(--brand-blue);">
                 ✍️ Bewertung auf der Website schreiben
             </button>
         </div>
+
+        <!-- АККУРАТНЫЙ QR-КОД В РАЗДЕЛЕ ОТЗЫВОВ -->
+        <div>
+            <div class="reviews-qr-wrapper" data-aos="fade-up">
+                <img src="./qr-code.png" alt="Review us on Google QR-Code" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://cleanlineslysiuk-website.vercel.app/'">
+            </div>
+        </div>
     </section>
 
-    <!-- 5. ФУТЕР С QR-КОДОМ ДЛЯ GOOGLE REVIEWS -->
+    <!-- 5. ЧИСТЫЙ ФУТЕР БЕЗ ЛИШНЕГО -->
     <footer id="contact">
         <div class="footer-content">
             <div>
                 <div class="footer-logo">CleanLines Lysiuk</div>
                 <p style="color: rgba(255,255,255,0.7); margin-top: 10px;" id="ft-desc">Professionelle Reinigungsdienste in Berlin & Umgebung</p>
-                <div style="margin-top: 25px;">
-                    <div class="footer-qr-card">
-                        <img src="./qr-code.png" alt="Review us on Google QR-Code" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://cleanlineslysiuk-website.vercel.app/'">
-                    </div>
-                </div>
             </div>
             <div class="footer-contacts">
                 <p id="ft-area">📍 Servicegebiet: Berlin und Umgebung</p>
@@ -755,7 +749,7 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО ЗВОНКА -->
+    <!-- Окно Звонка с графиком 06:00 - 21:00 7 дней -->
     <div id="call-modal" class="modal">
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('call-modal')">&times;</span>
