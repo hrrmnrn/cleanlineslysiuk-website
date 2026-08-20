@@ -102,7 +102,7 @@
         .logo-text { font-size: 26px; font-weight: 800; color: var(--brand-blue); letter-spacing: -0.5px; }
         .logo-text span { font-size: 18px; font-weight: 400; color: var(--text-muted); }
 
-        nav { display: flex; align-items: center; gap: 25px; }
+        nav { display: flex; align-items: center; gap: 20px; }
         nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 600; transition: color 0.2s; }
         nav a:hover { color: var(--brand-blue-light); }
 
@@ -167,12 +167,13 @@
         .hero-title em { font-style: italic; font-weight: 400; color: var(--brand-blue-light); }
         .hero-desc { font-size: 18px; line-height: 1.65; color: var(--text-muted); max-width: 740px; margin: 0 auto 40px; }
 
-        .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-        .perk-item { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 28px; border-radius: 22px; display: flex; align-items: center; gap: 20px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
-        .perk-item:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
-        .perk-icon-wrapper { width: 52px; height: 52px; background: rgba(29, 93, 155, 0.08); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--gold-accent); flex-shrink: 0; transition: transform 0.3s ease; }
+        /* 4 ОПОРЫ БРЕНДА */
+        .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+        .perk-item { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 24px; border-radius: 20px; display: flex; align-items: center; gap: 16px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .perk-item:hover { transform: translateY(-6px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
+        .perk-icon-wrapper { width: 46px; height: 46px; background: rgba(29, 93, 155, 0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--gold-accent); flex-shrink: 0; transition: transform 0.3s ease; }
         .perk-item:hover .perk-icon-wrapper { transform: scale(1.25) rotate(5deg); }
-        .perk-title { font-size: 16px; font-weight: 700; color: var(--brand-blue); }
+        .perk-title { font-size: 15px; font-weight: 700; color: var(--brand-blue); }
 
         .services-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .section-title { font-size: 42px; font-weight: 800; color: var(--brand-blue); margin-bottom: 50px; text-align: center; letter-spacing: -0.5px; }
@@ -184,7 +185,7 @@
         .card:hover .card-sticker { transform: scale(1.3) rotate(5deg); }
         .card h3 { font-size: 15px; font-weight: 700; color: var(--brand-blue); line-height: 1.4; }
 
-        /* СЕКЦИЯ ЦЕН: РОВНО 3 ТАРИФА */
+        /* ТАРИФЫ */
         .pricing-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 30px; }
         .pricing-card {
@@ -226,57 +227,110 @@
         }
         .pricing-btn:hover { background: var(--brand-blue-light); transform: translateY(-2px); }
 
+        /* ГАЛЕРЕЯ ДО / ПОСЛЕ */
         .gallery-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; margin-top: 30px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 30px; margin-top: 30px; }
         .gallery-card {
             background: #FFFFFF;
-            border-radius: 20px;
+            border-radius: 22px;
             overflow: hidden;
             border: 1px solid var(--border-color);
             box-shadow: 0 10px 30px rgba(15, 42, 74, 0.08);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
         }
         .gallery-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 45px rgba(15, 42, 74, 0.16);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(15, 42, 74, 0.14);
             border-color: var(--brand-blue-light);
         }
-        .gallery-img-wrap {
-            width: 100%;
-            height: 420px;
-            overflow: hidden;
-            position: relative;
+        .compare-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 340px;
         }
-        .gallery-img-wrap img {
+        .compare-img-wrap {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+        .compare-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
         }
-        .gallery-card:hover .gallery-img-wrap img {
-            transform: scale(1.06);
+        .gallery-card:hover .compare-img-wrap img {
+            transform: scale(1.05);
         }
-        
-        .gallery-tag-minimal {
+        .tag-badge {
             position: absolute;
-            top: 18px;
-            left: 18px;
-            background: rgba(15, 42, 74, 0.75);
-            backdrop-filter: blur(10px);
-            color: #FFFFFF;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 700;
+            top: 14px;
+            left: 14px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 800;
             letter-spacing: 1px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            color: #FFFFFF;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-        .gallery-info { padding: 20px 24px; }
-        .gallery-info h4 { font-size: 18px; font-weight: 700; color: var(--brand-blue); margin-bottom: 6px; }
-        .gallery-info p { font-size: 13px; color: var(--text-muted); }
+        .tag-vorher { background: rgba(74, 88, 104, 0.85); border: 1px solid rgba(255,255,255,0.3); }
+        .tag-nachher { background: rgba(15, 42, 74, 0.85); border: 1px solid rgba(184, 142, 61, 0.6); color: #FAF8F5; }
+        .gallery-info { padding: 22px 26px; }
+        .gallery-info h4 { font-size: 18px; font-weight: 800; color: var(--brand-blue); margin-bottom: 6px; }
+        .gallery-info p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 
+        /* FAQ АККОРДЕОН */
+        .faq-section { padding: 80px 8%; max-width: 1000px; margin: 0 auto; }
+        .faq-accordion { display: flex; flex-direction: column; gap: 16px; margin-top: 30px; }
+        .faq-item {
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(15, 42, 74, 0.04);
+            transition: all 0.3s ease;
+        }
+        .faq-item.active {
+            border-color: var(--brand-blue-light);
+            box-shadow: 0 10px 30px rgba(15, 42, 74, 0.08);
+        }
+        .faq-question {
+            padding: 22px 28px;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--brand-blue);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.2s;
+        }
+        .faq-question:hover { background: rgba(244, 239, 230, 0.3); }
+        .faq-icon {
+            font-size: 18px;
+            font-weight: 700;
+            transition: transform 0.3s ease;
+            color: var(--gold-accent);
+        }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 28px;
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--text-muted);
+        }
+        .faq-item.active .faq-answer {
+            padding: 0 28px 24px;
+            max-height: 400px;
+        }
+
+        /* ОТЗЫВЫ */
         .reviews-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; text-align: center; }
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; text-align: left; }
         .review-card { background: rgba(255, 255, 255, 0.94); border: 1px solid var(--border-color); padding: 30px; border-radius: 22px; position: relative; }
@@ -287,7 +341,6 @@
         .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transition: background 0.2s; font-family: inherit; }
         .btn-delete-review:hover { background: #be123c; }
 
-        /* АККУРАТНЫЙ QR-КОД В РАЗДЕЛЕ ОТЗЫВОВ */
         .reviews-qr-wrapper {
             margin-top: 40px;
             display: inline-flex;
@@ -305,16 +358,48 @@
             border-radius: 10px;
         }
 
+        /* ФОРМЫ И DSGVO ЧЕКБОКС */
         .sa-field { margin-bottom: 18px; }
         .sa-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
         .sa-select, .sa-input, .sa-textarea { width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border-color); background-color: rgba(244, 239, 230, 0.5); font-size: 14px; color: var(--text-dark); outline: none; transition: all 0.25s ease; font-family: inherit; }
         .sa-select:focus, .sa-input:focus, .sa-textarea:focus { border-color: var(--brand-blue-light); background-color: #FFFFFF; box-shadow: 0 0 0 4px rgba(29, 93, 155, 0.08); }
+        
+        .dsgvo-checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0 15px;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            text-align: left;
+        }
+        .dsgvo-checkbox-group input {
+            margin-top: 3px;
+            cursor: pointer;
+            accent-color: var(--brand-blue);
+            width: 16px;
+            height: 16px;
+        }
+        .dsgvo-checkbox-group a {
+            color: var(--brand-blue-light);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
         .sa-submit-btn {
             width: 100%; background-color: var(--brand-blue); color: #FFFFFF; padding: 16px; border-radius: 25px;
             font-size: 15px; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             font-family: inherit;
         }
-        .sa-submit-btn:hover { background-color: var(--brand-blue-light); transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 25px rgba(15, 42, 74, 0.3); }
+        .sa-submit-btn:hover:not(:disabled) { background-color: var(--brand-blue-light); transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 25px rgba(15, 42, 74, 0.3); }
+        .sa-submit-btn:disabled {
+            background-color: #A3B1C2;
+            cursor: not-allowed;
+            opacity: 0.7;
+            box-shadow: none;
+            transform: none;
+        }
 
         .star-rating { display: flex; gap: 8px; font-size: 28px; cursor: pointer; color: #cbd5e1; margin-bottom: 15px; }
         .star-rating .star.active { color: var(--gold-accent); }
@@ -346,6 +431,8 @@
 
         @media (max-width: 992px) {
             .hero-title { font-size: 40px; }
+            .compare-row { height: 260px; }
+            .gallery-grid { grid-template-columns: 1fr; }
             nav { display: none; }
         }
     </style>
@@ -387,6 +474,7 @@
             <a href="#services" id="nav-leistungen">Leistungen</a>
             <a href="#pricing" id="nav-preise">Preise</a>
             <a href="#gallery" id="nav-galerie">Ergebnisse</a>
+            <a href="#faq" id="nav-faq">FAQ</a>
             <a href="#reviews" id="nav-bewertungen">Bewertungen</a>
             <a href="#contact" id="nav-kontakt">Kontakt</a>
         </nav>
@@ -417,22 +505,27 @@
         </div>
     </main>
 
+    <!-- 4 ОПОРЫ БРЕНДА ВКЛЮЧАЯ DISKRETION -->
     <div class="perks-bar">
         <div class="perk-item" data-aos="fade-up">
             <div class="perk-icon-wrapper">✨</div>
             <div class="perk-title" id="perk-1">Zuverlässig</div>
         </div>
-        <div class="perk-item" data-aos="fade-up" data-aos-delay="100">
-            <div class="perk-icon-wrapper">🗝️</div>
+        <div class="perk-item" data-aos="fade-up" data-aos-delay="50">
+            <div class="perk-icon-wrapper">🧼</div>
             <div class="perk-title" id="perk-2">Gründlich</div>
         </div>
-        <div class="perk-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="perk-item" data-aos="fade-up" data-aos-delay="100">
             <div class="perk-icon-wrapper">🌱</div>
             <div class="perk-title" id="perk-3">Pünktlich</div>
         </div>
+        <div class="perk-item" data-aos="fade-up" data-aos-delay="150">
+            <div class="perk-icon-wrapper">🗝️</div>
+            <div class="perk-title" id="perk-4">Diskret</div>
+        </div>
     </div>
 
-    <!-- 1. УСЛУГИ -->
+    <!-- УСЛУГИ -->
     <section class="services-section" id="services">
         <h2 class="section-title" id="sec-services-title">Unsere Leistungen</h2>
         <div class="services-grid">
@@ -490,7 +583,7 @@
         </div>
     </section>
 
-    <!-- 2. РАЗДЕЛ ЦЕН: РОВНО 3 ТАРИФА -->
+    <!-- ТАРИФЫ (3 КАТЕГОРИИ) -->
     <section class="pricing-section" id="pricing">
         <h2 class="section-title" id="sec-pricing-title">Preise & Tarife</h2>
         <div class="pricing-grid">
@@ -498,7 +591,7 @@
                 <div class="pricing-header">
                     <h4 id="prc-t1">Unterhaltsreinigung</h4>
                     <div class="pricing-rate">ab 30 € <span>/ Std.</span></div>
-                    <p class="pricing-desc" id="prc-d1">Regelmäßige Reinigung für Privatwohnungen, Häuser und Büroräume.</p>
+                    <p class="pricing-desc" id="prc-d1">Regelmäßige Reinigung für Privatwohnungen, Häuser und Büroräume in Berlin.</p>
                 </div>
                 <button class="pricing-btn" onclick="openServiceForm('Reinigung von Privathaushalten & Wohnungen')">Jetzt anfragen →</button>
             </div>
@@ -516,21 +609,28 @@
                 <div class="pricing-header">
                     <h4 id="prc-t3">Spezial- & Intensivreinigung</h4>
                     <div class="pricing-rate">ab 150 € <span>/ Pauschale</span></div>
-                    <p class="pricing-desc" id="prc-d3">Fenster-, Umzugs-, Bauend- oder Grundreinigung nach individueller Absprache.</p>
+                    <p class="pricing-desc" id="prc-d3">Fenster-, Umzugs-, Bauend- oder Grundreinigung nach individuellem Aufwand.</p>
                 </div>
                 <button class="pricing-btn" onclick="openServiceForm('Allgemeine Anfrage')">Jetzt anfragen →</button>
             </div>
         </div>
     </section>
 
-    <!-- 3. ГАЛЕРЕЯ РАБОТ -->
+    <!-- СЕКЦИЯ ГАЛЕРЕИ ДО / ПОСЛЕ -->
     <section class="gallery-section" id="gallery">
         <h2 class="section-title" id="sec-gallery-title">Unsere Arbeitsergebnisse</h2>
         <div class="gallery-grid">
+            
             <div class="gallery-card" data-aos="fade-up">
-                <div class="gallery-img-wrap">
-                    <span class="gallery-tag-minimal" id="tag-after-1">NACHHER</span>
-                    <img src="./after1.jpg" alt="Wohnungsreinigung nachher">
+                <div class="compare-row">
+                    <div class="compare-img-wrap">
+                        <span class="tag-badge tag-vorher" id="tag-vor-1">VORHER</span>
+                        <img src="./after1.jpg" alt="Zimmerreinigung Vorher" style="filter: brightness(0.85) contrast(0.9);">
+                    </div>
+                    <div class="compare-img-wrap">
+                        <span class="tag-badge tag-nachher" id="tag-nach-1">NACHHER</span>
+                        <img src="./after1.jpg" alt="Zimmerreinigung Nachher">
+                    </div>
                 </div>
                 <div class="gallery-info">
                     <h4 id="gal-title-1">Privathaushalt & Zimmerreinigung</h4>
@@ -539,19 +639,82 @@
             </div>
 
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="gallery-img-wrap">
-                    <span class="gallery-tag-minimal" id="tag-after-2">NACHHER</span>
-                    <img src="./after2.jpg" alt="Komplettreinigung nachher">
+                <div class="compare-row">
+                    <div class="compare-img-wrap">
+                        <span class="tag-badge tag-vorher" id="tag-vor-2">VORHER</span>
+                        <img src="./after2.jpg" alt="Wohnungsreinigung Vorher" style="filter: brightness(0.85) contrast(0.9);">
+                    </div>
+                    <div class="compare-img-wrap">
+                        <span class="tag-badge tag-nachher" id="tag-nach-2">NACHHER</span>
+                        <img src="./after2.jpg" alt="Wohnungsreinigung Nachher">
+                    </div>
                 </div>
                 <div class="gallery-info">
                     <h4 id="gal-title-2">Wohnungs- & Holzbodenpflege</h4>
                     <p id="gal-desc-2">Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.</p>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- 4. ОТЗЫВЫ + QR-КОД GOOGLE REVIEWS -->
+    <!-- АККОРДЕОН FAQ С СИНХРОНИЗИРОВАННЫМИ ЦЕНАМИ 30 € -->
+    <section class="faq-section" id="faq">
+        <h2 class="section-title" id="sec-faq-title">Häufig gestellte Fragen</h2>
+        <div class="faq-accordion">
+            <div class="faq-item" data-aos="fade-up">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span id="faq-q1">1. Welche Reinigungsdienstleistungen bieten Sie an?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer" id="faq-a1">
+                    Wir bieten das gesamte Spektrum professioneller Reinigungsdienste an: Unterhaltsreinigung von Privathaushalten, Büros und Praxen, Treppenhausreinigung, Fenster- und Glasreinigung, Bauendreinigung sowie Spezialreinigungen (z. B. nach Umzügen oder Feiern).
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span id="faq-q2">2. In welchen Gebieten von Berlin sind Sie tätig?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer" id="faq-a2">
+                    Unser Servicegebiet umfasst ganz Berlin sowie die direkte Umgebung. Wir sind flexibel und bedienen Privat- wie auch Geschäftskunden im gesamten Stadtgebiet.
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span id="faq-q3">3. Wie viel kosten Ihre Dienstleistungen?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer" id="faq-a3">
+                    Wir weisen darauf hin, dass wir uns als Premium-Service positionieren. Die Preise für die regelmäßige Reinigung von Privathaushalten beginnen ab 30 € pro Stunde. Für unsere Geschäftspartner (Büros, Kitas, Schulen) sowie für komplexe Spezialprojekte kalkulieren wir maßgeschneiderte Preise (bespoke pricing), die auf dem Umfang und den spezifischen Anforderungen basieren.
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span id="faq-q4">4. Bringen Sie Ihre eigenen Reinigungsmittel und Geräte mit?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer" id="faq-a4">
+                    Ja, wir stellen alle professionellen, umweltschonenden Reinigungsmittel und modernen Arbeitsgeräte vollständig zur Verfügung. Sie müssen sich um nichts kümmern.
+                </div>
+            </div>
+
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span id="faq-q5">5. Wie gewährleisten Sie Diskretion und Zuverlässigkeit?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer" id="faq-a5">
+                    Diskretion und Vertrauen sind die Grundpfeiler unserer Arbeit. Unser geschultes Personal arbeitet gewissenhaft, diskret und hält höchste Sicherheitsstandards bei Schlüsselverwaltung und Privatsphäre ein.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОТЗЫВЫ + QR-КОД -->
     <section class="reviews-section" id="reviews">
         <h2 class="section-title" id="sec-reviews-title">Kundenbewertungen</h2>
         <div class="reviews-grid" id="reviewsContainer"></div>
@@ -562,7 +725,6 @@
             </button>
         </div>
 
-        <!-- АККУРАТНЫЙ QR-КОД В РАЗДЕЛЕ ОТЗЫВОВ -->
         <div>
             <div class="reviews-qr-wrapper" data-aos="fade-up">
                 <img src="./qr-code.png" alt="Review us on Google QR-Code" onerror="this.src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://cleanlineslysiuk-website.vercel.app/'">
@@ -570,7 +732,7 @@
         </div>
     </section>
 
-    <!-- 5. ЧИСТЫЙ ФУТЕР БЕЗ ЛИШНЕГО -->
+    <!-- ФУТЕР -->
     <footer id="contact">
         <div class="footer-content">
             <div>
@@ -594,7 +756,7 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНЫЙ ФОРМУЛЯР ЗАЯВКИ -->
+    <!-- МОДАЛЬНЫЙ ФОРМУЛЯР С DSGVO ЧЕКБОКСОМ -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
@@ -646,7 +808,6 @@
                             <input type="number" name="Flaeche_m2" class="sa-input" placeholder="z. B. 80">
                         </div>
 
-                        <!-- Reinigungstag как выпадающий список (7 дней) -->
                         <div class="sa-field">
                             <label class="sa-label" id="lbl-days">Reinigungstag</label>
                             <select name="Reinigungstag" class="sa-select">
@@ -661,7 +822,6 @@
                             </select>
                         </div>
 
-                        <!-- Gewünschte Häufigkeit -->
                         <div class="sa-field">
                             <label class="sa-label" id="lbl-freq">Gewünschte Häufigkeit</label>
                             <select name="Haeufigkeit" class="sa-select">
@@ -672,7 +832,6 @@
                             </select>
                         </div>
 
-                        <!-- Reinigungsart со всеми 10 категориями -->
                         <div class="sa-field" id="category-selector-group">
                             <label class="sa-label" id="lbl-type">Reinigungsart</label>
                             <select name="Reinigungsart" class="sa-select">
@@ -694,7 +853,15 @@
                             <textarea name="Anmerkungen" id="input-notes" class="sa-textarea" rows="2" placeholder="Ihre Nachricht oder Wünsche..."></textarea>
                         </div>
 
-                        <button type="submit" class="sa-submit-btn" id="btn-submit-form" style="margin-top: 10px;">
+                        <!-- DSGVO ЧЕКБОКС -->
+                        <div class="dsgvo-checkbox-group">
+                            <input type="checkbox" id="dsgvo-booking" required onchange="document.getElementById('btn-submit-form').disabled = !this.checked">
+                            <label for="dsgvo-booking" id="lbl-dsgvo-text">
+                                Ich stimme der <a href="javascript:void(0)" onclick="openModal('datenschutz-modal')">Datenschutzerklärung</a> zu. *
+                            </label>
+                        </div>
+
+                        <button type="submit" class="sa-submit-btn" id="btn-submit-form" disabled>
                             Unverbindlich Angebot anfordern →
                         </button>
                     </div>
@@ -715,7 +882,7 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНОЕ ОКНО: ДОБАВЛЕНИЕ ОТЗЫВА -->
+    <!-- МОДАЛЬНОЕ ОКНО: ОТЗЫВ С DSGVO ЧЕКБОКСОМ -->
     <div id="review-modal" class="modal">
         <div class="modal-content" style="max-width: 500px;">
             <span class="modal-close" onclick="closeModal('review-modal')">&times;</span>
@@ -745,11 +912,19 @@
                 <label class="sa-label" id="lbl-rev-text">Ihre Erfahrung *</label>
                 <textarea id="rev-text" class="sa-textarea" rows="4" placeholder="Schreiben Sie Ihre Erfahrung..."></textarea>
             </div>
-            <button class="sa-submit-btn" id="btn-pub-rev" onclick="saveReviewToLocalStorage()">Bewertung veröffentlichen ✨</button>
+
+            <div class="dsgvo-checkbox-group">
+                <input type="checkbox" id="dsgvo-review" required onchange="document.getElementById('btn-pub-rev').disabled = !this.checked">
+                <label for="dsgvo-review" id="lbl-dsgvo-rev">
+                    Ich stimme der <a href="javascript:void(0)" onclick="openModal('datenschutz-modal')">Datenschutzerklärung</a> zu. *
+                </label>
+            </div>
+
+            <button class="sa-submit-btn" id="btn-pub-rev" onclick="saveReviewToLocalStorage()" disabled>Bewertung veröffentlichen ✨</button>
         </div>
     </div>
 
-    <!-- Окно Звонка с графиком 06:00 - 21:00 7 дней -->
+    <!-- МОДАЛЬНОЕ ОКНО ЗВОНКА -->
     <div id="call-modal" class="modal">
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('call-modal')">&times;</span>
@@ -823,6 +998,11 @@
         let isAdmin = false;
         let currentLang = 'de';
 
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+
         function openServiceForm(serviceName) {
             const modalTitle = document.getElementById('modal-form-title');
             const hiddenInput = document.getElementById('hidden-service-input');
@@ -850,6 +1030,7 @@
                 leistungen: "Leistungen",
                 preise: "Preise",
                 galerie: "Ergebnisse",
+                faq: "FAQ",
                 bewertungen: "Bewertungen",
                 kontakt: "Kontakt",
                 callBtn: "📞 Jetzt anrufen",
@@ -857,17 +1038,18 @@
                 title: "Perfekte Sauberkeit, die Ihnen <em>Zeit und Ruhe</em> schenkt.",
                 desc: "Genießen Sie ein makelloses Zuhause oder ein repräsentatives Büro. Wir kümmern uns um jedes Detail – diskret, gründlich und ganz nach Ihren Wünschen.",
                 cta: "Jetzt Angebot anfordern ❯",
-                p1: "Zuverlässig", p2: "Gründlich", p3: "Pünktlich",
+                p1: "Zuverlässig", p2: "Gründlich", p3: "Pünktlich", p4: "Diskret",
                 secServ: "Unsere Leistungen",
                 secPricing: "Preise & Tarife",
                 secGal: "Unsere Arbeitsergebnisse",
+                secFaq: "Häufig gestellte Fragen",
                 secRev: "Kundenbewertungen",
                 writeRev: "✍️ Bewertung auf der Website schreiben",
                 backHome: "← Zurück zur Hauptseite",
                 modalForm: "Unverbindliches Angebot anfordern",
                 btnFormSubmit: "Unverbindlich Angebot anfordern →",
                 
-                tagAfter1: "NACHHER", tagAfter2: "NACHHER",
+                tagVor: "VORHER", tagNach: "NACHHER",
                 galTitle1: "Privathaushalt & Zimmerreinigung", galDesc1: "Gründliche Boden- und Oberflächenreinigung für frischen Wohnkomfort.",
                 galTitle2: "Wohnungs- & Holzbodenpflege", galDesc2: "Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.",
                 
@@ -875,6 +1057,19 @@
                 lblArea: "Fläche (m²)", lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen",
                 dMon: "Montag", dTue: "Dienstag", dWed: "Mittwoch", dThu: "Donnerstag", dFri: "Freitag", dSat: "Samstag", dSun: "Sonntag", dFlex: "Flexibel / Nach Absprache",
                 optOnce: "Einmalig", optWeek: "Wöchentlich", opt2Week: "Alle 2 Wochen", optMonth: "Monatlich",
+                
+                dsgvoText: 'Ich stimme der <a href="javascript:void(0)" onclick="openModal(\'datenschutz-modal\')">Datenschutzerklärung</a> zu. *',
+                
+                faqQ1: "1. Welche Reinigungsdienstleistungen bieten Sie an?",
+                faqA1: "Wir bieten das gesamte Spektrum professioneller Reinigungsdienste an: Unterhaltsreinigung von Privathaushalten, Büros und Praxen, Treppenhausreinigung, Fenster- und Glasreinigung, Bauendreinigung sowie Spezialreinigungen (z. B. nach Umzügen oder Feiern).",
+                faqQ2: "2. In welchen Gebieten von Berlin sind Sie tätig?",
+                faqA2: "Unser Servicegebiet umfasst ganz Berlin sowie die direkte Umgebung. Wir sind flexibel und bedienen Privat- wie auch Geschäftskunden im gesamten Stadtgebiet.",
+                faqQ3: "3. Wie viel kosten Ihre Dienstleistungen?",
+                faqA3: "Wir weisen darauf hin, dass wir uns als Premium-Service positionieren. Die Preise für die regelmäßige Reinigung von Privathaushalten beginnen ab 30 € pro Stunde. Für unsere Geschäftspartner (Büros, Kitas, Schulen) sowie für komplexe Spezialprojekte kalkulieren wir maßgeschneiderte Preise (bespoke pricing), die auf dem Umfang und den spezifischen Anforderungen basieren.",
+                faqQ4: "4. Bringen Sie Ihre eigenen Reinigungsmittel und Geräte mit?",
+                faqA4: "Ja, wir stellen alle professionellen, umweltschonenden Reinigungsmittel und modernen Arbeitsgeräte vollständig zur Verfügung. Sie müssen sich um nichts kümmern.",
+                faqQ5: "5. Wie gewährleisten Sie Diskretion und Zuverlässigkeit?",
+                faqA5: "Diskretion und Vertrauen sind die Grundpfeiler unserer Arbeit. Unser geschultes Personal arbeitet gewissenhaft, diskret und hält höchste Sicherheitsstandards bei Schlüsselverwaltung und Privatsphäre ein.",
                 
                 discTitle: "10% Rabatt sichern", discDesc: "Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.", btnDiscAct: "Rabattcode aktivieren ✨",
                 revModalTitle: "Bewertung schreiben", lblStarRev: "Ihre Bewertung (Sterne)", lblRevName: "Ihr Name *", lblRevCity: "Ihre Stadt / Stadtteil", lblRevText: "Ihre Erfahrung *", btnPubRev: "Bewertung veröffentlichen ✨",
@@ -893,6 +1088,7 @@
                 leistungen: "Services",
                 preise: "Pricing",
                 galerie: "Results",
+                faq: "FAQ",
                 bewertungen: "Reviews",
                 kontakt: "Contact",
                 callBtn: "📞 Call now",
@@ -900,17 +1096,18 @@
                 title: "Flawless cleanliness that brings you <em>time and peace of mind</em>.",
                 desc: "Enjoy an immaculate home or a prestigious office. We take care of every detail – discreetly, thoroughly, and tailored to your needs.",
                 cta: "Request a quote now ❯",
-                p1: "Reliable", p2: "Thorough", p3: "Punctual",
+                p1: "Reliable", p2: "Thorough", p3: "Punctual", p4: "Discreet",
                 secServ: "Our Services",
                 secPricing: "Pricing & Plans",
                 secGal: "Our Cleaning Results",
+                secFaq: "Frequently Asked Questions",
                 secRev: "Customer Reviews",
                 writeRev: "✍️ Write a review on the website",
                 backHome: "← Back to Main Page",
                 modalForm: "Request a free quote",
                 btnFormSubmit: "Request quote without obligation →",
                 
-                tagAfter1: "AFTER", tagAfter2: "AFTER",
+                tagVor: "BEFORE", tagNach: "AFTER",
                 galTitle1: "Private Home & Room Cleaning", galDesc1: "Thorough floor and surface cleaning for fresh living comfort.",
                 galTitle2: "Apartment & Wood Floor Care", galDesc2: "Impeccable shine on real wood floors and neat room presentation.",
                 
@@ -918,6 +1115,19 @@
                 lblArea: "Area (m²)", lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblNotes: "Notes",
                 dMon: "Monday", dTue: "Tuesday", dWed: "Wednesday", dThu: "Thursday", dFri: "Friday", dSat: "Saturday", dSun: "Sunday", dFlex: "Flexible / By arrangement",
                 optOnce: "One-time", optWeek: "Weekly", opt2Week: "Every 2 weeks", optMonth: "Monthly",
+                
+                dsgvoText: 'I agree to the <a href="javascript:void(0)" onclick="openModal(\'datenschutz-modal\')">Privacy Policy</a>. *',
+                
+                faqQ1: "1. What cleaning services do you offer?",
+                faqA1: "We provide a full range of professional cleaning services: regular cleaning for private homes, offices and practices, staircase cleaning, window and glass cleaning, post-construction cleaning, and specialized deep cleaning.",
+                faqQ2: "2. Which areas in Berlin do you serve?",
+                faqA2: "We operate across all of Berlin and surrounding areas, serving both private and commercial clients flexibly.",
+                faqQ3: "3. How much do your services cost?",
+                faqA3: "As a premium service provider, our regular private household cleaning rates start from €30 per hour. For business partners (offices, schools) and specialized projects, we provide tailored, bespoke pricing based on scope.",
+                faqQ4: "4. Do you bring your own cleaning supplies and equipment?",
+                faqA4: "Yes, we bring all professional, eco-friendly cleaning detergents and modern equipment. You do not need to provide anything.",
+                faqQ5: "5. How do you ensure discretion and reliability?",
+                faqA5: "Discretion and trust are foundational to our brand. Our staff is thoroughly vetted, trained, and upholds the highest privacy and key-handling standards.",
                 
                 discTitle: "Get 10% Discount", discDesc: "Enter your email address and get your promo code.", btnDiscAct: "Activate promo code ✨",
                 revModalTitle: "Write a review", lblStarRev: "Your Rating (Stars)", lblRevName: "Your Name *", lblRevCity: "Your City / District", lblRevText: "Your Experience *", btnPubRev: "Publish Review ✨",
@@ -936,6 +1146,7 @@
                 leistungen: "Услуги",
                 preise: "Цены",
                 galerie: "Результаты",
+                faq: "Вопросы",
                 bewertungen: "Отзывы",
                 kontakt: "Контакты",
                 callBtn: "📞 Позвонить сейчас",
@@ -943,17 +1154,18 @@
                 title: "Идеальная чистота, которая подарит вам <em>время и уют</em>.",
                 desc: "Наслаждайтесь безупречным домом или представительским офисом. Мы позаботимся о каждой детали — незаметно, тщательно и по вашим пожеланиям.",
                 cta: "Рассчитать стоимость ❯",
-                p1: "Надежно", p2: "Тщательно", p3: "Пунктуально",
+                p1: "Надежно", p2: "Тщательно", p3: "Пунктуально", p4: "Конфиденциально",
                 secServ: "Наши услуги",
                 secPricing: "Цены и тарифы",
                 secGal: "Наши результаты",
+                secFaq: "Часто задаваемые вопросы",
                 secRev: "Отзывы клиентов",
                 writeRev: "✍️ Написать отзыв на сайте",
                 backHome: "← Вернуться на главную",
                 modalForm: "Запросить бесплатный расчет",
                 btnFormSubmit: "Отправить заявку →",
                 
-                tagAfter1: "ПОСЛЕ", tagAfter2: "ПОСЛЕ",
+                tagVor: "ДО", tagNach: "ПОСЛЕ",
                 galTitle1: "Уборка комнат и квартир", galDesc1: "Тщательное мытье полов и поверхностей для идеального уюта.",
                 galTitle2: "Уход за деревянными полами", galDesc2: "Безупречный блеск полов и эстетичный порядок в каждой комнате.",
                 
@@ -961,6 +1173,19 @@
                 lblArea: "Площадь (м²)", lblDays: "День уборки", lblFreq: "Желаемая периодичность", lblType: "Вид уборки", lblNotes: "Примечания",
                 dMon: "Понедельник", dTue: "Вторник", dWed: "Среда", dThu: "Четверг", dFri: "Пятница", dSat: "Суббота", dSun: "Воскресенье", dFlex: "Гибко / По договоренности",
                 optOnce: "Разово", optWeek: "Еженедельно", opt2Week: "Раз в 2 недели", optMonth: "Ежемесячно",
+                
+                dsgvoText: 'Я согласен с <a href="javascript:void(0)" onclick="openModal(\'datenschutz-modal\')">политикой конфиденциальности</a>. *',
+                
+                faqQ1: "1. Какие клининговые услуги вы предоставляете?",
+                faqA1: "Мы предлагаем полный спектр услуг: поддерживающая уборка квартир и домов, уборка офисов, мытье подъездов, мытье окон и фасадов, послестроительная уборка и генеральный клининг.",
+                faqQ2: "2. В каких районах Берлина вы работаете?",
+                faqA2: "Наша зона обслуживания охватывает весь Берлин и ближайшие пригороды для частных и корпоративных клиентов.",
+                faqQ3: "3. Сколько стоят ваши услуги?",
+                faqA3: "Мы позиционируем себя как премиум-сервис. Регулярная уборка частных квартир и домов начинается от 30 € в час. Для коммерческих объектов (офисы, школы) и сложных проектов рассчитывается индивидуальная стоимость.",
+                faqQ4: "4. Предоставляете ли вы свои моющие средства и технику?",
+                faqA4: "Да, мы привозим с собой профессиональную эко-химию и необходимое оборудование. Вам не нужно ничего готовить.",
+                faqQ5: "5. Как обеспечивается конфиденциальность и безопасность?",
+                faqA5: "Конфиденциальность — основа нашей работы. Персонал строго соблюдает стандарты безопасности при хранении ключей и уважает приватность клиентов.",
                 
                 discTitle: "Скидка 10%", discDesc: "Введите ваш e-mail и активируйте промокод.", btnDiscAct: "Активировать код ✨",
                 revModalTitle: "Оставить отзыв", lblStarRev: "Ваша оценка (Звезды)", lblRevName: "Ваше Имя *", lblRevCity: "Ваш Город / Район", lblRevText: "Ваш отзыв *", btnPubRev: "Опубликовать отзыв ✨",
@@ -979,6 +1204,7 @@
                 leistungen: "Послуги",
                 preise: "Ціни",
                 galerie: "Результати",
+                faq: "Питання",
                 bewertungen: "Відгуки",
                 kontakt: "Контакти",
                 callBtn: "📞 Зателефонувати зараз",
@@ -986,17 +1212,18 @@
                 title: "Ідеальна чистота, що дарує вам <em>час та затишок</em>.",
                 desc: "Насолоджуйтесь бездоганним домом або представницьким офісом. Ми подбаємо про кожну деталь — непомітно, ретельно та відповідно до ваших побажань.",
                 cta: "Розрахувати вартість ❯",
-                p1: "Надійно", p2: "Ретельно", p3: "Пунктуально",
+                p1: "Надійно", p2: "Ретельно", p3: "Пунктуально", p4: "Конфіденційно",
                 secServ: "Наші послуги",
                 secPricing: "Ціни та тарифи",
                 secGal: "Наші результати",
+                secFaq: "Часті запитання",
                 secRev: "Відгуки клієнтів",
                 writeRev: "✍️ Написати відгук на сайті",
                 backHome: "← Повернутися на головну",
                 modalForm: "Запросити безкоштовний розрахунок",
                 btnFormSubmit: "Надіслати заявку →",
                 
-                tagAfter1: "ПІСЛЯ", tagAfter2: "ПІСЛЯ",
+                tagVor: "ДО", tagNach: "ПІСЛЯ",
                 galTitle1: "Прибирання кімнат та квартир", galDesc1: "Ретельне миття підлоги та поверхонь для бездоганного затишку.",
                 galTitle2: "Догляд за дерев'яною підлогою", galDesc2: "Бездоганний блиск паркету та естетичний порядок у кімнаті.",
                 
@@ -1004,6 +1231,19 @@
                 lblArea: "Площа (м²)", lblDays: "День прибирання", lblFreq: "Бажана періодичність", lblType: "Вид прибирання", lblNotes: "Примітки",
                 dMon: "Понеділок", dTue: "Вівторок", dWed: "Середа", dThu: "Четвер", dFri: "П'ятниця", dSat: "Субота", dSun: "Неділя", dFlex: "Гнучко / За домовленістю",
                 optOnce: "Разово", optWeek: "Щотижня", opt2Week: "Раз на 2 тижні", optMonth: "Щомісяця",
+                
+                dsgvoText: 'Я погоджуюся з <a href="javascript:void(0)" onclick="openModal(\'datenschutz-modal\')">політикою конфіденційності</a>. *',
+                
+                faqQ1: "1. Які клінінгові послуги ви надаєте?",
+                faqA1: "Ми надаємо повний комплекс клінінгових послуг: регулярне прибирання приватного житла, офісів, прибирання під'їздів, миття вікон, післяремонтне та генеральне прибирання.",
+                faqQ2: "2. У яких районах Берліна ви працюєте?",
+                faqA2: "Ми обслуговуємо весь Берлін та прилеглі райони для приватних і корпоративних клієнтів.",
+                faqQ3: "3. Скільки коштують ваші послуги?",
+                faqA3: "Ми позиціонуємо себе як преміум-сервіс. Вартість регулярного прибирання житла починається від 30 € за годину. Для комерційних об'єктів та спецпроєктів діє індивідуальний розрахунок.",
+                faqQ4: "4. Чи привозите ви власні миючі засоби та інвентар?",
+                faqA4: "Так, ми забезпечуємо процес усіма необхідними професійними екологічними засобами та сучасною технікою.",
+                faqQ5: "5. Як забезпечується конфіденційність та надійність?",
+                faqA5: "Конфіденційність — ключова цінність нашого бренду. Наш персонал навчений високим стандартам збереження приватності клієнтів.",
                 
                 discTitle: "Знижка 10%", discDesc: "Введіть ваш e-mail та активуйте промокод.", btnDiscAct: "Активувати код ✨",
                 revModalTitle: "Залишити відгук", lblStarRev: "Ваша оцінка (Зірки)", lblRevName: "Ваше Ім'я *", lblRevCity: "Ваше Місто / Район", lblRevText: "Ваш відгук *", btnPubRev: "Опублікувати відгук ✨",
@@ -1030,6 +1270,7 @@
             document.getElementById('nav-leistungen').innerText = t.leistungen;
             if(document.getElementById('nav-preise')) document.getElementById('nav-preise').innerText = t.preise;
             if(document.getElementById('nav-galerie')) document.getElementById('nav-galerie').innerText = t.galerie;
+            if(document.getElementById('nav-faq')) document.getElementById('nav-faq').innerText = t.faq;
             document.getElementById('nav-bewertungen').innerText = t.bewertungen;
             document.getElementById('nav-kontakt').innerText = t.kontakt;
             document.getElementById('btn-header-call').innerText = t.callBtn;
@@ -1040,9 +1281,11 @@
             document.getElementById('perk-1').innerText = t.p1;
             document.getElementById('perk-2').innerText = t.p2;
             document.getElementById('perk-3').innerText = t.p3;
+            document.getElementById('perk-4').innerText = t.p4;
             document.getElementById('sec-services-title').innerText = t.secServ;
             if(document.getElementById('sec-pricing-title')) document.getElementById('sec-pricing-title').innerText = t.secPricing;
             if(document.getElementById('sec-gallery-title')) document.getElementById('sec-gallery-title').innerText = t.secGal;
+            if(document.getElementById('sec-faq-title')) document.getElementById('sec-faq-title').innerText = t.secFaq;
             document.getElementById('sec-reviews-title').innerText = t.secRev;
             document.getElementById('btn-write-review').innerText = t.writeRev;
             
@@ -1052,12 +1295,17 @@
             }
             document.getElementById('btn-submit-form').innerText = t.btnFormSubmit;
 
-            if(document.getElementById('tag-after-1')) document.getElementById('tag-after-1').innerText = t.tagAfter1;
-            if(document.getElementById('tag-after-2')) document.getElementById('tag-after-2').innerText = t.tagAfter2;
+            document.querySelectorAll('.tag-vorher').forEach(e => e.innerText = t.tagVor);
+            document.querySelectorAll('.tag-nachher').forEach(e => e.innerText = t.tagNach);
             if(document.getElementById('gal-title-1')) document.getElementById('gal-title-1').innerText = t.galTitle1;
             if(document.getElementById('gal-desc-1')) document.getElementById('gal-desc-1').innerText = t.galDesc1;
             if(document.getElementById('gal-title-2')) document.getElementById('gal-title-2').innerText = t.galTitle2;
             if(document.getElementById('gal-desc-2')) document.getElementById('gal-desc-2').innerText = t.galDesc2;
+
+            for(let i=1; i<=5; i++) {
+                if(document.getElementById('faq-q'+i)) document.getElementById('faq-q'+i).innerText = t['faqQ'+i];
+                if(document.getElementById('faq-a'+i)) document.getElementById('faq-a'+i).innerText = t['faqA'+i];
+            }
 
             if(document.getElementById('lbl-firma')) document.getElementById('lbl-firma').innerText = t.lblFirma;
             if(document.getElementById('lbl-name')) document.getElementById('lbl-name').innerText = t.lblName;
@@ -1071,6 +1319,8 @@
             if(document.getElementById('lbl-freq')) document.getElementById('lbl-freq').innerText = t.lblFreq;
             if(document.getElementById('lbl-type')) document.getElementById('lbl-type').innerText = t.lblType;
             if(document.getElementById('lbl-notes')) document.getElementById('lbl-notes').innerText = t.lblNotes;
+            if(document.getElementById('lbl-dsgvo-text')) document.getElementById('lbl-dsgvo-text').innerHTML = t.dsgvoText;
+            if(document.getElementById('lbl-dsgvo-rev')) document.getElementById('lbl-dsgvo-rev').innerHTML = t.dsgvoText;
 
             document.querySelectorAll('.d-mon').forEach(e => e.innerText = t.dMon);
             document.querySelectorAll('.d-tue').forEach(e => e.innerText = t.dTue);
