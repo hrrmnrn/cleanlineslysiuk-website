@@ -177,22 +177,11 @@
         .section-title { font-size: 42px; font-weight: 800; color: var(--brand-blue); margin-bottom: 50px; text-align: center; letter-spacing: -0.5px; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
 
-        .card { background: #FFFFFF; border: 1px solid rgba(15, 42, 74, 0.12); padding: 24px 28px; border-radius: 16px; display: flex; align-items: center; justify-content: space-between; gap: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .card { background: #FFFFFF; border: 1px solid rgba(15, 42, 74, 0.12); padding: 24px 28px; border-radius: 16px; display: flex; align-items: center; gap: 18px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
         .card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
-        .card-main-info { display: flex; align-items: center; gap: 18px; }
         .card-sticker { font-size: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s ease; }
         .card:hover .card-sticker { transform: scale(1.3) rotate(5deg); }
         .card h3 { font-size: 15px; font-weight: 700; color: var(--brand-blue); line-height: 1.4; }
-        .card-price-badge {
-            background: rgba(184, 142, 61, 0.15);
-            color: var(--gold-accent);
-            font-size: 12px;
-            font-weight: 800;
-            padding: 6px 12px;
-            border-radius: 20px;
-            white-space: nowrap;
-            border: 1px solid rgba(184, 142, 61, 0.3);
-        }
 
         .gallery-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; margin-top: 30px; }
@@ -225,19 +214,21 @@
         .gallery-card:hover .gallery-img-wrap img {
             transform: scale(1.06);
         }
-        .gallery-tag {
+        
+        .gallery-tag-minimal {
             position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(15, 42, 74, 0.85);
-            backdrop-filter: blur(8px);
+            top: 18px;
+            left: 18px;
+            background: rgba(15, 42, 74, 0.75);
+            backdrop-filter: blur(10px);
             color: #FFFFFF;
             padding: 6px 14px;
-            border-radius: 20px;
+            border-radius: 30px;
             font-size: 12px;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(184, 142, 61, 0.4);
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
         .gallery-info { padding: 20px 24px; }
         .gallery-info h4 { font-size: 18px; font-weight: 700; color: var(--brand-blue); margin-bottom: 6px; }
@@ -257,8 +248,6 @@
         .sa-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
         .sa-select, .sa-input, .sa-textarea { width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border-color); background-color: rgba(244, 239, 230, 0.5); font-size: 14px; color: var(--text-dark); outline: none; transition: all 0.25s ease; font-family: inherit; }
         .sa-select:focus, .sa-input:focus, .sa-textarea:focus { border-color: var(--brand-blue-light); background-color: #FFFFFF; box-shadow: 0 0 0 4px rgba(29, 93, 155, 0.08); }
-        .checkbox-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 6px; }
-        .checkbox-label { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; color: var(--text-dark); }
         .sa-submit-btn {
             width: 100%; background-color: var(--brand-blue); color: #FFFFFF; padding: 16px; border-radius: 25px;
             font-size: 15px; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -380,101 +369,71 @@
         </div>
     </div>
 
-    <!-- Услуги со стартовыми ценами и кликом на отдельный формуляр -->
+    <!-- Услуги без ценников -->
     <section class="services-section" id="services">
         <h2 class="section-title" id="sec-services-title">Unsere Leistungen</h2>
         <div class="services-grid">
             
             <div class="card" data-aos="fade-up" onclick="openServiceForm('Treppenhausreinigung')">
-                <div class="card-main-info">
-                    <div class="card-sticker">🪜</div>
-                    <h3 id="srv-1">Treppenhausreinigung</h3>
-                </div>
-                <div class="card-price-badge">ab 35 € / Etage</div>
+                <div class="card-sticker">🪜</div>
+                <h3 id="srv-1">Treppenhausreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="50" onclick="openServiceForm('Reinigung von Privathaushalten & Wohnungen')">
-                <div class="card-main-info">
-                    <div class="card-sticker">🏡</div>
-                    <h3 id="srv-2">Reinigung von Privathaushalten & Wohnungen</h3>
-                </div>
-                <div class="card-price-badge">ab 30 € / Std.</div>
+                <div class="card-sticker">🏡</div>
+                <h3 id="srv-2">Reinigung von Privathaushalten & Wohnungen</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="100" onclick="openServiceForm('Büroreinigung')">
-                <div class="card-main-info">
-                    <div class="card-sticker">🏢</div>
-                    <h3 id="srv-3">Büroreinigung</h3>
-                </div>
-                <div class="card-price-badge">ab 32 € / Std.</div>
+                <div class="card-sticker">🏢</div>
+                <h3 id="srv-3">Büroreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="150" onclick="openServiceForm('Kita- und Schulreinigung')">
-                <div class="card-main-info">
-                    <div class="card-sticker">🏫</div>
-                    <h3 id="srv-4">Kita- und Schulreinigung</h3>
-                </div>
-                <div class="card-price-badge">Individuell</div>
+                <div class="card-sticker">🏫</div>
+                <h3 id="srv-4">Kita- und Schulreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="200" onclick="openServiceForm('Reinigung nach Firmenfeiern')">
-                <div class="card-main-info">
-                    <div class="card-sticker">🎉</div>
-                    <h3 id="srv-5">Reinigung nach Firmenfeiern</h3>
-                </div>
-                <div class="card-price-badge">ab 150 €</div>
+                <div class="card-sticker">🎉</div>
+                <h3 id="srv-5">Reinigung nach Firmenfeiern</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="250" onclick="openServiceForm('Bauendreinigung')">
-                <div class="card-main-info">
-                    <div class="card-sticker">🏗️</div>
-                    <h3 id="srv-6">Bauendreinigung</h3>
-                </div>
-                <div class="card-price-badge">ab 5 € / m²</div>
+                <div class="card-sticker">🏗️</div>
+                <h3 id="srv-6">Bauendreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="300" onclick="openServiceForm('Fensterreinigung')">
-                <div class="card-main-info">
-                    <div class="card-sticker">🪟</div>
-                    <h3 id="srv-7">Fensterreinigung</h3>
-                </div>
-                <div class="card-price-badge">ab 6 € / Fenster</div>
+                <div class="card-sticker">🪟</div>
+                <h3 id="srv-7">Fensterreinigung</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="350" onclick="openServiceForm('Umzugsreinigung mit Abnahmegarantie')">
-                <div class="card-main-info">
-                    <div class="card-sticker">📦</div>
-                    <h3 id="srv-8">Umzugsreinigung mit Abnahmegarantie</h3>
-                </div>
-                <div class="card-price-badge">ab 190 €</div>
+                <div class="card-sticker">📦</div>
+                <h3 id="srv-8">Umzugsreinigung mit Abnahmegarantie</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="400" onclick="openServiceForm('Reinigung nach Todesfall/Messie-Haushalt')">
-                <div class="card-main-info">
-                    <div class="card-sticker">🧹</div>
-                    <h3 id="srv-9">Reinigung nach Todesfall/Messie-Haushalt</h3>
-                </div>
-                <div class="card-price-badge">Individuell</div>
+                <div class="card-sticker">🧹</div>
+                <h3 id="srv-9">Reinigung nach Todesfall/Messie-Haushalt</h3>
             </div>
 
             <div class="card" data-aos="fade-up" data-aos-delay="450" onclick="openServiceForm('Hausmeisterservice (kleine Reparaturen / Kontrolle)')">
-                <div class="card-main-info">
-                    <div class="card-sticker">🔧</div>
-                    <h3 id="srv-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</h3>
-                </div>
-                <div class="card-price-badge">ab 35 € / Std.</div>
+                <div class="card-sticker">🔧</div>
+                <h3 id="srv-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</h3>
             </div>
 
         </div>
     </section>
 
-    <!-- СЕКЦИЯ С ФОТОГРАФИЯМИ РАБОТ "ПОСЛЕ" -->
+    <!-- Секция галереи -->
     <section class="gallery-section" id="gallery">
         <h2 class="section-title" id="sec-gallery-title">Unsere Arbeitsergebnisse</h2>
         <div class="gallery-grid">
             <div class="gallery-card" data-aos="fade-up">
                 <div class="gallery-img-wrap">
-                    <span class="gallery-tag" id="tag-after-1">✨ NACHHER</span>
+                    <span class="gallery-tag-minimal" id="tag-after-1">NACHHER</span>
                     <img src="./after1.jpg" alt="Wohnungsreinigung nachher">
                 </div>
                 <div class="gallery-info">
@@ -485,7 +444,7 @@
 
             <div class="gallery-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="gallery-img-wrap">
-                    <span class="gallery-tag" id="tag-after-2">✨ NACHHER</span>
+                    <span class="gallery-tag-minimal" id="tag-after-2">NACHHER</span>
                     <img src="./after2.jpg" alt="Komplettreinigung nachher">
                 </div>
                 <div class="gallery-info">
@@ -519,6 +478,7 @@
                 <p id="ft-area">📍 Servicegebiet: Berlin und Umgebung</p>
                 <p>📞 <a href="https://wa.me/4915781073234" target="_blank">+49 1578 107 3234</a></p>
                 <p>✉️ <a href="mailto:lysiuk.cleanlines@gmail.com">lysiuk.cleanlines@gmail.com</a></p>
+                <p style="color: rgba(255,255,255,0.85); margin-top: 8px;" id="ft-worktime">🕒 Täglich von 06:00 bis 21:00 Uhr</p>
             </div>
         </div>
 
@@ -531,7 +491,7 @@
         </div>
     </footer>
 
-    <!-- УНИВЕРСАЛЬНЫЙ / ИНДИВИДУАЛЬНЫЙ МОДАЛЬНЫЙ ФОРМУЛЯР -->
+    <!-- МОДАЛЬНЫЙ ФОРМУЛЯР -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
@@ -583,18 +543,22 @@
                             <input type="number" name="Flaeche_m2" class="sa-input" placeholder="z. B. 80">
                         </div>
 
+                        <!-- Reinigungstag как выпадающий список (7 дней) -->
                         <div class="sa-field">
                             <label class="sa-label" id="lbl-days">Reinigungstag</label>
-                            <div class="checkbox-grid">
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Montag"> <span class="d-mon">Montag</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Dienstag"> <span class="d-tue">Dienstag</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Mittwoch"> <span class="d-wed">Mittwoch</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Donnerstag"> <span class="d-thu">Donnerstag</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Freitag"> <span class="d-fri">Freitag</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Tag[]" value="Samstag"> <span class="d-sat">Samstag</span></label>
-                            </div>
+                            <select name="Reinigungstag" class="sa-select">
+                                <option value="Montag" class="d-mon">Montag</option>
+                                <option value="Dienstag" class="d-tue">Dienstag</option>
+                                <option value="Mittwoch" class="d-wed">Mittwoch</option>
+                                <option value="Donnerstag" class="d-thu">Donnerstag</option>
+                                <option value="Freitag" class="d-fri">Freitag</option>
+                                <option value="Samstag" class="d-sat">Samstag</option>
+                                <option value="Sonntag" class="d-sun">Sonntag</option>
+                                <option value="Flexibel" class="d-flex">Flexibel / Nach Absprache</option>
+                            </select>
                         </div>
 
+                        <!-- Gewünschte Häufigkeit -->
                         <div class="sa-field">
                             <label class="sa-label" id="lbl-freq">Gewünschte Häufigkeit</label>
                             <select name="Haeufigkeit" class="sa-select">
@@ -605,15 +569,21 @@
                             </select>
                         </div>
 
-                        <!-- Блок выбора видов уборки (показывается только в общем формуляре) -->
+                        <!-- Reinigungsart как выпадающий список со ВСЕМИ 10 категориями -->
                         <div class="sa-field" id="category-selector-group">
                             <label class="sa-label" id="lbl-type">Reinigungsart</label>
-                            <div class="checkbox-grid">
-                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Büroreinigung"> <span class="t-office">Büroreinigung</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Privathaushalt"> <span class="t-home">Privathaushalt</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Treppenhaus"> <span class="t-stairs">Treppenhaus</span></label>
-                                <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Fensterreinigung"> <span class="t-windows">Fensterreinigung</span></label>
-                            </div>
+                            <select name="Reinigungsart" class="sa-select">
+                                <option value="Treppenhausreinigung" class="srv-opt-1">Treppenhausreinigung</option>
+                                <option value="Reinigung von Privathaushalten & Wohnungen" class="srv-opt-2">Reinigung von Privathaushalten & Wohnungen</option>
+                                <option value="Büroreinigung" class="srv-opt-3">Büroreinigung</option>
+                                <option value="Kita- und Schulreinigung" class="srv-opt-4">Kita- und Schulreinigung</option>
+                                <option value="Reinigung nach Firmenfeiern" class="srv-opt-5">Reinigung nach Firmenfeiern</option>
+                                <option value="Bauendreinigung" class="srv-opt-6">Bauendreinigung</option>
+                                <option value="Fensterreinigung" class="srv-opt-7">Fensterreinigung</option>
+                                <option value="Umzugsreinigung mit Abnahmegarantie" class="srv-opt-8">Umzugsreinigung mit Abnahmegarantie</option>
+                                <option value="Reinigung nach Todesfall/Messie-Haushalt" class="srv-opt-9">Reinigung nach Todesfall/Messie-Haushalt</option>
+                                <option value="Hausmeisterservice" class="srv-opt-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</option>
+                            </select>
                         </div>
 
                         <div class="sa-field">
@@ -676,13 +646,13 @@
         </div>
     </div>
 
-    <!-- Окно Звонка -->
+    <!-- Окно Звонка с новым графиком 06:00 - 21:00 7 дней -->
     <div id="call-modal" class="modal">
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('call-modal')">&times;</span>
             <h3 style="font-size: 30px; font-weight: 800; color: var(--brand-blue);" id="modal-call-title">Kontakttelefon</h3>
             <div style="font-size: 30px; color: var(--brand-blue); margin: 15px 0; font-weight: 800;">+49 1578 107 3234</div>
-            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;" id="modal-call-time">Montag bis Samstag von 08:00 bis 20:00 Uhr</p>
+            <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;" id="modal-call-time">Montag bis Sonntag von 06:00 bis 21:00 Uhr (täglich)</p>
             <a href="https://wa.me/4915781073234" target="_blank" class="sa-submit-btn" id="modal-call-wa" style="text-decoration: none; display: block;">💬 Jetzt auf WhatsApp schreiben</a>
         </div>
     </div>
@@ -772,7 +742,6 @@
         let isAdmin = false;
         let currentLang = 'de';
 
-        /* Функция открытия индивидуального формуляра под конкретную услугу */
         function openServiceForm(serviceName) {
             const modalTitle = document.getElementById('modal-form-title');
             const hiddenInput = document.getElementById('hidden-service-input');
@@ -815,24 +784,23 @@
                 modalForm: "Unverbindliches Angebot anfordern",
                 btnFormSubmit: "Unverbindlich Angebot anfordern →",
                 
-                tagAfter1: "✨ NACHHER", tagAfter2: "✨ NACHHER",
+                tagAfter1: "NACHHER", tagAfter2: "NACHHER",
                 galTitle1: "Privathaushalt & Zimmerreinigung", galDesc1: "Gründliche Boden- und Oberflächenreinigung für frischen Wohnkomfort.",
                 galTitle2: "Wohnungs- & Holzbodenpflege", galDesc2: "Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.",
                 
                 lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblPlz: "PLZ *", lblCity: "Ort *", lblPhone: "Telefon *", lblEmail: "E-Mail *",
                 lblArea: "Fläche (m²)", lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen",
-                dMon: "Montag", dTue: "Dienstag", dWed: "Mittwoch", dThu: "Donnerstag", dFri: "Freitag", dSat: "Samstag",
+                dMon: "Montag", dTue: "Dienstag", dWed: "Mittwoch", dThu: "Donnerstag", dFri: "Freitag", dSat: "Samstag", dSun: "Sonntag", dFlex: "Flexibel / Nach Absprache",
                 optOnce: "Einmalig", optWeek: "Wöchentlich", opt2Week: "Alle 2 Wochen", optMonth: "Monatlich",
-                tOffice: "Büroreinigung", tHome: "Privathaushalt", tStairs: "Treppenhaus", tWin: "Fensterreinigung",
                 
                 discTitle: "10% Rabatt sichern", discDesc: "Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.", btnDiscAct: "Rabattcode aktivieren ✨",
                 revModalTitle: "Bewertung schreiben", lblStarRev: "Ihre Bewertung (Sterne)", lblRevName: "Ihr Name *", lblRevCity: "Ihre Stadt / Stadtteil", lblRevText: "Ihre Erfahrung *", btnPubRev: "Bewertung veröffentlichen ✨",
-                modalCallTitle: "Kontakttelefon", modalCallTime: "Montag bis Samstag von 08:00 bis 20:00 Uhr", modalCallWa: "💬 Jetzt auf WhatsApp schreiben",
+                modalCallTitle: "Kontakttelefon", modalCallTime: "Montag bis Sonntag von 06:00 bis 21:00 Uhr (täglich)", modalCallWa: "💬 Jetzt auf WhatsApp schreiben",
                 ckTitle: "Einwilligung zu Cookies", ckDesc: "Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.", ckDeny: "Ablehnen", ckAccept: "Alle akzeptieren",
                 
                 srv1: "Treppenhausreinigung", srv2: "Reinigung von Privathaushalten & Wohnungen", srv3: "Büroreinigung", srv4: "Kita- und Schulreinigung", srv5: "Reinigung nach Firmenfeiern",
                 srv6: "Bauendreinigung", srv7: "Fensterreinigung", srv8: "Umzugsreinigung mit Abnahmegarantie", srv9: "Reinigung nach Todesfall/Messie-Haushalt", srv10: "Hausmeisterservice (kleine Reparaturen / Kontrolle)",
-                ftDesc: "Professionelle Reinigungsdienste in Berlin & Umgebung", ftArea: "📍 Servicegebiet: Berlin und Umgebung"
+                ftDesc: "Professionelle Reinigungsdienste in Berlin & Umgebung", ftArea: "📍 Servicegebiet: Berlin und Umgebung", ftWorktime: "🕒 Täglich von 06:00 bis 21:00 Uhr"
             },
             en: {
                 promoText: "🎁 Get 10% discount on your first cleaning with code: <span class=\"promo-badge\">CLEAN10</span>",
@@ -857,24 +825,23 @@
                 modalForm: "Request a free quote",
                 btnFormSubmit: "Request quote without obligation →",
                 
-                tagAfter1: "✨ AFTER", tagAfter2: "✨ AFTER",
+                tagAfter1: "AFTER", tagAfter2: "AFTER",
                 galTitle1: "Private Home & Room Cleaning", galDesc1: "Thorough floor and surface cleaning for fresh living comfort.",
                 galTitle2: "Apartment & Wood Floor Care", galDesc2: "Impeccable shine on real wood floors and neat room presentation.",
                 
                 lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblPlz: "Postal Code *", lblCity: "City *", lblPhone: "Phone *", lblEmail: "Email *",
                 lblArea: "Area (m²)", lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblNotes: "Notes",
-                dMon: "Monday", dTue: "Tuesday", dWed: "Wednesday", dThu: "Thursday", dFri: "Friday", dSat: "Saturday",
+                dMon: "Monday", dTue: "Tuesday", dWed: "Wednesday", dThu: "Thursday", dFri: "Friday", dSat: "Saturday", dSun: "Sunday", dFlex: "Flexible / By arrangement",
                 optOnce: "One-time", optWeek: "Weekly", opt2Week: "Every 2 weeks", optMonth: "Monthly",
-                tOffice: "Office Cleaning", tHome: "Private Home", tStairs: "Staircase", tWin: "Window Cleaning",
                 
                 discTitle: "Get 10% Discount", discDesc: "Enter your email address and get your promo code.", btnDiscAct: "Activate promo code ✨",
                 revModalTitle: "Write a review", lblStarRev: "Your Rating (Stars)", lblRevName: "Your Name *", lblRevCity: "Your City / District", lblRevText: "Your Experience *", btnPubRev: "Publish Review ✨",
-                modalCallTitle: "Contact Phone", modalCallTime: "Monday to Saturday from 08:00 to 20:00", modalCallWa: "💬 Message on WhatsApp now",
+                modalCallTitle: "Contact Phone", modalCallTime: "Monday to Sunday from 06:00 to 21:00 (Daily)", modalCallWa: "💬 Message on WhatsApp now",
                 ckTitle: "Cookie Consent", ckDesc: "We use cookies to ensure you get the best experience on our website.", ckDeny: "Decline", ckAccept: "Accept All",
                 
                 srv1: "Staircase Cleaning", srv2: "Cleaning of Private Households & Apartments", srv3: "Office Cleaning", srv4: "Kindergarten & School Cleaning", srv5: "After-Party Cleaning",
                 srv6: "Post-Construction Cleaning", srv7: "Window Cleaning", srv8: "Move-Out Cleaning with Guarantee", srv9: "Extreme & Messie Cleaning", srv10: "Caretaker Service (Small Repairs / Inspection)",
-                ftDesc: "Professional cleaning services in Berlin & surrounding area", ftArea: "📍 Service Area: Berlin and surrounding area"
+                ftDesc: "Professional cleaning services in Berlin & surrounding area", ftArea: "📍 Service Area: Berlin and surrounding area", ftWorktime: "🕒 Daily from 06:00 to 21:00"
             },
             ru: {
                 promoText: "🎁 Получите скидку 10% на первую уборку по промокоду: <span class=\"promo-badge\">CLEAN10</span>",
@@ -899,24 +866,23 @@
                 modalForm: "Запросить бесплатный расчет",
                 btnFormSubmit: "Отправить заявку →",
                 
-                tagAfter1: "✨ ПОСЛЕ", tagAfter2: "✨ ПОСЛЕ",
+                tagAfter1: "ПОСЛЕ", tagAfter2: "ПОСЛЕ",
                 galTitle1: "Уборка комнат и квартир", galDesc1: "Тщательное мытье полов и поверхностей для идеального уюта.",
                 galTitle2: "Уход за деревянными полами", galDesc2: "Безупречный блеск полов и эстетичный порядок в каждой комнате.",
                 
                 lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblPlz: "Индекс *", lblCity: "Город *", lblPhone: "Телефон *", lblEmail: "Эл. почта *",
                 lblArea: "Площадь (м²)", lblDays: "День уборки", lblFreq: "Желаемая периодичность", lblType: "Вид уборки", lblNotes: "Примечания",
-                dMon: "Понедельник", dTue: "Вторник", dWed: "Среда", dThu: "Четверг", dFri: "Пятница", dSat: "Суббота",
+                dMon: "Понедельник", dTue: "Вторник", dWed: "Среда", dThu: "Четверг", dFri: "Пятница", dSat: "Суббота", dSun: "Воскресенье", dFlex: "Гибко / По договоренности",
                 optOnce: "Разово", optWeek: "Еженедельно", opt2Week: "Раз в 2 недели", optMonth: "Ежемесячно",
-                tOffice: "Уборка офисов", tHome: "Частный дом / Квартира", tStairs: "Подъезды", tWin: "Мойка окон",
                 
                 discTitle: "Скидка 10%", discDesc: "Введите ваш e-mail и активируйте промокод.", btnDiscAct: "Активировать код ✨",
                 revModalTitle: "Оставить отзыв", lblStarRev: "Ваша оценка (Звезды)", lblRevName: "Ваше Имя *", lblRevCity: "Ваш Город / Район", lblRevText: "Ваш отзыв *", btnPubRev: "Опубликовать отзыв ✨",
-                modalCallTitle: "Телефон для связи", modalCallTime: "С понедельника по субботу с 08:00 до 20:00", modalCallWa: "💬 Написать в WhatsApp",
+                modalCallTitle: "Телефон для связи", modalCallTime: "С понедельника по воскресенье с 06:00 до 21:00 (ежедневно)", modalCallWa: "💬 Написать в WhatsApp",
                 ckTitle: "Согласие на Cookies", ckDesc: "Мы используем cookies для вашего удобства на сайте.", ckDeny: "Отклонить", ckAccept: "Принять все",
                 
                 srv1: "Уборка подъездов и лестниц", srv2: "Уборка частных домов и квартир", srv3: "Уборка офисов и помещений", srv4: "Уборка детских садов и школ", srv5: "Уборка после корпоративов",
                 srv6: "Уборка после ремонта", srv7: "Мойка окон и фасадов", srv8: "Уборка при переезде с гарантией", srv9: "Уборка спец. объектов и запущенных квартир", srv10: "Хаусмайстер (мелкий ремонт / контроль)",
-                ftDesc: "Профессиональный клининг в Берлине и пригороде", ftArea: "📍 Зона обслуживания: Берлин и округ"
+                ftDesc: "Профессиональный клининг в Берлине и пригороде", ftArea: "📍 Зона обслуживания: Берлин и округ", ftWorktime: "🕒 Ежедневно с 06:00 до 21:00"
             },
             ua: {
                 promoText: "🎁 Отримайте знижку 10% на перше прибирання за промокодом: <span class=\"promo-badge\">CLEAN10</span>",
@@ -941,24 +907,23 @@
                 modalForm: "Запросити безкоштовний розрахунок",
                 btnFormSubmit: "Надіслати заявку →",
                 
-                tagAfter1: "✨ ПІСЛЯ", tagAfter2: "✨ ПІСЛЯ",
+                tagAfter1: "ПІСЛЯ", tagAfter2: "ПІСЛЯ",
                 galTitle1: "Прибирання кімнат та квартир", galDesc1: "Ретельне миття підлоги та поверхонь для бездоганного затишку.",
                 galTitle2: "Догляд за дерев'яною підлогою", galDesc2: "Бездоганний блиск паркету та естетичний порядок у кімнаті.",
                 
                 lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblPlz: "Індекс *", lblCity: "Місто *", lblPhone: "Телефон *", lblEmail: "Ел. пошта *",
                 lblArea: "Площа (м²)", lblDays: "День прибирання", lblFreq: "Бажана періодичність", lblType: "Вид прибирання", lblNotes: "Примітки",
-                dMon: "Понеділок", dTue: "Вівторок", dWed: "Середа", dThu: "Четвер", dFri: "П'ятниця", dSat: "Субота",
+                dMon: "Понеділок", dTue: "Вівторок", dWed: "Середа", dThu: "Четвер", dFri: "П'ятниця", dSat: "Субота", dSun: "Неділя", dFlex: "Гнучко / За домовленістю",
                 optOnce: "Разово", optWeek: "Щотижня", opt2Week: "Раз на 2 тижні", optMonth: "Щомісяця",
-                tOffice: "Прибирання офісів", tHome: "Приватний будинок / Квартира", tStairs: "Під'їзди", tWin: "Миття вікон",
                 
                 discTitle: "Знижка 10%", discDesc: "Введіть ваш e-mail та активуйте промокод.", btnDiscAct: "Активувати код ✨",
                 revModalTitle: "Залишити відгук", lblStarRev: "Ваша оцінка (Зірки)", lblRevName: "Ваше Ім'я *", lblRevCity: "Ваше Місто / Район", lblRevText: "Ваш відгук *", btnPubRev: "Опублікувати відгук ✨",
-                modalCallTitle: "Телефон для зв'язку", modalCallTime: "З понеділка по суботу з 08:00 до 20:00", modalCallWa: "💬 Написати в WhatsApp",
+                modalCallTitle: "Телефон для зв'язку", modalCallTime: "З понеділка по неділю з 06:00 до 21:00 (щодня)", modalCallWa: "💬 Написати в WhatsApp",
                 ckTitle: "Згода на Cookies", ckDesc: "Ми використовуємо cookies для вашої зручності на сайті.", ckDeny: "Відхилити", ckAccept: "Прийняти все",
                 
                 srv1: "Прибирання під'їздів та сходів", srv2: "Прибирання приватних будинків та квартир", srv3: "Прибирання офісів та приміщень", srv4: "Прибирання дитячих садків та шкіл", srv5: "Прибирання після свята",
                 srv6: "Прибирання після ремонту", srv7: "Миття вікон та фасадів", srv8: "Прибирання при переїзді з гарантією", srv9: "Прибирання спец. об'єктів та складних квартир", srv10: "Хаусмайстер (дрібний ремонт / контроль)",
-                ftDesc: "Професійний клінінг у Берліні та передмісті", ftArea: "📍 Зона обслуговування: Берлін та передмістя"
+                ftDesc: "Професійний клінінг у Берліні та передмісті", ftArea: "📍 Зона обслуговування: Берлін та передмістя", ftWorktime: "🕒 Щодня з 06:00 до 21:00"
             }
         };
 
@@ -996,7 +961,6 @@
             }
             document.getElementById('btn-submit-form').innerText = t.btnFormSubmit;
 
-            // Галерея
             if(document.getElementById('tag-after-1')) document.getElementById('tag-after-1').innerText = t.tagAfter1;
             if(document.getElementById('tag-after-2')) document.getElementById('tag-after-2').innerText = t.tagAfter2;
             if(document.getElementById('gal-title-1')) document.getElementById('gal-title-1').innerText = t.galTitle1;
@@ -1004,7 +968,6 @@
             if(document.getElementById('gal-title-2')) document.getElementById('gal-title-2').innerText = t.galTitle2;
             if(document.getElementById('gal-desc-2')) document.getElementById('gal-desc-2').innerText = t.galDesc2;
 
-            // Поля модалок
             if(document.getElementById('lbl-firma')) document.getElementById('lbl-firma').innerText = t.lblFirma;
             if(document.getElementById('lbl-name')) document.getElementById('lbl-name').innerText = t.lblName;
             if(document.getElementById('lbl-street')) document.getElementById('lbl-street').innerText = t.lblStreet;
@@ -1024,16 +987,17 @@
             document.querySelectorAll('.d-thu').forEach(e => e.innerText = t.dThu);
             document.querySelectorAll('.d-fri').forEach(e => e.innerText = t.dFri);
             document.querySelectorAll('.d-sat').forEach(e => e.innerText = t.dSat);
+            document.querySelectorAll('.d-sun').forEach(e => e.innerText = t.dSun);
+            document.querySelectorAll('.d-flex').forEach(e => e.innerText = t.dFlex);
 
             document.querySelectorAll('.opt-once').forEach(e => e.innerText = t.optOnce);
             document.querySelectorAll('.opt-week').forEach(e => e.innerText = t.optWeek);
             document.querySelectorAll('.opt-2week').forEach(e => e.innerText = t.opt2Week);
             document.querySelectorAll('.opt-month').forEach(e => e.innerText = t.optMonth);
 
-            document.querySelectorAll('.t-office').forEach(e => e.innerText = t.tOffice);
-            document.querySelectorAll('.t-home').forEach(e => e.innerText = t.tHome);
-            document.querySelectorAll('.t-stairs').forEach(e => e.innerText = t.tStairs);
-            document.querySelectorAll('.t-windows').forEach(e => e.innerText = t.tWin);
+            for(let i=1; i<=10; i++) {
+                document.querySelectorAll('.srv-opt-'+i).forEach(e => e.innerText = t['srv'+i]);
+            }
 
             if(document.getElementById('disc-title')) document.getElementById('disc-title').innerText = t.discTitle;
             if(document.getElementById('disc-desc')) document.getElementById('disc-desc').innerText = t.discDesc;
@@ -1061,6 +1025,7 @@
 
             if(document.getElementById('ft-desc')) document.getElementById('ft-desc').innerText = t.ftDesc;
             if(document.getElementById('ft-area')) document.getElementById('ft-area').innerText = t.ftArea;
+            if(document.getElementById('ft-worktime')) document.getElementById('ft-worktime').innerText = t.ftWorktime;
 
             document.querySelectorAll('.btn-back-txt').forEach(b => b.innerText = t.backHome);
         }
