@@ -33,7 +33,6 @@
             position: relative;
         }
 
-        /* ФОНОВОЕ ВИДЕО С ПРЕМИУМ-ОФОРМЛЕНИЕМ */
         .video-bg-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -58,7 +57,6 @@
             pointer-events: none;
         }
 
-        /* Уведомление о копировании промокода */
         .toast-notification {
             position: fixed; top: 25px; right: 25px; background: var(--brand-blue); color: #FFFFFF;
             padding: 14px 24px; border-radius: 12px; border: 1px solid var(--gold-accent);
@@ -71,7 +69,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Баннер со скидкой сверху */
         .promo-banner {
             background: var(--brand-blue); color: #FAF8F5; padding: 12px 8%; text-align: center;
             font-size: 13px; font-weight: 500; display: flex; justify-content: center; align-items: center;
@@ -85,7 +82,6 @@
         }
         .promo-btn:hover { transform: scale(1.08); background: #FAF8F5; box-shadow: 0 4px 12px rgba(255,255,255,0.3); }
 
-        /* Навигация (Hauptmenü) */
         header {
             display: flex; justify-content: space-between; align-items: center; padding: 20px 8%;
             background: rgba(244, 239, 230, 0.92); backdrop-filter: blur(16px); position: sticky;
@@ -109,7 +105,6 @@
         nav a { text-decoration: none; color: var(--text-dark); font-size: 15px; font-weight: 600; transition: color 0.2s; }
         nav a:hover { color: var(--brand-blue-light); }
 
-        /* Переключатель языков */
         .lang-switch {
             display: flex;
             align-items: center;
@@ -138,7 +133,6 @@
             box-shadow: 0 2px 8px rgba(15, 42, 74, 0.2);
         }
 
-        /* Кнопки */
         .btn-call {
             background: var(--brand-blue); color: #FFFFFF; padding: 12px 24px; border-radius: 30px;
             text-decoration: none; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center;
@@ -165,7 +159,6 @@
         }
         .btn-back-home:hover { background-color: var(--brand-blue-light); transform: translateX(-4px) scale(1.03); box-shadow: 0 8px 22px rgba(29, 93, 155, 0.35); }
 
-        /* Hero Секция */
         .hero-container { max-width: 1200px; margin: 0 auto; padding: 90px 8% 100px; text-align: center; }
         .hero-subtitle { font-size: 13px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-accent); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .hero-subtitle::before, .hero-subtitle::after { content: ''; width: 30px; height: 1.5px; background: var(--gold-accent); }
@@ -173,7 +166,6 @@
         .hero-title em { font-style: italic; font-weight: 400; color: var(--brand-blue-light); }
         .hero-desc { font-size: 18px; line-height: 1.65; color: var(--text-muted); max-width: 740px; margin: 0 auto 40px; }
 
-        /* Преимущества */
         .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
         .perk-item { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 28px; border-radius: 22px; display: flex; align-items: center; gap: 20px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
         .perk-item:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
@@ -181,18 +173,27 @@
         .perk-item:hover .perk-icon-wrapper { transform: scale(1.25) rotate(5deg); }
         .perk-title { font-size: 16px; font-weight: 700; color: var(--brand-blue); }
 
-        /* Услуги со стикерами */
         .services-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .section-title { font-size: 42px; font-weight: 800; color: var(--brand-blue); margin-bottom: 50px; text-align: center; letter-spacing: -0.5px; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
 
-        .card { background: #FFFFFF; border: 1px solid rgba(15, 42, 74, 0.12); padding: 24px 28px; border-radius: 16px; display: flex; align-items: center; gap: 18px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .card { background: #FFFFFF; border: 1px solid rgba(15, 42, 74, 0.12); padding: 24px 28px; border-radius: 16px; display: flex; align-items: center; justify-content: space-between; gap: 15px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
         .card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
+        .card-main-info { display: flex; align-items: center; gap: 18px; }
         .card-sticker { font-size: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s ease; }
         .card:hover .card-sticker { transform: scale(1.3) rotate(5deg); }
         .card h3 { font-size: 15px; font-weight: 700; color: var(--brand-blue); line-height: 1.4; }
+        .card-price-badge {
+            background: rgba(184, 142, 61, 0.15);
+            color: var(--gold-accent);
+            font-size: 12px;
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+            border: 1px solid rgba(184, 142, 61, 0.3);
+        }
 
-        /* СЕКЦИЯ ГАЛЕРЕИ */
         .gallery-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; margin-top: 30px; }
         .gallery-card {
@@ -242,7 +243,6 @@
         .gallery-info h4 { font-size: 18px; font-weight: 700; color: var(--brand-blue); margin-bottom: 6px; }
         .gallery-info p { font-size: 13px; color: var(--text-muted); }
 
-        /* Отзывы */
         .reviews-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
         .review-card { background: rgba(255, 255, 255, 0.94); border: 1px solid var(--border-color); padding: 30px; border-radius: 22px; position: relative; }
@@ -253,7 +253,6 @@
         .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transition: background 0.2s; font-family: inherit; }
         .btn-delete-review:hover { background: #be123c; }
 
-        /* Формы */
         .sa-field { margin-bottom: 18px; }
         .sa-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
         .sa-select, .sa-input, .sa-textarea { width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border-color); background-color: rgba(244, 239, 230, 0.5); font-size: 14px; color: var(--text-dark); outline: none; transition: all 0.25s ease; font-family: inherit; }
@@ -276,7 +275,6 @@
         .legal-text-body p { margin-bottom: 12px; color: var(--text-muted); }
         .legal-text-body a { color: var(--brand-blue-light); text-decoration: underline; word-break: break-all; }
 
-        /* Футер */
         footer { background: var(--brand-blue); color: #FFFFFF; padding: 80px 8% 40px; margin-top: 60px; }
         .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 50px; }
         .footer-logo { font-size: 28px; font-weight: 800; }
@@ -285,12 +283,10 @@
         .footer-bottom { max-width: 1200px; margin: 30px auto 0; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.65); }
         .footer-bottom button { background: none; border: none; color: rgba(255,255,255,0.85); cursor: pointer; text-decoration: underline; margin-left: 20px; font-size: 13px; font-family: inherit; }
 
-        /* Модальные окна */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 22, 34, 0.75); backdrop-filter: blur(12px); z-index: 99999; align-items: center; justify-content: center; }
         .modal-content { background: #FFFFFF; padding: 40px; border-radius: 28px; max-width: 800px; width: 92%; max-height: 88vh; overflow-y: auto; position: relative; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3); }
         .modal-close { position: absolute; top: 20px; right: 25px; font-size: 26px; cursor: pointer; color: var(--text-muted); }
 
-        /* Cookie-окно */
         .cookie-modal { position: fixed; bottom: 25px; right: 25px; max-width: 380px; background: #FFFFFF; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid var(--border-color); z-index: 9999; }
         .cookie-buttons { display: flex; gap: 10px; margin-top: 15px; }
         .btn-cookie-accept { flex: 1; padding: 12px; background: var(--brand-blue); color: #fff; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
@@ -305,7 +301,6 @@
 </head>
 <body>
 
-    <!-- ФОНОВОЕ ВИДЕО -->
     <div class="video-bg-container">
         <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80">
             <source src="https://assets.mixkit.co/videos/preview/mixkit-living-room-with-modern-and-minimalist-decor-41551-large.mp4" type="video/mp4">
@@ -313,18 +308,15 @@
     </div>
     <div class="video-overlay"></div>
 
-    <!-- Уведомление о копировании промокода -->
     <div id="toastNotification" class="toast-notification">
         <span id="toast-txt">✨ Gutscheincode CLEAN10 kopiert!</span>
     </div>
 
-    <!-- Баннер со скидкой сверху -->
     <div class="promo-banner">
         <span id="txt-promo">🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: <span class="promo-badge">CLEAN10</span></span>
         <button class="promo-btn" id="btn-copy-promo" onclick="copyCode()">Code kopieren ✨</button>
     </div>
 
-    <!-- Навигация (Hauptmenü) -->
     <header>
         <a href="#" class="logo-group">
             <div class="logo-icon-card">
@@ -340,14 +332,13 @@
             <div class="logo-text">CleanLines <span>Lysiuk</span></div>
         </a>
         <nav>
-            <a href="javascript:void(0)" id="nav-angebot" onclick="openModal('booking-modal')">Angebot</a>
+            <a href="javascript:void(0)" id="nav-angebot" onclick="openServiceForm('Allgemeine Anfrage')">Angebot</a>
             <a href="#services" id="nav-leistungen">Leistungen</a>
             <a href="#gallery" id="nav-galerie">Ergebnisse</a>
             <a href="#reviews" id="nav-bewertungen">Bewertungen</a>
             <a href="#contact" id="nav-kontakt">Kontakt</a>
         </nav>
 
-        <!-- Переключатель языков DE | EN | RU | UA -->
         <div style="display: flex; align-items: center; gap: 15px;">
             <div class="lang-switch">
                 <button class="lang-btn active" onclick="switchLanguage('de', this)">DE</button>
@@ -362,20 +353,18 @@
         </div>
     </header>
 
-    <!-- Первый экран (Hero) -->
     <main class="hero-container" data-aos="fade-up">
         <div class="hero-subtitle" id="hero-sub">Gebäudereinigung in Berlin</div>
         <h1 class="hero-title" id="hero-title">Perfekte Sauberkeit, die Ihnen <em>Zeit und Ruhe</em> schenkt.</h1>
         <p class="hero-desc" id="hero-desc">Genießen Sie ein makelloses Zuhause oder ein repräsentatives Büro. Wir kümmern uns um jedes Detail – diskret, gründlich und ganz nach Ihren Wünschen.</p>
         
         <div class="hero-actions">
-            <button class="btn-angebot-cta" id="hero-btn-cta" onclick="openModal('booking-modal')">
+            <button class="btn-angebot-cta" id="hero-btn-cta" onclick="openServiceForm('Allgemeine Anfrage')">
                 Jetzt Angebot anfordern ❯
             </button>
         </div>
     </main>
 
-    <!-- Преимущества -->
     <div class="perks-bar">
         <div class="perk-item" data-aos="fade-up">
             <div class="perk-icon-wrapper">✨</div>
@@ -391,59 +380,89 @@
         </div>
     </div>
 
-    <!-- Услуги со стикерами -->
+    <!-- Услуги со стартовыми ценами и кликом на отдельный формуляр -->
     <section class="services-section" id="services">
         <h2 class="section-title" id="sec-services-title">Unsere Leistungen</h2>
         <div class="services-grid">
             
-            <div class="card" data-aos="fade-up">
-                <div class="card-sticker">🪜</div>
-                <h3 id="srv-1">Treppenhausreinigung</h3>
+            <div class="card" data-aos="fade-up" onclick="openServiceForm('Treppenhausreinigung')">
+                <div class="card-main-info">
+                    <div class="card-sticker">🪜</div>
+                    <h3 id="srv-1">Treppenhausreinigung</h3>
+                </div>
+                <div class="card-price-badge">ab 35 € / Etage</div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="50">
-                <div class="card-sticker">🏡</div>
-                <h3 id="srv-2">Reinigung von Privathaushalten & Wohnungen</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="50" onclick="openServiceForm('Reinigung von Privathaushalten & Wohnungen')">
+                <div class="card-main-info">
+                    <div class="card-sticker">🏡</div>
+                    <h3 id="srv-2">Reinigung von Privathaushalten & Wohnungen</h3>
+                </div>
+                <div class="card-price-badge">ab 30 € / Std.</div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <div class="card-sticker">🏢</div>
-                <h3 id="srv-3">Büroreinigung</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="100" onclick="openServiceForm('Büroreinigung')">
+                <div class="card-main-info">
+                    <div class="card-sticker">🏢</div>
+                    <h3 id="srv-3">Büroreinigung</h3>
+                </div>
+                <div class="card-price-badge">ab 32 € / Std.</div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="150">
-                <div class="card-sticker">🏫</div>
-                <h3 id="srv-4">Kita- und Schulreinigung</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="150" onclick="openServiceForm('Kita- und Schulreinigung')">
+                <div class="card-main-info">
+                    <div class="card-sticker">🏫</div>
+                    <h3 id="srv-4">Kita- und Schulreinigung</h3>
+                </div>
+                <div class="card-price-badge">Individuell</div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <div class="card-sticker">🎉</div>
-                <h3 id="srv-5">Reinigung nach Firmenfeiern</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="200" onclick="openServiceForm('Reinigung nach Firmenfeiern')">
+                <div class="card-main-info">
+                    <div class="card-sticker">🎉</div>
+                    <h3 id="srv-5">Reinigung nach Firmenfeiern</h3>
+                </div>
+                <div class="card-price-badge">ab 150 €</div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="250">
-                <div class="card-sticker">🏗️</div>
-                <h3 id="srv-6">Bauendreinigung</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="250" onclick="openServiceForm('Bauendreinigung')">
+                <div class="card-main-info">
+                    <div class="card-sticker">🏗️</div>
+                    <h3 id="srv-6">Bauendreinigung</h3>
+                </div>
+                <div class="card-price-badge">ab 5 € / m²</div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <div class="card-sticker">🪟</div>
-                <h3 id="srv-7">Fensterreinigung</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="300" onclick="openServiceForm('Fensterreinigung')">
+                <div class="card-main-info">
+                    <div class="card-sticker">🪟</div>
+                    <h3 id="srv-7">Fensterreinigung</h3>
+                </div>
+                <div class="card-price-badge">ab 6 € / Fenster</div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="350">
-                <div class="card-sticker">📦</div>
-                <h3 id="srv-8">Umzugsreinigung mit Abnahmegarantie</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="350" onclick="openServiceForm('Umzugsreinigung mit Abnahmegarantie')">
+                <div class="card-main-info">
+                    <div class="card-sticker">📦</div>
+                    <h3 id="srv-8">Umzugsreinigung mit Abnahmegarantie</h3>
+                </div>
+                <div class="card-price-badge">ab 190 €</div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="400">
-                <div class="card-sticker">🧹</div>
-                <h3 id="srv-9">Reinigung nach Todesfall/Messie-Haushalt</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="400" onclick="openServiceForm('Reinigung nach Todesfall/Messie-Haushalt')">
+                <div class="card-main-info">
+                    <div class="card-sticker">🧹</div>
+                    <h3 id="srv-9">Reinigung nach Todesfall/Messie-Haushalt</h3>
+                </div>
+                <div class="card-price-badge">Individuell</div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="450">
-                <div class="card-sticker">🔧</div>
-                <h3 id="srv-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</h3>
+            <div class="card" data-aos="fade-up" data-aos-delay="450" onclick="openServiceForm('Hausmeisterservice (kleine Reparaturen / Kontrolle)')">
+                <div class="card-main-info">
+                    <div class="card-sticker">🔧</div>
+                    <h3 id="srv-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</h3>
+                </div>
+                <div class="card-price-badge">ab 35 € / Std.</div>
             </div>
 
         </div>
@@ -512,16 +531,17 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНОЕ ОКНО: ФОРМУЛЯР ЗАЯВКИ -->
+    <!-- УНИВЕРСАЛЬНЫЙ / ИНДИВИДУАЛЬНЫЙ МОДАЛЬНЫЙ ФОРМУЛЯР -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
             <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('booking-modal')">← Zurück zur Hauptseite</button>
-            <h2 style="font-size: 32px; font-weight: 800; color: var(--brand-blue); margin-bottom: 25px; text-align: center;" id="modal-form-title">Unverbindliches Angebot anfordern</h2>
+            <h2 style="font-size: 30px; font-weight: 800; color: var(--brand-blue); margin-bottom: 25px; text-align: center;" id="modal-form-title">Unverbindliches Angebot anfordern</h2>
             
             <form action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                 <input type="hidden" name="subject" value="Neue Reinigungsanfrage von der Website">
+                <input type="hidden" name="Gewaehlte_Leistung" id="hidden-service-input" value="Allgemein">
 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                     <div>
@@ -539,25 +559,30 @@
                         </div>
                         <div style="display: flex; gap: 10px;">
                             <div class="sa-field" style="flex: 1;">
-                                <label class="sa-label">PLZ</label>
-                                <input type="text" name="PLZ" class="sa-input" placeholder="10115">
+                                <label class="sa-label" id="lbl-plz">PLZ *</label>
+                                <input type="text" name="PLZ" class="sa-input" required placeholder="10115">
                             </div>
                             <div class="sa-field" style="flex: 2;">
-                                <label class="sa-label" id="lbl-city">Ort</label>
-                                <input type="text" name="Ort" class="sa-input" placeholder="Berlin">
+                                <label class="sa-label" id="lbl-city">Ort *</label>
+                                <input type="text" name="Ort" class="sa-input" required placeholder="Berlin">
                             </div>
                         </div>
                         <div class="sa-field">
-                            <label class="sa-label">E-Mail *</label>
+                            <label class="sa-label" id="lbl-email">E-Mail *</label>
                             <input type="email" name="email" class="sa-input" required placeholder="name@domain.de">
                         </div>
                         <div class="sa-field">
-                            <label class="sa-label" id="lbl-phone">Telefon</label>
-                            <input type="tel" name="Telefon" class="sa-input" placeholder="+49 1578 1073234">
+                            <label class="sa-label" id="lbl-phone">Telefon *</label>
+                            <input type="tel" name="Telefon" class="sa-input" required placeholder="+49 1578 1073234">
                         </div>
                     </div>
 
                     <div>
+                        <div class="sa-field">
+                            <label class="sa-label" id="lbl-area-size">Fläche (m²)</label>
+                            <input type="number" name="Flaeche_m2" class="sa-input" placeholder="z. B. 80">
+                        </div>
+
                         <div class="sa-field">
                             <label class="sa-label" id="lbl-days">Reinigungstag</label>
                             <div class="checkbox-grid">
@@ -570,7 +595,7 @@
                             </div>
                         </div>
 
-                        <div class="sa-field" style="margin-top: 15px;">
+                        <div class="sa-field">
                             <label class="sa-label" id="lbl-freq">Gewünschte Häufigkeit</label>
                             <select name="Haeufigkeit" class="sa-select">
                                 <option value="Einmalig" class="opt-once">Einmalig</option>
@@ -580,7 +605,8 @@
                             </select>
                         </div>
 
-                        <div class="sa-field" style="margin-top: 15px;">
+                        <!-- Блок выбора видов уборки (показывается только в общем формуляре) -->
+                        <div class="sa-field" id="category-selector-group">
                             <label class="sa-label" id="lbl-type">Reinigungsart</label>
                             <div class="checkbox-grid">
                                 <label class="checkbox-label"><input type="checkbox" name="Art[]" value="Büroreinigung"> <span class="t-office">Büroreinigung</span></label>
@@ -590,9 +616,9 @@
                             </div>
                         </div>
 
-                        <div class="sa-field" style="margin-top: 15px;">
-                            <label class="sa-label" id="lbl-notes">Anmerkungen / Gutscheincode</label>
-                            <textarea name="Anmerkungen" class="sa-textarea" rows="2" placeholder="z. B. CLEAN10"></textarea>
+                        <div class="sa-field">
+                            <label class="sa-label" id="lbl-notes">Anmerkungen</label>
+                            <textarea name="Anmerkungen" id="input-notes" class="sa-textarea" rows="2" placeholder="Ihre Nachricht oder Wünsche..."></textarea>
                         </div>
 
                         <button type="submit" class="sa-submit-btn" id="btn-submit-form" style="margin-top: 10px;">
@@ -744,8 +770,27 @@
 
         let selectedStars = 5;
         let isAdmin = false;
+        let currentLang = 'de';
 
-        /* Полная мультиязычность */
+        /* Функция открытия индивидуального формуляра под конкретную услугу */
+        function openServiceForm(serviceName) {
+            const modalTitle = document.getElementById('modal-form-title');
+            const hiddenInput = document.getElementById('hidden-service-input');
+            const categoryGroup = document.getElementById('category-selector-group');
+
+            hiddenInput.value = serviceName;
+
+            if (serviceName === 'Allgemeine Anfrage') {
+                modalTitle.innerText = translations[currentLang].modalForm;
+                categoryGroup.style.display = 'block';
+            } else {
+                modalTitle.innerText = serviceName;
+                categoryGroup.style.display = 'none';
+            }
+
+            openModal('booking-modal');
+        }
+
         const translations = {
             de: {
                 promoText: "🎁 Erhalten Sie 10% Rabatt auf Ihre erste Reinigung mit dem Code: <span class=\"promo-badge\">CLEAN10</span>",
@@ -774,8 +819,8 @@
                 galTitle1: "Privathaushalt & Zimmerreinigung", galDesc1: "Gründliche Boden- und Oberflächenreinigung für frischen Wohnkomfort.",
                 galTitle2: "Wohnungs- & Holzbodenpflege", galDesc2: "Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.",
                 
-                lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblCity: "Ort", lblPhone: "Telefon",
-                lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen / Gutscheincode",
+                lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblPlz: "PLZ *", lblCity: "Ort *", lblPhone: "Telefon *", lblEmail: "E-Mail *",
+                lblArea: "Fläche (m²)", lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen",
                 dMon: "Montag", dTue: "Dienstag", dWed: "Mittwoch", dThu: "Donnerstag", dFri: "Freitag", dSat: "Samstag",
                 optOnce: "Einmalig", optWeek: "Wöchentlich", opt2Week: "Alle 2 Wochen", optMonth: "Monatlich",
                 tOffice: "Büroreinigung", tHome: "Privathaushalt", tStairs: "Treppenhaus", tWin: "Fensterreinigung",
@@ -816,8 +861,8 @@
                 galTitle1: "Private Home & Room Cleaning", galDesc1: "Thorough floor and surface cleaning for fresh living comfort.",
                 galTitle2: "Apartment & Wood Floor Care", galDesc2: "Impeccable shine on real wood floors and neat room presentation.",
                 
-                lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblCity: "City", lblPhone: "Phone",
-                lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblNotes: "Notes / Promo Code",
+                lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblPlz: "Postal Code *", lblCity: "City *", lblPhone: "Phone *", lblEmail: "Email *",
+                lblArea: "Area (m²)", lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblNotes: "Notes",
                 dMon: "Monday", dTue: "Tuesday", dWed: "Wednesday", dThu: "Thursday", dFri: "Friday", dSat: "Saturday",
                 optOnce: "One-time", optWeek: "Weekly", opt2Week: "Every 2 weeks", optMonth: "Monthly",
                 tOffice: "Office Cleaning", tHome: "Private Home", tStairs: "Staircase", tWin: "Window Cleaning",
@@ -858,8 +903,8 @@
                 galTitle1: "Уборка комнат и квартир", galDesc1: "Тщательное мытье полов и поверхностей для идеального уюта.",
                 galTitle2: "Уход за деревянными полами", galDesc2: "Безупречный блеск полов и эстетичный порядок в каждой комнате.",
                 
-                lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblCity: "Город", lblPhone: "Телефон",
-                lblDays: "День уборки", lblFreq: "Желаемая периодичность", lblType: "Вид уборки", lblNotes: "Примечания / Промокод",
+                lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblPlz: "Индекс *", lblCity: "Город *", lblPhone: "Телефон *", lblEmail: "Эл. почта *",
+                lblArea: "Площадь (м²)", lblDays: "День уборки", lblFreq: "Желаемая периодичность", lblType: "Вид уборки", lblNotes: "Примечания",
                 dMon: "Понедельник", dTue: "Вторник", dWed: "Среда", dThu: "Четверг", dFri: "Пятница", dSat: "Суббота",
                 optOnce: "Разово", optWeek: "Еженедельно", opt2Week: "Раз в 2 недели", optMonth: "Ежемесячно",
                 tOffice: "Уборка офисов", tHome: "Частный дом / Квартира", tStairs: "Подъезды", tWin: "Мойка окон",
@@ -900,8 +945,8 @@
                 galTitle1: "Прибирання кімнат та квартир", galDesc1: "Ретельне миття підлоги та поверхонь для бездоганного затишку.",
                 galTitle2: "Догляд за дерев'яною підлогою", galDesc2: "Бездоганний блиск паркету та естетичний порядок у кімнаті.",
                 
-                lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblCity: "Місто", lblPhone: "Телефон",
-                lblDays: "День прибирання", lblFreq: "Бажана періодичність", lblType: "Вид прибирання", lblNotes: "Примітки / Промокод",
+                lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblPlz: "Індекс *", lblCity: "Місто *", lblPhone: "Телефон *", lblEmail: "Ел. пошта *",
+                lblArea: "Площа (м²)", lblDays: "День прибирання", lblFreq: "Бажана періодичність", lblType: "Вид прибирання", lblNotes: "Примітки",
                 dMon: "Понеділок", dTue: "Вівторок", dWed: "Середа", dThu: "Четвер", dFri: "П'ятниця", dSat: "Субота",
                 optOnce: "Разово", optWeek: "Щотижня", opt2Week: "Раз на 2 тижні", optMonth: "Щомісяця",
                 tOffice: "Прибирання офісів", tHome: "Приватний будинок / Квартира", tStairs: "Під'їзди", tWin: "Миття вікон",
@@ -918,6 +963,7 @@
         };
 
         function switchLanguage(lang, btn) {
+            currentLang = lang;
             document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
@@ -943,7 +989,11 @@
             if(document.getElementById('sec-gallery-title')) document.getElementById('sec-gallery-title').innerText = t.secGal;
             document.getElementById('sec-reviews-title').innerText = t.secRev;
             document.getElementById('btn-write-review').innerText = t.writeRev;
-            document.getElementById('modal-form-title').innerText = t.modalForm;
+            
+            const hiddenService = document.getElementById('hidden-service-input').value;
+            if (hiddenService === 'Allgemein' || hiddenService === 'Allgemeine Anfrage') {
+                document.getElementById('modal-form-title').innerText = t.modalForm;
+            }
             document.getElementById('btn-submit-form').innerText = t.btnFormSubmit;
 
             // Галерея
@@ -958,8 +1008,11 @@
             if(document.getElementById('lbl-firma')) document.getElementById('lbl-firma').innerText = t.lblFirma;
             if(document.getElementById('lbl-name')) document.getElementById('lbl-name').innerText = t.lblName;
             if(document.getElementById('lbl-street')) document.getElementById('lbl-street').innerText = t.lblStreet;
+            if(document.getElementById('lbl-plz')) document.getElementById('lbl-plz').innerText = t.lblPlz;
             if(document.getElementById('lbl-city')) document.getElementById('lbl-city').innerText = t.lblCity;
+            if(document.getElementById('lbl-email')) document.getElementById('lbl-email').innerText = t.lblEmail;
             if(document.getElementById('lbl-phone')) document.getElementById('lbl-phone').innerText = t.lblPhone;
+            if(document.getElementById('lbl-area-size')) document.getElementById('lbl-area-size').innerText = t.lblArea;
             if(document.getElementById('lbl-days')) document.getElementById('lbl-days').innerText = t.lblDays;
             if(document.getElementById('lbl-freq')) document.getElementById('lbl-freq').innerText = t.lblFreq;
             if(document.getElementById('lbl-type')) document.getElementById('lbl-type').innerText = t.lblType;
@@ -1002,7 +1055,6 @@
             if(document.getElementById('ck-deny')) document.getElementById('ck-deny').innerText = t.ckDeny;
             if(document.getElementById('ck-accept')) document.getElementById('ck-accept').innerText = t.ckAccept;
 
-            // Сервисы
             for(let i=1; i<=10; i++) {
                 if(document.getElementById('srv-'+i)) document.getElementById('srv-'+i).innerText = t['srv'+i];
             }
@@ -1108,10 +1160,8 @@
 
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         
-        /* КРЕСТИК: Закрывает модальное окно без скролла */
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
         
-        /* СИНЯЯ КНОПКА: Закрывает окно и плавно скроллит на самый верх */
         function closeAndScrollTop(id) {
             closeModal(id);
             window.scrollTo({ top: 0, behavior: 'smooth' });
