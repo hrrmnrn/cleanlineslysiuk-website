@@ -33,6 +33,7 @@
             position: relative;
         }
 
+        /* ФОНОВОЕ ВИДЕО */
         .video-bg-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -45,16 +46,16 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.22;
-            filter: saturate(1.1) brightness(1.05);
+            opacity: 0.28;
+            filter: saturate(1.1) brightness(1.02);
         }
 
         .video-overlay {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: -1;
-            background: linear-gradient(135deg, rgba(244, 239, 230, 0.88) 0%, rgba(232, 224, 210, 0.82) 100%);
-            backdrop-filter: blur(2px);
+            background: linear-gradient(135deg, rgba(244, 239, 230, 0.85) 0%, rgba(232, 224, 210, 0.78) 100%);
+            backdrop-filter: blur(1.5px);
             pointer-events: none;
         }
 
@@ -167,7 +168,6 @@
         .hero-title em { font-style: italic; font-weight: 400; color: var(--brand-blue-light); }
         .hero-desc { font-size: 18px; line-height: 1.65; color: var(--text-muted); max-width: 740px; margin: 0 auto 40px; }
 
-        /* 3 ОПОРЫ БРЕНДА */
         .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
         .perk-item { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 22px 24px; border-radius: 20px; display: flex; align-items: center; gap: 16px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
         .perk-item:hover { transform: translateY(-6px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
@@ -606,9 +606,10 @@
 </head>
 <body>
 
+    <!-- ФОНОВОЕ ВИДЕО: Загрузи свой файл как video.mp4 в корень проекта -->
     <div class="video-bg-container">
-        <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-interior-design-of-a-living-room-41551-large.mp4" type="video/mp4">
+        <video autoplay loop muted playsinline id="bgVideo">
+            <source src="./video.mp4" type="video/mp4">
         </video>
     </div>
     <div class="video-overlay"></div>
@@ -672,6 +673,7 @@
         </div>
     </main>
 
+    <!-- 3 ОПОРЫ БРЕНДА -->
     <div class="perks-bar">
         <div class="perk-item" data-aos="fade-up">
             <div class="perk-icon-wrapper">✨</div>
@@ -886,6 +888,7 @@
         </div>
     </section>
 
+    <!-- ФУТЕР -->
     <footer id="contact">
         <div class="footer-content">
             <div>
