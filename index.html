@@ -45,7 +45,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.28;
+            opacity: 0.22;
             filter: saturate(1.1) brightness(1.05);
         }
 
@@ -167,9 +167,9 @@
         .hero-title em { font-style: italic; font-weight: 400; color: var(--brand-blue-light); }
         .hero-desc { font-size: 18px; line-height: 1.65; color: var(--text-muted); max-width: 740px; margin: 0 auto 40px; }
 
-        /* 4 ОПОРЫ БРЕНДА */
+        /* ЭЛЕГАНТНЫЕ 4 ОПОРЫ БРЕНДА */
         .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
-        .perk-item { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 24px; border-radius: 20px; display: flex; align-items: center; gap: 16px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .perk-item { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 22px 24px; border-radius: 20px; display: flex; align-items: center; gap: 16px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
         .perk-item:hover { transform: translateY(-6px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
         .perk-icon-wrapper { width: 46px; height: 46px; background: rgba(29, 93, 155, 0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--gold-accent); flex-shrink: 0; transition: transform 0.3s ease; }
         .perk-item:hover .perk-icon-wrapper { transform: scale(1.25) rotate(5deg); }
@@ -185,7 +185,6 @@
         .card:hover .card-sticker { transform: scale(1.3) rotate(5deg); }
         .card h3 { font-size: 15px; font-weight: 700; color: var(--brand-blue); line-height: 1.4; }
 
-        /* ТАРИФЫ */
         .pricing-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 30px; }
         .pricing-card {
@@ -227,61 +226,110 @@
         }
         .pricing-btn:hover { background: var(--brand-blue-light); transform: translateY(-2px); }
 
-        /* ГАЛЕРЕЯ ДО / ПОСЛЕ */
-        .gallery-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 30px; margin-top: 30px; }
-        .gallery-card {
+        /* СЛАЙДЕР РЕАЛЬНЫХ ФОТО */
+        .gallery-section { padding: 80px 8%; max-width: 1000px; margin: 0 auto; }
+        .slider-container {
+            position: relative;
             background: #FFFFFF;
-            border-radius: 22px;
+            border-radius: 24px;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            box-shadow: 0 10px 30px rgba(15, 42, 74, 0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 40px rgba(15, 42, 74, 0.08);
+            margin-top: 30px;
         }
-        .gallery-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 45px rgba(15, 42, 74, 0.14);
-            border-color: var(--brand-blue-light);
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            width: 100%;
         }
-        .compare-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            height: 340px;
+        .slider-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
         }
-        .compare-img-wrap {
+        .slider-img-wrap {
             position: relative;
-            height: 100%;
-            overflow: hidden;
+            width: 100%;
+            height: 480px;
+            background: #111;
         }
-        .compare-img-wrap img {
+        .slider-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
         }
-        .gallery-card:hover .compare-img-wrap img {
-            transform: scale(1.05);
-        }
-        .tag-badge {
+        .slider-tag {
             position: absolute;
-            top: 14px;
-            left: 14px;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 11px;
+            top: 20px;
+            left: 20px;
+            background: rgba(15, 42, 74, 0.85);
+            backdrop-filter: blur(10px);
+            color: #FFFFFF;
+            padding: 7px 18px;
+            border-radius: 30px;
+            font-size: 12px;
             font-weight: 800;
             letter-spacing: 1px;
-            color: #FFFFFF;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border: 1px solid rgba(184, 142, 61, 0.4);
         }
-        .tag-vorher { background: rgba(74, 88, 104, 0.85); border: 1px solid rgba(255,255,255,0.3); }
-        .tag-nachher { background: rgba(15, 42, 74, 0.85); border: 1px solid rgba(184, 142, 61, 0.6); color: #FAF8F5; }
-        .gallery-info { padding: 22px 26px; }
-        .gallery-info h4 { font-size: 18px; font-weight: 800; color: var(--brand-blue); margin-bottom: 6px; }
-        .gallery-info p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+        .slider-info {
+            padding: 24px 30px;
+            background: #FFFFFF;
+        }
+        .slider-info h4 { font-size: 20px; font-weight: 800; color: var(--brand-blue); margin-bottom: 6px; }
+        .slider-info p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
 
-        /* FAQ АККОРДЕОН */
+        .slider-btn {
+            position: absolute;
+            top: 240px;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--border-color);
+            color: var(--brand-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .slider-btn:hover {
+            background: var(--brand-blue);
+            color: #FFFFFF;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .slider-btn.prev { left: 20px; }
+        .slider-btn.next { right: 20px; }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 0 20px;
+            background: #FFFFFF;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(15, 42, 74, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .dot.active {
+            background: var(--brand-blue);
+            width: 24px;
+            border-radius: 10px;
+        }
+
+        /* FAQ */
         .faq-section { padding: 80px 8%; max-width: 1000px; margin: 0 auto; }
         .faq-accordion { display: flex; flex-direction: column; gap: 16px; margin-top: 30px; }
         .faq-item {
@@ -358,7 +406,7 @@
             border-radius: 10px;
         }
 
-        /* ФОРМЫ И DSGVO ЧЕКБОКС */
+        /* ФОРМЫ */
         .sa-field { margin-bottom: 18px; }
         .sa-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
         .sa-select, .sa-input, .sa-textarea { width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border-color); background-color: rgba(244, 239, 230, 0.5); font-size: 14px; color: var(--text-dark); outline: none; transition: all 0.25s ease; font-family: inherit; }
@@ -407,6 +455,7 @@
 
         .legal-text-body { font-size: 14px; color: var(--text-dark); line-height: 1.7; }
         .legal-text-body h4 { color: var(--brand-blue); margin: 20px 0 8px; font-size: 16px; font-weight: 700; }
+        .legal-text-body h5 { color: var(--brand-blue); margin: 15px 0 6px; font-size: 14px; font-weight: 700; }
         .legal-text-body p { margin-bottom: 12px; color: var(--text-muted); }
         .legal-text-body a { color: var(--brand-blue-light); text-decoration: underline; word-break: break-all; }
 
@@ -431,8 +480,8 @@
 
         @media (max-width: 992px) {
             .hero-title { font-size: 40px; }
-            .compare-row { height: 260px; }
-            .gallery-grid { grid-template-columns: 1fr; }
+            .slider-img-wrap { height: 320px; }
+            .slider-btn { top: 160px; }
             nav { display: none; }
         }
     </style>
@@ -441,7 +490,7 @@
 
     <div class="video-bg-container">
         <video autoplay loop muted playsinline poster="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80">
-            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-interior-design-of-a-living-room-41551-large.mp4" type="video/mp4">
         </video>
     </div>
     <div class="video-overlay"></div>
@@ -505,14 +554,14 @@
         </div>
     </main>
 
-    <!-- 4 ОПОРЫ БРЕНДА ВКЛЮЧАЯ DISKRETION -->
+    <!-- 4 ОПОРЫ БРЕНДА -->
     <div class="perks-bar">
         <div class="perk-item" data-aos="fade-up">
             <div class="perk-icon-wrapper">✨</div>
             <div class="perk-title" id="perk-1">Zuverlässig</div>
         </div>
         <div class="perk-item" data-aos="fade-up" data-aos-delay="50">
-            <div class="perk-icon-wrapper">🧼</div>
+            <div class="perk-icon-wrapper">💎</div>
             <div class="perk-title" id="perk-2">Gründlich</div>
         </div>
         <div class="perk-item" data-aos="fade-up" data-aos-delay="100">
@@ -583,7 +632,7 @@
         </div>
     </section>
 
-    <!-- ТАРИФЫ (3 КАТЕГОРИИ) -->
+    <!-- ТАРИФЫ -->
     <section class="pricing-section" id="pricing">
         <h2 class="section-title" id="sec-pricing-title">Preise & Tarife</h2>
         <div class="pricing-grid">
@@ -616,49 +665,46 @@
         </div>
     </section>
 
-    <!-- СЕКЦИЯ ГАЛЕРЕИ ДО / ПОСЛЕ -->
+    <!-- СЛАЙДЕР С ВАШИМИ ФОТО "ПОСЛЕ" -->
     <section class="gallery-section" id="gallery">
         <h2 class="section-title" id="sec-gallery-title">Unsere Arbeitsergebnisse</h2>
-        <div class="gallery-grid">
-            
-            <div class="gallery-card" data-aos="fade-up">
-                <div class="compare-row">
-                    <div class="compare-img-wrap">
-                        <span class="tag-badge tag-vorher" id="tag-vor-1">VORHER</span>
-                        <img src="./after1.jpg" alt="Zimmerreinigung Vorher" style="filter: brightness(0.85) contrast(0.9);">
+        
+        <div class="slider-container" data-aos="fade-up">
+            <button class="slider-btn prev" onclick="prevSlide()">❮</button>
+            <button class="slider-btn next" onclick="nextSlide()">❯</button>
+
+            <div class="slider-track" id="sliderTrack">
+                <div class="slider-slide">
+                    <div class="slider-img-wrap">
+                        <span class="slider-tag">NACHHER</span>
+                        <img src="./after1.jpg" alt="Privathaushalt nach der Reinigung">
                     </div>
-                    <div class="compare-img-wrap">
-                        <span class="tag-badge tag-nachher" id="tag-nach-1">NACHHER</span>
-                        <img src="./after1.jpg" alt="Zimmerreinigung Nachher">
+                    <div class="slider-info">
+                        <h4 id="gal-title-1">Privathaushalt & Zimmerreinigung</h4>
+                        <p id="gal-desc-1">Gründliche Boden- und Oberflächenreinigung für frischen Wohnkomfort.</p>
                     </div>
                 </div>
-                <div class="gallery-info">
-                    <h4 id="gal-title-1">Privathaushalt & Zimmerreinigung</h4>
-                    <p id="gal-desc-1">Gründliche Boden- und Oberflächenreinigung für frischen Wohnkomfort.</p>
+
+                <div class="slider-slide">
+                    <div class="slider-img-wrap">
+                        <span class="slider-tag">NACHHER</span>
+                        <img src="./after2.jpg" alt="Wohnungs- und Holzbodenpflege">
+                    </div>
+                    <div class="slider-info">
+                        <h4 id="gal-title-2">Wohnungs- & Holzbodenpflege</h4>
+                        <p id="gal-desc-2">Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="gallery-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="compare-row">
-                    <div class="compare-img-wrap">
-                        <span class="tag-badge tag-vorher" id="tag-vor-2">VORHER</span>
-                        <img src="./after2.jpg" alt="Wohnungsreinigung Vorher" style="filter: brightness(0.85) contrast(0.9);">
-                    </div>
-                    <div class="compare-img-wrap">
-                        <span class="tag-badge tag-nachher" id="tag-nach-2">NACHHER</span>
-                        <img src="./after2.jpg" alt="Wohnungsreinigung Nachher">
-                    </div>
-                </div>
-                <div class="gallery-info">
-                    <h4 id="gal-title-2">Wohnungs- & Holzbodenpflege</h4>
-                    <p id="gal-desc-2">Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.</p>
-                </div>
+            <div class="slider-dots" id="sliderDots">
+                <div class="dot active" onclick="goToSlide(0)"></div>
+                <div class="dot" onclick="goToSlide(1)"></div>
             </div>
-
         </div>
     </section>
 
-    <!-- АККОРДЕОН FAQ С СИНХРОНИЗИРОВАННЫМИ ЦЕНАМИ 30 € -->
+    <!-- FAQ -->
     <section class="faq-section" id="faq">
         <h2 class="section-title" id="sec-faq-title">Häufig gestellte Fragen</h2>
         <div class="faq-accordion">
@@ -756,7 +802,7 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНЫЙ ФОРМУЛЯР С DSGVO ЧЕКБОКСОМ -->
+    <!-- МОДАЛЬНЫЙ ФОРМУЛЯР -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
@@ -798,7 +844,7 @@
                         </div>
                         <div class="sa-field">
                             <label class="sa-label" id="lbl-phone">Telefon *</label>
-                            <input type="tel" name="Telefon" class="sa-input" required placeholder="+49 1578 1073234">
+                            <input type="tel" name="Telefon" class="sa-input" required placeholder="+49 160 123 45 67">
                         </div>
                     </div>
 
@@ -853,7 +899,6 @@
                             <textarea name="Anmerkungen" id="input-notes" class="sa-textarea" rows="2" placeholder="Ihre Nachricht oder Wünsche..."></textarea>
                         </div>
 
-                        <!-- DSGVO ЧЕКБОКС -->
                         <div class="dsgvo-checkbox-group">
                             <input type="checkbox" id="dsgvo-booking" required onchange="document.getElementById('btn-submit-form').disabled = !this.checked">
                             <label for="dsgvo-booking" id="lbl-dsgvo-text">
@@ -963,20 +1008,67 @@
         </div>
     </div>
 
-    <!-- Datenschutzerklärung Modal -->
+    <!-- ПОЛНОЕ ОКНО DATENSCHUTZERKLÄRUNG (DSGVO) -->
     <div id="datenschutz-modal" class="modal">
-        <div class="modal-content legal-text-body" style="max-width: 750px;">
+        <div class="modal-content legal-text-body" style="max-width: 800px;">
             <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
             <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('datenschutz-modal')">← Zurück zur Hauptseite</button>
             <h3 style="font-size: 32px; font-weight: 800; margin-bottom: 20px; color: var(--brand-blue);">Datenschutzerklärung</h3>
-            <h4>1. Datenschutz auf einen Blick</h4>
-            <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen.</p>
-            <h4>2. Verantwortlicher für die Datenverarbeitung</h4>
-            <p><strong>CleanLines Lysiuk</strong><br>Liliia Lysiuk<br>E-Mail: lysiuk.cleanlines@gmail.com<br>Telefon: +49 1578 107 3234</p>
-            <h4>3. Datenerfassung auf unserer Website</h4>
-            <p><strong>Kontakt- und Buchungsformular:</strong> Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben zwecks Bearbeitung gespeichert.</p>
-            <h4>4. Ihre Rechte nach der DSGVO</h4>
-            <p>Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten.</p>
+            
+            <h4>1. Datenschutz auf einen Blick[cite: 1]</h4>
+            <h5>Allgemeine Hinweise[cite: 1]</h5>
+            <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.[cite: 1]</p>
+
+            <h5>Datenerfassung auf unserer Website[cite: 1]</h5>
+            <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?[cite: 1]</strong><br>
+            Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle“ in dieser Datenschutzerklärung sowie dem Impressum dieser Website entnehmen.[cite: 1]</p>
+
+            <p><strong>Wie erfassen wir Ihre Daten?[cite: 1]</strong><br>
+            Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in unser Kontakt- oder Buchungsformular eingeben, oder wenn Sie Ihre E-Mail-Adresse für den Erhalt eines Rabattcodes hinterlassen.[cite: 1]<br>
+            Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.[cite: 1]</p>
+
+            <p><strong>Wofür nutzen wir Ihre Daten?[cite: 1]</strong><br>
+            Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens oder zur Bearbeitung Ihrer konkreten Buchungsanfragen verwendet werden.[cite: 1]</p>
+
+            <p><strong>Welche Rechte haben Sie bezüglich Ihrer Daten?[cite: 1]</strong><br>
+            Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Zudem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.[cite: 1]</p>
+
+            <h4>2. Allgemeine Hinweise und Pflichtinformationen[cite: 1]</h4>
+            <h5>Hinweis zur Verantwortlichen Stelle[cite: 1]</h5>
+            <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:[cite: 1]<br>
+            <strong>CleanLines Lysiuk</strong><br>
+            Vertreten durch: Liliia Lysiuk<br>
+            Deutschland<br>
+            Telefon: +49 1578 107 3234<br>
+            E-Mail: lysiuk.cleanlines@gmail.com[cite: 1]</p>
+
+            <h5>Speicherdauer[cite: 1]</h5>
+            <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschbegehren geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, es sei denn, wir haben andere gesetzlich zulässige Gründe für die Speicherung Ihrer personenbezogenen Daten (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen).[cite: 1]</p>
+
+            <h5>Beschwerderecht bei der zuständigen Aufsichtsbehörde[cite: 1]</h5>
+            <p>Die für Berlin zuständige Aufsichtsbehörde ist:<br>
+            <strong>Berliner Beauftragte für Datenschutz und Informationsfreiheit</strong><br>
+            Alt-Moabit 59-61, 10555 Berlin<br>
+            E-Mail: mailbox@datenschutz-berlin.de[cite: 1]</p>
+
+            <h4>3. Datenerfassung auf unserer Website[cite: 1]</h4>
+            <h5>Hosting durch Vercel[cite: 1]</h5>
+            <p>Wir hosten unsere Website bei Vercel. Anbieter ist die Vercel Inc., 650 2nd St, San Francisco, CA 94107, USA. Vercel ist eine Cloud-Plattform, über die Webseiten bereitgestellt werden. Bei jedem Aufruf unserer Website erfasst Vercel automatisch verschiedene Server-Log-Dateien, einschließlich Ihrer IP-Adresse, Datum und Uhrzeit des Aufrufs, Browsertyp, Betriebssystem und Referrer URL. Die Verwendung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.[cite: 1]</p>
+
+            <h5>Kontakt- und Buchungsformular[cite: 1]</h5>
+            <p>Wenn Sie uns per Kontakt- oder Buchungsformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten (Name, Firma, Adresse/Straße, PLZ, Ort, E-Mail-Adresse, Telefonnummer, Fläche m², gewünschter Reinigungstag, Häufigkeit, gewünschte Reinigungsart sowie Anmerkungen) zwecks Bearbeitung gespeichert.[cite: 1]</p>
+
+            <h5>Registrierung für den Rabattcode[cite: 1]</h5>
+            <p>Die Verarbeitung der E-Mail-Adresse zur Ausgabe des Rabattcodes erfolgt ausschließlich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).[cite: 1]</p>
+
+            <h5>Bewertungsfunktion[cite: 1]</h5>
+            <p>Wenn Sie eine Bewertung auf unserer Website verfassen, werden die von Ihnen eingegebenen Daten (Sterne, Name, Stadt, Erfahrung) verarbeitet und veröffentlicht.[cite: 1]</p>
+
+            <h5>WhatsApp-Kommunikationslink[cite: 1]</h5>
+            <p>Auf unserer Website ist ein Link zu unserem WhatsApp-Service integriert. Anbieter ist WhatsApp Ireland Limited. Die Kommunikation erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) oder zur Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO).[cite: 1]</p>
+
+            <h5>Cookies und LocalStorage[cite: 1]</h5>
+            <p>Technisch notwendige Einträge werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO gespeichert, um eine fehlerfreie Bereitstellung zu gewährleisten.[cite: 1]</p>
         </div>
     </div>
 
@@ -997,6 +1089,33 @@
         let selectedStars = 5;
         let isAdmin = false;
         let currentLang = 'de';
+        let currentSlide = 0;
+        const totalSlides = 2;
+
+        function updateSlider() {
+            const track = document.getElementById('sliderTrack');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            const dots = document.querySelectorAll('.slider-dots .dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
 
         function toggleFaq(element) {
             const item = element.parentElement;
@@ -1049,7 +1168,6 @@
                 modalForm: "Unverbindliches Angebot anfordern",
                 btnFormSubmit: "Unverbindlich Angebot anfordern →",
                 
-                tagVor: "VORHER", tagNach: "NACHHER",
                 galTitle1: "Privathaushalt & Zimmerreinigung", galDesc1: "Gründliche Boden- und Oberflächenreinigung für frischen Wohnkomfort.",
                 galTitle2: "Wohnungs- & Holzbodenpflege", galDesc2: "Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.",
                 
@@ -1107,7 +1225,6 @@
                 modalForm: "Request a free quote",
                 btnFormSubmit: "Request quote without obligation →",
                 
-                tagVor: "BEFORE", tagNach: "AFTER",
                 galTitle1: "Private Home & Room Cleaning", galDesc1: "Thorough floor and surface cleaning for fresh living comfort.",
                 galTitle2: "Apartment & Wood Floor Care", galDesc2: "Impeccable shine on real wood floors and neat room presentation.",
                 
@@ -1165,7 +1282,6 @@
                 modalForm: "Запросить бесплатный расчет",
                 btnFormSubmit: "Отправить заявку →",
                 
-                tagVor: "ДО", tagNach: "ПОСЛЕ",
                 galTitle1: "Уборка комнат и квартир", galDesc1: "Тщательное мытье полов и поверхностей для идеального уюта.",
                 galTitle2: "Уход за деревянными полами", galDesc2: "Безупречный блеск полов и эстетичный порядок в каждой комнате.",
                 
@@ -1223,7 +1339,6 @@
                 modalForm: "Запросити безкоштовний розрахунок",
                 btnFormSubmit: "Надіслати заявку →",
                 
-                tagVor: "ДО", tagNach: "ПІСЛЯ",
                 galTitle1: "Прибирання кімнат та квартир", galDesc1: "Ретельне миття підлоги та поверхонь для бездоганного затишку.",
                 galTitle2: "Догляд за дерев'яною підлогою", galDesc2: "Бездоганний блиск паркету та естетичний порядок у кімнаті.",
                 
@@ -1295,8 +1410,6 @@
             }
             document.getElementById('btn-submit-form').innerText = t.btnFormSubmit;
 
-            document.querySelectorAll('.tag-vorher').forEach(e => e.innerText = t.tagVor);
-            document.querySelectorAll('.tag-nachher').forEach(e => e.innerText = t.tagNach);
             if(document.getElementById('gal-title-1')) document.getElementById('gal-title-1').innerText = t.galTitle1;
             if(document.getElementById('gal-desc-1')) document.getElementById('gal-desc-1').innerText = t.galDesc1;
             if(document.getElementById('gal-title-2')) document.getElementById('gal-title-2').innerText = t.galTitle2;
