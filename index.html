@@ -167,7 +167,8 @@
         .hero-title em { font-style: italic; font-weight: 400; color: var(--brand-blue-light); }
         .hero-desc { font-size: 18px; line-height: 1.65; color: var(--text-muted); max-width: 740px; margin: 0 auto 40px; }
 
-        .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+        /* 3 ОПОРЫ БРЕНДА */
+        .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
         .perk-item { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 22px 24px; border-radius: 20px; display: flex; align-items: center; gap: 16px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
         .perk-item:hover { transform: translateY(-6px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
         .perk-icon-wrapper { width: 46px; height: 46px; background: rgba(29, 93, 155, 0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--gold-accent); flex-shrink: 0; transition: transform 0.3s ease; }
@@ -402,7 +403,7 @@
             border-radius: 10px;
         }
 
-        /* ПОШАГОВАЯ ФОРМА И КАСТОМНЫЕ СТИЛИ ВЫПАДАЮЩИХ СПИСКОВ */
+        /* ПОШАГОВАЯ ФОРМА */
         .progress-bar-wrap {
             width: 100%;
             height: 5px;
@@ -441,7 +442,6 @@
         .sa-field { margin-bottom: 18px; }
         .sa-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
         
-        /* ПРЕМИУМ СТИЛИЗАЦИЯ ВЫПАДАЮЩИХ СПИСКОВ (<SELECT>) */
         .sa-select {
             width: 100%;
             padding: 14px 44px 14px 18px;
@@ -685,10 +685,6 @@
             <div class="perk-icon-wrapper">🌱</div>
             <div class="perk-title" id="perk-3">Pünktlich</div>
         </div>
-        <div class="perk-item" data-aos="fade-up" data-aos-delay="150">
-            <div class="perk-icon-wrapper">🗝️</div>
-            <div class="perk-title" id="perk-4">Diskret</div>
-        </div>
     </div>
 
     <section class="services-section" id="services">
@@ -913,14 +909,13 @@
         </div>
     </footer>
 
-    <!-- ОПТИМИЗИРОВАННАЯ ПОШАГОВАЯ ФОРМА (3 ШАГА) -->
+    <!-- ПОШАГОВАЯ ФОРМА БРОНИРОВАНИЯ -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
             <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('booking-modal')">← Zurück zur Hauptseite</button>
             <h2 style="font-size: 26px; font-weight: 800; color: var(--brand-blue); margin-bottom: 12px; text-align: center;" id="modal-form-title">Unverbindliches Angebot anfordern</h2>
             
-            <!-- Индикатор прогресса -->
             <div class="progress-bar-wrap">
                 <div class="progress-bar-fill" id="formProgressBar"></div>
             </div>
@@ -960,7 +955,7 @@
                     </div>
                 </div>
 
-                <!-- ШАГ 2: Время и периодичность -->
+                <!-- ШАГ 2: Время и график -->
                 <div class="form-step" id="formStep2">
                     <div class="step-heading" id="step-title-2">Schritt 2 von 3: Wunschtermin</div>
 
@@ -1020,7 +1015,6 @@
                         </div>
                     </div>
 
-                    <!-- PLZ Обязательный, Straße и Ort - Необязательные -->
                     <div style="display: flex; gap: 10px;">
                         <div class="sa-field" style="flex: 1;">
                             <label class="sa-label" id="lbl-plz">PLZ *</label>
@@ -1065,7 +1059,7 @@
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('discount-modal')">&times;</span>
             <span style="background: rgba(184, 142, 61, 0.15); color: var(--brand-blue); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;">Exklusiv ✨</span>
-            <h3 style="font-size: 32px; font-weight: 800; color: var(--brand-blue); margin-margin: 15px 0 10px;" id="disc-title">10% Rabatt sichern</h3>
+            <h3 style="font-size: 32px; font-weight: 800; color: var(--brand-blue); margin-bottom: 15px 0 10px;" id="disc-title">10% Rabatt sichern</h3>
             <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;" id="disc-desc">Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.</p>
             <input type="email" id="discountEmail" class="sa-input" placeholder="name@domain.de" style="margin-bottom: 12px;">
             <button class="sa-submit-btn" id="btn-disc-act" onclick="activateDiscount()">Rabattcode aktivieren ✨</button>
@@ -1125,7 +1119,7 @@
         </div>
     </div>
 
-    <!-- IMPRESSUM С АДРЕСОМ -->
+    <!-- IMPRESSUM С АКТУАЛЬНЫМ ПАРАГРАФОМ § 18 Abs. 2 MStV -->
     <div id="impressum-modal" class="modal">
         <div class="modal-content legal-text-body" style="max-width: 700px;">
             <span class="modal-close" onclick="closeModal('impressum-modal')">&times;</span>
@@ -1149,7 +1143,7 @@
             <h4>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h4>
             <p>Wir sind nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
             
-            <h4>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h4>
+            <h4>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h4>
             <p>Liliia Lysiuk<br>Brienzer Str. 57, 13407 Berlin</p>
 
             <h4>Haftungsausschluss</h4>
@@ -1162,7 +1156,7 @@
         </div>
     </div>
 
-    <!-- DATENSCHUTZERKLÄRUNG С АДРЕСОМ -->
+    <!-- DATENSCHUTZERKLÄRUNG -->
     <div id="datenschutz-modal" class="modal">
         <div class="modal-content legal-text-body" style="max-width: 800px;">
             <span class="modal-close" onclick="closeModal('datenschutz-modal')">&times;</span>
@@ -1244,7 +1238,6 @@
         let currentSlide = 0;
         const totalSlides = 2;
 
-        /* Управление слайдером */
         function updateSlider() {
             const track = document.getElementById('sliderTrack');
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
@@ -1270,7 +1263,6 @@
             updateSlider();
         }
 
-        /* Управление аккордеоном FAQ */
         function toggleFaq(element) {
             const currentItem = element.parentElement;
             const allItems = document.querySelectorAll('.faq-item');
@@ -1284,7 +1276,6 @@
             currentItem.classList.toggle('active');
         }
 
-        /* Управление пошаговой формой */
         function setFormStep(stepNumber) {
             document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
             const activeStep = document.getElementById('formStep' + stepNumber);
@@ -1312,7 +1303,6 @@
             }
         }
 
-        /* Автозаполнение города по почтовому индексу PLZ */
         document.getElementById('input-plz').addEventListener('input', function(e) {
             const val = e.target.value.trim();
             const cityInput = document.getElementById('input-city');
@@ -1323,7 +1313,6 @@
             }
         });
 
-        /* Открытие индивидуальной или общей формы */
         function openServiceForm(serviceName) {
             const modalTitle = document.getElementById('modal-form-title');
             const hiddenInput = document.getElementById('hidden-service-input');
@@ -1366,7 +1355,7 @@
                 title: "Perfekte Sauberkeit, die Ihnen <em>Zeit und Ruhe</em> schenkt.",
                 desc: "Genießen Sie ein makelloses Zuhause oder ein repräsentatives Büro. Wir kümmern uns um jedes Detail – diskret, gründlich und ganz nach Ihren Wünschen.",
                 cta: "Jetzt Angebot anfordern ❯",
-                p1: "Zuverlässig", p2: "Gründlich", p3: "Pünktlich", p4: "Diskret",
+                p1: "Zuverlässig", p2: "Gründlich", p3: "Pünktlich",
                 secServ: "Unsere Leistungen",
                 secPricing: "Preise & Tarife",
                 secGal: "Unsere Arbeitsergebnisse",
@@ -1434,7 +1423,7 @@
                 title: "Flawless cleanliness that brings you <em>time and peace of mind</em>.",
                 desc: "Enjoy an immaculate home or a prestigious office. We take care of every detail – discreetly, thoroughly, and tailored to your needs.",
                 cta: "Request a quote now ❯",
-                p1: "Reliable", p2: "Thorough", p3: "Punctual", p4: "Discreet",
+                p1: "Reliable", p2: "Thorough", p3: "Punctual",
                 secServ: "Our Services",
                 secPricing: "Pricing & Plans",
                 secGal: "Our Cleaning Results",
@@ -1502,7 +1491,7 @@
                 title: "Идеальная чистота, которая подарит вам <em>время и уют</em>.",
                 desc: "Наслаждайтесь безупречным домом или представительским офисом. Мы позаботимся о каждой детали — незаметно, тщательно и по вашим пожеланиям.",
                 cta: "Рассчитать стоимость ❯",
-                p1: "Надежно", p2: "Тщательно", p3: "Пунктуально", p4: "Конфиденциально",
+                p1: "Надежно", p2: "Тщательно", p3: "Пунктуально",
                 secServ: "Наши услуги",
                 secPricing: "Цены и тарифы",
                 secGal: "Наши результаты",
@@ -1570,7 +1559,7 @@
                 title: "Ідеальна чистота, що дарує вам <em>час та затишок</em>.",
                 desc: "Насолоджуйтесь бездоганним домом або представницьким офісом. Ми подбаємо про кожну деталь — непомітно, ретельно та відповідно до ваших побажань.",
                 cta: "Розрахувати вартість ❯",
-                p1: "Надійно", p2: "Ретельно", p3: "Пунктуально", p4: "Конфіденційно",
+                p1: "Надійно", p2: "Ретельно", p3: "Пунктуально",
                 secServ: "Наші послуги",
                 secPricing: "Ціни та тарифи",
                 secGal: "Наші результати",
@@ -1649,7 +1638,6 @@
             document.getElementById('perk-1').innerText = t.p1;
             document.getElementById('perk-2').innerText = t.p2;
             document.getElementById('perk-3').innerText = t.p3;
-            document.getElementById('perk-4').innerText = t.p4;
             document.getElementById('sec-services-title').innerText = t.secServ;
             if(document.getElementById('sec-pricing-title')) document.getElementById('sec-pricing-title').innerText = t.secPricing;
             if(document.getElementById('sec-gallery-title')) document.getElementById('sec-gallery-title').innerText = t.secGal;
@@ -1750,7 +1738,7 @@
             if(document.getElementById('ck-accept')) document.getElementById('ck-accept').innerText = t.ckAccept;
 
             for(let i=1; i<=10; i++) {
-                if(document.getElementById('srv-'+i)) document.getElementById('srv-'+i).innerText = t['srv'+i];
+                document.querySelectorAll('.srv-opt-'+i).forEach(e => e.innerText = t['srv'+i]);
             }
 
             if(document.getElementById('ft-desc')) document.getElementById('ft-desc').innerText = t.ftDesc;
