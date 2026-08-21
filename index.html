@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
@@ -17,7 +17,7 @@
             --brand-blue-light: #1D5D9B;
             --gold-accent: #B88E3D;
             --text-dark: #0D1622;
-            --text-muted: #334155;
+            --text-muted: #4A5868;
             --border-color: rgba(184, 142, 61, 0.45);
         }
 
@@ -33,7 +33,7 @@
             position: relative;
         }
 
-        /* ЧЕТКИЙ И ЯРКИЙ ВИДЕОФОН */
+        /* МЯГКИЙ, СБАЛАНСИРОВАННЫЙ ВИДЕОФОН */
         .video-bg-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -46,15 +46,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.9;
-            filter: saturate(1.15) brightness(1.02);
+            opacity: 0.45;
+            filter: saturate(1.1) brightness(1.0);
         }
 
         .video-overlay {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
             z-index: -1;
-            background: rgba(244, 239, 230, 0.18);
+            background: linear-gradient(135deg, rgba(244, 239, 230, 0.55) 0%, rgba(232, 224, 210, 0.65) 100%);
             pointer-events: none;
         }
 
@@ -161,25 +161,25 @@
         .btn-back-home:hover { background-color: var(--brand-blue-light); transform: translateX(-4px) scale(1.03); box-shadow: 0 8px 22px rgba(29, 93, 155, 0.35); }
 
         .hero-container { max-width: 1200px; margin: 0 auto; padding: 90px 8% 100px; text-align: center; }
-        .hero-subtitle { font-size: 13px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-accent); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9); }
+        .hero-subtitle { font-size: 13px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-accent); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .hero-subtitle::before, .hero-subtitle::after { content: ''; width: 30px; height: 1.5px; background: var(--gold-accent); }
-        .hero-title { font-size: 56px; line-height: 1.15; font-weight: 800; color: var(--brand-blue); margin-bottom: 24px; letter-spacing: -0.5px; text-shadow: 0 4px 20px rgba(255, 255, 255, 0.95); }
+        .hero-title { font-size: 56px; line-height: 1.15; font-weight: 800; color: var(--brand-blue); margin-bottom: 24px; letter-spacing: -0.5px; }
         .hero-title em { font-style: italic; font-weight: 400; color: var(--brand-blue-light); }
-        .hero-desc { font-size: 18px; line-height: 1.65; color: var(--text-muted); max-width: 740px; margin: 0 auto 40px; font-weight: 600; text-shadow: 0 2px 14px rgba(255, 255, 255, 0.95); }
+        .hero-desc { font-size: 18px; line-height: 1.65; color: var(--text-muted); max-width: 740px; margin: 0 auto 40px; }
 
         .perks-bar { max-width: 1300px; margin: 0 auto 90px; padding: 0 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-        .perk-item { background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 22px 24px; border-radius: 20px; display: flex; align-items: center; gap: 16px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.08); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
-        .perk-item:hover { transform: translateY(-6px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.14); }
+        .perk-item { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(15px); border: 1px solid var(--border-color); padding: 22px 24px; border-radius: 20px; display: flex; align-items: center; gap: 16px; box-shadow: 0 15px 35px rgba(13, 22, 34, 0.05); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .perk-item:hover { transform: translateY(-6px) scale(1.02); border-color: var(--brand-blue-light); background: #FFFFFF; box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
         .perk-icon-wrapper { width: 46px; height: 46px; background: rgba(29, 93, 155, 0.08); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--gold-accent); flex-shrink: 0; transition: transform 0.3s ease; }
         .perk-item:hover .perk-icon-wrapper { transform: scale(1.25) rotate(5deg); }
         .perk-title { font-size: 15px; font-weight: 700; color: var(--brand-blue); }
 
         .services-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
-        .section-title { font-size: 42px; font-weight: 800; color: var(--brand-blue); margin-bottom: 50px; text-align: center; letter-spacing: -0.5px; text-shadow: 0 4px 18px rgba(255, 255, 255, 0.8); }
+        .section-title { font-size: 42px; font-weight: 800; color: var(--brand-blue); margin-bottom: 50px; text-align: center; letter-spacing: -0.5px; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
 
-        .card { background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(15, 42, 74, 0.12); padding: 24px 28px; border-radius: 16px; display: flex; align-items: center; gap: 18px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
-        .card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); box-shadow: 0 16px 35px rgba(15, 42, 74, 0.14); }
+        .card { background: #FFFFFF; border: 1px solid rgba(15, 42, 74, 0.12); padding: 24px 28px; border-radius: 16px; display: flex; align-items: center; gap: 18px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--brand-blue-light); box-shadow: 0 16px 35px rgba(15, 42, 74, 0.12); }
         .card-sticker { font-size: 32px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s ease; }
         .card:hover .card-sticker { transform: scale(1.3) rotate(5deg); }
         .card h3 { font-size: 15px; font-weight: 700; color: var(--brand-blue); line-height: 1.4; }
@@ -187,7 +187,7 @@
         .pricing-section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-top: 30px; }
         .pricing-card {
-            background: rgba(255, 255, 255, 0.95);
+            background: #FFFFFF;
             border-radius: 22px;
             padding: 36px 30px;
             border: 1px solid var(--border-color);
@@ -204,7 +204,7 @@
         }
         .pricing-card.featured {
             border: 2px solid var(--brand-blue-light);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 239, 230, 0.85) 100%);
+            background: linear-gradient(180deg, #FFFFFF 0%, rgba(244, 239, 230, 0.5) 100%);
         }
         .pricing-header h4 { font-size: 20px; font-weight: 800; color: var(--brand-blue); margin-bottom: 8px; }
         .pricing-rate { font-size: 34px; font-weight: 800; color: var(--brand-blue); margin: 16px 0 8px; }
@@ -330,7 +330,7 @@
         .faq-section { padding: 80px 8%; max-width: 1000px; margin: 0 auto; }
         .faq-accordion { display: flex; flex-direction: column; gap: 16px; margin-top: 30px; }
         .faq-item {
-            background: rgba(255, 255, 255, 0.95);
+            background: #FFFFFF;
             border: 1px solid var(--border-color);
             border-radius: 18px;
             overflow: hidden;
@@ -340,7 +340,6 @@
         .faq-item.active {
             border-color: var(--brand-blue-light);
             box-shadow: 0 10px 30px rgba(15, 42, 74, 0.08);
-            background: #FFFFFF;
         }
         .faq-question {
             padding: 22px 28px;
@@ -386,76 +385,23 @@
         .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transition: background 0.2s; font-family: inherit; }
         .btn-delete-review:hover { background: #be123c; }
 
-        /* ПРЕМИАЛЬНАЯ КАРТОЧКА GOOGLE REVIEWS (БЕЗ ОШИБОК 404) */
-        .google-reviews-card {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(184, 142, 61, 0.35);
-            border-radius: 24px;
-            padding: 38px 30px;
-            text-align: center;
-            max-width: 520px;
-            margin: 45px auto 10px;
-            box-shadow: 0 10px 35px rgba(15, 42, 74, 0.04);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .google-reviews-card:hover {
-            border-color: rgba(184, 142, 61, 0.8);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(15, 42, 74, 0.08);
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        .reviews-title {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #0F2A4A;
-            font-size: 1.65rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-            letter-spacing: 0.01em;
-        }
-
-        .reviews-subtitle {
-            color: #5C6E82;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 26px;
-        }
-
-        .btn-google-review {
+        /* АККУРАТНЫЙ QR-КОД В РАЗДЕЛЕ ОТЗЫВОВ */
+        .reviews-qr-wrapper {
+            margin-top: 35px;
             display: inline-flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: transparent;
-            color: #0F2A4A;
-            border: 1.5px solid #B88E3D;
-            padding: 14px 32px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            background: #FFFFFF;
+            padding: 16px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(15, 42, 74, 0.08);
+            border: 1px solid var(--border-color);
         }
-
-        .btn-google-review:hover {
-            background: #0F2A4A;
-            color: #FFFFFF;
-            border-color: #0F2A4A;
-            box-shadow: 0 8px 25px rgba(15, 42, 74, 0.2);
-        }
-
-        .arrow-icon {
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .btn-google-review:hover .arrow-icon {
-            transform: translate(3px, -3px);
+        .reviews-qr-wrapper img {
+            width: 140px;
+            height: auto;
+            border-radius: 12px;
+            display: block;
         }
 
         /* ПОШАГОВАЯ ФОРМА */
@@ -656,21 +602,6 @@
             .slider-btn { top: 160px; }
             nav { display: none; }
             .modal-content { padding: 30px 22px; }
-        }
-
-        @media (max-width: 480px) {
-            .google-reviews-card {
-                padding: 30px 20px;
-                margin: 25px 15px;
-            }
-            .reviews-title {
-                font-size: 1.4rem;
-            }
-            .btn-google-review {
-                padding: 12px 24px;
-                font-size: 0.8rem;
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -949,19 +880,11 @@
             </button>
         </div>
 
-        <!-- КАРТОЧКА GOOGLE REVIEWS БЕЗ 404 ОШИБОК -->
-        <div class="google-reviews-card" data-aos="fade-up">
-            <div class="reviews-content">
-                <h3 class="reviews-title" id="g-reviews-title">Ihre Meinung ist uns wichtig</h3>
-                <p class="reviews-subtitle" id="g-reviews-sub">Teilen Sie Ihre Erfahrung und helfen Sie uns, noch besser zu werden.</p>
+        <!-- КАРТОЧКА С QR-КОДОМ ДЛЯ GOOGLE REVIEWS -->
+        <div>
+            <div class="reviews-qr-wrapper" data-aos="fade-up">
+                <img src="./qr-code.png" alt="Google Review QR Code" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://cleanlineslysiuk-website.vercel.app/'">
             </div>
-            <a href="https://www.google.com/maps/search/CleanLines+Lysiuk+Berlin" target="_blank" rel="noopener noreferrer" class="btn-google-review">
-                <span id="g-reviews-btn">Auf Google bewerten</span>
-                <svg class="arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-            </a>
         </div>
     </section>
 
@@ -1226,7 +1149,7 @@
             <p>Liliia Lysiuk<br>Brienzer Str. 57, 13407 Berlin</p>
 
             <h4>Haftungsausschluss</h4>
-            <p><strong>Haftung für Inhalte:</strong><br>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG для eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+            <p><strong>Haftung für Inhalte:</strong><br>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
             <p><strong>Haftung für Links:</strong><br>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
             
             <h4>Urheberrecht</h4>
@@ -1458,10 +1381,6 @@
                 sliderTag: "NACHHER",
                 galTitle1: "Privathaushalt & Zimmerreinigung", galDesc1: "Gründliche Boden- und Oberflächenreinigung für frischen Wohnkomfort.",
                 galTitle2: "Wohnungs- & Holzbodenpflege", galDesc2: "Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.",
-                
-                gRevTitle: "Ihre Meinung ist uns wichtig",
-                gRevSub: "Teilen Sie Ihre Erfahrung und helfen Sie uns, noch besser zu werden.",
-                gRevBtn: "Auf Google bewerten",
 
                 lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblPlz: "PLZ *", lblCity: "Ort", lblPhone: "Telefon *", lblEmail: "E-Mail *",
                 lblArea: "Fläche (m²)", lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen",
@@ -1530,10 +1449,6 @@
                 sliderTag: "AFTER",
                 galTitle1: "Private Home & Room Cleaning", galDesc1: "Thorough floor and surface cleaning for fresh living comfort.",
                 galTitle2: "Apartment & Wood Floor Care", galDesc2: "Impeccable shine on real wood floors and neat room presentation.",
-                
-                gRevTitle: "Your opinion matters to us",
-                gRevSub: "Share your experience and help us become even better.",
-                gRevBtn: "Review us on Google",
 
                 lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblPlz: "Postal Code *", lblCity: "City", lblPhone: "Phone *", lblEmail: "Email *",
                 lblArea: "Area (m²)", lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblNotes: "Notes",
@@ -1602,10 +1517,6 @@
                 sliderTag: "ПОСЛЕ",
                 galTitle1: "Уборка комнат и квартир", galDesc1: "Тщательное мытье полов и поверхностей для идеального уюта.",
                 galTitle2: "Уход за деревянными полами", galDesc2: "Безупречный блеск полов и эстетичный порядок в каждой комнате.",
-                
-                gRevTitle: "Ваше мнение важно для нас",
-                gRevSub: "Поделитесь вашим опытом и помогите нам стать еще лучше.",
-                gRevBtn: "Оценить в Google",
 
                 lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblPlz: "Индекс *", lblCity: "Город", lblPhone: "Телефон *", lblEmail: "Эл. почта *",
                 lblArea: "Площадь (м²)", lblDays: "День уборки", lblFreq: "Желаемая периодичность", lblType: "Вид уборки", lblNotes: "Примечания",
@@ -1674,10 +1585,6 @@
                 sliderTag: "ПІСЛЯ",
                 galTitle1: "Прибирання кімнат та квартир", galDesc1: "Ретельне миття підлоги та поверхонь для бездоганного затишку.",
                 galTitle2: "Догляд за дерев'яною підлогою", galDesc2: "Бездоганний блиск паркету та естетичний порядок у кімнаті.",
-                
-                gRevTitle: "Ваша думка важлива для нас",
-                gRevSub: "Поділіться своїм досвідом і допоможіть нам стати ще кращими.",
-                gRevBtn: "Оцінити в Google",
 
                 lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblPlz: "Індекс *", lblCity: "Місто", lblPhone: "Телефон *", lblEmail: "Ел. пошта *",
                 lblArea: "Площа (м²)", lblDays: "День прибирання", lblFreq: "Бажана періодичність", lblType: "Вид прибирання", lblNotes: "Примітки",
@@ -1754,10 +1661,6 @@
             if(document.getElementById('prc-btn-3')) document.getElementById('prc-btn-3').innerText = t.prcBtn;
 
             document.querySelectorAll('.slider-tag-txt').forEach(tag => tag.innerText = t.sliderTag);
-
-            if(document.getElementById('g-reviews-title')) document.getElementById('g-reviews-title').innerText = t.gRevTitle;
-            if(document.getElementById('g-reviews-sub')) document.getElementById('g-reviews-sub').innerText = t.gRevSub;
-            if(document.getElementById('g-reviews-btn')) document.getElementById('g-reviews-btn').innerText = t.gRevBtn;
 
             const hiddenService = document.getElementById('hidden-service-input').value;
             if (hiddenService === 'Allgemein' || hiddenService === 'Allgemeine Anfrage') {
