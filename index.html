@@ -402,16 +402,138 @@
             border-radius: 10px;
         }
 
+        /* ПОШАГОВАЯ ФОРМА И КАСТОМНЫЕ СТИЛИ ВЫПАДАЮЩИХ СПИСКОВ */
+        .progress-bar-wrap {
+            width: 100%;
+            height: 5px;
+            background: rgba(15, 42, 74, 0.08);
+            border-radius: 10px;
+            margin-bottom: 22px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 33.33%;
+            background: linear-gradient(90deg, var(--gold-accent), #d4af37);
+            border-radius: 10px;
+            transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .step-heading {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-step {
+            display: none;
+            animation: fadeIn 0.35s ease;
+        }
+        .form-step.active {
+            display: block;
+        }
+
         .sa-field { margin-bottom: 18px; }
         .sa-label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
-        .sa-select, .sa-input, .sa-textarea { width: 100%; padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border-color); background-color: rgba(244, 239, 230, 0.5); font-size: 14px; color: var(--text-dark); outline: none; transition: all 0.25s ease; font-family: inherit; }
-        .sa-select:focus, .sa-input:focus, .sa-textarea:focus { border-color: var(--brand-blue-light); background-color: #FFFFFF; box-shadow: 0 0 0 4px rgba(29, 93, 155, 0.08); }
         
+        /* ПРЕМИУМ СТИЛИЗАЦИЯ ВЫПАДАЮЩИХ СПИСКОВ (<SELECT>) */
+        .sa-select {
+            width: 100%;
+            padding: 14px 44px 14px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(15, 42, 74, 0.3);
+            background-color: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--brand-blue);
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23B88E3D' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .sa-select:focus, .sa-select:hover {
+            border-color: var(--gold-accent);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(184, 142, 61, 0.12);
+        }
+
+        .sa-input, .sa-textarea {
+            width: 100%;
+            padding: 13px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(15, 42, 74, 0.3);
+            background-color: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+            font-size: 14px;
+            color: var(--text-dark);
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .sa-input:focus, .sa-textarea:focus {
+            border-color: var(--gold-accent);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(184, 142, 61, 0.12);
+        }
+
+        .step-nav-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+        .btn-step-next {
+            flex: 2;
+            background-color: var(--brand-blue);
+            color: #FFFFFF;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: inherit;
+        }
+        .btn-step-next:hover {
+            background-color: var(--brand-blue-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(15, 42, 74, 0.25);
+        }
+        .btn-step-prev {
+            flex: 1;
+            background-color: rgba(15, 42, 74, 0.08);
+            color: var(--brand-blue);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .btn-step-prev:hover {
+            background-color: rgba(15, 42, 74, 0.14);
+        }
+
         .dsgvo-checkbox-group {
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            margin: 20px 0 15px;
+            margin: 18px 0 15px;
             font-size: 13px;
             color: var(--text-muted);
             line-height: 1.4;
@@ -431,11 +553,11 @@
         }
 
         .sa-submit-btn {
-            width: 100%; background-color: var(--brand-blue); color: #FFFFFF; padding: 16px; border-radius: 25px;
+            width: 100%; background-color: var(--brand-blue); color: #FFFFFF; padding: 16px; border-radius: 12px;
             font-size: 15px; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             font-family: inherit;
         }
-        .sa-submit-btn:hover:not(:disabled) { background-color: var(--brand-blue-light); transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 25px rgba(15, 42, 74, 0.3); }
+        .sa-submit-btn:hover:not(:disabled) { background-color: var(--brand-blue-light); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(15, 42, 74, 0.3); }
         .sa-submit-btn:disabled {
             background-color: #A3B1C2;
             cursor: not-allowed;
@@ -464,7 +586,7 @@
         .footer-bottom button { background: none; border: none; color: rgba(255,255,255,0.85); cursor: pointer; text-decoration: underline; margin-left: 20px; font-size: 13px; font-family: inherit; }
 
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13, 22, 34, 0.75); backdrop-filter: blur(12px); z-index: 99999; align-items: center; justify-content: center; }
-        .modal-content { background: #FFFFFF; padding: 40px; border-radius: 28px; max-width: 800px; width: 92%; max-height: 88vh; overflow-y: auto; position: relative; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3); }
+        .modal-content { background: #FFFFFF; padding: 36px 40px; border-radius: 28px; max-width: 620px; width: 92%; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3); }
         .modal-close { position: absolute; top: 20px; right: 25px; font-size: 26px; cursor: pointer; color: var(--text-muted); }
 
         .cookie-modal { position: fixed; bottom: 25px; right: 25px; max-width: 380px; background: #FFFFFF; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid var(--border-color); z-index: 9999; }
@@ -478,6 +600,7 @@
             .slider-img-wrap { height: 320px; }
             .slider-btn { top: 160px; }
             nav { display: none; }
+            .modal-content { padding: 30px 22px; }
         }
     </style>
 </head>
@@ -767,7 +890,6 @@
         </div>
     </section>
 
-    <!-- ФУТЕР С ПОЛНЫМ ФИЗИЧЕСКИМ АДРЕСОМ -->
     <footer id="contact">
         <div class="footer-content">
             <div>
@@ -791,111 +913,145 @@
         </div>
     </footer>
 
-    <!-- МОДАЛЬНЫЙ ФОРМУЛЯР -->
+    <!-- ОПТИМИЗИРОВАННАЯ ПОШАГОВАЯ ФОРМА (3 ШАГА) -->
     <div id="booking-modal" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('booking-modal')">&times;</span>
             <button class="btn-back-home btn-back-txt" onclick="closeAndScrollTop('booking-modal')">← Zurück zur Hauptseite</button>
-            <h2 style="font-size: 30px; font-weight: 800; color: var(--brand-blue); margin-bottom: 25px; text-align: center;" id="modal-form-title">Unverbindliches Angebot anfordern</h2>
+            <h2 style="font-size: 26px; font-weight: 800; color: var(--brand-blue); margin-bottom: 12px; text-align: center;" id="modal-form-title">Unverbindliches Angebot anfordern</h2>
             
-            <form action="https://api.web3forms.com/submit" method="POST">
+            <!-- Индикатор прогресса -->
+            <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" id="formProgressBar"></div>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" id="multistepBookingForm">
                 <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                 <input type="hidden" name="subject" value="Neue Reinigungsanfrage von der Website">
                 <input type="hidden" name="Gewaehlte_Leistung" id="hidden-service-input" value="Allgemein">
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                    <div>
+                <!-- ШАГ 1: Объект и услуга -->
+                <div class="form-step active" id="formStep1">
+                    <div class="step-heading" id="step-title-1">Schritt 1 von 3: Objekt & Leistung</div>
+                    
+                    <div class="sa-field" id="category-selector-group">
+                        <label class="sa-label" id="lbl-type">Reinigungsart</label>
+                        <select name="Reinigungsart" id="select-reinigungsart" class="sa-select">
+                            <option value="Treppenhausreinigung" class="srv-opt-1">Treppenhausreinigung</option>
+                            <option value="Reinigung von Privathaushalten & Wohnungen" class="srv-opt-2">Reinigung von Privathaushalten & Wohnungen</option>
+                            <option value="Büroreinigung" class="srv-opt-3">Büroreinigung</option>
+                            <option value="Kita- und Schulreinigung" class="srv-opt-4">Kita- und Schulreinigung</option>
+                            <option value="Reinigung nach Firmenfeiern" class="srv-opt-5">Reinigung nach Firmenfeiern</option>
+                            <option value="Bauendreinigung" class="srv-opt-6">Bauendreinigung</option>
+                            <option value="Fensterreinigung" class="srv-opt-7">Fensterreinigung</option>
+                            <option value="Umzugsreinigung mit Abnahmegarantie" class="srv-opt-8">Umzugsreinigung mit Abnahmegarantie</option>
+                            <option value="Reinigung nach Todesfall/Messie-Haushalt" class="srv-opt-9">Reinigung nach Todesfall/Messie-Haushalt</option>
+                            <option value="Hausmeisterservice" class="srv-opt-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</option>
+                        </select>
+                    </div>
+
+                    <div class="sa-field">
+                        <label class="sa-label" id="lbl-area-size">Fläche (m²)</label>
+                        <input type="number" name="Flaeche_m2" id="input-flaeche" class="sa-input" placeholder="z. B. 80">
+                    </div>
+
+                    <div class="step-nav-buttons">
+                        <button type="button" class="btn-step-next" id="btn-next-1" onclick="nextStep(1)">Weiter →</button>
+                    </div>
+                </div>
+
+                <!-- ШАГ 2: Время и периодичность -->
+                <div class="form-step" id="formStep2">
+                    <div class="step-heading" id="step-title-2">Schritt 2 von 3: Wunschtermin</div>
+
+                    <div class="sa-field">
+                        <label class="sa-label" id="lbl-days">Reinigungstag</label>
+                        <select name="Reinigungstag" class="sa-select">
+                            <option value="Montag" class="d-mon">Montag</option>
+                            <option value="Dienstag" class="d-tue">Dienstag</option>
+                            <option value="Mittwoch" class="d-wed">Mittwoch</option>
+                            <option value="Donnerstag" class="d-thu">Donnerstag</option>
+                            <option value="Freitag" class="d-fri">Freitag</option>
+                            <option value="Samstag" class="d-sat">Samstag</option>
+                            <option value="Sonntag" class="d-sun">Sonntag</option>
+                            <option value="Flexibel" class="d-flex">Flexibel / Nach Absprache</option>
+                        </select>
+                    </div>
+
+                    <div class="sa-field">
+                        <label class="sa-label" id="lbl-freq">Gewünschte Häufigkeit</label>
+                        <select name="Haeufigkeit" class="sa-select">
+                            <option value="Einmalig" class="opt-once">Einmalig</option>
+                            <option value="Wöchentlich" class="opt-week">Wöchentlich</option>
+                            <option value="Zweiwöchentlich" class="opt-2week">Alle 2 Wochen</option>
+                            <option value="Monatlich" class="opt-month">Monatlich</option>
+                        </select>
+                    </div>
+
+                    <div class="step-nav-buttons">
+                        <button type="button" class="btn-step-prev btn-prev-txt" onclick="prevStep(2)">← Zurück</button>
+                        <button type="button" class="btn-step-next" id="btn-next-2" onclick="nextStep(2)">Weiter →</button>
+                    </div>
+                </div>
+
+                <!-- ШАГ 3: Контакты и отправка -->
+                <div class="form-step" id="formStep3">
+                    <div class="step-heading" id="step-title-3">Schritt 3 von 3: Ihre Kontaktdaten</div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                         <div class="sa-field">
                             <label class="sa-label" id="lbl-firma">Firma</label>
                             <input type="text" name="Firma" class="sa-input" placeholder="z. B. Firma GmbH">
                         </div>
                         <div class="sa-field">
                             <label class="sa-label" id="lbl-name">Ihr Name *</label>
-                            <input type="text" name="Name" class="sa-input" required placeholder="z. B. Max Mustermann">
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label" id="lbl-street">Straße + Nr.</label>
-                            <input type="text" name="Strasse" class="sa-input" placeholder="z. B. Hauptstraße 12">
-                        </div>
-                        <div style="display: flex; gap: 10px;">
-                            <div class="sa-field" style="flex: 1;">
-                                <label class="sa-label" id="lbl-plz">PLZ *</label>
-                                <input type="text" name="PLZ" class="sa-input" required placeholder="10115">
-                            </div>
-                            <div class="sa-field" style="flex: 2;">
-                                <label class="sa-label" id="lbl-city">Ort *</label>
-                                <input type="text" name="Ort" class="sa-input" required placeholder="Berlin">
-                            </div>
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label" id="lbl-email">E-Mail *</label>
-                            <input type="email" name="email" class="sa-input" required placeholder="name@domain.de">
-                        </div>
-                        <div class="sa-field">
-                            <label class="sa-label" id="lbl-phone">Telefon *</label>
-                            <input type="tel" name="Telefon" class="sa-input" required placeholder="+49 160 123 45 67">
+                            <input type="text" name="Name" id="input-name" class="sa-input" required placeholder="Max Mustermann">
                         </div>
                     </div>
 
-                    <div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                         <div class="sa-field">
-                            <label class="sa-label" id="lbl-area-size">Fläche (m²)</label>
-                            <input type="number" name="Flaeche_m2" class="sa-input" placeholder="z. B. 80">
+                            <label class="sa-label" id="lbl-email">E-Mail *</label>
+                            <input type="email" name="email" id="input-email" class="sa-input" required placeholder="name@domain.de">
                         </div>
-
                         <div class="sa-field">
-                            <label class="sa-label" id="lbl-days">Reinigungstag</label>
-                            <select name="Reinigungstag" class="sa-select">
-                                <option value="Montag" class="d-mon">Montag</option>
-                                <option value="Dienstag" class="d-tue">Dienstag</option>
-                                <option value="Mittwoch" class="d-wed">Mittwoch</option>
-                                <option value="Donnerstag" class="d-thu">Donnerstag</option>
-                                <option value="Freitag" class="d-fri">Freitag</option>
-                                <option value="Samstag" class="d-sat">Samstag</option>
-                                <option value="Sonntag" class="d-sun">Sonntag</option>
-                                <option value="Flexibel" class="d-flex">Flexibel / Nach Absprache</option>
-                            </select>
+                            <label class="sa-label" id="lbl-phone">Telefon *</label>
+                            <input type="tel" name="Telefon" id="input-phone" class="sa-input" required placeholder="+49 160 123 45 67">
                         </div>
+                    </div>
 
-                        <div class="sa-field">
-                            <label class="sa-label" id="lbl-freq">Gewünschte Häufigkeit</label>
-                            <select name="Haeufigkeit" class="sa-select">
-                                <option value="Einmalig" class="opt-once">Einmalig</option>
-                                <option value="Wöchentlich" class="opt-week">Wöchentlich</option>
-                                <option value="Zweiwöchentlich" class="opt-2week">Alle 2 Wochen</option>
-                                <option value="Monatlich" class="opt-month">Monatlich</option>
-                            </select>
+                    <!-- PLZ Обязательный, Straße и Ort - Необязательные -->
+                    <div style="display: flex; gap: 10px;">
+                        <div class="sa-field" style="flex: 1;">
+                            <label class="sa-label" id="lbl-plz">PLZ *</label>
+                            <input type="text" name="PLZ" id="input-plz" class="sa-input" required placeholder="10115">
                         </div>
-
-                        <div class="sa-field" id="category-selector-group">
-                            <label class="sa-label" id="lbl-type">Reinigungsart</label>
-                            <select name="Reinigungsart" class="sa-select">
-                                <option value="Treppenhausreinigung" class="srv-opt-1">Treppenhausreinigung</option>
-                                <option value="Reinigung von Privathaushalten & Wohnungen" class="srv-opt-2">Reinigung von Privathaushalten & Wohnungen</option>
-                                <option value="Büroreinigung" class="srv-opt-3">Büroreinigung</option>
-                                <option value="Kita- und Schulreinigung" class="srv-opt-4">Kita- und Schulreinigung</option>
-                                <option value="Reinigung nach Firmenfeiern" class="srv-opt-5">Reinigung nach Firmenfeiern</option>
-                                <option value="Bauendreinigung" class="srv-opt-6">Bauendreinigung</option>
-                                <option value="Fensterreinigung" class="srv-opt-7">Fensterreinigung</option>
-                                <option value="Umzugsreinigung mit Abnahmegarantie" class="srv-opt-8">Umzugsreinigung mit Abnahmegarantie</option>
-                                <option value="Reinigung nach Todesfall/Messie-Haushalt" class="srv-opt-9">Reinigung nach Todesfall/Messie-Haushalt</option>
-                                <option value="Hausmeisterservice" class="srv-opt-10">Hausmeisterservice (kleine Reparaturen / Kontrolle)</option>
-                            </select>
+                        <div class="sa-field" style="flex: 1.5;">
+                            <label class="sa-label" id="lbl-city">Ort</label>
+                            <input type="text" name="Ort" id="input-city" class="sa-input" placeholder="Berlin">
                         </div>
+                    </div>
 
-                        <div class="sa-field">
-                            <label class="sa-label" id="lbl-notes">Anmerkungen</label>
-                            <textarea name="Anmerkungen" id="input-notes" class="sa-textarea" rows="2" placeholder="Ihre Nachricht oder Wünsche..."></textarea>
-                        </div>
+                    <div class="sa-field">
+                        <label class="sa-label" id="lbl-street">Straße + Nr.</label>
+                        <input type="text" name="Strasse" class="sa-input" placeholder="z. B. Hauptstraße 12">
+                    </div>
 
-                        <div class="dsgvo-checkbox-group">
-                            <input type="checkbox" id="dsgvo-booking" required onchange="document.getElementById('btn-submit-form').disabled = !this.checked">
-                            <label for="dsgvo-booking" id="lbl-dsgvo-text">
-                                Ich stimme der <a href="javascript:void(0)" onclick="openModal('datenschutz-modal')">Datenschutzerklärung</a> zu. *
-                            </label>
-                        </div>
+                    <div class="sa-field">
+                        <label class="sa-label" id="lbl-notes">Anmerkungen</label>
+                        <textarea name="Anmerkungen" id="input-notes" class="sa-textarea" rows="2" placeholder="Ihre Nachricht oder Wünsche..."></textarea>
+                    </div>
 
-                        <button type="submit" class="sa-submit-btn" id="btn-submit-form" disabled>
+                    <div class="dsgvo-checkbox-group">
+                        <input type="checkbox" id="dsgvo-booking" required onchange="document.getElementById('btn-submit-form').disabled = !this.checked">
+                        <label for="dsgvo-booking" id="lbl-dsgvo-text">
+                            Ich stimme der <a href="javascript:void(0)" onclick="openModal('datenschutz-modal')">Datenschutzerklärung</a> zu. *
+                        </label>
+                    </div>
+
+                    <div class="step-nav-buttons">
+                        <button type="button" class="btn-step-prev btn-prev-txt" onclick="prevStep(3)">← Zurück</button>
+                        <button type="submit" class="sa-submit-btn" id="btn-submit-form" style="flex: 2;" disabled>
                             Unverbindlich Angebot anfordern →
                         </button>
                     </div>
@@ -909,7 +1065,7 @@
         <div class="modal-content" style="text-align: center; max-width: 450px;">
             <span class="modal-close" onclick="closeModal('discount-modal')">&times;</span>
             <span style="background: rgba(184, 142, 61, 0.15); color: var(--brand-blue); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;">Exklusiv ✨</span>
-            <h3 style="font-size: 32px; font-weight: 800; color: var(--brand-blue); margin: 15px 0 10px;" id="disc-title">10% Rabatt sichern</h3>
+            <h3 style="font-size: 32px; font-weight: 800; color: var(--brand-blue); margin-margin: 15px 0 10px;" id="disc-title">10% Rabatt sichern</h3>
             <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;" id="disc-desc">Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.</p>
             <input type="email" id="discountEmail" class="sa-input" placeholder="name@domain.de" style="margin-bottom: 12px;">
             <button class="sa-submit-btn" id="btn-disc-act" onclick="activateDiscount()">Rabattcode aktivieren ✨</button>
@@ -1088,6 +1244,7 @@
         let currentSlide = 0;
         const totalSlides = 2;
 
+        /* Управление слайдером */
         function updateSlider() {
             const track = document.getElementById('sliderTrack');
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
@@ -1113,6 +1270,7 @@
             updateSlider();
         }
 
+        /* Управление аккордеоном FAQ */
         function toggleFaq(element) {
             const currentItem = element.parentElement;
             const allItems = document.querySelectorAll('.faq-item');
@@ -1126,19 +1284,66 @@
             currentItem.classList.toggle('active');
         }
 
+        /* Управление пошаговой формой */
+        function setFormStep(stepNumber) {
+            document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
+            const activeStep = document.getElementById('formStep' + stepNumber);
+            if (activeStep) activeStep.classList.add('active');
+
+            const progressBar = document.getElementById('formProgressBar');
+            if (progressBar) {
+                progressBar.style.width = (stepNumber === 1 ? '33.33%' : (stepNumber === 2 ? '66.66%' : '100%'));
+            }
+        }
+
+        function nextStep(currentStep) {
+            if (currentStep === 1) {
+                setFormStep(2);
+            } else if (currentStep === 2) {
+                setFormStep(3);
+            }
+        }
+
+        function prevStep(currentStep) {
+            if (currentStep === 2) {
+                setFormStep(1);
+            } else if (currentStep === 3) {
+                setFormStep(2);
+            }
+        }
+
+        /* Автозаполнение города по почтовому индексу PLZ */
+        document.getElementById('input-plz').addEventListener('input', function(e) {
+            const val = e.target.value.trim();
+            const cityInput = document.getElementById('input-city');
+            if (val.startsWith('10') || val.startsWith('12') || val.startsWith('13') || val.startsWith('14')) {
+                if (!cityInput.value || cityInput.value === 'Berlin') {
+                    cityInput.value = 'Berlin';
+                }
+            }
+        });
+
+        /* Открытие индивидуальной или общей формы */
         function openServiceForm(serviceName) {
             const modalTitle = document.getElementById('modal-form-title');
             const hiddenInput = document.getElementById('hidden-service-input');
-            const categoryGroup = document.getElementById('category-selector-group');
+            const reinigungsartSelect = document.getElementById('select-reinigungsart');
 
+            setFormStep(1);
             hiddenInput.value = serviceName;
 
             if (serviceName === 'Allgemeine Anfrage') {
                 modalTitle.innerText = translations[currentLang].modalForm;
-                categoryGroup.style.display = 'block';
             } else {
                 modalTitle.innerText = serviceName;
-                categoryGroup.style.display = 'none';
+                if (reinigungsartSelect) {
+                    for (let i = 0; i < reinigungsartSelect.options.length; i++) {
+                        if (reinigungsartSelect.options[i].value === serviceName) {
+                            reinigungsartSelect.selectedIndex = i;
+                            break;
+                        }
+                    }
+                }
             }
 
             openModal('booking-modal');
@@ -1171,6 +1376,11 @@
                 backHome: "← Zurück zur Hauptseite",
                 modalForm: "Unverbindliches Angebot anfordern",
                 btnFormSubmit: "Unverbindlich Angebot anfordern →",
+                btnNext: "Weiter →",
+                btnPrev: "← Zurück",
+                step1: "Schritt 1 von 3: Objekt & Leistung",
+                step2: "Schritt 2 von 3: Wunschtermin",
+                step3: "Schritt 3 von 3: Ihre Kontaktdaten",
                 
                 prcT1: "Unterhaltsreinigung", prcD1: "Regelmäßige Reinigung für Privatwohnungen, Häuser und Büroräume in Berlin.", prcU1: "/ Std.",
                 prcT2: "Treppenhausreinigung", prcD2: "Gründliche und verlässliche Treppenhauspflege für Hausverwaltungen und Eigentümer.", prcU2: "/ Etage",
@@ -1181,7 +1391,7 @@
                 galTitle1: "Privathaushalt & Zimmerreinigung", galDesc1: "Gründliche Boden- und Oberflächenreinigung für frischen Wohnkomfort.",
                 galTitle2: "Wohnungs- & Holzbodenpflege", galDesc2: "Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.",
                 
-                lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblPlz: "PLZ *", lblCity: "Ort *", lblPhone: "Telefon *", lblEmail: "E-Mail *",
+                lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblPlz: "PLZ *", lblCity: "Ort", lblPhone: "Telefon *", lblEmail: "E-Mail *",
                 lblArea: "Fläche (m²)", lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen",
                 dMon: "Montag", dTue: "Dienstag", dWed: "Mittwoch", dThu: "Donnerstag", dFri: "Freitag", dSat: "Samstag", dSun: "Sonntag", dFlex: "Flexibel / Nach Absprache",
                 optOnce: "Einmalig", optWeek: "Wöchentlich", opt2Week: "Alle 2 Wochen", optMonth: "Monatlich",
@@ -1234,6 +1444,11 @@
                 backHome: "← Back to Main Page",
                 modalForm: "Request a free quote",
                 btnFormSubmit: "Request quote without obligation →",
+                btnNext: "Next →",
+                btnPrev: "← Back",
+                step1: "Step 1 of 3: Property & Service",
+                step2: "Step 2 of 3: Schedule & Frequency",
+                step3: "Step 3 of 3: Your Contact Details",
                 
                 prcT1: "Maintenance Cleaning", prcD1: "Regular cleaning for private apartments, houses and offices in Berlin.", prcU1: "/ hr.",
                 prcT2: "Staircase Cleaning", prcD2: "Thorough and reliable staircase cleaning for property managers and owners.", prcU2: "/ floor",
@@ -1244,7 +1459,7 @@
                 galTitle1: "Private Home & Room Cleaning", galDesc1: "Thorough floor and surface cleaning for fresh living comfort.",
                 galTitle2: "Apartment & Wood Floor Care", galDesc2: "Impeccable shine on real wood floors and neat room presentation.",
                 
-                lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblPlz: "Postal Code *", lblCity: "City *", lblPhone: "Phone *", lblEmail: "Email *",
+                lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblPlz: "Postal Code *", lblCity: "City", lblPhone: "Phone *", lblEmail: "Email *",
                 lblArea: "Area (m²)", lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblNotes: "Notes",
                 dMon: "Monday", dTue: "Tuesday", dWed: "Wednesday", dThu: "Thursday", dFri: "Friday", dSat: "Saturday", dSun: "Sunday", dFlex: "Flexible / By arrangement",
                 optOnce: "One-time", optWeek: "Weekly", opt2Week: "Every 2 weeks", optMonth: "Monthly",
@@ -1297,6 +1512,11 @@
                 backHome: "← Вернуться на главную",
                 modalForm: "Запросить бесплатный расчет",
                 btnFormSubmit: "Отправить заявку →",
+                btnNext: "Далее →",
+                btnPrev: "← Назад",
+                step1: "Шаг 1 из 3: Объект и услуга",
+                step2: "Шаг 2 из 3: Время и периодичность",
+                step3: "Шаг 3 из 3: Контактные данные",
                 
                 prcT1: "Поддерживающая уборка", prcD1: "Регулярная уборка частных квартир, домов и офисных помещений в Берлине.", prcU1: "/ час",
                 prcT2: "Уборка подъездов", prcD2: "Тщательный и надежный уход за лестничными клетками для управляющих и владельцев.", prcU2: "/ этаж",
@@ -1307,7 +1527,7 @@
                 galTitle1: "Уборка комнат и квартир", galDesc1: "Тщательное мытье полов и поверхностей для идеального уюта.",
                 galTitle2: "Уход за деревянными полами", galDesc2: "Безупречный блеск полов и эстетичный порядок в каждой комнате.",
                 
-                lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblPlz: "Индекс *", lblCity: "Город *", lblPhone: "Телефон *", lblEmail: "Эл. почта *",
+                lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblPlz: "Индекс *", lblCity: "Город", lblPhone: "Телефон *", lblEmail: "Эл. почта *",
                 lblArea: "Площадь (м²)", lblDays: "День уборки", lblFreq: "Желаемая периодичность", lblType: "Вид уборки", lblNotes: "Примечания",
                 dMon: "Понедельник", dTue: "Вторник", dWed: "Среда", dThu: "Четверг", dFri: "Пятница", dSat: "Суббота", dSun: "Воскресенье", dFlex: "Гибко / По договоренности",
                 optOnce: "Разово", optWeek: "Еженедельно", opt2Week: "Раз в 2 недели", optMonth: "Ежемесячно",
@@ -1360,6 +1580,11 @@
                 backHome: "← Повернутися на головну",
                 modalForm: "Запросити безкоштовний розрахунок",
                 btnFormSubmit: "Надіслати заявку →",
+                btnNext: "Далі →",
+                btnPrev: "← Назад",
+                step1: "Крок 1 з 3: Об'єкт та послуга",
+                step2: "Крок 2 з 3: Бажаний час",
+                step3: "Крок 3 з 3: Ваші контакти",
                 
                 prcT1: "Підтримуюче прибирання", prcD1: "Регулярний догляд за приватними квартирами, будинками та офісами в Берліні.", prcU1: "/ год.",
                 prcT2: "Прибирання під'їздів", prcD2: "Ретельне та надійне прибирання сходів для власників нерухомості та ОСББ.", prcU2: "/ поверх",
@@ -1370,15 +1595,15 @@
                 galTitle1: "Прибирання кімнат та квартир", galDesc1: "Ретельне миття підлоги та поверхонь для бездоганного затишку.",
                 galTitle2: "Догляд за дерев'яною підлогою", galDesc2: "Бездоганний блиск паркету та естетичний порядок у кімнаті.",
                 
-                lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblPlz: "Індекс *", lblCity: "Місто *", lblPhone: "Телефон *", lblEmail: "Ел. пошта *",
+                lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblPlz: "Індекс *", lblCity: "Місто", lblPhone: "Телефон *", lblEmail: "Ел. пошта *",
                 lblArea: "Площа (м²)", lblDays: "День прибирання", lblFreq: "Бажана періодичність", lblType: "Вид прибирання", lblNotes: "Примітки",
                 dMon: "Понеділок", dTue: "Вівторок", dWed: "Середа", dThu: "Четвер", dFri: "П'ятниця", dSat: "Субота", dSun: "Неділя", dFlex: "Гнучко / За домовленістю",
                 optOnce: "Разово", optWeek: "Щотижня", opt2Week: "Раз на 2 тижні", optMonth: "Щомісяця",
                 
-                dsgvoText: 'Я погоджуюся з <a href="javascript:void(0)" onclick="openModal(\'datenschutz-modal\')">політикою конфіденційності</a>. *',
+                dsgvoText: 'Я згоден з <a href="javascript:void(0)" onclick="openModal(\'datenschutz-modal\')">політикою конфіденційності</a>. *',
                 
                 faqQ1: "1. Які клінінгові послуги ви надаєте?",
-                faqA1: "Ми пропонуємо повний спектр професійних клінінгових послуг: регулярне прибирання приватних будинків, квартир, офісів та кабінетів, прибирання під'їздів та сходів, професійне миття вікон і скляних поверхонь, прибирання після будівництва та ремонту, а також спеціалізоване прибирання (наприклад, після переїзду або заходів).",
+                faqA1: "Мы пропонуємо повний спектр професійних клінінгових послуг: регулярне прибирання приватних будинків, квартир, офісів та кабінетів, прибирання під'їздів та сходів, професійне миття вікон і скляних поверхонь, прибирання після будівництва та ремонту, а також спеціалізоване прибирання (наприклад, після переїзду або заходів).",
                 faqQ2: "2. В яких районах Берліна ви працюєте?",
                 faqA2: "Наша зона обслуговування охоплює весь Берлін та його найближче передмістя. Ми гнучко підходимо до замовлень і обслуговуємо як приватних, так і корпоративних клієнтів по всьому місту.",
                 faqQ3: "3. Скільки коштують ваші послуги?",
@@ -1452,6 +1677,14 @@
                 document.getElementById('modal-form-title').innerText = t.modalForm;
             }
             document.getElementById('btn-submit-form').innerText = t.btnFormSubmit;
+
+            if(document.getElementById('btn-next-1')) document.getElementById('btn-next-1').innerText = t.btnNext;
+            if(document.getElementById('btn-next-2')) document.getElementById('btn-next-2').innerText = t.btnNext;
+            document.querySelectorAll('.btn-prev-txt').forEach(btn => btn.innerText = t.btnPrev);
+
+            if(document.getElementById('step-title-1')) document.getElementById('step-title-1').innerText = t.step1;
+            if(document.getElementById('step-title-2')) document.getElementById('step-title-2').innerText = t.step2;
+            if(document.getElementById('step-title-3')) document.getElementById('step-title-3').innerText = t.step3;
 
             if(document.getElementById('gal-title-1')) document.getElementById('gal-title-1').innerText = t.galTitle1;
             if(document.getElementById('gal-desc-1')) document.getElementById('gal-desc-1').innerText = t.galDesc1;
