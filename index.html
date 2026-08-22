@@ -1203,7 +1203,7 @@
                 </label>
             </div>
 
-            <button class="sa-submit-btn" id="btn-pub-rev" onclick="saveReviewToLocalStorage()" disabled>Bewertung veröffentlichen ✨</button>
+            <button class="sa-submit-btn" id="btn-pub-rev" onclick="saveReviewToFirebase()" disabled>Bewertung veröffentlichen ✨</button>
         </div>
     </div>
 
@@ -1246,8 +1246,8 @@
             <p>Liliia Lysiuk<br>Brienzer Str. 57, 13407 Berlin</p>
 
             <h4>Haftungsausschluss</h4>
-            <p><strong>Haftung für Inhalte:</strong><br>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG для eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
-            <p><strong>Haftung für Links:</strong><br>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir для diese fremden Inhalte auch keine Gewähr übernehmen.</p>
+            <p><strong>Haftung für Inhalte:</strong><br>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+            <p><strong>Haftung für Links:</strong><br>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
             
             <h4>Urheberrecht</h4>
             <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.</p>
@@ -1328,11 +1328,125 @@
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Подключаем Firebase для отзывов -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA6oE8rYtkhhr-jCfonjp7cAQhZmimHXSQ",
+            authDomain: "cleanlines-lysiuk.firebaseapp.com",
+            projectId: "cleanlines-lysiuk",
+            storageBucket: "cleanlines-lysiuk.firebasestorage.app",
+            messagingSenderId: "417648481876",
+            appId: "1:417648481876:web:e9eaa05f68467161347fc1",
+            measurementId: "G-ZP92ZQDEPW"
+        };
+
+        const db = getFirestore(initializeApp(firebaseConfig));
+        const reviewsCollection = collection(db, "reviews");
+
+        window.loadReviewsFromFirebase = function() {
+            const container = document.getElementById('reviewsContainer');
+            if (!container) return;
+
+            onSnapshot(query(reviewsCollection, orderBy("timestamp", "desc")), (snapshot) => {
+                container.innerHTML = '';
+                
+                if (snapshot.empty) {
+                    container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">Noch keine Bewertungen vorhanden. Schreiben Sie die erste! ✨</p>';
+                    return;
+                }
+
+                snapshot.forEach((docSnap) => {
+                    const rev = docSnap.data();
+                    const docId = docSnap.id;
+                    const stars = Number(rev.stars) || 5;
+                    const starsHtml = '★'.repeat(stars) + '☆'.repeat(5 - stars);
+                    
+                    const card = document.createElement('div');
+                    card.className = 'review-card';
+                    card.setAttribute('data-aos', 'fade-up');
+                    card.innerHTML = `
+                        <button class="btn-delete-review" style="display: ${window.isAdminLoggedIn ? 'block' : 'none'};" onclick="deleteFirebaseReview('${docId}')">Удалить</button>
+                        <div class="review-stars">${starsHtml}</div>
+                        <p class="review-text">"${rev.text || ''}"</p>
+                        <div class="review-author">${rev.name || 'Anonym'} • ${rev.city || 'Berlin'}</div>
+                    `;
+                    container.appendChild(card);
+                });
+            }, (error) => {
+                console.error("Firebase Fehler:", error);
+            });
+        };
+
+        window.saveReviewToFirebase = async function() {
+            const name = document.getElementById('rev-name').value.trim() || 'Anonym';
+            const city = document.getElementById('rev-city').value.trim() || 'Berlin';
+            const text = document.getElementById('rev-text').value.trim();
+
+            if (!text) {
+                alert('Bitte geben Sie Ihre Erfahrung ein.');
+                return;
+            }
+
+            try {
+                await addDoc(reviewsCollection, {
+                    name: name,
+                    city: city,
+                    text: text,
+                    stars: window.selectedStars || 5,
+                    timestamp: new Date()
+                });
+
+                closeModal('review-modal');
+                document.getElementById('rev-name').value = '';
+                document.getElementById('rev-city').value = '';
+                document.getElementById('rev-text').value = '';
+                alert('Vielen Dank für Ihre Bewertung!');
+            } catch (error) {
+                console.error("Fehler beim Speichern:", error);
+                alert("Fehler beim Veröffentlichen. Bitte versuchen Sie es erneut.");
+            }
+        };
+
+        window.deleteFirebaseReview = async function(id) {
+            const pass = prompt('Passwort eingeben:');
+            if (pass === 'Lilliacleanlines=2025') {
+                try {
+                    await deleteDoc(doc(db, "reviews", id));
+                    alert('Bewertung erfolgreich gelöscht!');
+                } catch (error) {
+                    console.error("Fehler beim Löschen:", error);
+                }
+            } else if (pass !== null) {
+                alert('Falsches Passwort.');
+            }
+        };
+
+        window.loginAdmin = function() {
+            const pass = prompt('Passwort eingeben:');
+            if (pass === 'Lilliacleanlines=2025') {
+                window.isAdminLoggedIn = true;
+                alert('Admin-Modus aktiviert! Sie können nun einzelne Bewertungen löschen.');
+                window.loadReviewsFromFirebase();
+            } else if (pass !== null) {
+                alert('Falsches Passwort.');
+            }
+        };
+
+        // Запуск при загрузке
+        window.addEventListener('load', function() {
+            window.isAdminLoggedIn = false;
+            window.loadReviewsFromFirebase();
+        });
+    </script>
+
     <script>
         AOS.init({ duration: 800, once: false });
 
-        let selectedStars = 5;
-        let isAdmin = false;
+        window.selectedStars = 5;
         let currentLang = 'de';
         let currentSlide = 0;
         const totalSlides = 2;
@@ -1745,7 +1859,7 @@
                 qrLinkTxt: "⭐ Оцінити в Google →",
 
                 lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblPlz: "Індекс *", lblCity: "Місто", lblPhone: "Телефон *", lblEmail: "Ел. пошта *",
-                lblArea: "Площа (м²)", lblDays: "День прибирання", lblFreq: "Бажана періодичність", lblType: "Вид прибирання", lblNotes: "Примітки",
+                lblArea: "Площа (m²)", lblDays: "День прибирання", lblFreq: "Бажана періодичність", lblType: "Вид прибирання", lblNotes: "Примітки",
                 dMon: "Понеділок", dTue: "Вівторок", dWed: "Середа", dThu: "Четвер", dFri: "П'ятниця", dSat: "Субота", dSun: "Неділя", dFlex: "Гнучко / За домовленістю",
                 optOnce: "Разово", optWeek: "Щотижня", opt2Week: "Раз на 2 тижні", optMonth: "Щомісяця",
                 
@@ -1914,81 +2028,14 @@
             document.querySelectorAll('.btn-back-txt').forEach(b => b.innerText = t.backHome);
         }
 
-        const defaultReviews = [
-            { id: 1, name: "Elena M.", city: "Berlin-Mitte", text: "Sehr pünktlich, gründlich und absolut professionell. Meine Wohnung hat noch nie so gepflegt ausgesehen!", stars: 5 },
-            { id: 2, name: "Stefan K.", city: "Charlottenburg", text: "Die Treppenhausreinigung für unser Haus wird perfekt erledigt. Äußerst zuverlässig!", stars: 5 },
-            { id: 3, name: "Marcus W.", city: "Berlin", text: "Hervorragende Büroreinigung! Flexibel, diskret und ein fantastisches Team.", stars: 5 }
-        ];
-
-        function loadReviews() {
-            const savedReviews = JSON.parse(localStorage.getItem('cleanlines_reviews')) || defaultReviews;
-            const container = document.getElementById('reviewsContainer');
-            container.innerHTML = '';
-
-            savedReviews.forEach(rev => {
-                const starsHtml = '★'.repeat(rev.stars) + '☆'.repeat(5 - rev.stars);
-                const card = document.createElement('div');
-                card.className = 'review-card';
-                card.setAttribute('data-aos', 'fade-up');
-                card.innerHTML = `
-                    <button class="btn-delete-review" style="display: ${isAdmin ? 'block' : 'none'};" onclick="deleteSingleReview(${rev.id})">Удалить</button>
-                    <div class="review-stars">${starsHtml}</div>
-                    <p class="review-text">"${rev.text}"</p>
-                    <div class="review-author">${rev.name} • ${rev.city}</div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function loginAdmin() {
-            const pass = prompt('Passwort eingeben:');
-            if (pass === 'Lilliacleanlines=2025') {
-                isAdmin = true;
-                alert('Admin-Modus aktiviert! Sie können nun einzelne Bewertungen löschen.');
-                loadReviews();
-            } else if (pass !== null) {
-                alert('Falsches Passwort.');
-            }
-        }
-
-        function deleteSingleReview(id) {
-            let savedReviews = JSON.parse(localStorage.getItem('cleanlines_reviews')) || defaultReviews;
-            savedReviews = savedReviews.filter(review => review.id !== id);
-            localStorage.setItem('cleanlines_reviews', JSON.stringify(savedReviews));
-            loadReviews();
-        }
-
         document.querySelectorAll('#starRating .star').forEach(star => {
             star.addEventListener('click', function() {
-                selectedStars = parseInt(this.getAttribute('data-value'));
+                window.selectedStars = parseInt(this.getAttribute('data-value'));
                 document.querySelectorAll('#starRating .star').forEach(s => {
-                    s.classList.toggle('active', parseInt(s.getAttribute('data-value')) <= selectedStars);
+                    s.classList.toggle('active', parseInt(s.getAttribute('data-value')) <= window.selectedStars);
                 });
             });
         });
-
-        function saveReviewToLocalStorage() {
-            const name = document.getElementById('rev-name').value.trim() || 'Anonym';
-            const city = document.getElementById('rev-city').value.trim() || 'Berlin';
-            const text = document.getElementById('rev-text').value.trim();
-
-            if (!text) {
-                alert('Bitte geben Sie Ihre Erfahrung ein.');
-                return;
-            }
-
-            const currentReviews = JSON.parse(localStorage.getItem('cleanlines_reviews')) || defaultReviews;
-            currentReviews.unshift({ id: Date.now(), name, city, text, stars: selectedStars });
-            
-            localStorage.setItem('cleanlines_reviews', JSON.stringify(currentReviews));
-            loadReviews();
-            closeModal('review-modal');
-
-            document.getElementById('rev-name').value = '';
-            document.getElementById('rev-city').value = '';
-            document.getElementById('rev-text').value = '';
-            alert('Vielen Dank für Ihre Bewertung!');
-        }
 
         function activateDiscount() {
             const email = document.getElementById('discountEmail').value.trim();
@@ -2023,7 +2070,6 @@
         }
 
         window.addEventListener('load', function() {
-            loadReviews();
             let popupShown = sessionStorage.getItem('popupShown');
             if (!popupShown) {
                 setTimeout(function() {
