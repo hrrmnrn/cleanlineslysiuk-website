@@ -385,23 +385,86 @@
         .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transition: background 0.2s; font-family: inherit; }
         .btn-delete-review:hover { background: #be123c; }
 
-        /* АККУРАТНЫЙ QR-КОД В РАЗДЕЛЕ ОТЗЫВОВ */
-        .reviews-qr-wrapper {
-            margin-top: 35px;
-            display: inline-flex;
-            flex-direction: column;
+        /* ПРОЗРАЧНЫЙ КЛИКАБЕЛЬНЫЙ БЛОК QR-КОДА С ТЕКСТОМ */
+        .reviews-qr-card {
+            margin: 45px auto 15px;
+            max-width: 580px;
+            display: flex;
             align-items: center;
-            background: #FFFFFF;
-            padding: 16px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(15, 42, 74, 0.08);
+            justify-content: center;
+            gap: 24px;
+            padding: 24px 28px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
+            transition: all 0.35s ease;
+            text-align: left;
         }
-        .reviews-qr-wrapper img {
-            width: 140px;
-            height: auto;
-            border-radius: 12px;
+
+        .reviews-qr-card:hover {
+            border-color: var(--brand-blue-light);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 35px rgba(15, 42, 74, 0.08);
+            background: rgba(255, 255, 255, 0.75);
+        }
+
+        .qr-link-wrap {
+            display: inline-flex;
+            padding: 6px;
+            background: transparent;
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .qr-link-wrap:hover {
+            transform: scale(1.06);
+        }
+
+        .qr-link-wrap img {
+            width: 125px;
+            height: 125px;
             display: block;
+            border-radius: 14px;
+        }
+
+        .qr-text-info h4 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--brand-blue);
+            margin-bottom: 6px;
+        }
+
+        .qr-text-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .qr-badge-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--brand-blue);
+            background: rgba(184, 142, 61, 0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            border: 1px solid rgba(184, 142, 61, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .qr-badge-link:hover {
+            background: var(--brand-blue);
+            color: #FFFFFF;
+            border-color: var(--brand-blue);
         }
 
         /* ПОШАГОВАЯ ФОРМА */
@@ -602,6 +665,15 @@
             .slider-btn { top: 160px; }
             nav { display: none; }
             .modal-content { padding: 30px 22px; }
+        }
+
+        @media (max-width: 600px) {
+            .reviews-qr-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+                padding: 22px 18px;
+            }
         }
     </style>
 </head>
@@ -880,14 +952,22 @@
             </button>
         </div>
 
-        <!-- КАРТОЧКА С QR-КОДОМ: ПРЯМАЯ ССЫЛКА НА ФАЙЛ qr-code 1.png -->
-        <div>
-            <div class="reviews-qr-wrapper" data-aos="fade-up">
+        <!-- ПРОЗРАЧНЫЙ КЛИКАБЕЛЬНЫЙ БЛОК QR-КОДА С ТЕКСТОМ -->
+        <div class="reviews-qr-card" data-aos="fade-up">
+            <a href="https://www.google.com/maps/search/CleanLines+Lysiuk+Berlin" target="_blank" rel="noopener noreferrer" class="qr-link-wrap">
                 <img src="./qr-code 1.png" alt="Google Review QR Code" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://cleanlineslysiuk-website.vercel.app/'">
+            </a>
+            <div class="qr-text-info">
+                <h4 id="qr-title">Finden Sie uns auf Google</h4>
+                <p id="qr-desc">Scannen Sie den QR-Code oder klicken Sie darauf, um unsere Google-Bewertungen zu sehen oder Ihr Feedback zu hinterlassen.</p>
+                <a href="https://www.google.com/maps/search/CleanLines+Lysiuk+Berlin" target="_blank" rel="noopener noreferrer" class="qr-badge-link" id="qr-link-txt">
+                    ⭐ Google Maps öffnen →
+                </a>
             </div>
         </div>
     </section>
 
+    <!-- ФУТЕР С ЗОНОЙ ОБСЛУЖИВАНИЯ -->
     <footer id="contact">
         <div class="footer-content">
             <div>
@@ -895,7 +975,7 @@
                 <p style="color: rgba(255,255,255,0.7); margin-top: 10px;" id="ft-desc">Professionelle Reinigungsdienste in Berlin & Umgebung</p>
             </div>
             <div class="footer-contacts">
-                <p>📍 Brienzer Str. 57, 13407 Berlin (Reinickendorf)</p>
+                <p id="ft-area">📍 Servicegebiet: Berlin und Umgebung</p>
                 <p>📞 <a href="https://wa.me/4915781073234" target="_blank">+49 1578 107 3234</a></p>
                 <p>✉️ <a href="mailto:lysiuk.cleanlines@gmail.com">lysiuk.cleanlines@gmail.com</a></p>
                 <p style="color: rgba(255,255,255,0.85); margin-top: 8px;" id="ft-worktime">🕒 Täglich von 06:00 bis 21:00 Uhr</p>
@@ -1151,7 +1231,7 @@
 
             <h4>Haftungsausschluss</h4>
             <p><strong>Haftung für Inhalte:</strong><br>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
-            <p><strong>Haftung für Links:</strong><br>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.</p>
+            <p><strong>Haftung für Links:</strong><br>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir для diese fremden Inhalte auch keine Gewähr übernehmen.</p>
             
             <h4>Urheberrecht</h4>
             <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.</p>
@@ -1422,6 +1502,10 @@
                 galTitle1: "Privathaushalt & Zimmerreinigung", galDesc1: "Gründliche Boden- und Oberflächenreinigung für frischen Wohnkomfort.",
                 galTitle2: "Wohnungs- & Holzbodenpflege", galDesc2: "Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.",
 
+                qrTitle: "Finden Sie uns auf Google",
+                qrDesc: "Scannen Sie den QR-Code oder klicken Sie darauf, um unsere Google-Bewertungen zu sehen oder Ihr Feedback zu hinterlassen.",
+                qrLinkTxt: "⭐ Google Maps öffnen →",
+
                 lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblPlz: "PLZ *", lblCity: "Ort", lblPhone: "Telefon *", lblEmail: "E-Mail *",
                 lblArea: "Fläche (m²)", lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen",
                 dMon: "Montag", dTue: "Dienstag", dWed: "Mittwoch", dThu: "Donnerstag", dFri: "Freitag", dSat: "Samstag", dSun: "Sonntag", dFlex: "Flexibel / Nach Absprache",
@@ -1447,7 +1531,9 @@
                 
                 srv1: "Treppenhausreinigung", srv2: "Reinigung von Privathaushalten & Wohnungen", srv3: "Büroreinigung", srv4: "Kita- und Schulreinigung", srv5: "Reinigung nach Firmenfeiern",
                 srv6: "Bauendreinigung", srv7: "Fensterreinigung", srv8: "Umzugsreinigung mit Abnahmegarantie", srv9: "Reinigung nach Todesfall/Messie-Haushalt", srv10: "Hausmeisterservice (kleine Reparaturen / Kontrolle)",
-                ftDesc: "Professionelle Reinigungsdienste in Berlin & Umgebung", ftWorktime: "🕒 Täglich von 06:00 bis 21:00 Uhr"
+                ftDesc: "Professionelle Reinigungsdienste in Berlin & Umgebung",
+                ftArea: "📍 Servicegebiet: Berlin und Umgebung",
+                ftWorktime: "🕒 Täglich von 06:00 bis 21:00 Uhr"
             },
             en: {
                 promoText: "🎁 Get 10% discount on your first cleaning with code: <span class=\"promo-badge\">CLEAN10</span>",
@@ -1490,6 +1576,10 @@
                 galTitle1: "Private Home & Room Cleaning", galDesc1: "Thorough floor and surface cleaning for fresh living comfort.",
                 galTitle2: "Apartment & Wood Floor Care", galDesc2: "Impeccable shine on real wood floors and neat room presentation.",
 
+                qrTitle: "Find us on Google",
+                qrDesc: "Scan or click the QR code to read our Google reviews or leave your own feedback.",
+                qrLinkTxt: "⭐ Open Google Maps →",
+
                 lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblPlz: "Postal Code *", lblCity: "City", lblPhone: "Phone *", lblEmail: "Email *",
                 lblArea: "Area (m²)", lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblNotes: "Notes",
                 dMon: "Monday", dTue: "Tuesday", dWed: "Wednesday", dThu: "Thursday", dFri: "Friday", dSat: "Saturday", dSun: "Sunday", dFlex: "Flexible / By arrangement",
@@ -1515,7 +1605,9 @@
                 
                 srv1: "Staircase Cleaning", srv2: "Cleaning of Private Households & Apartments", srv3: "Office Cleaning", srv4: "Kindergarten & School Cleaning", srv5: "After-Party Cleaning",
                 srv6: "Post-Construction Cleaning", srv7: "Window Cleaning", srv8: "Move-Out Cleaning with Guarantee", srv9: "Extreme & Messie Cleaning", srv10: "Caretaker Service (Small Repairs / Inspection)",
-                ftDesc: "Professional cleaning services in Berlin & surrounding area", ftWorktime: "🕒 Daily from 06:00 to 21:00"
+                ftDesc: "Professional cleaning services in Berlin & surrounding area",
+                ftArea: "📍 Service Area: Berlin and surrounding area",
+                ftWorktime: "🕒 Daily from 06:00 to 21:00"
             },
             ru: {
                 promoText: "🎁 Получите скидку 10% на первую уборку по промокоду: <span class=\"promo-badge\">CLEAN10</span>",
@@ -1558,6 +1650,10 @@
                 galTitle1: "Уборка комнат и квартир", galDesc1: "Тщательное мытье полов и поверхностей для идеального уюта.",
                 galTitle2: "Уход за деревянными полами", galDesc2: "Безупречный блеск полов и эстетичный порядок в каждой комнате.",
 
+                qrTitle: "Мы в Google Maps",
+                qrDesc: "Отсканируйте QR-код или нажмите на него, чтобы посмотреть отзывы наших клиентов или оставить свой.",
+                qrLinkTxt: "⭐ Открыть Google Maps →",
+
                 lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblPlz: "Индекс *", lblCity: "Город", lblPhone: "Телефон *", lblEmail: "Эл. почта *",
                 lblArea: "Площадь (м²)", lblDays: "День уборки", lblFreq: "Желаемая периодичность", lblType: "Вид уборки", lblNotes: "Примечания",
                 dMon: "Понедельник", dTue: "Вторник", dWed: "Среда", dThu: "Четверг", dFri: "Пятница", dSat: "Суббота", dSun: "Воскресенье", dFlex: "Гибко / По договоренности",
@@ -1583,7 +1679,9 @@
                 
                 srv1: "Уборка подъездов и лестниц", srv2: "Уборка частных домов и квартир", srv3: "Уборка офисов и помещений", srv4: "Уборка детских садов и школ", srv5: "Уборка после корпоративов",
                 srv6: "Уборка после ремонта", srv7: "Мойка окон и фасадов", srv8: "Уборка при переезде с гарантией", srv9: "Уборка спец. объектов и запущенных квартир", srv10: "Хаусмайстер (мелкий ремонт / контроль)",
-                ftDesc: "Профессиональный клининг в Берлине и пригороде", ftWorktime: "🕒 Ежедневно с 06:00 до 21:00"
+                ftDesc: "Профессиональный клининг в Берлине и пригороде",
+                ftArea: "📍 Зона обслуживания: Берлин и окрестности",
+                ftWorktime: "🕒 Ежедневно с 06:00 до 21:00"
             },
             ua: {
                 promoText: "🎁 Отримайте знижку 10% на перше прибирання за промокодом: <span class=\"promo-badge\">CLEAN10</span>",
@@ -1626,6 +1724,10 @@
                 galTitle1: "Прибирання кімнат та квартир", galDesc1: "Ретельне миття підлоги та поверхонь для бездоганного затишку.",
                 galTitle2: "Догляд за дерев'яною підлогою", galDesc2: "Бездоганний блиск паркету та естетичний порядок у кімнаті.",
 
+                qrTitle: "Ми в Google Maps",
+                qrDesc: "Відскануйте QR-код або натисніть на нього, щоб переглянути відгуки або поділитися своїми враженнями.",
+                qrLinkTxt: "⭐ Відкрити Google Maps →",
+
                 lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblPlz: "Індекс *", lblCity: "Місто", lblPhone: "Телефон *", lblEmail: "Ел. пошта *",
                 lblArea: "Площа (м²)", lblDays: "День прибирання", lblFreq: "Бажана періодичність", lblType: "Вид прибирання", lblNotes: "Примітки",
                 dMon: "Понеділок", dTue: "Вівторок", dWed: "Середа", dThu: "Четвер", dFri: "П'ятниця", dSat: "Субота", dSun: "Неділя", dFlex: "Гнучко / За домовленістю",
@@ -1651,7 +1753,9 @@
                 
                 srv1: "Прибирання під'їздів та сходів", srv2: "Прибирання приватних будинків та квартир", srv3: "Прибирання офісів та приміщень", srv4: "Прибирання дитячих садків та шкіл", srv5: "Прибирання після свята",
                 srv6: "Прибирання після ремонту", srv7: "Миття вікон та фасадів", srv8: "Прибирання при переїзді з гарантією", srv9: "Прибирання спец. об'єктів та складних квартир", srv10: "Хаусмайстер (дрібний ремонт / контроль)",
-                ftDesc: "Професійний клінінг у Берліні та передмісті", ftWorktime: "🕒 Щодня з 06:00 до 21:00"
+                ftDesc: "Професійний клінінг у Берліні та передмісті",
+                ftArea: "📍 Зона обслуговування: Берлін та передмістя",
+                ftWorktime: "🕒 Щодня з 06:00 до 21:00"
             }
         };
 
@@ -1701,6 +1805,10 @@
             if(document.getElementById('prc-btn-3')) document.getElementById('prc-btn-3').innerText = t.prcBtn;
 
             document.querySelectorAll('.slider-tag-txt').forEach(tag => tag.innerText = t.sliderTag);
+
+            if(document.getElementById('qr-title')) document.getElementById('qr-title').innerText = t.qrTitle;
+            if(document.getElementById('qr-desc')) document.getElementById('qr-desc').innerText = t.qrDesc;
+            if(document.getElementById('qr-link-txt')) document.getElementById('qr-link-txt').innerText = t.qrLinkTxt;
 
             const hiddenService = document.getElementById('hidden-service-input').value;
             if (hiddenService === 'Allgemein' || hiddenService === 'Allgemeine Anfrage') {
@@ -1784,6 +1892,7 @@
             }
 
             if(document.getElementById('ft-desc')) document.getElementById('ft-desc').innerText = t.ftDesc;
+            if(document.getElementById('ft-area')) document.getElementById('ft-area').innerText = t.ftArea;
             if(document.getElementById('ft-worktime')) document.getElementById('ft-worktime').innerText = t.ftWorktime;
 
             document.querySelectorAll('.btn-back-txt').forEach(b => b.innerText = t.backHome);
