@@ -385,20 +385,21 @@
         .btn-delete-review { position: absolute; top: 15px; right: 15px; background: #e11d48; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; display: none; transition: background 0.2s; font-family: inherit; }
         .btn-delete-review:hover { background: #be123c; }
 
-        /* ПРОЗРАЧНЫЙ КЛИКАБЕЛЬНЫЙ БЛОК QR-КОДА С ТЕКСТОМ */
+        /* ЭЛЕГАНТНЫЙ СТЕКЛЯННЫЙ БЛОК GOOGLE REVIEWS С QR */
         .reviews-qr-card {
             margin: 45px auto 15px;
-            max-width: 580px;
+            max-width: 540px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 24px;
+            gap: 22px;
             padding: 24px 28px;
             border-radius: 24px;
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(184, 142, 61, 0.4);
+            box-shadow: 0 10px 30px rgba(15, 42, 74, 0.05);
             transition: all 0.35s ease;
             text-align: left;
         }
@@ -406,58 +407,69 @@
         .reviews-qr-card:hover {
             border-color: var(--brand-blue-light);
             transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(15, 42, 74, 0.08);
-            background: rgba(255, 255, 255, 0.75);
+            box-shadow: 0 16px 35px rgba(15, 42, 74, 0.1);
+            background: rgba(255, 255, 255, 0.85);
         }
 
         .qr-link-wrap {
-            display: inline-flex;
-            padding: 6px;
-            background: transparent;
-            border-radius: 16px;
-            transition: transform 0.3s ease;
+            display: block;
             flex-shrink: 0;
-            cursor: pointer;
             text-decoration: none;
+            transition: transform 0.3s ease;
         }
 
         .qr-link-wrap:hover {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
         .qr-link-wrap img {
-            width: 125px;
-            height: 125px;
+            width: 110px;
+            height: 110px;
             display: block;
-            border-radius: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(15, 42, 74, 0.1);
+        }
+
+        .qr-text-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .qr-stars {
+            color: var(--gold-accent);
+            font-size: 14px;
+            margin-bottom: 4px;
+            letter-spacing: 2px;
         }
 
         .qr-text-info h4 {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 800;
             color: var(--brand-blue);
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         .qr-text-info p {
             font-size: 13px;
             color: var(--text-muted);
-            line-height: 1.5;
-            margin-bottom: 10px;
+            line-height: 1.45;
+            margin-bottom: 12px;
         }
 
         .qr-badge-link {
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            align-self: flex-start;
             color: var(--brand-blue);
             background: rgba(184, 142, 61, 0.15);
-            padding: 6px 14px;
+            padding: 7px 16px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 800;
             text-decoration: none;
-            border: 1px solid rgba(184, 142, 61, 0.35);
+            border: 1px solid rgba(184, 142, 61, 0.4);
             transition: all 0.25s ease;
         }
 
@@ -673,6 +685,9 @@
                 text-align: center;
                 gap: 16px;
                 padding: 22px 18px;
+            }
+            .qr-badge-link {
+                align-self: center;
             }
         }
     </style>
@@ -952,22 +967,23 @@
             </button>
         </div>
 
-        <!-- ПРОЗРАЧНЫЙ КЛИКАБЕЛЬНЫЙ БЛОК QR-КОДА С ТЕКСТОМ -->
+        <!-- ЭЛЕГАНТНЫЙ СТЕКЛЯННЫЙ БЛОК GOOGLE REVIEWS С ПРЯМОЙ ССЫЛКОЙ -->
         <div class="reviews-qr-card" data-aos="fade-up">
-            <a href="https://www.google.com/maps/search/CleanLines+Lysiuk+Berlin" target="_blank" rel="noopener noreferrer" class="qr-link-wrap">
-                <img src="./qr-code 1.png" alt="Google Review QR Code" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://cleanlineslysiuk-website.vercel.app/'">
+            <a href="https://g.page/r/CdisZgioTx1UEBI/review" target="_blank" rel="noopener noreferrer" class="qr-link-wrap">
+                <img src="./qr-code 1.png" alt="Google Review QR Code" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://g.page/r/CdisZgioTx1UEBI/review'">
             </a>
             <div class="qr-text-info">
-                <h4 id="qr-title">Finden Sie uns auf Google</h4>
-                <p id="qr-desc">Scannen Sie den QR-Code oder klicken Sie darauf, um unsere Google-Bewertungen zu sehen oder Ihr Feedback zu hinterlassen.</p>
-                <a href="https://www.google.com/maps/search/CleanLines+Lysiuk+Berlin" target="_blank" rel="noopener noreferrer" class="qr-badge-link" id="qr-link-txt">
-                    ⭐ Google Maps öffnen →
+                <div class="qr-stars">★★★★★</div>
+                <h4 id="qr-title">Bewerten Sie uns auf Google</h4>
+                <p id="qr-desc">Scannen Sie den QR-Code oder tippen Sie darauf, um direkt Ihre Bewertung bei Google abzugeben.</p>
+                <a href="https://g.page/r/CdisZgioTx1UEBI/review" target="_blank" rel="noopener noreferrer" class="qr-badge-link" id="qr-link-txt">
+                    ⭐ Auf Google bewerten →
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ФУТЕР С ЗОНОЙ ОБСЛУЖИВАНИЯ -->
+    <!-- ФУТЕР -->
     <footer id="contact">
         <div class="footer-content">
             <div>
@@ -1230,7 +1246,7 @@
             <p>Liliia Lysiuk<br>Brienzer Str. 57, 13407 Berlin</p>
 
             <h4>Haftungsausschluss</h4>
-            <p><strong>Haftung für Inhalte:</strong><br>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+            <p><strong>Haftung für Inhalte:</strong><br>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG для eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
             <p><strong>Haftung für Links:</strong><br>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir для diese fremden Inhalte auch keine Gewähr übernehmen.</p>
             
             <h4>Urheberrecht</h4>
@@ -1502,9 +1518,9 @@
                 galTitle1: "Privathaushalt & Zimmerreinigung", galDesc1: "Gründliche Boden- und Oberflächenreinigung für frischen Wohnkomfort.",
                 galTitle2: "Wohnungs- & Holzbodenpflege", galDesc2: "Makelloser Glanz auf Echtholzböden und repräsentative Raumordnung.",
 
-                qrTitle: "Finden Sie uns auf Google",
-                qrDesc: "Scannen Sie den QR-Code oder klicken Sie darauf, um unsere Google-Bewertungen zu sehen oder Ihr Feedback zu hinterlassen.",
-                qrLinkTxt: "⭐ Google Maps öffnen →",
+                qrTitle: "Bewerten Sie uns auf Google",
+                qrDesc: "Scannen Sie den QR-Code oder tippen Sie darauf, um direkt Ihre Bewertung bei Google abzugeben.",
+                qrLinkTxt: "⭐ Auf Google bewerten →",
 
                 lblFirma: "Firma", lblName: "Ihr Name *", lblStreet: "Straße + Nr.", lblPlz: "PLZ *", lblCity: "Ort", lblPhone: "Telefon *", lblEmail: "E-Mail *",
                 lblArea: "Fläche (m²)", lblDays: "Reinigungstag", lblFreq: "Gewünschte Häufigkeit", lblType: "Reinigungsart", lblNotes: "Anmerkungen",
@@ -1576,9 +1592,9 @@
                 galTitle1: "Private Home & Room Cleaning", galDesc1: "Thorough floor and surface cleaning for fresh living comfort.",
                 galTitle2: "Apartment & Wood Floor Care", galDesc2: "Impeccable shine on real wood floors and neat room presentation.",
 
-                qrTitle: "Find us on Google",
-                qrDesc: "Scan or click the QR code to read our Google reviews or leave your own feedback.",
-                qrLinkTxt: "⭐ Open Google Maps →",
+                qrTitle: "Rate us on Google",
+                qrDesc: "Scan or click the QR code to leave your feedback directly on Google.",
+                qrLinkTxt: "⭐ Rate on Google →",
 
                 lblFirma: "Company", lblName: "Your Name *", lblStreet: "Street + No.", lblPlz: "Postal Code *", lblCity: "City", lblPhone: "Phone *", lblEmail: "Email *",
                 lblArea: "Area (m²)", lblDays: "Cleaning Day", lblFreq: "Desired Frequency", lblType: "Cleaning Type", lblNotes: "Notes",
@@ -1650,9 +1666,9 @@
                 galTitle1: "Уборка комнат и квартир", galDesc1: "Тщательное мытье полов и поверхностей для идеального уюта.",
                 galTitle2: "Уход за деревянными полами", galDesc2: "Безупречный блеск полов и эстетичный порядок в каждой комнате.",
 
-                qrTitle: "Мы в Google Maps",
-                qrDesc: "Отсканируйте QR-код или нажмите на него, чтобы посмотреть отзывы наших клиентов или оставить свой.",
-                qrLinkTxt: "⭐ Открыть Google Maps →",
+                qrTitle: "Оцените нас в Google",
+                qrDesc: "Отсканируйте QR-код или нажмите на него, чтобы оставить свой отзыв на Google.",
+                qrLinkTxt: "⭐ Оценить в Google →",
 
                 lblFirma: "Компания", lblName: "Ваше Имя *", lblStreet: "Улица + Дом", lblPlz: "Индекс *", lblCity: "Город", lblPhone: "Телефон *", lblEmail: "Эл. почта *",
                 lblArea: "Площадь (м²)", lblDays: "День уборки", lblFreq: "Желаемая периодичность", lblType: "Вид уборки", lblNotes: "Примечания",
@@ -1724,9 +1740,9 @@
                 galTitle1: "Прибирання кімнат та квартир", galDesc1: "Ретельне миття підлоги та поверхонь для бездоганного затишку.",
                 galTitle2: "Догляд за дерев'яною підлогою", galDesc2: "Бездоганний блиск паркету та естетичний порядок у кімнаті.",
 
-                qrTitle: "Ми в Google Maps",
-                qrDesc: "Відскануйте QR-код або натисніть на нього, щоб переглянути відгуки або поділитися своїми враженнями.",
-                qrLinkTxt: "⭐ Відкрити Google Maps →",
+                qrTitle: "Оцініть нас у Google",
+                qrDesc: "Відскануйте QR-код або натисніть на нього, щоб залишити відгук у Google.",
+                qrLinkTxt: "⭐ Оцінити в Google →",
 
                 lblFirma: "Компанія", lblName: "Ваше Ім'я *", lblStreet: "Вулиця + Будинок", lblPlz: "Індекс *", lblCity: "Місто", lblPhone: "Телефон *", lblEmail: "Ел. пошта *",
                 lblArea: "Площа (м²)", lblDays: "День прибирання", lblFreq: "Бажана періодичність", lblType: "Вид прибирання", lblNotes: "Примітки",
