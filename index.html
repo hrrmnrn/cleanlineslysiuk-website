@@ -33,7 +33,7 @@
             position: relative;
         }
 
-        /* МЯГКИЙ, СБАЛАНСИРОВАННЫЙ ВИДЕОФОН */
+        /* МЯГКИЙ ВИДЕОФОН */
         .video-bg-container {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -880,10 +880,10 @@
             </button>
         </div>
 
-        <!-- КАРТОЧКА С QR-КОДОМ ДЛЯ GOOGLE REVIEWS -->
+        <!-- КАРТОЧКА С QR-КОДОМ: ПРЯМАЯ ССЫЛКА НА ФАЙЛ qr-code 1.png -->
         <div>
             <div class="reviews-qr-wrapper" data-aos="fade-up">
-                <img src="./qr-code.png" alt="Google Review QR Code" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://cleanlineslysiuk-website.vercel.app/'">
+                <img src="./qr-code 1.png" alt="Google Review QR Code" onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://cleanlineslysiuk-website.vercel.app/'">
             </div>
         </div>
     </section>
@@ -991,7 +991,7 @@
                     </div>
                 </div>
 
-                <!-- ШАГ 3: Контакты и отправка -->
+                <!-- ШАГ 3: Контакты и автозаполнение PLZ -->
                 <div class="form-step" id="formStep3">
                     <div class="step-heading" id="step-title-3">Schritt 3 von 3: Ihre Kontaktdaten</div>
 
@@ -1021,6 +1021,7 @@
                         <div class="sa-field" style="flex: 1;">
                             <label class="sa-label" id="lbl-plz">PLZ *</label>
                             <input type="text" name="PLZ" id="input-plz" class="sa-input" required placeholder="10115">
+                            <div id="plz-error-container" style="display:none; color:#B88E3D; font-size:12px; margin-top:4px;"></div>
                         </div>
                         <div class="sa-field" style="flex: 1.5;">
                             <label class="sa-label" id="lbl-city">Ort</label>
@@ -1240,6 +1241,55 @@
         let currentSlide = 0;
         const totalSlides = 2;
 
+        /* БАЗА ИНДЕКСОВ И РАЙОНОВ БЕРЛИНА */
+        const berlinPlzMap = {
+            "10315": "Lichtenberg, Berlin", "10317": "Lichtenberg, Berlin", "10318": "Lichtenberg, Berlin", "10319": "Lichtenberg, Berlin", "10365": "Lichtenberg, Berlin", "10367": "Lichtenberg, Berlin", "10369": "Lichtenberg, Berlin",
+            "10115": "Mitte, Berlin", "10117": "Mitte, Berlin", "10119": "Mitte, Berlin", "10178": "Mitte, Berlin", "10179": "Mitte, Berlin", "13347": "Mitte (Wedding), Berlin", "13353": "Mitte (Wedding), Berlin",
+            "10405": "Pankow (Prenzlauer Berg), Berlin", "10407": "Pankow (Prenzlauer Berg), Berlin", "10409": "Pankow (Prenzlauer Berg), Berlin", "10435": "Pankow, Berlin", "10437": "Pankow, Berlin", "10439": "Pankow, Berlin", "13187": "Pankow, Berlin", "13189": "Pankow, Berlin",
+            "10585": "Charlottenburg, Berlin", "10587": "Charlottenburg, Berlin", "10589": "Charlottenburg, Berlin", "10623": "Charlottenburg, Berlin", "10625": "Charlottenburg, Berlin", "10627": "Charlottenburg, Berlin", "10629": "Charlottenburg, Berlin", "10707": "Wilmersdorf, Berlin", "10709": "Wilmersdorf, Berlin", "10711": "Wilmersdorf, Berlin",
+            "10243": "Friedrichshain, Berlin", "10245": "Friedrichshain, Berlin", "10247": "Friedrichshain, Berlin", "10249": "Friedrichshain, Berlin", "10961": "Kreuzberg, Berlin", "10963": "Kreuzberg, Berlin", "10965": "Kreuzberg, Berlin", "10967": "Kreuzberg, Berlin", "10969": "Kreuzberg, Berlin", "10997": "Kreuzberg, Berlin", "10999": "Kreuzberg, Berlin",
+            "12043": "Neukölln, Berlin", "12045": "Neukölln, Berlin", "12047": "Neukölln, Berlin", "12049": "Neukölln, Berlin", "12051": "Neukölln, Berlin", "12053": "Neukölln, Berlin", "12055": "Neukölln, Berlin", "12057": "Neukölln, Berlin", "12059": "Neukölln, Berlin",
+            "10777": "Schöneberg, Berlin", "10779": "Schöneberg, Berlin", "10781": "Schöneberg, Berlin", "10783": "Schöneberg, Berlin", "10787": "Schöneberg, Berlin", "10789": "Schöneberg, Berlin", "10823": "Schöneberg, Berlin", "10825": "Schöneberg, Berlin", "10827": "Schöneberg, Berlin", "10829": "Schöneberg, Berlin", "12099": "Tempelhof, Berlin", "12101": "Tempelhof, Berlin", "12103": "Tempelhof, Berlin", "12105": "Tempelhof, Berlin",
+            "13403": "Reinickendorf, Berlin", "13405": "Reinickendorf, Berlin", "13407": "Reinickendorf, Berlin", "13409": "Reinickendorf, Berlin", "13435": "Reinickendorf, Berlin", "13437": "Reinickendorf, Berlin", "13439": "Reinickendorf, Berlin", "13465": "Reinickendorf, Berlin", "13467": "Reinickendorf, Berlin", "13469": "Reinickendorf, Berlin", "13503": "Reinickendorf, Berlin", "13505": "Reinickendorf, Berlin", "13507": "Reinickendorf, Berlin", "13509": "Reinickendorf, Berlin",
+            "13581": "Spandau, Berlin", "13583": "Spandau, Berlin", "13585": "Spandau, Berlin", "13587": "Spandau, Berlin", "13589": "Spandau, Berlin", "13591": "Spandau, Berlin", "13593": "Spandau, Berlin", "13595": "Spandau, Berlin", "13595": "Spandau, Berlin", "13597": "Spandau, Berlin", "13599": "Spandau, Berlin",
+            "12157": "Steglitz, Berlin", "12159": "Steglitz, Berlin", "12161": "Steglitz, Berlin", "12163": "Steglitz, Berlin", "12165": "Steglitz, Berlin", "12167": "Steglitz, Berlin", "12169": "Steglitz, Berlin", "12203": "Lichterfelde, Berlin", "12205": "Lichterfelde, Berlin", "12207": "Lichterfelde, Berlin", "12209": "Lichterfelde, Berlin", "14109": "Zehlendorf, Berlin", "14129": "Zehlendorf, Berlin", "14163": "Zehlendorf, Berlin", "14165": "Zehlendorf, Berlin", "14167": "Zehlendorf, Berlin", "14169": "Zehlendorf, Berlin", "14191": "Zehlendorf, Berlin", "14193": "Zehlendorf, Berlin", "14195": "Zehlendorf, Berlin", "14197": "Zehlendorf, Berlin", "14199": "Zehlendorf, Berlin"
+        };
+
+        function handlePlzChange(plzValue) {
+            const cleanPlz = plzValue.trim();
+            const ortInput = document.getElementById('input-city');
+            const plzErrorContainer = document.getElementById('plz-error-container');
+
+            if (plzErrorContainer) {
+                plzErrorContainer.style.display = 'none';
+                plzErrorContainer.innerText = '';
+            }
+
+            if (cleanPlz.length === 5) {
+                if (berlinPlzMap[cleanPlz]) {
+                    ortInput.value = berlinPlzMap[cleanPlz];
+                } else if (parseInt(cleanPlz) >= 10000 && parseInt(cleanPlz) <= 14199) {
+                    ortInput.value = "Berlin";
+                } else {
+                    ortInput.value = "";
+                    if (plzErrorContainer) {
+                        plzErrorContainer.style.display = 'block';
+                        const messages = {
+                            de: "⚠️ Wir reinigen aktuell nur in Berlin und Umgebung.",
+                            en: "⚠️ We currently only clean in Berlin and surroundings.",
+                            ru: "⚠️ На данный момент мы убираем только в Берлине и окрестностях.",
+                            ua: "⚠️ Наразі ми прибираємо лише в Берліні та околицях."
+                        };
+                        plzErrorContainer.innerText = messages[currentLang] || messages['de'];
+                    }
+                }
+            }
+        }
+
+        document.getElementById('input-plz').addEventListener('input', function(e) {
+            handlePlzChange(e.target.value);
+        });
+
         function updateSlider() {
             const track = document.getElementById('sliderTrack');
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
@@ -1304,16 +1354,6 @@
                 setFormStep(2);
             }
         }
-
-        document.getElementById('input-plz').addEventListener('input', function(e) {
-            const val = e.target.value.trim();
-            const cityInput = document.getElementById('input-city');
-            if (val.startsWith('10') || val.startsWith('12') || val.startsWith('13') || val.startsWith('14')) {
-                if (!cityInput.value || cityInput.value === 'Berlin') {
-                    cityInput.value = 'Berlin';
-                }
-            }
-        });
 
         function openServiceForm(serviceName) {
             const modalTitle = document.getElementById('modal-form-title');
