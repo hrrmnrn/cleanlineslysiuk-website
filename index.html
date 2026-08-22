@@ -1019,7 +1019,8 @@
             </div>
 
             <form action="https://api.web3forms.com/submit" method="POST" id="multistepBookingForm">
-                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                <!-- Твой реальный access_key -->
+                <input type="hidden" name="access_key" value="ca90b5dd-01b9-4273-913f-a901f116c260">
                 <input type="hidden" name="subject" value="Neue Reinigungsanfrage von der Website">
                 <input type="hidden" name="Gewaehlte_Leistung" id="hidden-service-input" value="Allgemein">
 
@@ -1109,7 +1110,8 @@
                         </div>
                         <div class="sa-field">
                             <label class="sa-label" id="lbl-phone">Telefon *</label>
-                            <input type="tel" name="Telefon" id="input-phone" class="sa-input" required placeholder="+49 160 123 45 67">
+                            <!-- Ограничение: только цифры, плюс и знаки для номера -->
+                            <input type="tel" name="Telefon" id="input-phone" class="sa-input" required placeholder="+49 160 123 45 67" oninput="this.value = this.value.replace(/[^0-9+\s()-]/g, '')">
                         </div>
                     </div>
 
@@ -1323,7 +1325,7 @@
         <p style="font-size: 12px; color: var(--text-muted);" id="ck-desc">Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.</p>
         <div class="cookie-buttons">
             <button class="btn-cookie-deny" id="ck-deny" onclick="closeCookie()">Ablehnen</button>
-            <button class="btn-cookie-accept" id="ck-accept" onclick="closeCookie()">Alle akzeptieren</button>
+            <button class="btn-cookie-accept" id="btn-cookie-accept" onclick="closeCookie()">Alle akzeptieren</button>
         </div>
     </div>
 
@@ -1436,7 +1438,6 @@
             }
         };
 
-        // Запуск при загрузке
         window.addEventListener('load', function() {
             window.isAdminLoggedIn = false;
             window.loadReviewsFromFirebase();
@@ -1451,7 +1452,6 @@
         let currentSlide = 0;
         const totalSlides = 2;
 
-        /* БАЗА ИНДЕКСОВ И РАЙОНОВ БЕРЛИНА */
         const berlinPlzMap = {
             "10315": "Lichtenberg, Berlin", "10317": "Lichtenberg, Berlin", "10318": "Lichtenberg, Berlin", "10319": "Lichtenberg, Berlin", "10365": "Lichtenberg, Berlin", "10367": "Lichtenberg, Berlin", "10369": "Lichtenberg, Berlin",
             "10115": "Mitte, Berlin", "10117": "Mitte, Berlin", "10119": "Mitte, Berlin", "10178": "Mitte, Berlin", "10179": "Mitte, Berlin", "13347": "Mitte (Wedding), Berlin", "13353": "Mitte (Wedding), Berlin",
