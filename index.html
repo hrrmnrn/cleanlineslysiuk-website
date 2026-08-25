@@ -1487,13 +1487,15 @@
         const berlinPlzMap = {
             "10315": "Lichtenberg, Berlin", "10317": "Lichtenberg, Berlin", "10318": "Lichtenberg, Berlin", "10319": "Lichtenberg, Berlin", "10365": "Lichtenberg, Berlin", "10367": "Lichtenberg, Berlin", "10369": "Lichtenberg, Berlin",
             "10115": "Mitte, Berlin", "10117": "Mitte, Berlin", "10119": "Mitte, Berlin", "10178": "Mitte, Berlin", "10179": "Mitte, Berlin", "13347": "Mitte (Wedding), Berlin", "13353": "Mitte (Wedding), Berlin",
+            "10551": "Mitte (Moabit), Berlin", "10553": "Mitte (Moabit), Berlin", "10555": "Mitte (Moabit), Berlin", "10557": "Mitte (Tiergarten), Berlin", "10559": "Mitte (Moabit), Berlin", "10785": "Mitte (Tiergarten), Berlin",
+            "13349": "Mitte (Wedding), Berlin", "13351": "Mitte (Wedding), Berlin", "13355": "Mitte (Wedding), Berlin", "13357": "Mitte (Wedding), Berlin", "13359": "Mitte (Wedding), Berlin",
             "10405": "Pankow (Prenzlauer Berg), Berlin", "10407": "Pankow (Prenzlauer Berg), Berlin", "10409": "Pankow (Prenzlauer Berg), Berlin", "10435": "Pankow, Berlin", "10437": "Pankow, Berlin", "10439": "Pankow, Berlin", "13187": "Pankow, Berlin", "13189": "Pankow, Berlin",
             "10585": "Charlottenburg, Berlin", "10587": "Charlottenburg, Berlin", "10589": "Charlottenburg, Berlin", "10623": "Charlottenburg, Berlin", "10625": "Charlottenburg, Berlin", "10627": "Charlottenburg, Berlin", "10629": "Charlottenburg, Berlin", "10707": "Wilmersdorf, Berlin", "10709": "Wilmersdorf, Berlin", "10711": "Wilmersdorf, Berlin",
             "10243": "Friedrichshain, Berlin", "10245": "Friedrichshain, Berlin", "10247": "Friedrichshain, Berlin", "10249": "Friedrichshain, Berlin", "10961": "Kreuzberg, Berlin", "10963": "Kreuzberg, Berlin", "10965": "Kreuzberg, Berlin", "10967": "Kreuzberg, Berlin", "10969": "Kreuzberg, Berlin", "10997": "Kreuzberg, Berlin", "10999": "Kreuzberg, Berlin",
             "12043": "Neukölln, Berlin", "12045": "Neukölln, Berlin", "12047": "Neukölln, Berlin", "12049": "Neukölln, Berlin", "12051": "Neukölln, Berlin", "12053": "Neukölln, Berlin", "12055": "Neukölln, Berlin", "12057": "Neukölln, Berlin", "12059": "Neukölln, Berlin",
             "10777": "Schöneberg, Berlin", "10779": "Schöneberg, Berlin", "10781": "Schöneberg, Berlin", "10783": "Schöneberg, Berlin", "10787": "Schöneberg, Berlin", "10789": "Schöneberg, Berlin", "10823": "Schöneberg, Berlin", "10825": "Schöneberg, Berlin", "10827": "Schöneberg, Berlin", "10829": "Schöneberg, Berlin", "12099": "Tempelhof, Berlin", "12101": "Tempelhof, Berlin", "12103": "Tempelhof, Berlin", "12105": "Tempelhof, Berlin",
             "13403": "Reinickendorf, Berlin", "13405": "Reinickendorf, Berlin", "13407": "Reinickendorf, Berlin", "13409": "Reinickendorf, Berlin", "13435": "Reinickendorf, Berlin", "13437": "Reinickendorf, Berlin", "13439": "Reinickendorf, Berlin", "13465": "Reinickendorf, Berlin", "13467": "Reinickendorf, Berlin", "13469": "Reinickendorf, Berlin", "13503": "Reinickendorf, Berlin", "13505": "Reinickendorf, Berlin", "13507": "Reinickendorf, Berlin", "13509": "Reinickendorf, Berlin",
-            "13581": "Spandau, Berlin", "13583": "Spandau, Berlin", "13585": "Spandau, Berlin", "13587": "Spandau, Berlin", "13589": "Spandau, Berlin", "13591": "Spandau, Berlin", "13593": "Spandau, Berlin", "13595": "Spandau, Berlin", "13595": "Spandau, Berlin", "13597": "Spandau, Berlin", "13599": "Spandau, Berlin",
+            "13581": "Spandau, Berlin", "13583": "Spandau, Berlin", "13585": "Spandau, Berlin", "13587": "Spandau, Berlin", "13589": "Spandau, Berlin", "13591": "Spandau, Berlin", "13593": "Spandau, Berlin", "13595": "Spandau, Berlin", "13597": "Spandau, Berlin", "13599": "Spandau, Berlin",
             "12157": "Steglitz, Berlin", "12159": "Steglitz, Berlin", "12161": "Steglitz, Berlin", "12163": "Steglitz, Berlin", "12165": "Steglitz, Berlin", "12167": "Steglitz, Berlin", "12169": "Steglitz, Berlin", "12203": "Lichterfelde, Berlin", "12205": "Lichterfelde, Berlin", "12207": "Lichterfelde, Berlin", "12209": "Lichterfelde, Berlin", "14109": "Zehlendorf, Berlin", "14129": "Zehlendorf, Berlin", "14163": "Zehlendorf, Berlin", "14165": "Zehlendorf, Berlin", "14167": "Zehlendorf, Berlin", "14169": "Zehlendorf, Berlin", "14191": "Zehlendorf, Berlin", "14193": "Zehlendorf, Berlin", "14195": "Zehlendorf, Berlin", "14197": "Zehlendorf, Berlin", "14199": "Zehlendorf, Berlin"
         };
 
@@ -2021,7 +2023,6 @@
             document.querySelectorAll('.opt-2week').forEach(e => e.innerText = t.opt2Week);
             document.querySelectorAll('.opt-month').forEach(e => e.innerText = t.optMonth);
 
-            // ИСПРАВЛЕНО: Теперь переводится и выпадающий список в форме, и названия карточек на главной!
             for(let i=1; i<=10; i++) {
                 document.querySelectorAll('.srv-opt-'+i).forEach(e => e.innerText = t['srv'+i]);
                 const cardTitle = document.getElementById('srv-' + i);
@@ -2104,6 +2105,16 @@
             }
         }
 
+        function scheduleDiscountPopup() {
+            let popupShown = sessionStorage.getItem('popupShown');
+            if (!popupShown) {
+                setTimeout(function() {
+                    openModal('discount-modal');
+                    sessionStorage.setItem('popupShown', 'true');
+                }, 6000);
+            }
+        }
+
         function saveCookies(acceptAll) {
             document.getElementById('cookieModal').style.display = 'none';
             const consent = {
@@ -2113,6 +2124,7 @@
             };
             localStorage.setItem('cookieConsent', JSON.stringify(consent));
             applyCookieLogic(consent);
+            scheduleDiscountPopup(); 
         }
 
         function saveCustomCookies() {
@@ -2124,6 +2136,7 @@
             };
             localStorage.setItem('cookieConsent', JSON.stringify(consent));
             applyCookieLogic(consent);
+            scheduleDiscountPopup(); 
         }
 
         function applyCookieLogic(consent) {
@@ -2136,28 +2149,18 @@
                 document.head.appendChild(vercelScript);
             }
 
-            // 2. МАРКЕТИНГ (Facebook Pixel / Google Ads - добавим позже)
+            // 2. МАРКЕТИНГ
             if (consent.marketing) {
                 console.log("Маркетинг разрешен. Ждем добавления рекламных пикселей...");
             }
         }
 
-        // Проверка при загрузке страницы: было ли дано согласие на Cookies и нужно ли показать попап со скидкой
         window.addEventListener('load', function() {
-            // Cookie проверка
             const savedConsent = localStorage.getItem('cookieConsent');
             if (savedConsent) {
                 document.getElementById('cookieModal').style.display = 'none';
                 applyCookieLogic(JSON.parse(savedConsent)); 
-            }
-
-            // Попап скидки
-            let popupShown = sessionStorage.getItem('popupShown');
-            if (!popupShown) {
-                setTimeout(function() {
-                    openModal('discount-modal');
-                    sessionStorage.setItem('popupShown', 'true');
-                }, 6000);
+                scheduleDiscountPopup(); 
             }
         });
     </script>
