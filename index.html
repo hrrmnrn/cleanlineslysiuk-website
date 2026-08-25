@@ -665,11 +665,15 @@
         .modal-content { background: #FFFFFF; padding: 36px 40px; border-radius: 28px; max-width: 620px; width: 92%; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3); }
         .modal-close { position: absolute; top: 20px; right: 25px; font-size: 26px; cursor: pointer; color: var(--text-muted); }
 
-        .cookie-modal { position: fixed; bottom: 25px; right: 25px; max-width: 380px; background: #FFFFFF; padding: 24px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid var(--border-color); z-index: 9999; }
-        .cookie-buttons { display: flex; gap: 10px; margin-top: 15px; }
-        .btn-cookie-accept { flex: 1; padding: 12px; background: var(--brand-blue); color: #fff; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+        /* ИСПРАВЛЕННЫЙ COOKIE BANNER */
+        .cookie-modal { 
+            position: fixed; bottom: 25px; right: 25px; max-width: 420px; 
+            background: #FFFFFF; padding: 24px; border-radius: 20px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2); border: 1px solid var(--border-color); z-index: 9999; 
+        }
+        .btn-cookie-accept { padding: 12px; background: var(--brand-blue); color: #fff; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
         .btn-cookie-accept:hover { background: var(--brand-blue-light); }
-        .btn-cookie-deny { flex: 1; padding: 12px; background: #E8E0D2; color: var(--text-dark); border: none; border-radius: 12px; font-weight: 600; cursor: pointer; font-family: inherit; }
+        .btn-cookie-deny { padding: 12px; background: #E8E0D2; color: var(--text-dark); border: none; border-radius: 12px; font-weight: 600; cursor: pointer; font-family: inherit; }
 
         @media (max-width: 992px) {
             .hero-title { font-size: 40px; }
@@ -1019,7 +1023,6 @@
             </div>
 
             <form action="https://api.web3forms.com/submit" method="POST" id="multistepBookingForm">
-                <!-- Твой реальный access_key -->
                 <input type="hidden" name="access_key" value="ca90b5dd-01b9-4273-913f-a901f116c260">
                 <input type="hidden" name="subject" value="Neue Reinigungsanfrage von der Website">
                 <input type="hidden" name="Gewaehlte_Leistung" id="hidden-service-input" value="Allgemein">
@@ -1110,7 +1113,6 @@
                         </div>
                         <div class="sa-field">
                             <label class="sa-label" id="lbl-phone">Telefon *</label>
-                            <!-- Ограничение: только цифры, плюс и знаки для номера -->
                             <input type="tel" name="Telefon" id="input-phone" class="sa-input" required placeholder="+49 160 123 45 67" oninput="this.value = this.value.replace(/[^0-9+\s()-]/g, '')">
                         </div>
                     </div>
@@ -1319,13 +1321,48 @@
         </div>
     </div>
 
-    <!-- Cookie-окно -->
+    <!-- Улучшенный легальный Cookie-баннер -->
     <div class="cookie-modal" id="cookieModal">
-        <h4 style="font-size: 16px; font-weight: 700; color: var(--brand-blue); margin-bottom: 6px;" id="ck-title">Einwilligung zu Cookies</h4>
-        <p style="font-size: 12px; color: var(--text-muted);" id="ck-desc">Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.</p>
-        <div class="cookie-buttons">
-            <button class="btn-cookie-deny" id="ck-deny" onclick="closeCookie()">Ablehnen</button>
-            <button class="btn-cookie-accept" id="btn-cookie-accept" onclick="closeCookie()">Alle akzeptieren</button>
+        <h4 style="font-size: 18px; font-weight: 800; color: var(--brand-blue); margin-bottom: 8px;">Wir schätzen Ihre Privatsphäre</h4>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 15px;">
+            Wir verwenden Cookies, um unsere Website und unseren Service zu optimieren. Einige sind technisch notwendig, während andere uns helfen, diese Website und Ihre Erfahrung zu verbessern.
+        </p>
+        
+        <!-- Скрытый блок настроек -->
+        <div id="cookieSettings" style="display: none; margin-bottom: 15px; text-align: left;">
+            <div class="cookie-category">
+                <label style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 700; color: var(--brand-blue);">
+                    Notwendig (Immer aktiv)
+                    <input type="checkbox" checked disabled style="accent-color: var(--brand-blue); width: 16px; height: 16px;">
+                </label>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Diese Cookies sind für die Grundfunktionen der Website erforderlich.</p>
+            </div>
+            <div class="cookie-category" style="margin-top: 12px;">
+                <label style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 700; color: var(--brand-blue);">
+                    Statistik & Analyse
+                    <input type="checkbox" id="cookie-analytics" style="accent-color: var(--brand-blue); width: 16px; height: 16px;">
+                </label>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Helfen uns zu verstehen, wie Besucher mit der Website interagieren.</p>
+            </div>
+            <div class="cookie-category" style="margin-top: 12px;">
+                <label style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 700; color: var(--brand-blue);">
+                    Marketing
+                    <input type="checkbox" id="cookie-marketing" style="accent-color: var(--brand-blue); width: 16px; height: 16px;">
+                </label>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Werden verwendet, um Besuchern auf Websites zu folgen (z.B. für Google Ads, Facebook).</p>
+            </div>
+        </div>
+
+        <!-- Кнопки -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; gap: 8px;">
+                <button class="btn-cookie-accept" style="flex: 1;" onclick="saveCookies(true)">Alle akzeptieren</button>
+                <button class="btn-cookie-deny" style="flex: 1; background: #f1f5f9;" onclick="saveCookies(false)">Ablehnen</button>
+            </div>
+            <div style="display: flex; gap: 8px;">
+                <button class="btn-cookie-deny" style="flex: 1; font-size: 13px; padding: 8px; background: transparent; border: 1px solid var(--border-color);" onclick="toggleSettings()">Einstellungen anpassen</button>
+                <button class="btn-cookie-accept" id="btn-save-settings" style="flex: 1; display: none; font-size: 13px; padding: 8px;" onclick="saveCustomCookies()">Auswahl speichern</button>
+            </div>
         </div>
     </div>
 
@@ -1437,11 +1474,6 @@
                 alert('Falsches Passwort.');
             }
         };
-
-        window.addEventListener('load', function() {
-            window.isAdminLoggedIn = false;
-            window.loadReviewsFromFirebase();
-        });
     </script>
 
     <script>
@@ -1657,7 +1689,6 @@
                 discTitle: "10% Rabatt sichern", discDesc: "Geben Sie Ihre E-Mail-Adresse ein und sichern Sie sich Ihren Gutscheincode.", btnDiscAct: "Rabattcode aktivieren ✨",
                 revModalTitle: "Bewertung schreiben", lblStarRev: "Ihre Bewertung (Sterne)", lblRevName: "Ihr Name *", lblRevCity: "Ihre Stadt / Stadtteil", lblRevText: "Ihre Erfahrung *", btnPubRev: "Bewertung veröffentlichen ✨",
                 modalCallTitle: "Kontakttelefon", modalCallTime: "Montag bis Sonntag von 06:00 bis 21:00 Uhr (täglich)", modalCallWa: "💬 Jetzt auf WhatsApp schreiben",
-                ckTitle: "Einwilligung zu Cookies", ckDesc: "Wir nutzen Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten.", ckDeny: "Ablehnen", ckAccept: "Alle akzeptieren",
                 
                 srv1: "Treppenhausreinigung", srv2: "Reinigung von Privathaushalten & Wohnungen", srv3: "Büroreinigung", srv4: "Kita- und Schulreinigung", srv5: "Reinigung nach Firmenfeiern",
                 srv6: "Bauendreinigung", srv7: "Fensterreinigung", srv8: "Umzugsreinigung mit Abnahmegarantie", srv9: "Reinigung nach Todesfall/Messie-Haushalt", srv10: "Hausmeisterservice (kleine Reparaturen / Kontrolle)",
@@ -1731,7 +1762,6 @@
                 discTitle: "Get 10% Discount", discDesc: "Enter your email address and get your promo code.", btnDiscAct: "Activate promo code ✨",
                 revModalTitle: "Write a review", lblStarRev: "Your Rating (Stars)", lblRevName: "Your Name *", lblRevCity: "Your City / District", lblRevText: "Your Experience *", btnPubRev: "Publish Review ✨",
                 modalCallTitle: "Contact Phone", modalCallTime: "Monday to Sunday from 06:00 to 21:00 (Daily)", modalCallWa: "💬 Message on WhatsApp now",
-                ckTitle: "Cookie Consent", ckDesc: "We use cookies to ensure you get the best experience on our website.", ckDeny: "Decline", ckAccept: "Accept All",
                 
                 srv1: "Staircase Cleaning", srv2: "Cleaning of Private Households & Apartments", srv3: "Office Cleaning", srv4: "Kindergarten & School Cleaning", srv5: "After-Party Cleaning",
                 srv6: "Post-Construction Cleaning", srv7: "Window Cleaning", srv8: "Move-Out Cleaning with Guarantee", srv9: "Extreme & Messie Cleaning", srv10: "Caretaker Service (Small Repairs / Inspection)",
@@ -1805,7 +1835,6 @@
                 discTitle: "Скидка 10%", discDesc: "Введите ваш e-mail и активируйте промокод.", btnDiscAct: "Активировать код ✨",
                 revModalTitle: "Оставить отзыв", lblStarRev: "Ваша оценка (Звезды)", lblRevName: "Ваше Имя *", lblRevCity: "Ваш Город / Район", lblRevText: "Ваш отзыв *", btnPubRev: "Опубликовать отзыв ✨",
                 modalCallTitle: "Телефон для связи", modalCallTime: "С понедельника по воскресенье с 06:00 до 21:00 (ежедневно)", modalCallWa: "💬 Написать в WhatsApp",
-                ckTitle: "Согласие на Cookies", ckDesc: "Мы используем cookies для вашего удобства на сайте.", ckDeny: "Отклонить", ckAccept: "Принять все",
                 
                 srv1: "Уборка подъездов и лестниц", srv2: "Уборка частных домов и квартир", srv3: "Уборка офисов и помещений", srv4: "Уборка детских садов и школ", srv5: "Уборка после корпоративов",
                 srv6: "Уборка после ремонта", srv7: "Мойка окон и фасадов", srv8: "Уборка при переезде с гарантией", srv9: "Уборка спец. объектов и запущенных квартир", srv10: "Хаусмайстер (мелкий ремонт / контроль)",
@@ -1820,7 +1849,7 @@
                 angebot: "Заявка",
                 leistungen: "Послуги",
                 preise: "Ціни",
-                galerie: "Результати",
+                galerie: "Результаты",
                 faq: "Питання",
                 bewertungen: "Відгуки",
                 kontakt: "Контакти",
@@ -1879,7 +1908,6 @@
                 discTitle: "Знижка 10%", discDesc: "Введіть ваш e-mail та активуйте промокод.", btnDiscAct: "Активувати код ✨",
                 revModalTitle: "Залишити відгук", lblStarRev: "Ваша оцінка (Зірки)", lblRevName: "Ваше Ім'я *", lblRevCity: "Ваше Місто / Район", lblRevText: "Ваш відгук *", btnPubRev: "Опублікувати відгук ✨",
                 modalCallTitle: "Телефон для зв'язку", modalCallTime: "З понеділка по неділю з 06:00 до 21:00 (щодня)", modalCallWa: "💬 Написати в WhatsApp",
-                ckTitle: "Згода на Cookies", ckDesc: "Ми використовуємо cookies для вашої зручності на сайті.", ckDeny: "Відхилити", ckAccept: "Прийняти все",
                 
                 srv1: "Прибирання під'їздів та сходів", srv2: "Прибирання приватних будинків та квартир", srv3: "Прибирання офісів та приміщень", srv4: "Прибирання дитячих садків та шкіл", srv5: "Прибирання після свята",
                 srv6: "Прибирання після ремонту", srv7: "Миття вікон та фасадів", srv8: "Прибирання при переїзді з гарантією", srv9: "Прибирання спец. об'єктів та складних квартир", srv10: "Хаусмайстер (дрібний ремонт / контроль)",
@@ -1993,8 +2021,13 @@
             document.querySelectorAll('.opt-2week').forEach(e => e.innerText = t.opt2Week);
             document.querySelectorAll('.opt-month').forEach(e => e.innerText = t.optMonth);
 
+            // ИСПРАВЛЕНО: Теперь переводится и выпадающий список в форме, и названия карточек на главной!
             for(let i=1; i<=10; i++) {
                 document.querySelectorAll('.srv-opt-'+i).forEach(e => e.innerText = t['srv'+i]);
+                const cardTitle = document.getElementById('srv-' + i);
+                if (cardTitle) {
+                    cardTitle.innerText = t['srv'+i];
+                }
             }
 
             if(document.getElementById('disc-title')) document.getElementById('disc-title').innerText = t.discTitle;
@@ -2011,15 +2044,6 @@
             if(document.getElementById('modal-call-title')) document.getElementById('modal-call-title').innerText = t.modalCallTitle;
             if(document.getElementById('modal-call-time')) document.getElementById('modal-call-time').innerText = t.modalCallTime;
             if(document.getElementById('modal-call-wa')) document.getElementById('modal-call-wa').innerText = t.modalCallWa;
-
-            if(document.getElementById('ck-title')) document.getElementById('ck-title').innerText = t.ckTitle;
-            if(document.getElementById('ck-desc')) document.getElementById('ck-desc').innerText = t.ckDesc;
-            if(document.getElementById('ck-deny')) document.getElementById('ck-deny').innerText = t.ckDeny;
-            if(document.getElementById('ck-accept')) document.getElementById('ck-accept').innerText = t.ckAccept;
-
-            for(let i=1; i<=10; i++) {
-                document.querySelectorAll('.srv-opt-'+i).forEach(e => e.innerText = t['srv'+i]);
-            }
 
             if(document.getElementById('ft-desc')) document.getElementById('ft-desc').innerText = t.ftDesc;
             if(document.getElementById('ft-area')) document.getElementById('ft-area').innerText = t.ftArea;
@@ -2063,13 +2087,71 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function closeCookie() { document.getElementById('cookieModal').style.display = 'none'; }
-
         window.onclick = function(e) {
             if (e.target.classList.contains('modal')) e.target.style.display = 'none';
         }
 
+        // --- ЛОГИКА COOKIE БАННЕРА И АНАЛИТИКИ ---
+        function toggleSettings() {
+            const settings = document.getElementById('cookieSettings');
+            const saveBtn = document.getElementById('btn-save-settings');
+            if (settings.style.display === 'none') {
+                settings.style.display = 'block';
+                saveBtn.style.display = 'block';
+            } else {
+                settings.style.display = 'none';
+                saveBtn.style.display = 'none';
+            }
+        }
+
+        function saveCookies(acceptAll) {
+            document.getElementById('cookieModal').style.display = 'none';
+            const consent = {
+                necessary: true,
+                analytics: acceptAll,
+                marketing: acceptAll
+            };
+            localStorage.setItem('cookieConsent', JSON.stringify(consent));
+            applyCookieLogic(consent);
+        }
+
+        function saveCustomCookies() {
+            document.getElementById('cookieModal').style.display = 'none';
+            const consent = {
+                necessary: true,
+                analytics: document.getElementById('cookie-analytics').checked,
+                marketing: document.getElementById('cookie-marketing').checked
+            };
+            localStorage.setItem('cookieConsent', JSON.stringify(consent));
+            applyCookieLogic(consent);
+        }
+
+        function applyCookieLogic(consent) {
+            // 1. СТАТИСТИКА (Vercel Analytics)
+            if (consent.analytics) {
+                console.log("Аналитика разрешена. Загружаем Vercel Analytics...");
+                const vercelScript = document.createElement('script');
+                vercelScript.defer = true;
+                vercelScript.src = "/_vercel/insights/script.js";
+                document.head.appendChild(vercelScript);
+            }
+
+            // 2. МАРКЕТИНГ (Facebook Pixel / Google Ads - добавим позже)
+            if (consent.marketing) {
+                console.log("Маркетинг разрешен. Ждем добавления рекламных пикселей...");
+            }
+        }
+
+        // Проверка при загрузке страницы: было ли дано согласие на Cookies и нужно ли показать попап со скидкой
         window.addEventListener('load', function() {
+            // Cookie проверка
+            const savedConsent = localStorage.getItem('cookieConsent');
+            if (savedConsent) {
+                document.getElementById('cookieModal').style.display = 'none';
+                applyCookieLogic(JSON.parse(savedConsent)); 
+            }
+
+            // Попап скидки
             let popupShown = sessionStorage.getItem('popupShown');
             if (!popupShown) {
                 setTimeout(function() {
